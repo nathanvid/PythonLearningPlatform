@@ -1,0 +1,47 @@
+id: "safe_int_convert"
+title: "Conversion sécurisée en entier"
+description: |
+  Crée une fonction safe_int(text) qui tente de convertir une chaîne en entier.
+
+  Si la conversion réussit, retourne l'entier.
+  Si la conversion échoue (ValueError), retourne "Error: Invalid number".
+
+  Utilise try/except pour gérer l'exception.
+
+  Exemples :
+  - safe_int("123") → 123
+  - safe_int("abc") → "Error: Invalid number"
+  - safe_int("45.6") → "Error: Invalid number"
+
+template: |
+  def safe_int(text):
+      # Utilise try/except pour int()
+      pass
+
+hints:
+  - "Utilise try: int(text)"
+  - "Capture except ValueError: pour les conversions impossibles"
+  - "Retourne le nombre si la conversion réussit"
+  - "Retourne le message d'erreur sinon"
+
+tests:
+  - input: ["123"]
+    expected: 123
+    description: "Nombre valide"
+  - input: ["abc"]
+    expected: "Error: Invalid number"
+    description: "Texte invalide"
+  - input: ["45.6"]
+    expected: "Error: Invalid number"
+    description: "Nombre décimal"
+  - input: ["-50"]
+    expected: -50
+    description: "Nombre négatif"
+  - input: [""]
+    expected: "Error: Invalid number"
+    hidden: true
+    description: "Chaîne vide"
+  - input: ["1000"]
+    expected: 1000
+    hidden: true
+    description: "Grand nombre"

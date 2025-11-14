@@ -1,0 +1,42 @@
+id: "celsius_to_fahrenheit"
+title: "Conversion Celsius vers Fahrenheit"
+description: |
+  Crée une fonction celsius_to_fahrenheit(celsius) qui convertit une température
+  de Celsius en Fahrenheit.
+
+  Formule : fahrenheit = (celsius × 9/5) + 32
+
+  La fonction doit retourner un nombre flottant (float).
+
+  Exemples :
+  - celsius_to_fahrenheit(0) → 32.0
+  - celsius_to_fahrenheit(100) → 212.0
+
+template: |
+  def celsius_to_fahrenheit(celsius):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise la formule : (celsius × 9/5) + 32"
+  - "Assure-toi que le résultat est un float"
+  - "Tu peux utiliser float() pour convertir en flottant"
+
+tests:
+  - input: [0]
+    expected: 32.0
+    description: "Point de congélation de l'eau"
+  - input: [100]
+    expected: 212.0
+    description: "Point d'ébullition de l'eau"
+  - input: [37]
+    expected: 98.6
+    description: "Température corporelle"
+  - input: [-40]
+    expected: -40.0
+    hidden: true
+    description: "Température où les deux échelles se rejoignent"
+  - input: [25]
+    expected: 77.0
+    hidden: true
+    description: "Température ambiante"

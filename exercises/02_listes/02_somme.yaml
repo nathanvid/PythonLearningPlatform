@@ -1,0 +1,30 @@
+id: "sum_list"
+title: "Somme des éléments"
+description: |
+  Complète la fonction sum_list() qui prend une liste de nombres en paramètre
+  et retourne la somme de tous ses éléments.
+
+  Exemple : sum_list([1, 2, 3]) doit retourner 6
+
+template: |
+  def sum_list(numbers):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise la fonction built-in sum() pour additionner tous les éléments d'une liste"
+  - "Ou bien, utilise une boucle for pour parcourir la liste et additionner les éléments un par un"
+
+tests:
+  - input: [[1, 2, 3, 4, 5]]
+    expected: 15
+    description: "Somme de 1 à 5"
+  - input: [[10, -5, 3]]
+    expected: 8
+    description: "Somme avec des nombres négatifs"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [[100]]
+    expected: 100
+    description: "Liste avec un seul élément"

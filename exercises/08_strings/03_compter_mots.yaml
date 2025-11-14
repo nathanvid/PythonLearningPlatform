@@ -1,0 +1,43 @@
+id: "word_count"
+title: "Compter les mots"
+description: |
+  Crée une fonction word_count(text) qui compte le nombre de mots dans un texte.
+
+  Les mots sont séparés par des espaces. Ignore les espaces multiples.
+
+  Exemples :
+  - word_count("Hello world") → 2
+  - word_count("Python  est   super") → 3  (espaces multiples)
+
+template: |
+  def word_count(text):
+      # Compte le nombre de mots
+      pass
+
+hints:
+  - "Utilise .split() sans argument pour séparer par espaces"
+  - ".split() gère automatiquement les espaces multiples"
+  - "Retourne len() de la liste de mots"
+  - "Attention au cas de la chaîne vide"
+
+tests:
+  - input: ["Hello world"]
+    expected: 2
+    description: "Deux mots"
+  - input: ["Python  est   super"]
+    expected: 3
+    description: "Espaces multiples"
+  - input: ["Bonjour"]
+    expected: 1
+    description: "Un seul mot"
+  - input: [""]
+    expected: 0
+    description: "Chaîne vide"
+  - input: ["  espaces  au  début  et  fin  "]
+    expected: 5
+    hidden: true
+    description: "Espaces aux extrémités"
+  - input: ["one two three four five six"]
+    expected: 6
+    hidden: true
+    description: "Six mots"

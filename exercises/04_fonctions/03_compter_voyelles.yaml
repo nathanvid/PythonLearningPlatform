@@ -1,0 +1,47 @@
+id: "count_vowels"
+title: "Compter les voyelles"
+description: |
+  Crée une fonction count_vowels(text) qui compte le nombre de voyelles
+  (a, e, i, o, u) dans une chaîne de caractères.
+
+  La fonction doit être insensible à la casse (A et a comptent tous les deux).
+
+  Exemples :
+  - count_vowels("hello") → 2  (e, o)
+  - count_vowels("Python") → 1  (o)
+
+template: |
+  def count_vowels(text):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Crée une variable compteur initialisée à 0"
+  - "Parcours chaque caractère de la chaîne avec une boucle for"
+  - "Utilise .lower() pour convertir en minuscules"
+  - "Vérifie si le caractère est dans 'aeiou'"
+
+tests:
+  - input: ["hello"]
+    expected: 2
+    description: "Mot simple"
+  - input: ["Python"]
+    expected: 1
+    description: "Avec majuscule"
+  - input: ["aEiOu"]
+    expected: 5
+    description: "Toutes les voyelles en mixte"
+  - input: ["xyz"]
+    expected: 0
+    description: "Aucune voyelle"
+  - input: [""]
+    expected: 0
+    description: "Chaîne vide"
+  - input: ["Bonjour le monde"]
+    expected: 6
+    hidden: true
+    description: "Phrase avec espaces"
+  - input: ["AEIOU"]
+    expected: 5
+    hidden: true
+    description: "Voyelles majuscules"

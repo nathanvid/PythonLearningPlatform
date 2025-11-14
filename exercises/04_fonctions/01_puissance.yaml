@@ -1,0 +1,40 @@
+id: "power_function"
+title: "Fonction puissance"
+description: |
+  Crée une fonction power(base, exponent) qui calcule base élevé à la puissance exponent.
+
+  Ne pas utiliser l'opérateur ** ou la fonction pow().
+  Utilise une boucle pour multiplier base par lui-même exponent fois.
+
+  Exemples :
+  - power(2, 3) → 8  (car 2 × 2 × 2 = 8)
+  - power(5, 2) → 25  (car 5 × 5 = 25)
+
+template: |
+  def power(base, exponent):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Initialise une variable résultat à 1"
+  - "Utilise une boucle for qui itère exponent fois"
+  - "Multiplie le résultat par base à chaque itération"
+
+tests:
+  - input: [2, 3]
+    expected: 8
+    description: "2 puissance 3"
+  - input: [5, 2]
+    expected: 25
+    description: "5 puissance 2"
+  - input: [10, 0]
+    expected: 1
+    description: "Tout nombre puissance 0 vaut 1"
+  - input: [3, 4]
+    expected: 81
+    hidden: true
+    description: "Test caché"
+  - input: [7, 1]
+    expected: 7
+    hidden: true
+    description: "Nombre puissance 1"

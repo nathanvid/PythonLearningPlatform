@@ -1,0 +1,41 @@
+id: "fibonacci"
+title: "Suite de Fibonacci"
+description: |
+  Complète la fonction fibonacci() qui prend un nombre entier n en paramètre
+  et retourne le n-ième nombre de la suite de Fibonacci.
+
+  La suite de Fibonacci commence par 0 et 1, puis chaque nombre suivant est
+  la somme des deux nombres précédents :
+  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+  fibonacci(0) = 0
+  fibonacci(1) = 1
+  fibonacci(2) = 1
+  fibonacci(6) = 8
+
+template: |
+  def fibonacci(n):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Traite d'abord les cas de base : n=0 retourne 0, n=1 retourne 1"
+  - "Pour les autres cas, utilise une boucle pour calculer les termes successifs"
+  - "Garde en mémoire les deux derniers nombres de la suite"
+
+tests:
+  - input: [0]
+    expected: 0
+    description: "Premier terme de Fibonacci"
+  - input: [1]
+    expected: 1
+    description: "Deuxième terme de Fibonacci"
+  - input: [2]
+    expected: 1
+    description: "Troisième terme de Fibonacci"
+  - input: [6]
+    expected: 8
+    description: "Septième terme de Fibonacci"
+  - input: [10]
+    expected: 55
+    description: "Onzième terme de Fibonacci"

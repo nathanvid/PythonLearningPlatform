@@ -1,0 +1,46 @@
+id: "use_datetime_module"
+title: "Module datetime - Différence de jours"
+description: |
+  Le module datetime permet de manipuler les dates et heures.
+
+  Crée une fonction days_between(date1_str, date2_str) qui calcule le nombre
+  de jours entre deux dates.
+
+  Les dates sont au format "YYYY-MM-DD" (ex: "2024-01-15").
+
+  Retourne le nombre de jours (en valeur absolue).
+
+  Exemples :
+  - days_between("2024-01-01", "2024-01-10") → 9
+  - days_between("2024-12-25", "2024-12-31") → 6
+
+template: |
+  def days_between(date1_str, date2_str):
+      # Calcule la différence en jours
+      pass
+
+hints:
+  - "Importe datetime : from datetime import datetime"
+  - "Parse les dates : datetime.strptime(date_str, '%Y-%m-%d')"
+  - "Calcule la différence : date2 - date1"
+  - "Récupère les jours avec .days sur la différence"
+  - "Utilise abs() pour la valeur absolue"
+
+tests:
+  - input: ["2024-01-01", "2024-01-10"]
+    expected: 9
+    description: "9 jours de différence"
+  - input: ["2024-12-25", "2024-12-31"]
+    expected: 6
+    description: "6 jours de différence"
+  - input: ["2024-01-01", "2024-01-01"]
+    expected: 0
+    description: "Même date"
+  - input: ["2024-01-10", "2024-01-01"]
+    expected: 9
+    hidden: true
+    description: "Date2 avant date1"
+  - input: ["2024-01-01", "2024-12-31"]
+    expected: 365
+    hidden: true
+    description: "Presque une année"

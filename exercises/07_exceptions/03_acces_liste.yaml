@@ -1,0 +1,45 @@
+id: "safe_list_access"
+title: "Accès sécurisé à une liste"
+description: |
+  Crée une fonction safe_get(lst, index) qui retourne l'élément à l'index donné
+  dans la liste.
+
+  Si l'index est hors limites (IndexError), retourne "Error: Index out of range".
+
+  Utilise try/except pour gérer l'exception.
+
+  Exemples :
+  - safe_get([1, 2, 3], 1) → 2
+  - safe_get([1, 2, 3], 5) → "Error: Index out of range"
+
+template: |
+  def safe_get(lst, index):
+      # Utilise try/except pour accéder à lst[index]
+      pass
+
+hints:
+  - "Utilise try: return lst[index]"
+  - "Capture except IndexError: pour les index invalides"
+  - "Retourne le message d'erreur dans le except"
+
+tests:
+  - input: [[1, 2, 3], 1]
+    expected: 2
+    description: "Index valide"
+  - input: [[1, 2, 3], 5]
+    expected: "Error: Index out of range"
+    description: "Index trop grand"
+  - input: [[10, 20, 30], 0]
+    expected: 10
+    description: "Premier élément"
+  - input: [[10, 20, 30], -1]
+    expected: 30
+    description: "Index négatif valide"
+  - input: [[5], 10]
+    expected: "Error: Index out of range"
+    hidden: true
+    description: "Index très grand"
+  - input: [[], 0]
+    expected: "Error: Index out of range"
+    hidden: true
+    description: "Liste vide"

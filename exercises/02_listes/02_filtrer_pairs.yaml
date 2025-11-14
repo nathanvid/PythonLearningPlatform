@@ -1,0 +1,48 @@
+id: "filter_even_list_comp"
+title: "Filtrer les nombres pairs"
+description: |
+  Les list comprehensions peuvent inclure des conditions pour filtrer les éléments.
+
+  Syntaxe : [expression for item in iterable if condition]
+
+  Exemple : [x for x in [1, 2, 3, 4] if x > 2] → [3, 4]
+
+  Crée une fonction filter_even(numbers) qui retourne une liste contenant
+  uniquement les nombres pairs d'une liste donnée.
+
+  Utilise une list comprehension avec une condition.
+
+  Exemples :
+  - filter_even([1, 2, 3, 4, 5]) → [2, 4]
+  - filter_even([10, 15, 20, 25]) → [10, 20]
+
+template: |
+  def filter_even(numbers):
+      # Utilise une list comprehension avec if
+      pass
+
+hints:
+  - "Syntaxe : [x for x in liste if condition]"
+  - "La condition pour pair est : x % 2 == 0"
+  - "Parcours la liste numbers avec for x in numbers"
+
+tests:
+  - input: [[1, 2, 3, 4, 5]]
+    expected: [2, 4]
+    description: "Liste mixte"
+  - input: [[10, 15, 20, 25]]
+    expected: [10, 20]
+    description: "Nombres plus grands"
+  - input: [[1, 3, 5, 7]]
+    expected: []
+    description: "Que des impairs"
+  - input: [[2, 4, 6, 8]]
+    expected: [2, 4, 6, 8]
+    description: "Que des pairs"
+  - input: [[]]
+    expected: []
+    description: "Liste vide"
+  - input: [[0, -2, -4, 3, 5]]
+    expected: [0, -2, -4]
+    hidden: true
+    description: "Avec nombres négatifs et zéro"

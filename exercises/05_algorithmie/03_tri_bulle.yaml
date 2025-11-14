@@ -1,0 +1,48 @@
+id: "bubble_sort"
+title: "Tri à bulles"
+description: |
+  Implémente l'algorithme de tri à bulles dans une fonction bubble_sort(arr)
+  qui trie une liste de nombres dans l'ordre croissant.
+
+  Le tri à bulles compare des éléments adjacents et les échange s'ils sont
+  dans le mauvais ordre. Ce processus est répété jusqu'à ce que la liste soit triée.
+
+  Exemples :
+  - bubble_sort([3, 1, 2]) → [1, 2, 3]
+  - bubble_sort([5, 2, 8, 1]) → [1, 2, 5, 8]
+
+template: |
+  def bubble_sort(arr):
+      # Implémente le tri à bulles
+      pass
+
+hints:
+  - "Fais une copie de la liste pour ne pas modifier l'original"
+  - "Utilise deux boucles imbriquées"
+  - "Compare arr[i] et arr[i+1], échange-les si arr[i] > arr[i+1]"
+  - "Répète jusqu'à ce qu'aucun échange ne soit nécessaire"
+
+tests:
+  - input: [[3, 1, 2]]
+    expected: [1, 2, 3]
+    description: "Petite liste désordonnée"
+  - input: [[5, 2, 8, 1]]
+    expected: [1, 2, 5, 8]
+    description: "Liste de 4 éléments"
+  - input: [[1, 2, 3]]
+    expected: [1, 2, 3]
+    description: "Déjà triée"
+  - input: [[3, 2, 1]]
+    expected: [1, 2, 3]
+    description: "Ordre inverse"
+  - input: [[42]]
+    expected: [42]
+    description: "Un seul élément"
+  - input: [[9, 7, 5, 3, 1]]
+    expected: [1, 3, 5, 7, 9]
+    hidden: true
+    description: "Liste plus longue"
+  - input: [[4, 4, 2, 2]]
+    expected: [2, 2, 4, 4]
+    hidden: true
+    description: "Avec doublons"

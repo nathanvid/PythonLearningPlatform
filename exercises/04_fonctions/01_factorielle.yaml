@@ -1,0 +1,36 @@
+id: "factorial"
+title: "Factorielle"
+description: |
+  Complète la fonction factorial() qui prend un nombre entier positif n en paramètre
+  et retourne sa factorielle.
+
+  Rappel : La factorielle de n (notée n!) est le produit de tous les entiers de 1 à n.
+  Par exemple : 5! = 5 × 4 × 3 × 2 × 1 = 120
+  Par convention : 0! = 1
+
+template: |
+  def factorial(n):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise une boucle for pour multiplier les nombres de 1 à n"
+  - "Initialise une variable résultat à 1, puis multiplie-la par chaque nombre"
+  - "N'oublie pas le cas particulier : 0! = 1"
+
+tests:
+  - input: [5]
+    expected: 120
+    description: "5! = 120"
+  - input: [0]
+    expected: 1
+    description: "0! = 1 par convention"
+  - input: [1]
+    expected: 1
+    description: "1! = 1"
+  - input: [3]
+    expected: 6
+    description: "3! = 6"
+  - input: [10]
+    expected: 3628800
+    description: "10! = 3628800"

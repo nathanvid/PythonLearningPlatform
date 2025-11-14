@@ -1,0 +1,42 @@
+id: "filter_by_length"
+title: "Filtrer par longueur"
+description: |
+  Crée une fonction filter_by_length(words, min_length) qui retourne une liste
+  contenant uniquement les mots ayant au moins min_length caractères.
+
+  Utilise une list comprehension avec condition.
+
+  Exemples :
+  - filter_by_length(["a", "bb", "ccc"], 2) → ["bb", "ccc"]
+  - filter_by_length(["hello", "hi", "world"], 3) → ["hello", "world"]
+
+template: |
+  def filter_by_length(words, min_length):
+      # Utilise une list comprehension avec if
+      pass
+
+hints:
+  - "Utilise len(mot) pour obtenir la longueur d'un mot"
+  - "Condition : len(mot) >= min_length"
+  - "Syntaxe : [mot for mot in words if ...]"
+
+tests:
+  - input: [["a", "bb", "ccc"], 2]
+    expected: ["bb", "ccc"]
+    description: "Longueur minimale 2"
+  - input: [["hello", "hi", "world"], 3]
+    expected: ["hello", "world"]
+    description: "Longueur minimale 3"
+  - input: [["cat", "dog", "elephant"], 5]
+    expected: ["elephant"]
+    description: "Longueur minimale 5"
+  - input: [[], 1]
+    expected: []
+    description: "Liste vide"
+  - input: [["a", "b", "c"], 1]
+    expected: ["a", "b", "c"]
+    description: "Tous passent le filtre"
+  - input: [["python", "java", "c", "javascript"], 4]
+    expected: ["python", "java", "javascript"]
+    hidden: true
+    description: "Langages de programmation"

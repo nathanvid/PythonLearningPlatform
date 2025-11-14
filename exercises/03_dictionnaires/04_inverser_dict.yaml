@@ -1,0 +1,37 @@
+id: "invert_dict"
+title: "Inverser un dictionnaire"
+description: |
+  Crée une fonction invert_dict(d) qui inverse les clés et les valeurs
+  d'un dictionnaire.
+
+  Les anciennes clés deviennent les valeurs, et les anciennes valeurs
+  deviennent les clés.
+
+  Exemples :
+  - invert_dict({"a": 1, "b": 2}) → {1: "a", 2: "b"}
+  - invert_dict({"nom": "Alice"}) → {"Alice": "nom"}
+
+template: |
+  def invert_dict(d):
+      # Inverse clés et valeurs
+      pass
+
+hints:
+  - "Utilise une dict comprehension"
+  - "Syntaxe : {value: key for key, value in d.items()}"
+  - ".items() retourne les paires (clé, valeur)"
+
+tests:
+  - input: [{"a": 1, "b": 2}]
+    expected: {1: "a", 2: "b"}
+    description: "Dictionnaire simple"
+  - input: [{"nom": "Alice", "age": 25}]
+    expected: {"Alice": "nom", 25: "age"}
+    description: "Valeurs mixtes"
+  - input: [{}]
+    expected: {}
+    description: "Dictionnaire vide"
+  - input: [{"x": 10, "y": 20, "z": 30}]
+    expected: {10: "x", 20: "y", 30: "z"}
+    hidden: true
+    description: "Trois éléments"

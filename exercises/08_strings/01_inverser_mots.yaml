@@ -1,0 +1,37 @@
+id: "reverse_words"
+title: "Inverser l'ordre des mots"
+description: |
+  Crée une fonction reverse_words(sentence) qui inverse l'ordre des mots
+  dans une phrase, mais garde chaque mot intact.
+
+  Exemples :
+  - reverse_words("Hello World") → "World Hello"
+  - reverse_words("Python est génial") → "génial est Python"
+
+template: |
+  def reverse_words(sentence):
+      # Inverse l'ordre des mots
+      pass
+
+hints:
+  - "Utilise .split() pour séparer la phrase en mots"
+  - "Inverse la liste avec [::-1] ou reversed()"
+  - "Rejoins avec ' '.join()"
+
+tests:
+  - input: ["Hello World"]
+    expected: "World Hello"
+    description: "Deux mots"
+  - input: ["Python est génial"]
+    expected: "génial est Python"
+    description: "Trois mots"
+  - input: ["Bonjour"]
+    expected: "Bonjour"
+    description: "Un seul mot"
+  - input: [""]
+    expected: ""
+    description: "Chaîne vide"
+  - input: ["a b c d e"]
+    expected: "e d c b a"
+    hidden: true
+    description: "Cinq mots"

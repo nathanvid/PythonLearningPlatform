@@ -1,0 +1,39 @@
+id: "use_math_module"
+title: "Module math - Racine carrée"
+description: |
+  Le module math contient des fonctions mathématiques : sqrt, ceil, floor, pi, etc.
+
+  Crée une fonction calculate_hypotenuse(a, b) qui calcule l'hypoténuse
+  d'un triangle rectangle (théorème de Pythagore : c = √(a² + b²)).
+
+  Utilise le module math pour calculer la racine carrée.
+
+  Exemples :
+  - calculate_hypotenuse(3, 4) → 5.0
+  - calculate_hypotenuse(5, 12) → 13.0
+
+template: |
+  def calculate_hypotenuse(a, b):
+      # Importe math et calcule l'hypoténuse
+      pass
+
+hints:
+  - "Importe le module : import math"
+  - "Utilise math.sqrt() pour la racine carrée"
+  - "Formule : sqrt(a² + b²)"
+  - "Calcule a² avec a**2"
+
+tests:
+  - input: [3, 4]
+    expected: 5.0
+    description: "Triangle 3-4-5"
+  - input: [5, 12]
+    expected: 13.0
+    description: "Triangle 5-12-13"
+  - input: [1, 1]
+    expected: 1.4142135623730951
+    description: "Triangle isocèle"
+  - input: [8, 15]
+    expected: 17.0
+    hidden: true
+    description: "Triangle 8-15-17"

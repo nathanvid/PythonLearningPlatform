@@ -1,0 +1,40 @@
+id: "countdown"
+title: "Compte à rebours"
+description: |
+  Crée une fonction countdown(n) qui retourne une liste contenant un compte à rebours de n à 1.
+
+  Utilise une boucle while pour construire la liste.
+
+  Exemples :
+  - countdown(5) → [5, 4, 3, 2, 1]
+  - countdown(3) → [3, 2, 1]
+
+template: |
+  def countdown(n):
+      # Utilise une boucle while
+      pass
+
+hints:
+  - "Crée une liste vide : result = []"
+  - "Utilise while n > 0: pour continuer tant que n est positif"
+  - "Ajoute n à la liste : result.append(n)"
+  - "Décrémente n : n -= 1"
+  - "Retourne la liste à la fin"
+
+tests:
+  - input: [5]
+    expected: [5, 4, 3, 2, 1]
+    description: "Compte à rebours de 5"
+  - input: [3]
+    expected: [3, 2, 1]
+    description: "Compte à rebours de 3"
+  - input: [1]
+    expected: [1]
+    description: "Un seul nombre"
+  - input: [0]
+    expected: []
+    description: "Liste vide"
+  - input: [10]
+    expected: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    hidden: true
+    description: "Compte à rebours de 10"

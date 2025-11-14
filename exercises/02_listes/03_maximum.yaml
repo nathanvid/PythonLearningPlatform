@@ -1,0 +1,38 @@
+id: "find_max"
+title: "Maximum d'une liste"
+description: |
+  Complète la fonction find_max() qui prend une liste de nombres non vide en paramètre
+  et retourne le plus grand nombre de la liste.
+
+  Exemple : find_max([3, 1, 7, 2]) doit retourner 7
+
+template: |
+  def find_max(numbers):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise la fonction built-in max() pour trouver le maximum"
+  - "Ou bien, parcours la liste en gardant en mémoire le plus grand nombre vu jusqu'à présent"
+
+tests:
+  - input: [[3, 1, 7, 2]]
+    expected: 7
+    description: "Maximum dans une liste désordonnée"
+  - input: [[1, 2, 3, 4, 5]]
+    expected: 5
+    description: "Maximum dans une liste triée"
+  - input: [[-10, -5, -20]]
+    expected: -5
+    description: "Maximum parmi des nombres négatifs"
+  - input: [[42]]
+    expected: 42
+    description: "Liste avec un seul élément"
+  - input: [[100, 50, 75, 25, 90]]
+    expected: 100
+    hidden: true
+    description: "Liste avec plusieurs éléments"
+  - input: [[0, 0, 0, 0]]
+    expected: 0
+    hidden: true
+    description: "Tous les éléments identiques"

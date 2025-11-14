@@ -1,0 +1,44 @@
+id: "use_random_module"
+title: "Module random - Nombre aléatoire"
+description: |
+  Le module random permet de générer des nombres aléatoires.
+
+  Crée une fonction generate_random_list(n, min_val, max_val) qui génère
+  une liste de n nombres entiers aléatoires entre min_val et max_val (inclus),
+  puis retourne LA LONGUEUR de cette liste (pour pouvoir tester).
+
+  Utilise random.randint(min_val, max_val) pour chaque nombre.
+
+  Exemples :
+  - generate_random_list(5, 1, 10) → 5  (retourne la longueur)
+  - generate_random_list(3, 0, 100) → 3
+
+template: |
+  def generate_random_list(n, min_val, max_val):
+      # Génère n nombres aléatoires et retourne len() de la liste
+      pass
+
+hints:
+  - "Importe random : import random"
+  - "Utilise random.randint(min_val, max_val) pour un nombre aléatoire"
+  - "Crée une liste avec une boucle for ou list comprehension"
+  - "[random.randint(min_val, max_val) for _ in range(n)]"
+
+tests:
+  - input: [5, 1, 10]
+    expected: 5
+    description: "Liste de 5 nombres (vérifie la longueur)"
+  - input: [3, 0, 100]
+    expected: 3
+    description: "Liste de 3 nombres"
+  - input: [10, 1, 1]
+    expected: 10
+    description: "Tous les nombres sont 1"
+  - input: [0, 1, 10]
+    expected: 0
+    hidden: true
+    description: "Liste vide"
+  - input: [20, 5, 15]
+    expected: 20
+    hidden: true
+    description: "Grande liste"

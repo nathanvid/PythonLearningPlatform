@@ -1,0 +1,47 @@
+id: "is_prime"
+title: "Nombre premier"
+description: |
+  Crée une fonction is_prime(n) qui détermine si un nombre n est premier.
+
+  Un nombre premier est un entier naturel supérieur à 1 qui n'est divisible
+  que par 1 et par lui-même.
+
+  Exemples :
+  - is_prime(7) → true  (divisible uniquement par 1 et 7)
+  - is_prime(4) → false  (divisible par 1, 2 et 4)
+
+template: |
+  def is_prime(n):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Les nombres <= 1 ne sont pas premiers"
+  - "Teste si n est divisible par un nombre de 2 à n-1"
+  - "Si n % i == 0, alors n n'est pas premier"
+  - "Optimisation : tu peux t'arrêter à sqrt(n)"
+
+tests:
+  - input: [2]
+    expected: true
+    description: "2 est premier"
+  - input: [7]
+    expected: true
+    description: "7 est premier"
+  - input: [4]
+    expected: false
+    description: "4 n'est pas premier"
+  - input: [1]
+    expected: false
+    description: "1 n'est pas premier"
+  - input: [15]
+    expected: false
+    description: "15 n'est pas premier"
+  - input: [17]
+    expected: true
+    hidden: true
+    description: "17 est premier"
+  - input: [100]
+    expected: false
+    hidden: true
+    description: "100 n'est pas premier"

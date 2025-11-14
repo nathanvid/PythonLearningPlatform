@@ -1,0 +1,59 @@
+id: "bank_account_class"
+title: "Classe Compte Bancaire"
+description: |
+  Crée une classe BankAccount avec :
+  - Un constructeur __init__(self, solde_initial) qui initialise le solde
+  - Une méthode deposit(self, montant) qui ajoute un montant au solde
+  - Une méthode withdraw(self, montant) qui retire un montant du solde
+  - Une méthode get_balance(self) qui retourne le solde actuel
+
+  Crée une fonction test_account(operations) qui :
+  1. Crée un compte avec un solde de 100
+  2. Exécute une liste d'opérations ["deposit:50", "withdraw:30", ...]
+  3. Retourne le solde final
+
+  Exemple :
+  - test_account(["deposit:50"]) → 150
+  - test_account(["withdraw:30", "deposit:20"]) → 90
+
+template: |
+  class BankAccount:
+      def __init__(self, solde_initial):
+          pass
+
+      def deposit(self, montant):
+          pass
+
+      def withdraw(self, montant):
+          pass
+
+      def get_balance(self):
+          pass
+
+  def test_account(operations):
+      # Crée un compte avec 100, exécute operations, retourne le solde
+      pass
+
+hints:
+  - "Stocke le solde dans self.balance"
+  - "deposit ajoute au solde : self.balance += montant"
+  - "withdraw retire du solde : self.balance -= montant"
+  - "Parse chaque opération : operation.split(':') pour séparer type et montant"
+
+tests:
+  - input: [["deposit:50"]]
+    expected: 150
+    description: "Un dépôt"
+  - input: [["withdraw:30"]]
+    expected: 70
+    description: "Un retrait"
+  - input: [["deposit:50", "withdraw:30"]]
+    expected: 120
+    description: "Dépôt puis retrait"
+  - input: [[]]
+    expected: 100
+    description: "Aucune opération"
+  - input: [["deposit:100", "deposit:50", "withdraw:75"]]
+    expected: 175
+    hidden: true
+    description: "Plusieurs opérations"

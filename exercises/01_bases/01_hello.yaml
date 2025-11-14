@@ -1,0 +1,21 @@
+id: "hello_world"
+title: "Hello World"
+description: |
+  Complète la fonction hello() qui retourne la chaîne de caractères "Hello, World!".
+
+  C'est ton premier exercice en Python !
+
+template: |
+  def hello():
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise le mot-clé 'return' pour retourner une valeur"
+  - "N'oublie pas les guillemets pour créer une chaîne de caractères"
+  - "La réponse exacte est 'Hello, World!' (attention à la ponctuation)"
+
+tests:
+  - input: []
+    expected: "Hello, World!"
+    description: "La fonction doit retourner exactement 'Hello, World!'"

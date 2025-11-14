@@ -1,0 +1,63 @@
+id: "inheritance_animal"
+title: "Héritage - Classes Animal et Chien"
+description: |
+  Crée deux classes :
+
+  1. Une classe Animal avec :
+     - Un constructeur __init__(self, nom) qui stocke le nom
+     - Une méthode speak(self) qui retourne "Je suis un animal"
+
+  2. Une classe Dog qui hérite de Animal avec :
+     - Un constructeur __init__(self, nom, race) qui appelle le constructeur parent
+       et stocke la race
+     - Une méthode speak(self) qui retourne "Woof! Je suis [nom]"
+     - Une méthode get_race(self) qui retourne la race
+
+  Crée une fonction create_dog_speak(nom, race) qui crée un Dog et retourne
+  ce que dit le chien (appelle speak()).
+
+  Exemple :
+  - create_dog_speak("Rex", "Labrador") → "Woof! Je suis Rex"
+
+template: |
+  class Animal:
+      def __init__(self, nom):
+          pass
+
+      def speak(self):
+          pass
+
+  class Dog(Animal):
+      def __init__(self, nom, race):
+          pass
+
+      def speak(self):
+          pass
+
+      def get_race(self):
+          pass
+
+  def create_dog_speak(nom, race):
+      # Crée un Dog et retourne ce qu'il dit
+      pass
+
+hints:
+  - "Dans Dog.__init__, appelle super().__init__(nom) pour initialiser le nom"
+  - "Stocke la race avec self.race"
+  - "Dans speak(), utilise un f-string avec self.nom"
+  - "L'héritage se fait avec : class Dog(Animal)"
+
+tests:
+  - input: ["Rex", "Labrador"]
+    expected: "Woof! Je suis Rex"
+    description: "Chien Rex"
+  - input: ["Max", "Berger"]
+    expected: "Woof! Je suis Max"
+    description: "Chien Max"
+  - input: ["Bella", "Caniche"]
+    expected: "Woof! Je suis Bella"
+    description: "Chien Bella"
+  - input: ["Rocky", "Bulldog"]
+    expected: "Woof! Je suis Rocky"
+    hidden: true
+    description: "Test caché"

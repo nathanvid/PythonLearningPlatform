@@ -1,0 +1,43 @@
+id: "squares_list_comp"
+title: "Carrés avec list comprehension"
+description: |
+  Les list comprehensions permettent de créer des listes de manière concise.
+
+  Syntaxe : [expression for item in iterable]
+
+  Exemple : [x * 2 for x in [1, 2, 3]] → [2, 4, 6]
+
+  Crée une fonction squares(n) qui retourne une liste des carrés des nombres de 1 à n
+  en utilisant une list comprehension.
+
+  Exemples :
+  - squares(3) → [1, 4, 9]
+  - squares(5) → [1, 4, 9, 16, 25]
+
+template: |
+  def squares(n):
+      # Utilise une list comprehension
+      pass
+
+hints:
+  - "Syntaxe : [expression for item in range(...)]"
+  - "L'expression pour le carré de x est x ** 2"
+  - "Utilise range(1, n+1) pour aller de 1 à n inclus"
+
+tests:
+  - input: [3]
+    expected: [1, 4, 9]
+    description: "Carrés de 1 à 3"
+  - input: [5]
+    expected: [1, 4, 9, 16, 25]
+    description: "Carrés de 1 à 5"
+  - input: [1]
+    expected: [1]
+    description: "Un seul nombre"
+  - input: [0]
+    expected: []
+    description: "Liste vide"
+  - input: [10]
+    expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    hidden: true
+    description: "Carrés de 1 à 10"

@@ -1,0 +1,43 @@
+id: "sum_string_numbers"
+title: "Somme de nombres en chaînes"
+description: |
+  Crée une fonction sum_string_numbers(str_list) qui prend une liste de
+  nombres sous forme de chaînes de caractères et retourne leur somme en tant qu'entier.
+
+  Tu devras convertir (cast) les chaînes en entiers pour les additionner.
+
+  Exemples :
+  - sum_string_numbers(["1", "2", "3"]) → 6
+  - sum_string_numbers(["10", "20"]) → 30
+
+template: |
+  def sum_string_numbers(str_list):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise int() pour convertir une chaîne en entier"
+  - "Parcours la liste et additionne les valeurs converties"
+  - "Ou utilise sum() avec une list comprehension"
+
+tests:
+  - input: [["1", "2", "3"]]
+    expected: 6
+    description: "Trois petits nombres"
+  - input: [["10", "20", "30"]]
+    expected: 60
+    description: "Nombres plus grands"
+  - input: [["0"]]
+    expected: 0
+    description: "Un seul zéro"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [["100", "200", "300"]]
+    expected: 600
+    hidden: true
+    description: "Grands nombres"
+  - input: [["-5", "10", "-3"]]
+    expected: 2
+    hidden: true
+    description: "Nombres négatifs"

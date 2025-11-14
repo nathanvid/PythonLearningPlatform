@@ -1,0 +1,38 @@
+id: "to_camel_case"
+title: "Convertir en CamelCase"
+description: |
+  Crée une fonction to_camel_case(text) qui convertit une phrase en CamelCase.
+
+  CamelCase : première lettre de chaque mot en majuscule, pas d'espaces.
+
+  Exemples :
+  - to_camel_case("hello world") → "HelloWorld"
+  - to_camel_case("python est super") → "PythonEstSuper"
+
+template: |
+  def to_camel_case(text):
+      # Convertit en CamelCase
+      pass
+
+hints:
+  - "Sépare en mots avec .split()"
+  - "Mets la première lettre de chaque mot en majuscule avec .capitalize()"
+  - "Rejoins sans espaces : ''.join()"
+
+tests:
+  - input: ["hello world"]
+    expected: "HelloWorld"
+    description: "Deux mots simples"
+  - input: ["python est super"]
+    expected: "PythonEstSuper"
+    description: "Trois mots"
+  - input: ["bonjour"]
+    expected: "Bonjour"
+    description: "Un seul mot"
+  - input: [""]
+    expected: ""
+    description: "Chaîne vide"
+  - input: ["convert to camel case"]
+    expected: "ConvertToCamelCase"
+    hidden: true
+    description: "Quatre mots"

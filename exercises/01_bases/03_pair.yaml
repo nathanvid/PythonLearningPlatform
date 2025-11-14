@@ -1,0 +1,42 @@
+id: "is_even"
+title: "Nombre pair"
+description: |
+  Complète la fonction is_even() qui prend un nombre en paramètre
+  et retourne True si le nombre est pair, False sinon.
+
+  Rappel : Un nombre est pair s'il est divisible par 2 (le reste de la division par 2 est 0).
+
+template: |
+  def is_even(n):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise l'opérateur modulo % pour obtenir le reste d'une division"
+  - "n % 2 donne 0 si n est pair, 1 si n est impair"
+  - "Utilise une condition if/else ou retourne directement le résultat de la comparaison"
+
+tests:
+  - input: [4]
+    expected: true
+    description: "4 est pair"
+  - input: [7]
+    expected: false
+    description: "7 est impair"
+  - input: [0]
+    expected: true
+    description: "0 est pair"
+  - input: [-2]
+    expected: true
+    description: "-2 est pair"
+  - input: [-3]
+    expected: false
+    description: "-3 est impair"
+  - input: [1000]
+    expected: true
+    hidden: true
+    description: "Grand nombre pair"
+  - input: [999]
+    expected: false
+    hidden: true
+    description: "Grand nombre impair"

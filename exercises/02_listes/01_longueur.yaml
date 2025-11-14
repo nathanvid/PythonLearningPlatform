@@ -1,0 +1,27 @@
+id: "list_length"
+title: "Longueur d'une liste"
+description: |
+  Complète la fonction get_length() qui prend une liste en paramètre
+  et retourne sa longueur (nombre d'éléments).
+
+  Exemple : get_length([1, 2, 3]) doit retourner 3
+
+template: |
+  def get_length(lst):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise la fonction built-in len() pour obtenir la longueur d'une liste"
+  - "Syntaxe : len(ma_liste)"
+
+tests:
+  - input: [[1, 2, 3]]
+    expected: 3
+    description: "Liste avec 3 éléments"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [["a", "b", "c", "d", "e"]]
+    expected: 5
+    description: "Liste avec 5 éléments"

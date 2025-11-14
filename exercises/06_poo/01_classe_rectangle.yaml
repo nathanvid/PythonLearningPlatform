@@ -1,0 +1,56 @@
+id: "rectangle_class"
+title: "Classe Rectangle"
+description: |
+  Crée une classe Rectangle avec :
+  - Un constructeur __init__(self, largeur, hauteur)
+  - Une méthode area(self) qui retourne l'aire (largeur × hauteur)
+  - Une méthode perimeter(self) qui retourne le périmètre (2 × (largeur + hauteur))
+
+  Ensuite, crée une fonction get_rectangle_area(largeur, hauteur) qui crée
+  un Rectangle et retourne son aire.
+
+  Exemple :
+  - get_rectangle_area(5, 3) → 15
+
+template: |
+  class Rectangle:
+      def __init__(self, largeur, hauteur):
+          # Initialise les attributs
+          pass
+
+      def area(self):
+          # Retourne l'aire
+          pass
+
+      def perimeter(self):
+          # Retourne le périmètre
+          pass
+
+  def get_rectangle_area(largeur, hauteur):
+      # Crée un Rectangle et retourne son aire
+      pass
+
+hints:
+  - "Utilise self.largeur et self.hauteur pour stocker les dimensions"
+  - "L'aire = largeur × hauteur"
+  - "Le périmètre = 2 × (largeur + hauteur)"
+  - "Dans get_rectangle_area, crée un Rectangle puis appelle .area()"
+
+tests:
+  - input: [5, 3]
+    expected: 15
+    description: "Aire d'un rectangle 5×3"
+  - input: [10, 2]
+    expected: 20
+    description: "Aire d'un rectangle 10×2"
+  - input: [4, 4]
+    expected: 16
+    description: "Aire d'un carré 4×4"
+  - input: [7, 8]
+    expected: 56
+    hidden: true
+    description: "Aire cachée"
+  - input: [1, 100]
+    expected: 100
+    hidden: true
+    description: "Rectangle très allongé"

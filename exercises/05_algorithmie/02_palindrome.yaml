@@ -1,0 +1,47 @@
+id: "is_palindrome"
+title: "Vérifier un palindrome"
+description: |
+  Crée une fonction is_palindrome(text) qui vérifie si un texte est un palindrome.
+
+  Un palindrome est un mot, une phrase qui se lit de la même façon
+  dans les deux sens (en ignorant espaces, ponctuation et casse).
+
+  Exemples :
+  - is_palindrome("radar") → true
+  - is_palindrome("hello") → false
+  - is_palindrome("A man a plan a canal Panama") → true
+
+template: |
+  def is_palindrome(text):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Enlève les espaces avec .replace(' ', '')"
+  - "Convertis en minuscules avec .lower()"
+  - "Compare le texte avec son inverse : text == text[::-1]"
+
+tests:
+  - input: ["radar"]
+    expected: true
+    description: "Palindrome simple"
+  - input: ["hello"]
+    expected: false
+    description: "Pas un palindrome"
+  - input: ["kayak"]
+    expected: true
+    description: "Autre palindrome"
+  - input: ["a"]
+    expected: true
+    description: "Une seule lettre"
+  - input: ["Radar"]
+    expected: true
+    description: "Avec majuscule"
+  - input: ["A man a plan a canal Panama"]
+    expected: true
+    hidden: true
+    description: "Phrase palindrome"
+  - input: ["Never odd or even"]
+    expected: true
+    hidden: true
+    description: "Phrase complexe"

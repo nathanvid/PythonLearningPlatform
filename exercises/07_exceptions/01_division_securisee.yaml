@@ -1,0 +1,44 @@
+id: "safe_division"
+title: "Division sécurisée"
+description: |
+  Crée une fonction safe_divide(a, b) qui divise a par b et gère l'erreur
+  de division par zéro.
+
+  Si b est 0, la fonction doit retourner "Error: Division by zero" au lieu de planter.
+  Sinon, retourne le résultat de la division.
+
+  Utilise try/except pour capturer l'exception ZeroDivisionError.
+
+  Exemples :
+  - safe_divide(10, 2) → 5.0
+  - safe_divide(10, 0) → "Error: Division by zero"
+
+template: |
+  def safe_divide(a, b):
+      # Utilise try/except
+      pass
+
+hints:
+  - "Utilise try: pour tenter la division"
+  - "Utilise except ZeroDivisionError: pour capturer l'erreur"
+  - "Dans le except, retourne le message d'erreur"
+  - "Dans le try, retourne a / b"
+
+tests:
+  - input: [10, 2]
+    expected: 5.0
+    description: "Division normale"
+  - input: [10, 0]
+    expected: "Error: Division by zero"
+    description: "Division par zéro"
+  - input: [15, 3]
+    expected: 5.0
+    description: "Autre division"
+  - input: [100, 0]
+    expected: "Error: Division by zero"
+    hidden: true
+    description: "Test caché division par zéro"
+  - input: [7, 2]
+    expected: 3.5
+    hidden: true
+    description: "Division avec décimales"

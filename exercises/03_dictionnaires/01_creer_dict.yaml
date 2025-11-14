@@ -1,0 +1,38 @@
+id: "create_dict_from_lists"
+title: "Créer un dictionnaire"
+description: |
+  Les dictionnaires stockent des paires clé-valeur : {"nom": "Alice", "age": 25}
+
+  Crée une fonction create_dict(keys, values) qui crée un dictionnaire
+  à partir de deux listes : une liste de clés et une liste de valeurs.
+
+  Utilise zip() pour associer les clés aux valeurs.
+
+  Exemples :
+  - create_dict(["a", "b"], [1, 2]) → {"a": 1, "b": 2}
+  - create_dict(["nom", "age"], ["Alice", 25]) → {"nom": "Alice", "age": 25}
+
+template: |
+  def create_dict(keys, values):
+      # Crée un dictionnaire à partir des deux listes
+      pass
+
+hints:
+  - "Utilise zip(keys, values) pour associer les éléments"
+  - "Convertis en dict avec dict(zip(keys, values))"
+  - "Ou utilise une dict comprehension : {k: v for k, v in zip(keys, values)}"
+
+tests:
+  - input: [["a", "b"], [1, 2]]
+    expected: {"a": 1, "b": 2}
+    description: "Dictionnaire simple"
+  - input: [["nom", "age"], ["Alice", 25]]
+    expected: {"nom": "Alice", "age": 25}
+    description: "Dictionnaire mixte"
+  - input: [[], []]
+    expected: {}
+    description: "Dictionnaire vide"
+  - input: [["x", "y", "z"], [10, 20, 30]]
+    expected: {"x": 10, "y": 20, "z": 30}
+    hidden: true
+    description: "Trois éléments"

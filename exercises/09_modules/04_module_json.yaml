@@ -1,0 +1,40 @@
+id: "use_json_module"
+title: "Module json - Parser JSON"
+description: |
+  Le module json permet de manipuler des données JSON.
+
+  Crée une fonction extract_name(json_string) qui parse une chaîne JSON
+  et extrait la valeur de la clé "name".
+
+  Exemples :
+  - extract_name('{"name": "Alice", "age": 25}') → "Alice"
+  - extract_name('{"name": "Bob"}') → "Bob"
+
+template: |
+  def extract_name(json_string):
+      # Parse le JSON et extrait "name"
+      pass
+
+hints:
+  - "Importe json : import json"
+  - "Parse avec json.loads(json_string) pour convertir en dict"
+  - "Accède à la clé : data['name']"
+
+tests:
+  - input: ['{"name": "Alice", "age": 25}']
+    expected: "Alice"
+    description: "JSON avec plusieurs champs"
+  - input: ['{"name": "Bob"}']
+    expected: "Bob"
+    description: "JSON simple"
+  - input: ['{"name": "Charlie", "city": "Paris"}']
+    expected: "Charlie"
+    description: "Autre JSON"
+  - input: ['{"age": 30, "name": "David"}']
+    expected: "David"
+    hidden: true
+    description: "name en deuxième position"
+  - input: ['{"name": "Eve", "hobbies": ["reading", "coding"]}']
+    expected: "Eve"
+    hidden: true
+    description: "JSON complexe"

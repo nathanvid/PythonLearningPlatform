@@ -1,0 +1,35 @@
+id: "addition"
+title: "Addition de deux nombres"
+description: |
+  Complète la fonction add() qui prend deux nombres en paramètres
+  et retourne leur somme.
+
+  Exemple : add(2, 3) doit retourner 5
+
+template: |
+  def add(a, b):
+      # Écris ton code ici
+      pass
+
+hints:
+  - "Utilise l'opérateur + pour additionner deux nombres"
+  - "N'oublie pas d'utiliser return pour retourner le résultat"
+
+tests:
+  - input: [2, 3]
+    expected: 5
+    description: "Addition de deux nombres positifs"
+  - input: [10, -5]
+    expected: 5
+    description: "Addition avec un nombre négatif"
+  - input: [0, 0]
+    expected: 0
+    description: "Addition de deux zéros"
+  - input: [100, 200]
+    expected: 300
+    hidden: true
+    description: "Grands nombres"
+  - input: [-50, -30]
+    expected: -80
+    hidden: true
+    description: "Nombres négatifs"

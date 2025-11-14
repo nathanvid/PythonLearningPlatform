@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning Platform</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar avec catégories et scores -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Python Learning</h1>
+                <div class="global-score">
+                    <div class="score-label">Score Global</div>
+                    <div class="score-value" id="globalScore">0%</div>
+                    <div class="score-bar">
+                        <div class="score-bar-fill" id="globalScoreBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categories" id="categoriesContainer">
+                <!-- Les catégories seront chargées ici -->
+            </div>
+        </aside>
+
+        <!-- Zone principale -->
+        <main class="main-content">
+            <div class="welcome" id="welcomeScreen">
+                <h2>Bienvenue sur la plateforme d'apprentissage Python</h2>
+                <p>Sélectionnez un exercice dans le menu à gauche pour commencer.</p>
+            </div>
+
+            <div class="exercise-view" id="exerciseView" style="display: none;">
+                <!-- Navigation exercices -->
+                <div class="exercise-navigation">
+                    <button class="btn-nav" id="prevExerciseBtn" disabled>
+                        ◀ Précédent
+                    </button>
+                    <span class="exercise-position" id="exercisePosition"></span>
+                    <button class="btn-nav" id="nextExerciseBtn" disabled>
+                        Suivant ▶
+                    </button>
+                </div>
+
+                <!-- En-tête de l'exercice -->
+                <div class="exercise-header">
+                    <h2 id="exerciseTitle"></h2>
+                    <div class="exercise-score">
+                        <span id="exerciseScore">0%</span>
+                        <span id="exerciseStatus" class="status-badge"></span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="exercise-description" id="exerciseDescription"></div>
+
+                <!-- Hints -->
+                <div class="hints-section">
+                    <div class="hints-buttons">
+                        <button class="btn-hint" id="showHintsBtn" style="display: none;">
+                            💡 Voir un indice
+                        </button>
+                        <button class="btn-hint-secondary" id="toggleHintsBtn" style="display: none;">
+                            👁️ Cacher les indices
+                        </button>
+                    </div>
+                    <div class="hints-container" id="hintsContainer"></div>
+                </div>
+
+                <!-- Éditeur de code -->
+                <div class="editor-section">
+                    <div class="editor-header">
+                        <span>Éditeur Python</span>
+                        <button class="btn-primary" id="runBtn">▶ Tester mon code</button>
+                    </div>
+                    <div id="editor"></div>
+                </div>
+
+                <!-- Résultats -->
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <h3>Résultats des tests</h3>
+                    <div id="resultsContainer"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Monaco Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

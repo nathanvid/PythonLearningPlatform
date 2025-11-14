@@ -1,0 +1,50 @@
+id: "calculate_with_exceptions"
+title: "Calcul avec gestion multiple"
+description: |
+  Crée une fonction calculate(a, b, operation) qui effectue une opération
+  mathématique et gère plusieurs types d'erreurs.
+
+  operation peut être : "add", "subtract", "multiply", "divide"
+
+  Gère les erreurs suivantes :
+  - ZeroDivisionError → retourne "Error: Division by zero"
+  - ValueError (a ou b ne sont pas des nombres) → retourne "Error: Invalid input"
+  - Opération inconnue → retourne "Error: Unknown operation"
+
+  Exemples :
+  - calculate(10, 5, "divide") → 2.0
+  - calculate(10, 0, "divide") → "Error: Division by zero"
+  - calculate(10, 5, "unknown") → "Error: Unknown operation"
+
+template: |
+  def calculate(a, b, operation):
+      # Gère plusieurs exceptions
+      pass
+
+hints:
+  - "Utilise try/except avec plusieurs except"
+  - "Vérifie d'abord que operation est valide"
+  - "Utilise if/elif pour chaque opération"
+  - "Capture ZeroDivisionError pour la division par zéro"
+
+tests:
+  - input: [10, 5, "divide"]
+    expected: 2.0
+    description: "Division normale"
+  - input: [10, 0, "divide"]
+    expected: "Error: Division by zero"
+    description: "Division par zéro"
+  - input: [10, 5, "add"]
+    expected: 15
+    description: "Addition"
+  - input: [10, 5, "unknown"]
+    expected: "Error: Unknown operation"
+    description: "Opération inconnue"
+  - input: [20, 4, "multiply"]
+    expected: 80
+    hidden: true
+    description: "Multiplication"
+  - input: [15, 5, "subtract"]
+    expected: 10
+    hidden: true
+    description: "Soustraction"

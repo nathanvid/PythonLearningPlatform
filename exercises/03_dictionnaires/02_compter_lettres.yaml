@@ -1,0 +1,44 @@
+id: "count_letters"
+title: "Compter les occurrences"
+description: |
+  Crée une fonction count_letters(text) qui compte le nombre d'occurrences
+  de chaque lettre dans un texte (insensible à la casse).
+
+  Retourne un dictionnaire où les clés sont les lettres et les valeurs
+  sont le nombre d'occurrences.
+
+  Ignore les espaces et la ponctuation.
+
+  Exemples :
+  - count_letters("aaa") → {"a": 3}
+  - count_letters("hello") → {"h": 1, "e": 1, "l": 2, "o": 1}
+
+template: |
+  def count_letters(text):
+      # Compte les occurrences de chaque lettre
+      pass
+
+hints:
+  - "Convertis le texte en minuscules avec .lower()"
+  - "Crée un dictionnaire vide : counts = {}"
+  - "Parcours chaque caractère et vérifie s'il est une lettre avec .isalpha()"
+  - "Utilise counts[char] = counts.get(char, 0) + 1 pour compter"
+
+tests:
+  - input: ["aaa"]
+    expected: {"a": 3}
+    description: "Une seule lettre répétée"
+  - input: ["hello"]
+    expected: {"h": 1, "e": 1, "l": 2, "o": 1}
+    description: "Mot simple"
+  - input: [""]
+    expected: {}
+    description: "Chaîne vide"
+  - input: ["Hello World"]
+    expected: {"h": 1, "e": 1, "l": 3, "o": 2, "w": 1, "r": 1, "d": 1}
+    hidden: true
+    description: "Avec espaces et majuscules"
+  - input: ["aAbBcC"]
+    expected: {"a": 2, "b": 2, "c": 2}
+    hidden: true
+    description: "Majuscules et minuscules"
