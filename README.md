@@ -4,17 +4,32 @@ Bienvenue ! Cette plateforme te permet d'apprendre Python en résolvant des exer
 
 ## Démarrage rapide
 
-### 1. Lancer la plateforme
+### 1. Installer uv
+
+Le projet utilise [uv](https://docs.astral.sh/uv/) pour gérer Python et les dépendances.
+
+- **macOS / Linux** :
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+- **Windows** (PowerShell) :
+  ```powershell
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+
+### 2. Lancer la plateforme
 
 ```bash
-python main.py
+uv run main.py
 ```
 
-### 2. Ouvrir dans ton navigateur
+uv installe automatiquement la bonne version de Python et les dépendances au premier lancement.
+
+### 3. Ouvrir dans ton navigateur
 
 Va sur : **http://localhost:8000**
 
-C'est tout ! 
+C'est tout !
 
 ## Comment ça marche ?
 
@@ -53,28 +68,32 @@ C'est tout !
 8. **Strings** - Manipulation avancée de texte (3 exercices)
 9. **Modules** - Utiliser math, random, datetime, json (4 exercices)
 
-
 ## ⚠️ En cas de problème
 
 ### La page ne se charge pas
+
 - Vérifie que le serveur tourne (tu dois voir un message dans le terminal)
 - Assure-toi d'utiliser **http://localhost:8000** (pas https)
 
 ### Les tests ne marchent pas
+
 - Vérifie qu'il n'y a pas d'erreur de syntaxe dans ton code
 - Regarde le traceback en bas pour comprendre l'erreur
 - Relis bien la consigne de l'exercice
 
 ### Je veux recommencer à zéro
+
 Ouvre la console du navigateur (F12) et tape :
+
 ```javascript
-localStorage.clear()
+localStorage.clear();
 ```
+
 Puis rafraîchis la page (F5).
 
 ## 🛑 Arrêter la plateforme
 
-Dans le terminal où tu as lancé `python main.py`, appuie sur **Ctrl+C**.
+Dans le terminal où tu as lancé `uv run main.py`, appuie sur **Ctrl+C**.
 
 ---
 

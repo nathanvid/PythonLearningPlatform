@@ -1,9 +1,16 @@
+import json
+import os
+import shutil
 import subprocess
 import sys
-import json
+import tempfile
 import traceback
-from typing import List, Any, Dict
-from models import Test, TestResult
+from pathlib import Path
+from typing import List, Dict
+from models import Test
+
+BASE_DIR = Path(__file__).parent
+HARNESS = BASE_DIR / "harness.py"
 
 
 class CodeRunner:
@@ -24,18 +31,29 @@ class CodeRunner:
         Returns:
             Dict avec success, tests results, error, traceback
         """
-        # Préparer le script de test
-        test_script = self._prepare_test_script(code, tests, data_files or [])
+        payload = json.dumps({
+            "code": code,
+            "tests": [t.model_dump() for t in tests],
+        })
+
+        # Variables d'environnement : forcer l'UTF-8 (Windows utilise cp1252 par défaut)
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
 
         try:
-            # Exécuter dans un subprocess isolé
-            result = subprocess.run(
-                [sys.executable, "-c", test_script],
-                capture_output=True,
-                text=True,
-                timeout=self.timeout,
-                cwd="/Users/arcadiamc/Desktop/Cours/A2/Batterie exercice python"
-            )
+            # Exécuter dans un subprocess isolé, dans un dossier temporaire
+            with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as workdir:
+                self._copy_data_files(data_files or [], Path(workdir))
+                result = subprocess.run(
+                    [sys.executable, str(HARNESS)],
+                    input=payload,
+                    capture_output=True,
+                    text=True,
+                    encoding="utf-8",
+                    errors="replace",
+                    timeout=self.timeout,
+                    cwd=workdir,
+                    env=env,
+                )
 
             # Parser les résultats JSON
             if result.returncode == 0:
@@ -75,77 +93,13 @@ class CodeRunner:
                 "traceback": traceback.format_exc()
             }
 
-    def _prepare_test_script(self, code: str, tests: List[Test], data_files: List[str]) -> str:
-        """Prépare le script qui sera exécuté pour tester le code"""
-
-        # Créer le code de test
-        test_code = f"""
-import json
-import sys
-import traceback
-
-# Code de l'élève
-{code}
-
-# Tests
-results = {{
-    "success": True,
-    "tests": [],
-    "error": None,
-    "traceback": None
-}}
-
-tests_json = '''{json.dumps([{"input": t.input, "expected": t.expected, "description": t.description, "hidden": t.hidden} for t in tests])}'''
-tests = json.loads(tests_json)
-
-for test in tests:
-    test_result = {{
-        "passed": False,
-        "input": test["input"],
-        "expected": test["expected"],
-        "actual": None,
-        "error": None,
-        "description": test.get("description"),
-        "hidden": test.get("hidden", False)
-    }}
-
-    try:
-        # Extraire le nom de la fonction depuis le code
-        # Cherche toutes les fonctions définies au niveau module (pas dans les classes)
-        import re
-        # Trouve toutes les fonctions qui ne sont pas indentées (= au niveau module)
-        func_matches = re.findall(r'^def\\s+(\\w+)\\s*\\(', '''{code}''', re.MULTILINE)
-        if not func_matches:
-            test_result["error"] = "Aucune fonction trouvée dans le code"
-            results["tests"].append(test_result)
-            results["success"] = False
-            continue
-
-        # Prend la dernière fonction définie (celle à tester)
-        func_name = func_matches[-1]
-
-        # Appeler la fonction
-        func = globals()[func_name]
-        actual = func(*test["input"])
-        test_result["actual"] = actual
-
-        # Vérifier le résultat
-        if actual == test["expected"]:
-            test_result["passed"] = True
-        else:
-            results["success"] = False
-
-    except Exception as e:
-        test_result["error"] = str(e)
-        test_result["traceback"] = traceback.format_exc()
-        results["success"] = False
-
-    results["tests"].append(test_result)
-
-# Afficher les résultats en JSON
-print(json.dumps(results))
-"""
-        return test_code
+    @staticmethod
+    def _copy_data_files(data_files: List[str], workdir: Path) -> None:
+        """Copie les fichiers de données (chemins relatifs au projet) dans le dossier d'exécution"""
+        for name in data_files:
+            src = BASE_DIR / name
+            if src.is_file():
+                shutil.copy(src, workdir / src.name)
 
 
 # Instance globale

@@ -117,7 +117,8 @@ async def run_code(request: RunRequest) -> RunResponse:
                 expected=test_data["expected"],
                 actual=test_data.get("actual"),
                 error=test_data.get("error"),
-                description=test_data.get("description")
+                description=test_data.get("description"),
+                hidden=test_data.get("hidden", False)
             )
             test_results.append(test_result)
 
@@ -143,4 +144,4 @@ if __name__ == "__main__":
     import uvicorn
     print("🚀 Démarrage de la plateforme d'apprentissage Python...")
     print("📚 Accédez à http://localhost:8000")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
