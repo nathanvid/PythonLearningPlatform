@@ -61,3 +61,62 @@ tests:
     expected: "Woof! Je suis Rocky"
     hidden: true
     description: "Test caché"
+
+en:
+  title: "Inheritance - Animal and Dog classes"
+  description: |
+    Create two classes:
+
+    1. An Animal class with:
+       - A constructor __init__(self, name) that stores the name
+       - A method speak(self) that returns "I am an animal"
+
+    2. A Dog class that inherits from Animal with:
+       - A constructor __init__(self, name, breed) that calls the parent constructor
+         and stores the breed
+       - A method speak(self) that returns "Woof! I am [name]"
+       - A method get_breed(self) that returns the breed
+
+    Create a function create_dog_speak(name, breed) that creates a Dog and returns
+    what the dog says (call speak()).
+
+    Example:
+    - create_dog_speak("Rex", "Labrador") → "Woof! I am Rex"
+  template: |
+    class Animal:
+        def __init__(self, name):
+            pass
+
+        def speak(self):
+            pass
+
+    class Dog(Animal):
+        def __init__(self, name, breed):
+            pass
+
+        def speak(self):
+            pass
+
+        def get_breed(self):
+            pass
+
+    def create_dog_speak(name, breed):
+        # Create a Dog and return what it says
+        pass
+  hints:
+    - "In Dog.__init__, call super().__init__(name) to initialize the name"
+    - "Store the breed with self.breed"
+    - "In speak(), use an f-string with self.name"
+    - "Inheritance is written as: class Dog(Animal)"
+  tests:
+    - input: ["Rex", "Labrador"]
+      expected: "Woof! I am Rex"
+      description: "Rex the dog"
+    - input: ["Max", "Shepherd"]
+      expected: "Woof! I am Max"
+      description: "Max the dog"
+    - input: ["Bella", "Poodle"]
+      expected: "Woof! I am Bella"
+      description: "Bella the dog"
+    - expected: "Woof! I am Rocky"
+      description: "Hidden test"

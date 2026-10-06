@@ -42,3 +42,33 @@ tests:
     expected: 20
     hidden: true
     description: "Grande liste"
+
+en:
+  title: "random module - Random numbers"
+  description: |
+    The random module lets you generate random numbers.
+
+    Create a function generate_random_list(n, min_val, max_val) that generates
+    a list of n random integers between min_val and max_val (inclusive),
+    then returns THE LENGTH of that list (so it can be tested).
+
+    Use random.randint(min_val, max_val) for each number.
+
+    Examples:
+    - generate_random_list(5, 1, 10) → 5  (returns the length)
+    - generate_random_list(3, 0, 100) → 3
+  template: |
+    def generate_random_list(n, min_val, max_val):
+        # Generate n random numbers and return the len() of the list
+        pass
+  hints:
+    - "Import random: import random"
+    - "Use random.randint(min_val, max_val) for a random number"
+    - "Build a list with a for loop or a list comprehension"
+    - "[random.randint(min_val, max_val) for _ in range(n)]"
+  tests:
+    - "List of 5 numbers (checks the length)"
+    - "List of 3 numbers"
+    - "All numbers are 1"
+    - "Empty list"
+    - "Large list"

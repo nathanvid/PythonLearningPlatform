@@ -36,3 +36,30 @@ tests:
     expected: {"x": 10, "y": 20, "z": 30}
     hidden: true
     description: "Trois éléments"
+
+en:
+  title: "Create a dictionary"
+  description: |
+    Dictionaries store key-value pairs: {"name": "Alice", "age": 25}
+
+    Create a function create_dict(keys, values) that builds a dictionary
+    from two lists: a list of keys and a list of values.
+
+    Use zip() to pair the keys with the values.
+
+    Examples:
+    - create_dict(["a", "b"], [1, 2]) → {"a": 1, "b": 2}
+    - create_dict(["name", "age"], ["Alice", 25]) → {"name": "Alice", "age": 25}
+  template: |
+    def create_dict(keys, values):
+        # Build a dictionary from the two lists
+        pass
+  hints:
+    - "Use zip(keys, values) to pair up the elements"
+    - "Convert to a dict with dict(zip(keys, values))"
+    - "Or use a dict comprehension: {k: v for k, v in zip(keys, values)}"
+  tests:
+    - "Simple dictionary"
+    - "Mixed dictionary"
+    - "Empty dictionary"
+    - "Three elements"

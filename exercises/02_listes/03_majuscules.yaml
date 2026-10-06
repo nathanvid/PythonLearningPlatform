@@ -40,3 +40,29 @@ tests:
     expected: ["A", "B", "C"]
     hidden: true
     description: "Lettres seules"
+
+en:
+  title: "Convert to uppercase"
+  description: |
+    Create a function uppercase_words(words) that takes a list of words
+    and returns a new list with all the words in uppercase.
+
+    Use a list comprehension.
+
+    Examples:
+    - uppercase_words(["hello", "world"]) → ["HELLO", "WORLD"]
+    - uppercase_words(["python"]) → ["PYTHON"]
+  template: |
+    def uppercase_words(words):
+        # Use a list comprehension
+        pass
+  hints:
+    - "Use the .upper() method on each word"
+    - "Syntax: [word.upper() for word in words]"
+  tests:
+    - "Two simple words"
+    - "Lowercase words"
+    - "Already uppercase"
+    - "Empty list"
+    - "Mixed-case words"
+    - "Single letters"

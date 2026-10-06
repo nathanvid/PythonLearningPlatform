@@ -39,3 +39,32 @@ tests:
   - input: [10]
     expected: 55
     description: "Onzième terme de Fibonacci"
+
+en:
+  title: "Fibonacci sequence"
+  description: |
+    Complete the fibonacci() function, which takes an integer n as a parameter
+    and returns the n-th number of the Fibonacci sequence.
+
+    The Fibonacci sequence starts with 0 and 1, then each following number is
+    the sum of the two previous numbers:
+    0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+    fibonacci(0) = 0
+    fibonacci(1) = 1
+    fibonacci(2) = 1
+    fibonacci(6) = 8
+  template: |
+    def fibonacci(n):
+        # Write your code here
+        pass
+  hints:
+    - "Handle the base cases first: n=0 returns 0, n=1 returns 1"
+    - "For the other cases, use a loop to compute the successive terms"
+    - "Keep track of the last two numbers of the sequence"
+  tests:
+    - "First Fibonacci term"
+    - "Second Fibonacci term"
+    - "Third Fibonacci term"
+    - "Seventh Fibonacci term"
+    - "Eleventh Fibonacci term"

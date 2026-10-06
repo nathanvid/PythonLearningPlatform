@@ -45,3 +45,32 @@ tests:
     expected: true
     hidden: true
     description: "Phrase complexe"
+
+en:
+  title: "Check a palindrome"
+  description: |
+    Create a function is_palindrome(text) that checks whether a text is a palindrome.
+
+    A palindrome is a word or sentence that reads the same way
+    in both directions (ignoring spaces, punctuation and case).
+
+    Examples:
+    - is_palindrome("radar") → true
+    - is_palindrome("hello") → false
+    - is_palindrome("A man a plan a canal Panama") → true
+  template: |
+    def is_palindrome(text):
+        # Write your code here
+        pass
+  hints:
+    - "Remove the spaces with .replace(' ', '')"
+    - "Convert to lowercase with .lower()"
+    - "Compare the text with its reverse: text == text[::-1]"
+  tests:
+    - "Simple palindrome"
+    - "Not a palindrome"
+    - "Another palindrome"
+    - "A single letter"
+    - "With an uppercase letter"
+    - "Palindrome sentence"
+    - "Complex sentence"

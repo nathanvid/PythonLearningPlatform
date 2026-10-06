@@ -35,3 +35,29 @@ tests:
     expected: {10: "x", 20: "y", 30: "z"}
     hidden: true
     description: "Trois éléments"
+
+en:
+  title: "Invert a dictionary"
+  description: |
+    Create a function invert_dict(d) that swaps the keys and the values
+    of a dictionary.
+
+    The old keys become the values, and the old values
+    become the keys.
+
+    Examples:
+    - invert_dict({"a": 1, "b": 2}) → {1: "a", 2: "b"}
+    - invert_dict({"name": "Alice"}) → {"Alice": "name"}
+  template: |
+    def invert_dict(d):
+        # Swap keys and values
+        pass
+  hints:
+    - "Use a dict comprehension"
+    - "Syntax: {value: key for key, value in d.items()}"
+    - ".items() returns the (key, value) pairs"
+  tests:
+    - "Simple dictionary"
+    - "Mixed values"
+    - "Empty dictionary"
+    - "Three elements"

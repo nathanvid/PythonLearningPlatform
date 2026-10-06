@@ -42,3 +42,33 @@ tests:
     expected: {"a": 2, "b": 2, "c": 2}
     hidden: true
     description: "Majuscules et minuscules"
+
+en:
+  title: "Count occurrences"
+  description: |
+    Create a function count_letters(text) that counts how many times
+    each letter appears in a text (case-insensitive).
+
+    Return a dictionary where the keys are the letters and the values
+    are the number of occurrences.
+
+    Ignore spaces and punctuation.
+
+    Examples:
+    - count_letters("aaa") → {"a": 3}
+    - count_letters("hello") → {"h": 1, "e": 1, "l": 2, "o": 1}
+  template: |
+    def count_letters(text):
+        # Count the occurrences of each letter
+        pass
+  hints:
+    - "Convert the text to lowercase with .lower()"
+    - "Create an empty dictionary: counts = {}"
+    - "Go through each character and check whether it is a letter with .isalpha()"
+    - "Use counts[char] = counts.get(char, 0) + 1 to count"
+  tests:
+    - "A single repeated letter"
+    - "Simple word"
+    - "Empty string"
+    - "With spaces and uppercase letters"
+    - "Uppercase and lowercase"

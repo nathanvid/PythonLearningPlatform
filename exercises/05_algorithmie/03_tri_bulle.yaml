@@ -46,3 +46,33 @@ tests:
     expected: [2, 2, 4, 4]
     hidden: true
     description: "Avec doublons"
+
+en:
+  title: "Bubble sort"
+  description: |
+    Implement the bubble sort algorithm in a function bubble_sort(arr)
+    that sorts a list of numbers in ascending order.
+
+    Bubble sort compares adjacent elements and swaps them if they are
+    in the wrong order. This process is repeated until the list is sorted.
+
+    Examples:
+    - bubble_sort([3, 1, 2]) → [1, 2, 3]
+    - bubble_sort([5, 2, 8, 1]) → [1, 2, 5, 8]
+  template: |
+    def bubble_sort(arr):
+        # Implement bubble sort
+        pass
+  hints:
+    - "Make a copy of the list so you don't modify the original"
+    - "Use two nested loops"
+    - "Compare arr[i] and arr[i+1], swap them if arr[i] > arr[i+1]"
+    - "Repeat until no more swaps are needed"
+  tests:
+    - "Small unsorted list"
+    - "List of 4 elements"
+    - "Already sorted"
+    - "Reverse order"
+    - "A single element"
+    - "Longer list"
+    - "With duplicates"

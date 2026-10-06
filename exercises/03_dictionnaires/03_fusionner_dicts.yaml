@@ -35,3 +35,29 @@ tests:
     expected: {"x": 5, "y": 20, "z": 30}
     hidden: true
     description: "Fusion complexe"
+
+en:
+  title: "Merge dictionaries"
+  description: |
+    Create a function merge_dicts(dict1, dict2) that merges two dictionaries.
+
+    If a key exists in both dictionaries, the value from dict2 must
+    be kept (it overwrites the one from dict1).
+
+    Examples:
+    - merge_dicts({"a": 1}, {"b": 2}) → {"a": 1, "b": 2}
+    - merge_dicts({"a": 1}, {"a": 2}) → {"a": 2}
+  template: |
+    def merge_dicts(dict1, dict2):
+        # Merge the two dictionaries
+        pass
+  hints:
+    - "Make a copy of dict1: result = dict1.copy()"
+    - "Use result.update(dict2) to add the elements of dict2"
+    - "Or use the | operator in Python 3.9+: dict1 | dict2"
+    - "Or use {**dict1, **dict2}"
+  tests:
+    - "Different keys"
+    - "Same key, dict2 wins"
+    - "First dict empty"
+    - "Complex merge"

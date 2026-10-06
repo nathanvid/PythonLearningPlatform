@@ -50,3 +50,37 @@ tests:
     expected: -1
     hidden: true
     description: "Valeur entre deux éléments"
+
+en:
+  title: "Binary search"
+  description: |
+    Implement the binary search algorithm in a function
+    binary_search(arr, target) that looks for target in a sorted array arr.
+
+    The function must return the index of the element if found, otherwise -1.
+
+    Binary search splits the array in two at each step,
+    comparing the middle element with the target.
+
+    Examples:
+    - binary_search([1, 2, 3, 4, 5], 3) → 2
+    - binary_search([1, 2, 3, 4, 5], 6) → -1
+  template: |
+    def binary_search(arr, target):
+        # Implement binary search
+        pass
+  hints:
+    - "Use two pointers: left = 0 and right = len(arr) - 1"
+    - "Compute the middle: mid = (left + right) // 2"
+    - "If arr[mid] == target, return mid"
+    - "If arr[mid] < target, search on the right (left = mid + 1)"
+    - "If arr[mid] > target, search on the left (right = mid - 1)"
+    - "Keep going while left <= right"
+  tests:
+    - "Element in the middle"
+    - "First element"
+    - "Last element"
+    - "Element not found"
+    - "A single element"
+    - "Longer list"
+    - "Value between two elements"

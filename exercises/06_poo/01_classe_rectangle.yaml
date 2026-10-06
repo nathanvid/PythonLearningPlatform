@@ -54,3 +54,45 @@ tests:
     expected: 100
     hidden: true
     description: "Rectangle très allongé"
+
+en:
+  title: "Rectangle class"
+  description: |
+    Create a Rectangle class with:
+    - A constructor __init__(self, width, height)
+    - A method area(self) that returns the area (width × height)
+    - A method perimeter(self) that returns the perimeter (2 × (width + height))
+
+    Then create a function get_rectangle_area(width, height) that creates
+    a Rectangle and returns its area.
+
+    Example:
+    - get_rectangle_area(5, 3) → 15
+  template: |
+    class Rectangle:
+        def __init__(self, width, height):
+            # Initialize the attributes
+            pass
+
+        def area(self):
+            # Return the area
+            pass
+
+        def perimeter(self):
+            # Return the perimeter
+            pass
+
+    def get_rectangle_area(width, height):
+        # Create a Rectangle and return its area
+        pass
+  hints:
+    - "Use self.width and self.height to store the dimensions"
+    - "Area = width × height"
+    - "Perimeter = 2 × (width + height)"
+    - "In get_rectangle_area, create a Rectangle then call .area()"
+  tests:
+    - "Area of a 5×3 rectangle"
+    - "Area of a 10×2 rectangle"
+    - "Area of a 4×4 square"
+    - "Hidden area"
+    - "Very elongated rectangle"

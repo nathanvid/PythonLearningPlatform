@@ -45,3 +45,32 @@ tests:
     expected: false
     hidden: true
     description: "100 n'est pas premier"
+
+en:
+  title: "Prime number"
+  description: |
+    Create a function is_prime(n) that determines whether a number n is prime.
+
+    A prime number is a natural number greater than 1 that is only divisible
+    by 1 and by itself.
+
+    Examples:
+    - is_prime(7) → true  (only divisible by 1 and 7)
+    - is_prime(4) → false  (divisible by 1, 2 and 4)
+  template: |
+    def is_prime(n):
+        # Write your code here
+        pass
+  hints:
+    - "Numbers <= 1 are not prime"
+    - "Check whether n is divisible by a number from 2 to n-1"
+    - "If n % i == 0, then n is not prime"
+    - "Optimization: you can stop at sqrt(n)"
+  tests:
+    - "2 is prime"
+    - "7 is prime"
+    - "4 is not prime"
+    - "1 is not prime"
+    - "15 is not prime"
+    - "17 is prime"
+    - "100 is not prime"

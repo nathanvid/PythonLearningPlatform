@@ -25,3 +25,22 @@ tests:
   - input: [["a", "b", "c", "d", "e"]]
     expected: 5
     description: "Liste avec 5 éléments"
+
+en:
+  title: "Length of a list"
+  description: |
+    Complete the get_length() function, which takes a list as a parameter
+    and returns its length (number of elements).
+
+    Example: get_length([1, 2, 3]) should return 3
+  template: |
+    def get_length(lst):
+        # Write your code here
+        pass
+  hints:
+    - "Use the built-in len() function to get the length of a list"
+    - "Syntax: len(my_list)"
+  tests:
+    - "List with 3 elements"
+    - "Empty list"
+    - "List with 5 elements"

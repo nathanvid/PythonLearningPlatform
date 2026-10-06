@@ -45,3 +45,34 @@ tests:
     expected: 5
     hidden: true
     description: "Voyelles majuscules"
+
+en:
+  title: "Count the vowels"
+  description: |
+    Create a function count_vowels(text) that counts the number of vowels
+    (a, e, i, o, u) in a string.
+
+    The function must be case-insensitive (A and a both count).
+
+    Examples:
+    - count_vowels("hello") → 2  (e, o)
+    - count_vowels("Python") → 1  (o)
+  template: |
+    def count_vowels(text):
+        # Write your code here
+        pass
+  hints:
+    - "Create a counter variable initialized to 0"
+    - "Go through each character of the string with a for loop"
+    - "Use .lower() to convert to lowercase"
+    - "Check whether the character is in 'aeiou'"
+  tests:
+    - "Simple word"
+    - "With an uppercase letter"
+    - "All vowels, mixed case"
+    - "No vowels"
+    - "Empty string"
+    - input: ["Hello there world"]
+      expected: 5
+      description: "Sentence with spaces"
+    - "Uppercase vowels"

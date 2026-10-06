@@ -38,3 +38,30 @@ tests:
     expected: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     hidden: true
     description: "Compte à rebours de 10"
+
+en:
+  title: "Countdown"
+  description: |
+    Create a function countdown(n) that returns a list containing a countdown from n to 1.
+
+    Use a while loop to build the list.
+
+    Examples:
+    - countdown(5) → [5, 4, 3, 2, 1]
+    - countdown(3) → [3, 2, 1]
+  template: |
+    def countdown(n):
+        # Use a while loop
+        pass
+  hints:
+    - "Create an empty list: result = []"
+    - "Use while n > 0: to keep going as long as n is positive"
+    - "Add n to the list: result.append(n)"
+    - "Decrement n: n -= 1"
+    - "Return the list at the end"
+  tests:
+    - "Countdown from 5"
+    - "Countdown from 3"
+    - "A single number"
+    - "Empty list"
+    - "Countdown from 10"

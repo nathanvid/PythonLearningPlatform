@@ -41,3 +41,30 @@ tests:
     expected: 2
     hidden: true
     description: "Nombres négatifs"
+
+en:
+  title: "Sum of numbers stored as strings"
+  description: |
+    Create a function sum_string_numbers(str_list) that takes a list of
+    numbers written as strings and returns their sum as an integer.
+
+    You will need to convert (cast) the strings to integers to add them up.
+
+    Examples:
+    - sum_string_numbers(["1", "2", "3"]) → 6
+    - sum_string_numbers(["10", "20"]) → 30
+  template: |
+    def sum_string_numbers(str_list):
+        # Write your code here
+        pass
+  hints:
+    - "Use int() to convert a string to an integer"
+    - "Go through the list and add up the converted values"
+    - "Or use sum() with a list comprehension"
+  tests:
+    - "Three small numbers"
+    - "Larger numbers"
+    - "A single zero"
+    - "Empty list"
+    - "Large numbers"
+    - "Negative numbers"

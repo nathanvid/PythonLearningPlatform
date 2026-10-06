@@ -38,3 +38,29 @@ tests:
     expected: 7
     hidden: true
     description: "Nombre puissance 1"
+
+en:
+  title: "Power function"
+  description: |
+    Create a function power(base, exponent) that computes base raised to the power of exponent.
+
+    Do not use the ** operator or the pow() function.
+    Use a loop to multiply base by itself exponent times.
+
+    Examples:
+    - power(2, 3) → 8  (because 2 × 2 × 2 = 8)
+    - power(5, 2) → 25  (because 5 × 5 = 25)
+  template: |
+    def power(base, exponent):
+        # Write your code here
+        pass
+  hints:
+    - "Initialize a result variable to 1"
+    - "Use a for loop that iterates exponent times"
+    - "Multiply the result by base at each iteration"
+  tests:
+    - "2 to the power of 3"
+    - "5 to the power of 2"
+    - "Any number to the power of 0 is 1"
+    - "Hidden test"
+    - "Number to the power of 1"

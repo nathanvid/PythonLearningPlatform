@@ -36,3 +36,25 @@ tests:
     expected: 0
     hidden: true
     description: "Tous les éléments identiques"
+
+en:
+  title: "Maximum of a list"
+  description: |
+    Complete the find_max() function, which takes a non-empty list of numbers as a parameter
+    and returns the largest number in the list.
+
+    Example: find_max([3, 1, 7, 2]) should return 7
+  template: |
+    def find_max(numbers):
+        # Write your code here
+        pass
+  hints:
+    - "Use the built-in max() function to find the maximum"
+    - "Or go through the list, keeping track of the largest number seen so far"
+  tests:
+    - "Maximum in an unsorted list"
+    - "Maximum in a sorted list"
+    - "Maximum among negative numbers"
+    - "List with a single element"
+    - "List with several elements"
+    - "All elements identical"

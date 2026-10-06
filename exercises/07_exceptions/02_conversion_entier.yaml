@@ -45,3 +45,34 @@ tests:
     expected: 1000
     hidden: true
     description: "Grand nombre"
+
+en:
+  title: "Safe conversion to integer"
+  description: |
+    Create a function safe_int(text) that tries to convert a string to an integer.
+
+    If the conversion succeeds, return the integer.
+    If the conversion fails (ValueError), return "Error: Invalid number".
+
+    Use try/except to handle the exception.
+
+    Examples:
+    - safe_int("123") → 123
+    - safe_int("abc") → "Error: Invalid number"
+    - safe_int("45.6") → "Error: Invalid number"
+  template: |
+    def safe_int(text):
+        # Use try/except around int()
+        pass
+  hints:
+    - "Use try: int(text)"
+    - "Catch except ValueError: for impossible conversions"
+    - "Return the number if the conversion succeeds"
+    - "Return the error message otherwise"
+  tests:
+    - "Valid number"
+    - "Invalid text"
+    - "Decimal number"
+    - "Negative number"
+    - "Empty string"
+    - "Large number"

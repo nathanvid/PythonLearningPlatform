@@ -1,5 +1,8 @@
 from pydantic import BaseModel
-from typing import List, Optional, Any
+from typing import List, Optional, Any, Literal
+
+# Langues disponibles pour les exercices et l'interface
+Lang = Literal["fr", "en"]
 
 
 class Test(BaseModel):
@@ -32,6 +35,7 @@ class RunRequest(BaseModel):
     """Requête pour exécuter du code"""
     code: str
     exercise_id: str
+    lang: Lang = "fr"
 
 
 class TestResult(BaseModel):

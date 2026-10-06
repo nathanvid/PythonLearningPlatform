@@ -43,3 +43,32 @@ tests:
     expected: "Error: Index out of range"
     hidden: true
     description: "Liste vide"
+
+en:
+  title: "Safe list access"
+  description: |
+    Create a function safe_get(lst, index) that returns the element at the given index
+    in the list.
+
+    If the index is out of range (IndexError), return "Error: Index out of range".
+
+    Use try/except to handle the exception.
+
+    Examples:
+    - safe_get([1, 2, 3], 1) → 2
+    - safe_get([1, 2, 3], 5) → "Error: Index out of range"
+  template: |
+    def safe_get(lst, index):
+        # Use try/except to access lst[index]
+        pass
+  hints:
+    - "Use try: return lst[index]"
+    - "Catch except IndexError: for invalid indexes"
+    - "Return the error message in the except block"
+  tests:
+    - "Valid index"
+    - "Index too large"
+    - "First element"
+    - "Valid negative index"
+    - "Very large index"
+    - "Empty list"

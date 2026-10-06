@@ -42,3 +42,33 @@ tests:
     expected: 3.5
     hidden: true
     description: "Division avec décimales"
+
+en:
+  title: "Safe division"
+  description: |
+    Create a function safe_divide(a, b) that divides a by b and handles the
+    division by zero error.
+
+    If b is 0, the function must return "Error: Division by zero" instead of crashing.
+    Otherwise, return the result of the division.
+
+    Use try/except to catch the ZeroDivisionError exception.
+
+    Examples:
+    - safe_divide(10, 2) → 5.0
+    - safe_divide(10, 0) → "Error: Division by zero"
+  template: |
+    def safe_divide(a, b):
+        # Use try/except
+        pass
+  hints:
+    - "Use try: to attempt the division"
+    - "Use except ZeroDivisionError: to catch the error"
+    - "In the except block, return the error message"
+    - "In the try block, return a / b"
+  tests:
+    - "Normal division"
+    - "Division by zero"
+    - "Another division"
+    - "Hidden division by zero test"
+    - "Division with decimals"

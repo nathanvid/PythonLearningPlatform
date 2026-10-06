@@ -48,3 +48,37 @@ tests:
     expected: 10
     hidden: true
     description: "Soustraction"
+
+en:
+  title: "Calculation with multiple error handling"
+  description: |
+    Create a function calculate(a, b, operation) that performs a mathematical
+    operation and handles several types of errors.
+
+    operation can be: "add", "subtract", "multiply", "divide"
+
+    Handle the following errors:
+    - ZeroDivisionError → return "Error: Division by zero"
+    - ValueError (a or b are not numbers) → return "Error: Invalid input"
+    - Unknown operation → return "Error: Unknown operation"
+
+    Examples:
+    - calculate(10, 5, "divide") → 2.0
+    - calculate(10, 0, "divide") → "Error: Division by zero"
+    - calculate(10, 5, "unknown") → "Error: Unknown operation"
+  template: |
+    def calculate(a, b, operation):
+        # Handle several exceptions
+        pass
+  hints:
+    - "Use try/except with several except blocks"
+    - "First check that operation is valid"
+    - "Use if/elif for each operation"
+    - "Catch ZeroDivisionError for division by zero"
+  tests:
+    - "Normal division"
+    - "Division by zero"
+    - "Addition"
+    - "Unknown operation"
+    - "Multiplication"
+    - "Subtraction"

@@ -37,3 +37,31 @@ tests:
     expected: 17.0
     hidden: true
     description: "Triangle 8-15-17"
+
+en:
+  title: "math module - Square root"
+  description: |
+    The math module contains mathematical functions: sqrt, ceil, floor, pi, etc.
+
+    Create a function calculate_hypotenuse(a, b) that computes the hypotenuse
+    of a right triangle (Pythagorean theorem: c = √(a² + b²)).
+
+    Use the math module to compute the square root.
+
+    Examples:
+    - calculate_hypotenuse(3, 4) → 5.0
+    - calculate_hypotenuse(5, 12) → 13.0
+  template: |
+    def calculate_hypotenuse(a, b):
+        # Import math and compute the hypotenuse
+        pass
+  hints:
+    - "Import the module: import math"
+    - "Use math.sqrt() for the square root"
+    - "Formula: sqrt(a² + b²)"
+    - "Compute a² with a**2"
+  tests:
+    - "3-4-5 triangle"
+    - "5-12-13 triangle"
+    - "Isosceles triangle"
+    - "8-15-17 triangle"

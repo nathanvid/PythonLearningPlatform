@@ -41,3 +41,36 @@ tests:
     expected: 6
     hidden: true
     description: "Six mots"
+
+en:
+  title: "Count the words"
+  description: |
+    Create a function word_count(text) that counts the number of words in a text.
+
+    Words are separated by spaces. Ignore multiple spaces.
+
+    Examples:
+    - word_count("Hello world") → 2
+    - word_count("Python  is   great") → 3  (multiple spaces)
+  template: |
+    def word_count(text):
+        # Count the number of words
+        pass
+  hints:
+    - "Use .split() without an argument to split on spaces"
+    - ".split() automatically handles multiple spaces"
+    - "Return the len() of the list of words"
+    - "Watch out for the empty string case"
+  tests:
+    - "Two words"
+    - input: ["Python  is   great"]
+      expected: 3
+      description: "Multiple spaces"
+    - input: ["Hello"]
+      expected: 1
+      description: "A single word"
+    - "Empty string"
+    - input: ["  spaces  at  start  and  end  "]
+      expected: 5
+      description: "Spaces at both ends"
+    - "Six words"

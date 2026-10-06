@@ -44,3 +44,35 @@ tests:
     expected: 365
     hidden: true
     description: "Presque une année"
+
+en:
+  title: "datetime module - Days between dates"
+  description: |
+    The datetime module lets you work with dates and times.
+
+    Create a function days_between(date1_str, date2_str) that computes the number
+    of days between two dates.
+
+    Dates are in the "YYYY-MM-DD" format (e.g. "2024-01-15").
+
+    Return the number of days (as an absolute value).
+
+    Examples:
+    - days_between("2024-01-01", "2024-01-10") → 9
+    - days_between("2024-12-25", "2024-12-31") → 6
+  template: |
+    def days_between(date1_str, date2_str):
+        # Compute the difference in days
+        pass
+  hints:
+    - "Import datetime: from datetime import datetime"
+    - "Parse the dates: datetime.strptime(date_str, '%Y-%m-%d')"
+    - "Compute the difference: date2 - date1"
+    - "Get the days with .days on the difference"
+    - "Use abs() for the absolute value"
+  tests:
+    - "9 days apart"
+    - "6 days apart"
+    - "Same date"
+    - "date2 before date1"
+    - "Almost a full year"

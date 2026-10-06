@@ -46,3 +46,36 @@ tests:
     expected: [0, -2, -4]
     hidden: true
     description: "Avec nombres négatifs et zéro"
+
+en:
+  title: "Filter even numbers"
+  description: |
+    List comprehensions can include conditions to filter elements.
+
+    Syntax: [expression for item in iterable if condition]
+
+    Example: [x for x in [1, 2, 3, 4] if x > 2] → [3, 4]
+
+    Create a function filter_even(numbers) that returns a list containing
+    only the even numbers of a given list.
+
+    Use a list comprehension with a condition.
+
+    Examples:
+    - filter_even([1, 2, 3, 4, 5]) → [2, 4]
+    - filter_even([10, 15, 20, 25]) → [10, 20]
+  template: |
+    def filter_even(numbers):
+        # Use a list comprehension with if
+        pass
+  hints:
+    - "Syntax: [x for x in my_list if condition]"
+    - "The condition for even is: x % 2 == 0"
+    - "Loop over the numbers list with for x in numbers"
+  tests:
+    - "Mixed list"
+    - "Larger numbers"
+    - "Only odd numbers"
+    - "Only even numbers"
+    - "Empty list"
+    - "With negative numbers and zero"

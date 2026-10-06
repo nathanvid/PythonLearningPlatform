@@ -35,3 +35,31 @@ tests:
     expected: "e d c b a"
     hidden: true
     description: "Cinq mots"
+
+en:
+  title: "Reverse the order of words"
+  description: |
+    Create a function reverse_words(sentence) that reverses the order of the words
+    in a sentence, but keeps each word intact.
+
+    Examples:
+    - reverse_words("Hello World") → "World Hello"
+    - reverse_words("Python is awesome") → "awesome is Python"
+  template: |
+    def reverse_words(sentence):
+        # Reverse the order of the words
+        pass
+  hints:
+    - "Use .split() to split the sentence into words"
+    - "Reverse the list with [::-1] or reversed()"
+    - "Join them back with ' '.join()"
+  tests:
+    - "Two words"
+    - input: ["Python is awesome"]
+      expected: "awesome is Python"
+      description: "Three words"
+    - input: ["Hello"]
+      expected: "Hello"
+      description: "A single word"
+    - "Empty string"
+    - "Five words"

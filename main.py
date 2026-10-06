@@ -4,7 +4,7 @@ from fastapi.responses import FileResponse
 from pathlib import Path
 import yaml
 from typing import List, Dict
-from models import Exercise, Category, RunRequest, RunResponse, TestResult
+from models import Exercise, Category, Lang, RunRequest, RunResponse, TestResult
 from runner import code_runner
 
 app = FastAPI(title="Python Learning Platform")
@@ -17,14 +17,59 @@ STATIC_DIR = BASE_DIR / "static"
 # Monter les fichiers statiques EN PREMIER (avant les routes)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
-# Cache des exercices
+# Le français est la langue de base des YAML ; les autres langues sont des blocs optionnels
+LANGUAGES = ("fr", "en")
+DEFAULT_LANG = "fr"
+
+# Noms affichés des catégories (clé = nom du dossier sans préfixe numérique)
+CATEGORY_NAMES = {
+    "en": {
+        "bases": "basics",
+        "listes": "lists",
+        "dictionnaires": "dictionaries",
+        "fonctions": "functions",
+        "algorithmie": "algorithms",
+        "poo": "OOP",
+        "exceptions": "exceptions",
+        "strings": "strings",
+        "modules": "modules",
+    },
+}
+
+# Cache des exercices, par langue
 exercises_cache: Dict[str, List[Category]] = {}
 
 
-def load_exercises() -> List[Category]:
-    """Charge tous les exercices organisés par catégories"""
-    if exercises_cache:
-        return exercises_cache.get("categories", [])
+def localize(data: dict, lang: str) -> dict:
+    """
+    Applique la traduction `lang` d'un exercice YAML.
+
+    Le bloc de traduction peut remplacer title, description, template, hints,
+    et contient `tests` : une liste alignée sur les tests d'origine, où chaque
+    élément est soit la description traduite, soit un dict de champs à remplacer
+    (ex: expected quand la sortie attendue est du texte).
+    """
+    base = {k: v for k, v in data.items() if k not in LANGUAGES}
+    translation = data.get(lang) if lang != DEFAULT_LANG else None
+    if not translation:
+        return base
+
+    base.update({k: v for k, v in translation.items() if k != "tests"})
+    tests_tr = translation.get("tests", [])
+    tests = []
+    for i, test in enumerate(base["tests"]):
+        override = tests_tr[i] if i < len(tests_tr) else {}
+        if isinstance(override, str):
+            override = {"description": override}
+        tests.append({**test, **override})
+    base["tests"] = tests
+    return base
+
+
+def load_exercises(lang: str = DEFAULT_LANG) -> List[Category]:
+    """Charge tous les exercices organisés par catégories, dans la langue demandée"""
+    if lang in exercises_cache:
+        return exercises_cache[lang]
 
     categories = {}
 
@@ -40,13 +85,14 @@ def load_exercises() -> List[Category]:
         # Enlever le préfixe numérique (ex: "01_bases" → "bases")
         category_name = category_dir.name
         display_name = category_name.split('_', 1)[1] if '_' in category_name else category_name
+        display_name = CATEGORY_NAMES.get(lang, {}).get(display_name, display_name)
         exercises = []
 
         # Charger tous les fichiers YAML dans la catégorie
         for yaml_file in sorted(category_dir.glob("*.yaml")):
             try:
                 with open(yaml_file, "r", encoding="utf-8") as f:
-                    data = yaml.safe_load(f)
+                    data = localize(yaml.safe_load(f), lang)
                     data["category"] = category_name
                     exercise = Exercise(**data)
                     exercises.append(exercise)
@@ -60,13 +106,13 @@ def load_exercises() -> List[Category]:
             )
 
     result = list(categories.values())
-    exercises_cache["categories"] = result
+    exercises_cache[lang] = result
     return result
 
 
-def get_exercise_by_id(exercise_id: str) -> Exercise:
+def get_exercise_by_id(exercise_id: str, lang: str = DEFAULT_LANG) -> Exercise:
     """Récupère un exercice par son ID"""
-    categories = load_exercises()
+    categories = load_exercises(lang)
     for category in categories:
         for exercise in category.exercises:
             if exercise.id == exercise_id:
@@ -81,15 +127,15 @@ async def root():
 
 
 @app.get("/api/categories")
-async def get_categories() -> List[Category]:
+async def get_categories(lang: Lang = DEFAULT_LANG) -> List[Category]:
     """Retourne toutes les catégories avec leurs exercices"""
-    return load_exercises()
+    return load_exercises(lang)
 
 
 @app.get("/api/exercise/{exercise_id}")
-async def get_exercise(exercise_id: str) -> Exercise:
+async def get_exercise(exercise_id: str, lang: Lang = DEFAULT_LANG) -> Exercise:
     """Retourne un exercice spécifique"""
-    return get_exercise_by_id(exercise_id)
+    return get_exercise_by_id(exercise_id, lang)
 
 
 @app.post("/api/run")
@@ -99,7 +145,7 @@ async def run_code(request: RunRequest) -> RunResponse:
     """
     try:
         # Récupérer l'exercice
-        exercise = get_exercise_by_id(request.exercise_id)
+        exercise = get_exercise_by_id(request.exercise_id, request.lang)
 
         # Exécuter le code
         results = code_runner.run_code(

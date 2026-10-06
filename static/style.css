@@ -33,10 +33,45 @@ body {
     border-bottom: 2px solid #34495e;
 }
 
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
 .sidebar-header h1 {
     font-size: 24px;
-    margin-bottom: 20px;
     color: #3498db;
+}
+
+/* Sélecteur de langue */
+.lang-switch {
+    display: flex;
+    background: #34495e;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #bdc3c7;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.lang-btn:hover {
+    color: white;
+}
+
+.lang-btn.active {
+    background: #3498db;
+    color: white;
 }
 
 .global-score {

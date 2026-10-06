@@ -38,3 +38,29 @@ tests:
     expected: 100
     hidden: true
     description: "Avec zéro"
+
+en:
+  title: "Maximum of two numbers"
+  description: |
+    Create a function max_two(a, b) that returns the larger of the two numbers.
+
+    Use an if/else condition to compare the two numbers.
+
+    Examples:
+    - max_two(5, 3) → 5
+    - max_two(2, 8) → 8
+    - max_two(4, 4) → 4
+  template: |
+    def max_two(a, b):
+        # Use if/else to compare
+        pass
+  hints:
+    - "Use if a > b: to compare"
+    - "Return a if a is larger, otherwise return b"
+    - "Don't forget the case where they are equal"
+  tests:
+    - "First number is larger"
+    - "Second number is larger"
+    - "Equal numbers"
+    - "Negative numbers"
+    - "With zero"

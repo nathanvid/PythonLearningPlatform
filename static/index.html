@@ -11,9 +11,15 @@
         <!-- Sidebar avec catégories et scores -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1>Python Learning</h1>
+                <div class="sidebar-title">
+                    <h1>Python Learning</h1>
+                    <div class="lang-switch" id="langSwitch" role="group" aria-label="Langue / Language">
+                        <button class="lang-btn" data-lang="fr">FR</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </div>
                 <div class="global-score">
-                    <div class="score-label">Score Global</div>
+                    <div class="score-label" data-i18n="globalScore">Score Global</div>
                     <div class="score-value" id="globalScore">0%</div>
                     <div class="score-bar">
                         <div class="score-bar-fill" id="globalScoreBar"></div>
@@ -29,20 +35,16 @@
         <!-- Zone principale -->
         <main class="main-content">
             <div class="welcome" id="welcomeScreen">
-                <h2>Bienvenue sur la plateforme d'apprentissage Python</h2>
-                <p>Sélectionnez un exercice dans le menu à gauche pour commencer.</p>
+                <h2 data-i18n="welcomeTitle">Bienvenue sur la plateforme d'apprentissage Python</h2>
+                <p data-i18n="welcomeText">Sélectionnez un exercice dans le menu à gauche pour commencer.</p>
             </div>
 
             <div class="exercise-view" id="exerciseView" style="display: none;">
                 <!-- Navigation exercices -->
                 <div class="exercise-navigation">
-                    <button class="btn-nav" id="prevExerciseBtn" disabled>
-                        ◀ Précédent
-                    </button>
+                    <button class="btn-nav" id="prevExerciseBtn" data-i18n="prev" disabled>◀ Précédent</button>
                     <span class="exercise-position" id="exercisePosition"></span>
-                    <button class="btn-nav" id="nextExerciseBtn" disabled>
-                        Suivant ▶
-                    </button>
+                    <button class="btn-nav" id="nextExerciseBtn" data-i18n="next" disabled>Suivant ▶</button>
                 </div>
 
                 <!-- En-tête de l'exercice -->
@@ -60,12 +62,8 @@
                 <!-- Hints -->
                 <div class="hints-section">
                     <div class="hints-buttons">
-                        <button class="btn-hint" id="showHintsBtn" style="display: none;">
-                            💡 Voir un indice
-                        </button>
-                        <button class="btn-hint-secondary" id="toggleHintsBtn" style="display: none;">
-                            👁️ Cacher les indices
-                        </button>
+                        <button class="btn-hint" id="showHintsBtn" data-i18n="showHint" style="display: none;">💡 Voir un indice</button>
+                        <button class="btn-hint-secondary" id="toggleHintsBtn" style="display: none;">👁️ Cacher les indices</button>
                     </div>
                     <div class="hints-container" id="hintsContainer"></div>
                 </div>
@@ -73,15 +71,15 @@
                 <!-- Éditeur de code -->
                 <div class="editor-section">
                     <div class="editor-header">
-                        <span>Éditeur Python</span>
-                        <button class="btn-primary" id="runBtn">▶ Tester mon code</button>
+                        <span data-i18n="editor">Éditeur Python</span>
+                        <button class="btn-primary" id="runBtn" data-i18n="run">▶ Tester mon code</button>
                     </div>
                     <div id="editor"></div>
                 </div>
 
                 <!-- Résultats -->
                 <div class="results-section" id="resultsSection" style="display: none;">
-                    <h3>Résultats des tests</h3>
+                    <h3 data-i18n="results">Résultats des tests</h3>
                     <div id="resultsContainer"></div>
                 </div>
             </div>

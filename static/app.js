@@ -1,3 +1,119 @@
+// Traductions de l'interface (le contenu des exercices est traduit côté serveur)
+const TRANSLATIONS = {
+    fr: {
+        globalScore: 'Score Global',
+        welcomeTitle: 'Bienvenue sur la plateforme d\'apprentissage Python',
+        welcomeText: 'Sélectionnez un exercice dans le menu à gauche pour commencer.',
+        prev: '◀ Précédent',
+        next: 'Suivant ▶',
+        showHint: '💡 Voir un indice',
+        hideHints: '👁️ Cacher les indices',
+        showHints: '👁️ Afficher les indices',
+        editor: 'Éditeur Python',
+        run: '▶ Tester mon code',
+        running: '⏳ Exécution...',
+        results: 'Résultats des tests',
+        exercisePosition: (i, n) => `Exercice ${i} / ${n}`,
+        hint: 'Indice',
+        hiddenTest: 'Test caché',
+        hiddenBadge: '🔒 Caché',
+        hiddenMismatch: 'Le résultat obtenu ne correspond pas à ce qui était attendu.',
+        test: 'Test',
+        input: 'Entrée',
+        expected: 'Attendu',
+        actual: 'Obtenu',
+        error: 'Erreur',
+        allPassed: '🎉 Félicitations ! Tous les tests sont réussis !',
+        runFailed: 'Erreur lors de l\'exécution du code',
+        completed: '✓ Complété',
+        inProgress: 'En cours',
+        notStarted: 'Pas commencé',
+    },
+    en: {
+        globalScore: 'Overall Score',
+        welcomeTitle: 'Welcome to the Python learning platform',
+        welcomeText: 'Pick an exercise from the menu on the left to get started.',
+        prev: '◀ Previous',
+        next: 'Next ▶',
+        showHint: '💡 Show a hint',
+        hideHints: '👁️ Hide hints',
+        showHints: '👁️ Show hints',
+        editor: 'Python Editor',
+        run: '▶ Test my code',
+        running: '⏳ Running...',
+        results: 'Test results',
+        exercisePosition: (i, n) => `Exercise ${i} / ${n}`,
+        hint: 'Hint',
+        hiddenTest: 'Hidden test',
+        hiddenBadge: '🔒 Hidden',
+        hiddenMismatch: 'The result does not match what was expected.',
+        test: 'Test',
+        input: 'Input',
+        expected: 'Expected',
+        actual: 'Got',
+        error: 'Error',
+        allPassed: '🎉 Congratulations! All tests passed!',
+        runFailed: 'Error while running the code',
+        completed: '✓ Completed',
+        inProgress: 'In progress',
+        notStarted: 'Not started',
+    },
+};
+
+// Messages d'erreur produits par runner.py / harness.py (toujours en français)
+const SERVER_MESSAGES_EN = [
+    [/^Erreur d'exécution$/, 'Runtime error'],
+    [/^Aucune fonction trouvée dans le code$/, 'No function found in the code'],
+    [/^Aucune sortie du programme$/, 'The program produced no output'],
+    [/^Timeout: le code a pris plus de (\S+) secondes$/, 'Timeout: the code took more than $1 seconds'],
+    [/^Erreur interne: /, 'Internal error: '],
+    [/^Erreur serveur: /, 'Server error: '],
+];
+
+function loadLang() {
+    const saved = localStorage.getItem('pythonLearningLang');
+    return saved in TRANSLATIONS ? saved : 'fr';
+}
+
+function t(key, ...args) {
+    const value = TRANSLATIONS[lang][key];
+    return typeof value === 'function' ? value(...args) : value;
+}
+
+function translateServerMessage(message) {
+    if (!message || lang === 'fr') return message;
+    for (const [pattern, replacement] of SERVER_MESSAGES_EN) {
+        if (pattern.test(message)) return message.replace(pattern, replacement);
+    }
+    return message;
+}
+
+// Traduire les éléments statiques de la page (attribut data-i18n)
+function applyStaticTranslations() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.dataset.i18n);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    const toggleBtn = document.getElementById('toggleHintsBtn');
+    const hintsHidden = document.getElementById('hintsContainer').style.display === 'none';
+    toggleBtn.textContent = hintsHidden ? t('showHints') : t('hideHints');
+}
+
+// Changer de langue : recharger les exercices et l'exercice courant
+async function setLang(newLang) {
+    if (newLang === lang || !(newLang in TRANSLATIONS)) return;
+    lang = newLang;
+    localStorage.setItem('pythonLearningLang', lang);
+    applyStaticTranslations();
+    await loadCategories();
+    if (currentExercise) {
+        await loadExercise(currentExercise.id);
+    }
+}
+
 // Utilitaires de stockage (définis d'abord)
 function loadProgress() {
     const saved = localStorage.getItem('pythonLearningProgress');
@@ -16,9 +132,11 @@ let progress = loadProgress();
 let currentHintIndex = 0;
 let allExercises = [];  // Liste plate de tous les exercices
 let currentExerciseIndex = -1;  // Index de l'exercice courant
+let lang = loadLang();  // Langue de l'interface et des exercices
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', async () => {
+    applyStaticTranslations();
     await initMonacoEditor();
     await loadCategories();
     setupEventListeners();
@@ -54,7 +172,7 @@ async function initMonacoEditor() {
 // Charger les catégories depuis l'API
 async function loadCategories() {
     try {
-        const response = await fetch('/api/categories');
+        const response = await fetch(`/api/categories?lang=${lang}`);
         categories = await response.json();
 
         // Créer une liste plate de tous les exercices pour la navigation
@@ -151,7 +269,7 @@ function createExerciseItem(exercise) {
 // Charger un exercice
 async function loadExercise(exerciseId) {
     try {
-        const response = await fetch(`/api/exercise/${exerciseId}`);
+        const response = await fetch(`/api/exercise/${exerciseId}?lang=${lang}`);
         currentExercise = await response.json();
 
         // Afficher la vue d'exercice
@@ -172,6 +290,9 @@ async function loadExercise(exerciseId) {
         const hintsBtn = document.getElementById('showHintsBtn');
         const hintsContainer = document.getElementById('hintsContainer');
         hintsContainer.innerHTML = '';
+        hintsContainer.style.display = 'block';
+        document.getElementById('toggleHintsBtn').style.display = 'none';
+        document.getElementById('toggleHintsBtn').textContent = t('hideHints');
 
         if (currentExercise.hints && currentExercise.hints.length > 0) {
             hintsBtn.style.display = 'block';
@@ -208,7 +329,7 @@ function updateNavigation() {
 
     // Mettre à jour la position
     document.getElementById('exercisePosition').textContent =
-        `Exercice ${currentExerciseIndex + 1} / ${allExercises.length}`;
+        t('exercisePosition', currentExerciseIndex + 1, allExercises.length);
 
     // Activer/désactiver les boutons
     const prevBtn = document.getElementById('prevExerciseBtn');
@@ -240,7 +361,7 @@ function showNextHint() {
         const hintsContainer = document.getElementById('hintsContainer');
         const hintDiv = document.createElement('div');
         hintDiv.className = 'hint';
-        hintDiv.innerHTML = `💡 <strong>Indice ${currentHintIndex + 1}:</strong> ${currentExercise.hints[currentHintIndex]}`;
+        hintDiv.innerHTML = `💡 <strong>${t('hint')} ${currentHintIndex + 1}:</strong> ${currentExercise.hints[currentHintIndex]}`;
         hintsContainer.appendChild(hintDiv);
         currentHintIndex++;
 
@@ -261,10 +382,10 @@ function toggleHints() {
 
     if (hintsContainer.style.display === 'none') {
         hintsContainer.style.display = 'block';
-        toggleBtn.textContent = '👁️ Cacher les indices';
+        toggleBtn.textContent = t('hideHints');
     } else {
         hintsContainer.style.display = 'none';
-        toggleBtn.textContent = '👁️ Afficher les indices';
+        toggleBtn.textContent = t('showHints');
     }
 }
 
@@ -277,7 +398,7 @@ async function runCode() {
 
     // Désactiver le bouton pendant l'exécution
     runBtn.disabled = true;
-    runBtn.textContent = '⏳ Exécution...';
+    runBtn.textContent = t('running');
 
     try {
         const response = await fetch('/api/run', {
@@ -285,7 +406,8 @@ async function runCode() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 code: code,
-                exercise_id: currentExercise.id
+                exercise_id: currentExercise.id,
+                lang: lang
             })
         });
 
@@ -311,10 +433,10 @@ async function runCode() {
 
     } catch (error) {
         console.error('Erreur lors de l\'exécution:', error);
-        alert('Erreur lors de l\'exécution du code');
+        alert(t('runFailed'));
     } finally {
         runBtn.disabled = false;
-        runBtn.textContent = '▶ Tester mon code';
+        runBtn.textContent = t('run');
     }
 }
 
@@ -331,7 +453,7 @@ function displayResults(result) {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'result-error';
         errorDiv.innerHTML = `
-            <div class="result-header">❌ ${result.error}</div>
+            <div class="result-header">❌ ${escapeHtml(translateServerMessage(result.error))}</div>
             ${result.traceback ? `<pre class="traceback">${escapeHtml(result.traceback)}</pre>` : ''}
         `;
         resultsContainer.appendChild(errorDiv);
@@ -343,6 +465,8 @@ function displayResults(result) {
         const testDiv = document.createElement('div');
         testDiv.className = `result-item ${test.passed ? 'result-success' : 'result-failure'}`;
 
+        const description = currentExercise?.tests[index]?.description ?? test.description;
+        const error = translateServerMessage(test.error);
         let content = '';
 
         // Si c'est un test caché, n'afficher que le statut
@@ -350,8 +474,8 @@ function displayResults(result) {
             content = `
                 <div class="result-header">
                     <span class="result-icon">${test.passed ? '✓' : '✗'}</span>
-                    <span>Test caché ${test.description ? ': ' + test.description : ''}</span>
-                    <span class="hidden-badge">🔒 Caché</span>
+                    <span>${t('hiddenTest')}${description ? ': ' + description : ''}</span>
+                    <span class="hidden-badge">${t('hiddenBadge')}</span>
                 </div>
             `;
 
@@ -359,13 +483,13 @@ function displayResults(result) {
             if (!test.passed && !test.error) {
                 content += `
                     <div class="result-details">
-                        <div class="hidden-hint">Le résultat obtenu ne correspond pas à ce qui était attendu.</div>
+                        <div class="hidden-hint">${t('hiddenMismatch')}</div>
                     </div>
                 `;
             } else if (test.error) {
                 content += `
                     <div class="result-error-detail">
-                        <strong>Erreur:</strong> ${escapeHtml(test.error)}
+                        <strong>${t('error')}:</strong> ${escapeHtml(error)}
                     </div>
                 `;
             }
@@ -374,19 +498,19 @@ function displayResults(result) {
             content = `
                 <div class="result-header">
                     <span class="result-icon">${test.passed ? '✓' : '✗'}</span>
-                    <span>Test ${index + 1}${test.description ? ': ' + test.description : ''}</span>
+                    <span>${t('test')} ${index + 1}${description ? ': ' + description : ''}</span>
                 </div>
                 <div class="result-details">
-                    <div><strong>Entrée:</strong> ${formatValue(test.input)}</div>
-                    <div><strong>Attendu:</strong> ${formatValue(test.expected)}</div>
-                    <div><strong>Obtenu:</strong> ${formatValue(test.actual)}</div>
+                    <div><strong>${t('input')}:</strong> ${formatValue(test.input)}</div>
+                    <div><strong>${t('expected')}:</strong> ${formatValue(test.expected)}</div>
+                    <div><strong>${t('actual')}:</strong> ${formatValue(test.actual)}</div>
                 </div>
             `;
 
             if (test.error) {
                 content += `
                     <div class="result-error-detail">
-                        <strong>Erreur:</strong> ${escapeHtml(test.error)}
+                        <strong>${t('error')}:</strong> ${escapeHtml(error)}
                     </div>
                 `;
             }
@@ -400,7 +524,7 @@ function displayResults(result) {
     if (result.success && result.tests.every(t => t.passed)) {
         const successDiv = document.createElement('div');
         successDiv.className = 'success-message';
-        successDiv.textContent = '🎉 Félicitations ! Tous les tests sont réussis !';
+        successDiv.textContent = t('allPassed');
         resultsContainer.insertBefore(successDiv, resultsContainer.firstChild);
     }
 }
@@ -453,13 +577,13 @@ function updateExerciseScore() {
     scoreElement.textContent = `${Math.round(exerciseProgress.score)}%`;
 
     if (exerciseProgress.completed) {
-        statusElement.textContent = '✓ Complété';
+        statusElement.textContent = t('completed');
         statusElement.className = 'status-badge status-completed';
     } else if (exerciseProgress.score > 0) {
-        statusElement.textContent = 'En cours';
+        statusElement.textContent = t('inProgress');
         statusElement.className = 'status-badge status-in-progress';
     } else {
-        statusElement.textContent = 'Pas commencé';
+        statusElement.textContent = t('notStarted');
         statusElement.className = 'status-badge status-not-started';
     }
 }
@@ -469,7 +593,8 @@ function saveCode(exerciseId, code) {
     if (!progress[exerciseId]) {
         progress[exerciseId] = { code: '', score: 0, completed: false };
     }
-    progress[exerciseId].code = code;
+    // Code identique au template : rien à garder, pour afficher le template de la langue courante
+    progress[exerciseId].code = code === currentExercise?.template ? '' : code;
     saveProgress();
 }
 
@@ -482,6 +607,9 @@ function setupEventListeners() {
     document.getElementById('toggleHintsBtn').addEventListener('click', toggleHints);
     document.getElementById('prevExerciseBtn').addEventListener('click', goToPrevExercise);
     document.getElementById('nextExerciseBtn').addEventListener('click', goToNextExercise);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
 }
 
 // Utilitaires

@@ -38,3 +38,29 @@ tests:
     expected: "Eve"
     hidden: true
     description: "JSON complexe"
+
+en:
+  title: "json module - Parse JSON"
+  description: |
+    The json module lets you work with JSON data.
+
+    Create a function extract_name(json_string) that parses a JSON string
+    and extracts the value of the "name" key.
+
+    Examples:
+    - extract_name('{"name": "Alice", "age": 25}') → "Alice"
+    - extract_name('{"name": "Bob"}') → "Bob"
+  template: |
+    def extract_name(json_string):
+        # Parse the JSON and extract "name"
+        pass
+  hints:
+    - "Import json: import json"
+    - "Parse with json.loads(json_string) to convert it to a dict"
+    - "Access the key: data['name']"
+  tests:
+    - "JSON with several fields"
+    - "Simple JSON"
+    - "Another JSON"
+    - "name in second position"
+    - "Complex JSON"

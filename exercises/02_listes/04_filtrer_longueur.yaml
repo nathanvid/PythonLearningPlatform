@@ -40,3 +40,30 @@ tests:
     expected: ["python", "java", "javascript"]
     hidden: true
     description: "Langages de programmation"
+
+en:
+  title: "Filter by length"
+  description: |
+    Create a function filter_by_length(words, min_length) that returns a list
+    containing only the words that have at least min_length characters.
+
+    Use a list comprehension with a condition.
+
+    Examples:
+    - filter_by_length(["a", "bb", "ccc"], 2) → ["bb", "ccc"]
+    - filter_by_length(["hello", "hi", "world"], 3) → ["hello", "world"]
+  template: |
+    def filter_by_length(words, min_length):
+        # Use a list comprehension with if
+        pass
+  hints:
+    - "Use len(word) to get the length of a word"
+    - "Condition: len(word) >= min_length"
+    - "Syntax: [word for word in words if ...]"
+  tests:
+    - "Minimum length 2"
+    - "Minimum length 3"
+    - "Minimum length 5"
+    - "Empty list"
+    - "All words pass the filter"
+    - "Programming languages"

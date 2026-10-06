@@ -57,3 +57,49 @@ tests:
     expected: 175
     hidden: true
     description: "Plusieurs opérations"
+
+en:
+  title: "Bank Account class"
+  description: |
+    Create a BankAccount class with:
+    - A constructor __init__(self, initial_balance) that initializes the balance
+    - A method deposit(self, amount) that adds an amount to the balance
+    - A method withdraw(self, amount) that removes an amount from the balance
+    - A method get_balance(self) that returns the current balance
+
+    Create a function test_account(operations) that:
+    1. Creates an account with a balance of 100
+    2. Runs a list of operations ["deposit:50", "withdraw:30", ...]
+    3. Returns the final balance
+
+    Example:
+    - test_account(["deposit:50"]) → 150
+    - test_account(["withdraw:30", "deposit:20"]) → 90
+  template: |
+    class BankAccount:
+        def __init__(self, initial_balance):
+            pass
+
+        def deposit(self, amount):
+            pass
+
+        def withdraw(self, amount):
+            pass
+
+        def get_balance(self):
+            pass
+
+    def test_account(operations):
+        # Create an account with 100, run the operations, return the balance
+        pass
+  hints:
+    - "Store the balance in self.balance"
+    - "deposit adds to the balance: self.balance += amount"
+    - "withdraw subtracts from the balance: self.balance -= amount"
+    - "Parse each operation: operation.split(':') to separate the type and the amount"
+  tests:
+    - "One deposit"
+    - "One withdrawal"
+    - "Deposit then withdrawal"
+    - "No operations"
+    - "Several operations"

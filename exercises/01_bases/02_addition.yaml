@@ -33,3 +33,24 @@ tests:
     expected: -80
     hidden: true
     description: "Nombres négatifs"
+
+en:
+  title: "Adding two numbers"
+  description: |
+    Complete the add() function, which takes two numbers as parameters
+    and returns their sum.
+
+    Example: add(2, 3) should return 5
+  template: |
+    def add(a, b):
+        # Write your code here
+        pass
+  hints:
+    - "Use the + operator to add two numbers"
+    - "Don't forget to use return to return the result"
+  tests:
+    - "Adding two positive numbers"
+    - "Adding a negative number"
+    - "Adding two zeros"
+    - "Large numbers"
+    - "Negative numbers"

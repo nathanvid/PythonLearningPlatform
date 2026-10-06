@@ -41,3 +41,33 @@ tests:
     expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     hidden: true
     description: "Carrés de 1 à 10"
+
+en:
+  title: "Squares with a list comprehension"
+  description: |
+    List comprehensions let you build lists concisely.
+
+    Syntax: [expression for item in iterable]
+
+    Example: [x * 2 for x in [1, 2, 3]] → [2, 4, 6]
+
+    Create a function squares(n) that returns a list of the squares of the numbers from 1 to n
+    using a list comprehension.
+
+    Examples:
+    - squares(3) → [1, 4, 9]
+    - squares(5) → [1, 4, 9, 16, 25]
+  template: |
+    def squares(n):
+        # Use a list comprehension
+        pass
+  hints:
+    - "Syntax: [expression for item in range(...)]"
+    - "The expression for the square of x is x ** 2"
+    - "Use range(1, n+1) to go from 1 to n inclusive"
+  tests:
+    - "Squares from 1 to 3"
+    - "Squares from 1 to 5"
+    - "A single number"
+    - "Empty list"
+    - "Squares from 1 to 10"
