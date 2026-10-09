@@ -1,0 +1,107 @@
+id: "temperature_str_property"
+title: "__str__ et @property"
+description: |
+  Cet exercice réunit deux outils vus dans la leçon : `__str__` et `@property`.
+
+  Complète la classe `Temperature` :
+  - `__init__(self, celsius)` range la température en degrés Celsius dans `self.celsius` ;
+  - la propriété `fahrenheit` renvoie `celsius * 9 / 5 + 32`, arrondi à 1 décimale ;
+  - `__str__` renvoie la température sous la forme `"21.5 °C"`.
+
+  Puis complète `describe(celsius)`, qui crée une `Temperature` et renvoie le tuple `(str(temperature), temperature.fahrenheit)`.
+
+  Exemples :
+  - `describe(0)` renvoie `("0 °C", 32.0)`
+  - `describe(100)` renvoie `("100 °C", 212.0)`
+
+template: |
+  class Temperature:
+      def __init__(self, celsius):
+          pass
+
+      @property
+      def fahrenheit(self):
+          pass
+
+      def __str__(self):
+          pass
+
+  def describe(celsius):
+      # Crée une Temperature et retourne (texte, fahrenheit)
+      pass
+
+solution: |
+  class Temperature:
+      def __init__(self, celsius):
+          self.celsius = celsius
+  
+      @property
+      def fahrenheit(self):
+          return round(self.celsius * 9 / 5 + 32, 1)
+  
+      def __str__(self):
+          return f"{self.celsius} °C"
+  
+  def describe(celsius):
+      temperature = Temperature(celsius)
+      return (str(temperature), temperature.fahrenheit)
+
+hints:
+  - "Pour `__str__`, `f\"{self.celsius} °C\"` ; pour la propriété, `round(..., 1)`."
+
+tests:
+  - input: [0]
+    expected: ["0 °C", 32.0]
+    description: "Point de congélation"
+  - input: [100]
+    expected: ["100 °C", 212.0]
+    description: "Point d'ébullition"
+  - input: [-40]
+    expected: ["-40 °C", -40.0]
+    description: "Même valeur dans les deux unités"
+  - input: [21.5]
+    expected: ["21.5 °C", 70.7]
+    description: "Température décimale"
+  - input: [37]
+    expected: ["37 °C", 98.6]
+    hidden: true
+    description: "Température du corps"
+
+en:
+  title: "__str__ and @property"
+  description: |
+    This exercise combines two tools from the lesson: `__str__` and `@property`.
+
+    Complete the `Temperature` class:
+    - `__init__(self, celsius)` stores the temperature in degrees Celsius in `self.celsius`;
+    - the `fahrenheit` property returns `celsius * 9 / 5 + 32`, rounded to 1 decimal;
+    - `__str__` returns the temperature as `"21.5 °C"`.
+
+    Then complete `describe(celsius)`, which creates a `Temperature` and returns the tuple `(str(temperature), temperature.fahrenheit)`.
+
+    Examples:
+    - `describe(0)` returns `("0 °C", 32.0)`
+    - `describe(100)` returns `("100 °C", 212.0)`
+  template: |
+    class Temperature:
+        def __init__(self, celsius):
+            pass
+
+        @property
+        def fahrenheit(self):
+            pass
+
+        def __str__(self):
+            pass
+
+    def describe(celsius):
+        # Create a Temperature and return (text, fahrenheit)
+        pass
+  hints:
+    - "For `__str__`, `f\"{self.celsius} °C\"`; for the property, `round(..., 1)`."
+  tests:
+    - "Freezing point"
+    - "Boiling point"
+    - "Same value in both units"
+    - "Decimal temperature"
+    - "Body temperature"

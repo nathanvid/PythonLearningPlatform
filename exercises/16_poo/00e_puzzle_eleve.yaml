@@ -1,0 +1,78 @@
+id: "parsons_student_average"
+type: parsons
+title: "Puzzle : la moyenne d'un élève"
+description: |
+  Remets les lignes dans l'ordre pour obtenir :
+  - une classe `Student` dont le constructeur range le nom et crée une liste de notes vide ;
+  - une méthode `add_grade(grade)` qui ajoute une note ;
+  - une méthode `average()` qui renvoie la moyenne des notes ;
+  - une fonction `student_average(grades)` qui crée un élève, lui ajoute chaque note et renvoie sa moyenne.
+
+  Exemple : `student_average([10, 14])` renvoie `12.0`
+
+solution: |
+  class Student:
+      def __init__(self, name):
+          self.name = name
+          self.grades = []
+
+      def add_grade(self, grade):
+          self.grades.append(grade)
+
+      def average(self):
+          return sum(self.grades) / len(self.grades)
+
+  def student_average(grades):
+      student = Student("Ada")
+      for grade in grades:
+          student.add_grade(grade)
+      return student.average()
+
+hints:
+  - "`self.grades = []` est dans `__init__` ; la boucle `for` est dans la fonction, en dehors de la classe."
+
+tests:
+  - input: [[10, 14]]
+    expected: 12.0
+    description: "Deux notes"
+  - input: [[18]]
+    expected: 18.0
+    description: "Une seule note"
+  - input: [[9, 11, 13]]
+    expected: 11.0
+    hidden: true
+    description: "Trois notes"
+
+en:
+  title: "Puzzle: a student's average"
+  description: |
+    Put the lines back in order to get:
+    - a `Student` class whose constructor stores the name and creates an empty list of grades;
+    - a method `add_grade(grade)` that adds a grade;
+    - a method `average()` that returns the average of the grades;
+    - a function `student_average(grades)` that creates a student, adds each grade and returns their average.
+
+    Example: `student_average([10, 14])` returns `12.0`
+  solution: |
+    class Student:
+        def __init__(self, name):
+            self.name = name
+            self.grades = []
+
+        def add_grade(self, grade):
+            self.grades.append(grade)
+
+        def average(self):
+            return sum(self.grades) / len(self.grades)
+
+    def student_average(grades):
+        student = Student("Ada")
+        for grade in grades:
+            student.add_grade(grade)
+        return student.average()
+  hints:
+    - "`self.grades = []` is in `__init__`; the `for` loop is in the function, outside the class."
+  tests:
+    - "Two grades"
+    - "A single grade"
+    - "Three grades"

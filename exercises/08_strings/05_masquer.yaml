@@ -1,0 +1,59 @@
+id: "mask_password"
+title: "Masquer un mot de passe"
+description: |
+  Complète la fonction `mask(password)` pour qu'elle renvoie le mot de passe où chaque caractère est remplacé par `*`,
+  **sauf les 2 derniers**, qui restent visibles.
+
+  Exemples :
+  - `mask("python123")` renvoie `"*******23"`
+  - `mask("abc")` renvoie `"*bc"`
+  - `mask("ok")` renvoie `"ok"`
+
+template: |
+  def mask(password):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def mask(password):
+      return "*" * (len(password) - 2) + password[-2:]
+
+hints:
+  - "Le nombre d'étoiles est `len(password) - 2`, et `password[-2:]` donne les 2 derniers caractères."
+
+tests:
+  - input: ["python123"]
+    expected: "*******23"
+    description: "mask(\"python123\")"
+  - input: ["abc"]
+    expected: "*bc"
+    description: "mask(\"abc\")"
+  - input: ["ok"]
+    expected: "ok"
+    description: "mask(\"ok\")"
+  - input: ["secret!!"]
+    expected: "******!!"
+    hidden: true
+    description: "Huit caractères"
+
+en:
+  title: "Hiding a password"
+  description: |
+    Complete the function `mask(password)` so that it returns the password with each character replaced by `*`,
+    **except the last 2**, which stay visible.
+
+    Examples:
+    - `mask("python123")` returns `"*******23"`
+    - `mask("abc")` returns `"*bc"`
+    - `mask("ok")` returns `"ok"`
+  template: |
+    def mask(password):
+        # Write your code here
+        pass
+  hints:
+    - "The number of stars is `len(password) - 2`, and `password[-2:]` gives the last 2 characters."
+  tests:
+    - "mask(\"python123\")"
+    - "mask(\"abc\")"
+    - "mask(\"ok\")"
+    - "Eight characters"

@@ -1,0 +1,40 @@
+id: "parsons_presentation"
+type: parsons
+title: "Puzzle : se présenter"
+description: |
+  Remets les lignes dans l'ordre pour que le programme affiche exactement :
+
+  ```text
+  Prénom : Ada
+  Âge : 36
+  ```
+
+  Une variable doit être créée **avant** d'être affichée.
+
+solution: |
+  name = "Ada"
+  age = 36
+  print("Prénom :", name)
+  print("Âge :", age)
+
+hints:
+  - "Commence par les deux lignes qui créent les variables."
+
+en:
+  title: "Puzzle: introducing yourself"
+  description: |
+    Put the lines back in order so that the program displays exactly:
+
+    ```text
+    Name: Ada
+    Age: 36
+    ```
+
+    A variable must be created **before** it is displayed.
+  solution: |
+    name = "Ada"
+    age = 36
+    print("Name:", name)
+    print("Age:", age)
+  hints:
+    - "Start with the two lines that create the variables."

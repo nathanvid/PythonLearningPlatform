@@ -1,0 +1,65 @@
+id: "reverse_words"
+title: "Inverser l'ordre des mots"
+description: |
+  Complète la fonction `reverse_words(sentence)` pour qu'elle renvoie la phrase avec ses mots dans l'ordre inverse. Chaque mot reste écrit normalement.
+
+  Exemples :
+  - `reverse_words("Hello World")` renvoie `"World Hello"`
+  - `reverse_words("Python est génial")` renvoie `"génial est Python"`
+  - `reverse_words("")` renvoie `""`
+
+template: |
+  def reverse_words(sentence):
+      # Inverse l'ordre des mots
+      pass
+
+solution: |
+  def reverse_words(sentence):
+      return " ".join(sentence.split()[::-1])
+
+hints:
+  - "Découpe avec `split()`, inverse la liste avec `[::-1]`, puis recolle avec `\" \".join(...)`."
+
+tests:
+  - input: ["Hello World"]
+    expected: "World Hello"
+    description: "Deux mots"
+  - input: ["Python est génial"]
+    expected: "génial est Python"
+    description: "Trois mots"
+  - input: ["Bonjour"]
+    expected: "Bonjour"
+    description: "Un seul mot"
+  - input: [""]
+    expected: ""
+    description: "Chaîne vide"
+  - input: ["a b c d e"]
+    expected: "e d c b a"
+    hidden: true
+    description: "Cinq mots"
+
+en:
+  title: "Reverse the order of words"
+  description: |
+    Complete the function `reverse_words(sentence)` so that it returns the sentence with its words in reverse order. Each word stays written normally.
+
+    Examples:
+    - `reverse_words("Hello World")` returns `"World Hello"`
+    - `reverse_words("Python is awesome")` returns `"awesome is Python"`
+    - `reverse_words("")` returns `""`
+  template: |
+    def reverse_words(sentence):
+        # Reverse the order of the words
+        pass
+  hints:
+    - "Split with `split()`, reverse the list with `[::-1]`, then join with `\" \".join(...)`."
+  tests:
+    - "Two words"
+    - input: ["Python is awesome"]
+      expected: "awesome is Python"
+      description: "Three words"
+    - input: ["Hello"]
+      expected: "Hello"
+      description: "A single word"
+    - "Empty string"
+    - "Five words"

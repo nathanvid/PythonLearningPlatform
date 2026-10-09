@@ -1,0 +1,57 @@
+id: "count_to_ten"
+type: output
+title: "Compter jusqu'à 10"
+description: |
+  Avec une boucle `for`, affiche les nombres de `1` à `10`, un par ligne.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  ```
+
+template: |
+  # Écris ta boucle ici
+
+solution: |
+  for i in range(1, 11):
+      print(i)
+
+checks:
+  constructs: [for]
+
+hints:
+  - "`range(1, 11)` donne les nombres de 1 à 10."
+
+en:
+  title: "Counting to 10"
+  description: |
+    With a `for` loop, display the numbers from `1` to `10`, one per line.
+
+    The program must display exactly:
+
+    ```text
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    ```
+  template: |
+    # Write your loop here
+  hints:
+    - "`range(1, 11)` gives the numbers from 1 to 10."

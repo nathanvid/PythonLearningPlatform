@@ -1,0 +1,59 @@
+id: "reduced_price_or"
+type: output
+title: "Tarif réduit"
+description: |
+  Au musée, le tarif est réduit pour les moins de 12 ans **ou** les 65 ans et plus.
+
+  La variable `age` vaut `70`. Avec **une seule** condition qui utilise `or`, affiche :
+  - `Tarif réduit` si `age` est plus petit que `12` ou supérieur ou égal à `65` ;
+  - `Tarif plein` sinon.
+
+  Avec `age = 70`, le programme doit afficher exactement :
+
+  ```text
+  Tarif réduit
+  ```
+
+template: |
+  age = 70
+  # Écris ton code ici
+
+solution: |
+  age = 70
+  if age < 12 or age >= 65:
+      print("Tarif réduit")
+  else:
+      print("Tarif plein")
+
+checks:
+  uses: [age]
+  constructs: [if, else, or]
+
+hints:
+  - "`age < 12 or age >= 65` : il faut écrire `age` dans chaque partie."
+
+en:
+  title: "Reduced price"
+  description: |
+    At the museum, the price is reduced for children under 12 **or** people aged 65 and over.
+
+    The variable `age` is `70`. With **a single** condition that uses `or`, display:
+    - `Reduced price` if `age` is smaller than `12` or greater than or equal to `65`;
+    - `Full price` otherwise.
+
+    With `age = 70`, the program must display exactly:
+
+    ```text
+    Reduced price
+    ```
+  template: |
+    age = 70
+    # Write your code here
+  solution: |
+    age = 70
+    if age < 12 or age >= 65:
+        print("Reduced price")
+    else:
+        print("Full price")
+  hints:
+    - "`age < 12 or age >= 65`: write `age` in each part."

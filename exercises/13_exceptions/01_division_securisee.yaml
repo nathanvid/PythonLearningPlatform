@@ -1,0 +1,65 @@
+id: "safe_division"
+title: "Division sécurisée"
+description: |
+  Complète la fonction `safe_divide(a, b)` pour qu'elle renvoie `a / b`, ou le texte `"Error: Division by zero"` si `b` vaut 0.
+  Utilise `try` / `except ZeroDivisionError`.
+
+  Exemples :
+  - `safe_divide(10, 2)` renvoie `5.0`
+  - `safe_divide(10, 0)` renvoie `"Error: Division by zero"`
+
+template: |
+  def safe_divide(a, b):
+      # Utilise try/except
+      pass
+
+solution: |
+  def safe_divide(a, b):
+      try:
+          return a / b
+      except ZeroDivisionError:
+          return "Error: Division by zero"
+
+hints:
+  - "Le calcul va dans le `try`, le texte d'erreur dans le `except`."
+
+tests:
+  - input: [10, 2]
+    expected: 5.0
+    description: "Division normale"
+  - input: [10, 0]
+    expected: "Error: Division by zero"
+    description: "Division par zéro"
+  - input: [15, 3]
+    expected: 5.0
+    description: "Autre division"
+  - input: [100, 0]
+    expected: "Error: Division by zero"
+    hidden: true
+    description: "Test caché division par zéro"
+  - input: [7, 2]
+    expected: 3.5
+    hidden: true
+    description: "Division avec décimales"
+
+en:
+  title: "Safe division"
+  description: |
+    Complete the function `safe_divide(a, b)` so that it returns `a / b`, or the text `"Error: Division by zero"` if `b` is 0.
+    Use `try` / `except ZeroDivisionError`.
+
+    Examples:
+    - `safe_divide(10, 2)` returns `5.0`
+    - `safe_divide(10, 0)` returns `"Error: Division by zero"`
+  template: |
+    def safe_divide(a, b):
+        # Use try/except
+        pass
+  hints:
+    - "The calculation goes in the `try`, the error text in the `except`."
+  tests:
+    - "Normal division"
+    - "Division by zero"
+    - "Another division"
+    - "Hidden division by zero test"
+    - "Division with decimals"

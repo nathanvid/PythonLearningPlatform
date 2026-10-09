@@ -1,0 +1,111 @@
+id: "predict_functions_return"
+type: predict
+title: "Prédire : return, print et paramètres"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Attention à la différence entre une fonction qui renvoie une valeur (return)
+  et une fonction qui affiche quelque chose (print).
+
+steps:
+  - |
+    def double(n):
+        return n * 2
+
+    print(double(3))
+  - |
+    def double(n):
+        return n * 2
+
+    print(double(double(3)))
+  - |
+    def greet(name, polite=True):
+        if polite:
+            print("Bonjour", name)
+        else:
+            print("Salut", name)
+
+    greet("Ada")
+    greet("Alan", False)
+  - |
+    def greet(name, polite=True):
+        if polite:
+            print("Bonjour", name)
+        else:
+            print("Salut", name)
+
+    result = greet("Grace")
+    print(result)
+
+code: |
+  def double(n):
+      return n * 2
+
+  def greet(name, polite=True):
+      if polite:
+          print("Bonjour", name)
+      else:
+          print("Salut", name)
+
+  print(double(double(3)))
+  greet("Ada")
+  greet("Alan", False)
+  result = greet("Grace")
+  print(result)
+
+hints:
+  - "`greet()` n'a pas de `return` : un appel de cette fonction vaut `None`."
+
+en:
+  title: "Predict: return, print and parameters"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Watch the difference between a function that returns a value (return)
+    and a function that displays something (print).
+  steps:
+    - |
+      def double(n):
+          return n * 2
+
+      print(double(3))
+    - |
+      def double(n):
+          return n * 2
+
+      print(double(double(3)))
+    - |
+      def greet(name, polite=True):
+          if polite:
+              print("Hello", name)
+          else:
+              print("Hi", name)
+
+      greet("Ada")
+      greet("Alan", False)
+    - |
+      def greet(name, polite=True):
+          if polite:
+              print("Hello", name)
+          else:
+              print("Hi", name)
+
+      result = greet("Grace")
+      print(result)
+  code: |
+    def double(n):
+        return n * 2
+
+    def greet(name, polite=True):
+        if polite:
+            print("Hello", name)
+        else:
+            print("Hi", name)
+
+    print(double(double(3)))
+    greet("Ada")
+    greet("Alan", False)
+    result = greet("Grace")
+    print(result)
+  hints:
+    - "`greet()` has no `return`: a call to this function is worth `None`."

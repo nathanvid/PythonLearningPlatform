@@ -1,0 +1,65 @@
+id: "predict_types_steps"
+type: predict
+title: "Prédire : nombre ou texte ?"
+description: |
+  Lis le code et prédis exactement ce qu'il affiche.
+
+  À chaque étape, le code s'allonge : regarde bien si chaque valeur est un nombre ou du texte.
+
+steps:
+  - |
+    a = 10
+    print(a + a)
+  - |
+    a = 10
+    print(a + a)
+    b = "10"
+    print(b + b)
+  - |
+    a = 10
+    print(a + a)
+    b = "10"
+    print(b + b)
+    print(int(b) + a)
+
+code: |
+  a = 10
+  print(a + a)
+  b = "10"
+  print(b + b)
+  print(int(b) + a)
+  print(str(a) + b)
+
+hints:
+  - "int() transforme un texte en nombre, str() transforme un nombre en texte."
+
+en:
+  title: "Predict: number or text?"
+  description: |
+    Read the code and predict exactly what it displays.
+
+    At each step, the code grows: check carefully whether each value is a number or text.
+  steps:
+    - |
+      a = 10
+      print(a + a)
+    - |
+      a = 10
+      print(a + a)
+      b = "10"
+      print(b + b)
+    - |
+      a = 10
+      print(a + a)
+      b = "10"
+      print(b + b)
+      print(int(b) + a)
+  code: |
+    a = 10
+    print(a + a)
+    b = "10"
+    print(b + b)
+    print(int(b) + a)
+    print(str(a) + b)
+  hints:
+    - "int() turns a text into a number, str() turns a number into text."

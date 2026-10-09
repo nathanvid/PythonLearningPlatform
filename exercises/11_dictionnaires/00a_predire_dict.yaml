@@ -1,0 +1,40 @@
+id: "predict_dict_stock"
+type: predict
+title: "Prédire : un stock de fruits"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Rappel : un dictionnaire garde l'ordre dans lequel les clés ont été ajoutées.
+
+code: |
+  stock = {"pommes": 3, "poires": 5}
+  stock["pommes"] += 2
+  stock["kiwis"] = 1
+  print(stock["pommes"])
+  print(len(stock))
+  print(stock.get("bananes", 0))
+  for fruit, quantity in stock.items():
+      if quantity > 2:
+          print(fruit)
+
+hints:
+  - "Affecter une clé qui n'existe pas encore l'ajoute au dictionnaire."
+
+en:
+  title: "Predict: a fruit stock"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Reminder: a dictionary keeps keys in the order they were added.
+  code: |
+    stock = {"apples": 3, "pears": 5}
+    stock["apples"] += 2
+    stock["kiwis"] = 1
+    print(stock["apples"])
+    print(len(stock))
+    print(stock.get("bananas", 0))
+    for fruit, quantity in stock.items():
+        if quantity > 2:
+            print(fruit)
+  hints:
+    - "Assigning a key that doesn't exist yet adds it to the dictionary."

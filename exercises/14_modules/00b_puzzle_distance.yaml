@@ -1,0 +1,49 @@
+id: "parsons_distance"
+type: parsons
+title: "Puzzle : distance entre deux points"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction distance(x1, y1, x2, y2)
+  qui renvoie la distance entre les points (x1, y1) et (x2, y2), grâce au module math.
+
+  Exemple : distance(0, 0, 3, 4) → 5.0
+
+solution: |
+  import math
+
+  def distance(x1, y1, x2, y2):
+      dx = x2 - x1
+      dy = y2 - y1
+      return math.sqrt(dx ** 2 + dy ** 2)
+
+hints:
+  - "Un `import` se place en haut, avant d'être utilisé."
+
+tests:
+  - input: [0, 0, 3, 4]
+    expected: 5.0
+    description: "Triangle 3-4-5"
+  - input: [1, 1, 1, 1]
+    expected: 0.0
+    description: "Même point"
+  - input: [-1, 2, 2, 6]
+    expected: 5.0
+    description: "Coordonnées négatives"
+  - input: [0, 0, 0, 2]
+    expected: 2.0
+    hidden: true
+    description: "Déplacement vertical"
+
+en:
+  title: "Puzzle: distance between two points"
+  description: |
+    Put the lines back in order to get a function distance(x1, y1, x2, y2)
+    that returns the distance between points (x1, y1) and (x2, y2), using the math module.
+
+    Example: distance(0, 0, 3, 4) → 5.0
+  hints:
+    - "An `import` goes at the top, before it is used."
+  tests:
+    - "3-4-5 triangle"
+    - "Same point"
+    - "Negative coordinates"
+    - "Vertical move"

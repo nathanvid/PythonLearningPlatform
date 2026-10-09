@@ -1,0 +1,52 @@
+id: "fix_range_end"
+type: fix
+title: "Débogage : il manque le dernier nombre"
+description: |
+  Ce programme doit afficher les nombres de `1` à `5`, un par ligne :
+
+  ```text
+  1
+  2
+  3
+  4
+  5
+  ```
+
+  Il s'arrête à `4`. Corrige le `range`.
+
+template: |
+  for i in range(1, 5):
+      print(i)
+
+solution: |
+  for i in range(1, 6):
+      print(i)
+
+checks:
+  constructs: [for]
+
+hints:
+  - "Le deuxième nombre de range n'est jamais atteint."
+
+en:
+  title: "Debugging: the last number is missing"
+  description: |
+    This program must display the numbers from `1` to `5`, one per line:
+
+    ```text
+    1
+    2
+    3
+    4
+    5
+    ```
+
+    It stops at `4`. Fix the `range`.
+  template: |
+    for i in range(1, 5):
+        print(i)
+  solution: |
+    for i in range(1, 6):
+        print(i)
+  hints:
+    - "The second number of range is never reached."

@@ -1,0 +1,107 @@
+id: "rectangle_class"
+title: "Classe Rectangle"
+description: |
+  Complète la classe `Rectangle` :
+  - le constructeur `__init__(self, width, height)` range les deux valeurs dans des attributs ;
+  - la méthode `area(self)` renvoie l'aire (largeur × hauteur) ;
+  - la méthode `perimeter(self)` renvoie le périmètre (2 × (largeur + hauteur)).
+
+  Puis complète la fonction `get_rectangle_area(width, height)`, qui crée un `Rectangle` et renvoie son aire.
+
+  Exemples :
+  - `get_rectangle_area(5, 3)` renvoie `15`
+  - `get_rectangle_area(4, 4)` renvoie `16`
+
+template: |
+  class Rectangle:
+      def __init__(self, width, height):
+          # Initialise les attributs
+          pass
+
+      def area(self):
+          # Retourne l'aire
+          pass
+
+      def perimeter(self):
+          # Retourne le périmètre
+          pass
+
+  def get_rectangle_area(width, height):
+      # Crée un Rectangle et retourne son aire
+      pass
+
+solution: |
+  class Rectangle:
+      def __init__(self, width, height):
+          self.width = width
+          self.height = height
+  
+      def area(self):
+          return self.width * self.height
+  
+      def perimeter(self):
+          return 2 * (self.width + self.height)
+  
+  def get_rectangle_area(width, height):
+      return Rectangle(width, height).area()
+
+hints:
+  - "Dans les méthodes, les dimensions se lisent avec `self.width` et `self.height`."
+
+tests:
+  - input: [5, 3]
+    expected: 15
+    description: "Aire d'un rectangle 5×3"
+  - input: [10, 2]
+    expected: 20
+    description: "Aire d'un rectangle 10×2"
+  - input: [4, 4]
+    expected: 16
+    description: "Aire d'un carré 4×4"
+  - input: [7, 8]
+    expected: 56
+    hidden: true
+    description: "Aire cachée"
+  - input: [1, 100]
+    expected: 100
+    hidden: true
+    description: "Rectangle très allongé"
+
+en:
+  title: "Rectangle class"
+  description: |
+    Complete the class `Rectangle`:
+    - the constructor `__init__(self, width, height)` stores both values in attributes;
+    - the method `area(self)` returns the area (width × height);
+    - the method `perimeter(self)` returns the perimeter (2 × (width + height)).
+
+    Then complete the function `get_rectangle_area(width, height)`, which creates a `Rectangle` and returns its area.
+
+    Examples:
+    - `get_rectangle_area(5, 3)` returns `15`
+    - `get_rectangle_area(4, 4)` returns `16`
+  template: |
+    class Rectangle:
+        def __init__(self, width, height):
+            # Initialize the attributes
+            pass
+
+        def area(self):
+            # Return the area
+            pass
+
+        def perimeter(self):
+            # Return the perimeter
+            pass
+
+    def get_rectangle_area(width, height):
+        # Create a Rectangle and return its area
+        pass
+  hints:
+    - "Inside the methods, the dimensions are read with `self.width` and `self.height`."
+  tests:
+    - "Area of a 5×3 rectangle"
+    - "Area of a 10×2 rectangle"
+    - "Area of a 4×4 square"
+    - "Hidden area"
+    - "Very elongated rectangle"

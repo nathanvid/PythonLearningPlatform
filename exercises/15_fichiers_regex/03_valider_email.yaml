@@ -1,0 +1,103 @@
+id: "regex_valid_email"
+title: "Valider un e-mail avec une regex"
+description: |
+  Une expression régulière (regex) décrit un motif de texte. Le module re permet
+  de vérifier qu'une chaîne entière respecte un motif avec re.fullmatch().
+
+  Quelques symboles :
+  - \w : une lettre, un chiffre ou _
+  - [...] : un caractère parmi ceux listés, ex : [\w.+-]
+  - + : une ou plusieurs fois
+  - \. : un point littéral (le . seul veut dire « n'importe quel caractère »)
+  - ( ... ) : un groupe, qu'on peut répéter avec +
+
+  Crée une fonction is_valid_email(email) qui retourne True si l'adresse a la forme
+  nom@domaine.extension, et False sinon :
+  - avant le @ : lettres, chiffres, points, tirets, + ou _ (au moins un caractère)
+  - après le @ : au moins un mot, suivi d'un ou plusieurs « .mot » (ex : mail.co.uk)
+
+  Exemples :
+  - is_valid_email("alice@example.com") → True
+  - is_valid_email("pas-un-email") → False
+
+template: |
+  import re
+
+  def is_valid_email(email):
+      pattern = r""  # Écris ton motif ici
+      return re.fullmatch(pattern, email) is not None
+
+solution: |
+  import re
+  
+  def is_valid_email(email):
+      pattern = r"[\w.+-]+@\w+(\.\w+)+"
+      return re.fullmatch(pattern, email) is not None
+
+hints:
+  - "Un motif possible : `[\\w.+-]+@\\w+(\\.\\w+)+`"
+
+tests:
+  - input: ["alice@example.com"]
+    expected: true
+    description: "Adresse simple"
+  - input: ["bob.martin@ecole.fr"]
+    expected: true
+    description: "Point avant le @"
+  - input: ["pas-un-email"]
+    expected: false
+    description: "Pas de @"
+  - input: ["a@b"]
+    expected: false
+    description: "Pas d'extension"
+  - input: ["@exemple.com"]
+    expected: false
+    description: "Rien avant le @"
+  - input: ["zoe+python@mail.co.uk"]
+    expected: true
+    hidden: true
+    description: "Plusieurs extensions"
+  - input: ["alice@@example.com"]
+    expected: false
+    hidden: true
+    description: "Double @"
+
+en:
+  title: "Validating an email with a regex"
+  description: |
+    A regular expression (regex) describes a text pattern. The re module lets you
+    check that a whole string matches a pattern with re.fullmatch().
+
+    A few symbols:
+    - \w: a letter, a digit or _
+    - [...]: one character among those listed, e.g. [\w.+-]
+    - +: one or more times
+    - \.: a literal dot (a bare . means "any character")
+    - ( ... ): a group, which can be repeated with +
+
+    Create a function is_valid_email(email) that returns True if the address has the form
+    name@domain.extension, and False otherwise:
+    - before the @: letters, digits, dots, dashes, + or _ (at least one character)
+    - after the @: at least one word, followed by one or more ".word" (e.g. mail.co.uk)
+
+    Examples:
+    - is_valid_email("alice@example.com") → True
+    - is_valid_email("not-an-email") → False
+  template: |
+    import re
+
+    def is_valid_email(email):
+        pattern = r""  # Write your pattern here
+        return re.fullmatch(pattern, email) is not None
+  hints:
+    - "A possible pattern: `[\\w.+-]+@\\w+(\\.\\w+)+`"
+  tests:
+    - "Simple address"
+    - "Dot before the @"
+    - input: ["not-an-email"]
+      expected: false
+      description: "No @"
+    - "No extension"
+    - "Nothing before the @"
+    - "Several extensions"
+    - "Double @"

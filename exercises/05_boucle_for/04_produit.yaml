@@ -1,0 +1,64 @@
+id: "product_loop"
+type: output
+title: "Multiplier dans une boucle"
+description: |
+  La factorielle de 5, c'est `1 × 2 × 3 × 4 × 5`.
+
+  1. Crée `product = 1` (et non 0 : multiplier par 0 donnerait toujours 0).
+  2. Avec une boucle `for`, multiplie `product` par chaque nombre de `1` à `5`.
+  3. Affiche `product`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  120
+  ```
+
+template: |
+  product = 1
+  # Écris ta boucle ici
+
+solution: |
+  product = 1
+  for i in range(1, 6):
+      product *= i
+  print(product)
+
+checks:
+  variables:
+    product: 120
+  uses: [product]
+  constructs: [for]
+
+hints:
+  - "`product *= i` multiplie produit par i."
+
+en:
+  title: "Multiplying in a loop"
+  description: |
+    The factorial of 5 is `1 × 2 × 3 × 4 × 5`.
+
+    1. Create `product = 1` (not 0: multiplying by 0 would always give 0).
+    2. With a `for` loop, multiply `product` by each number from `1` to `5`.
+    3. Display `product`.
+
+    The program must display exactly:
+
+    ```text
+    120
+    ```
+  template: |
+    product = 1
+    # Write your loop here
+  solution: |
+    product = 1
+    for i in range(1, 6):
+        product *= i
+    print(product)
+  checks:
+    variables:
+      product: 120
+    uses: [product]
+    constructs: [for]
+  hints:
+    - "`product *= i` multiplies product by i."

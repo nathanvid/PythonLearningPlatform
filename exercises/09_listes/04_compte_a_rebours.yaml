@@ -1,0 +1,65 @@
+id: "countdown"
+title: "Compte à rebours"
+description: |
+  Complète la fonction `countdown(n)` pour qu'elle renvoie la liste des nombres de `n` à `1`, construite avec une boucle `while` et `append`.
+
+  Exemples :
+  - `countdown(5)` renvoie `[5, 4, 3, 2, 1]`
+  - `countdown(1)` renvoie `[1]`
+  - `countdown(0)` renvoie `[]`
+
+template: |
+  def countdown(n):
+      # Utilise une boucle while
+      pass
+
+solution: |
+  def countdown(n):
+      result = []
+      while n > 0:
+          result.append(n)
+          n -= 1
+      return result
+
+hints:
+  - "Tant que `n > 0` : ajoute `n` à la liste, puis diminue `n` de 1."
+
+tests:
+  - input: [5]
+    expected: [5, 4, 3, 2, 1]
+    description: "Compte à rebours de 5"
+  - input: [3]
+    expected: [3, 2, 1]
+    description: "Compte à rebours de 3"
+  - input: [1]
+    expected: [1]
+    description: "Un seul nombre"
+  - input: [0]
+    expected: []
+    description: "Liste vide"
+  - input: [10]
+    expected: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    hidden: true
+    description: "Compte à rebours de 10"
+
+en:
+  title: "Countdown"
+  description: |
+    Complete the function `countdown(n)` so that it returns the list of numbers from `n` to `1`, built with a `while` loop and `append`.
+
+    Examples:
+    - `countdown(5)` returns `[5, 4, 3, 2, 1]`
+    - `countdown(1)` returns `[1]`
+    - `countdown(0)` returns `[]`
+  template: |
+    def countdown(n):
+        # Use a while loop
+        pass
+  hints:
+    - "As long as `n > 0`: add `n` to the list, then decrease `n` by 1."
+  tests:
+    - "Countdown from 5"
+    - "Countdown from 3"
+    - "A single number"
+    - "Empty list"
+    - "Countdown from 10"

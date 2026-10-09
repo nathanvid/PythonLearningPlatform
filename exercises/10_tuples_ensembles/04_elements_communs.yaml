@@ -1,0 +1,63 @@
+id: "common_elements_set"
+title: "Éléments communs (intersection)"
+description: |
+  Complète la fonction `common_elements(list1, list2)` pour qu'elle renvoie la liste **triée** des éléments présents dans les deux listes, chacun une seule fois.
+
+  Exemples :
+  - `common_elements([1, 2, 3, 4], [3, 4, 5])` renvoie `[3, 4]`
+  - `common_elements(["chat", "chien"], ["poisson"])` renvoie `[]`
+  - `common_elements([1, 1, 2, 2], [2, 2, 1])` renvoie `[1, 2]`
+
+template: |
+  def common_elements(list1, list2):
+      # Convertis les listes en sets et calcule leur intersection
+      pass
+
+solution: |
+  def common_elements(list1, list2):
+      return sorted(set(list1) & set(list2))
+
+hints:
+  - "Transforme les deux listes en ensembles, puis utilise `&`."
+
+tests:
+  - input: [[1, 2, 3, 4], [3, 4, 5]]
+    expected: [3, 4]
+    description: "Deux éléments communs"
+  - input: [["chat", "chien"], ["poisson"]]
+    expected: []
+    description: "Aucun élément commun"
+  - input: [[1, 1, 2, 2], [2, 2, 1]]
+    expected: [1, 2]
+    description: "Doublons dans les deux listes"
+  - input: [[], [1, 2]]
+    expected: []
+    description: "Une liste vide"
+  - input: [[9, 7, 5, 3], [3, 5, 7, 9, 11]]
+    expected: [3, 5, 7, 9]
+    hidden: true
+    description: "Résultat à trier"
+
+en:
+  title: "Common elements (intersection)"
+  description: |
+    Complete the function `common_elements(list1, list2)` so that it returns the **sorted** list of the items found in both lists, each one only once.
+
+    Examples:
+    - `common_elements([1, 2, 3, 4], [3, 4, 5])` returns `[3, 4]`
+    - `common_elements(["cat", "dog"], ["fish"])` returns `[]`
+    - `common_elements([1, 1, 2, 2], [2, 2, 1])` returns `[1, 2]`
+  template: |
+    def common_elements(list1, list2):
+        # Convert the lists to sets and compute their intersection
+        pass
+  hints:
+    - "Turn both lists into sets, then use `&`."
+  tests:
+    - "Two common elements"
+    - input: [["cat", "dog"], ["fish"]]
+      expected: []
+      description: "No common element"
+    - "Duplicates in both lists"
+    - "One empty list"
+    - "Result to sort"

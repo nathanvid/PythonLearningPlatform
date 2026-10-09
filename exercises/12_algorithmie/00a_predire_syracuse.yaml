@@ -1,0 +1,46 @@
+id: "predict_collatz"
+type: predict
+title: "Prédire : la suite de Syracuse"
+description: |
+  Exécute ce code « à la main » et prédis exactement ce qu'il affiche.
+
+  Tracer un algorithme sur papier, tour de boucle par tour de boucle, est la meilleure
+  façon de le comprendre.
+
+code: |
+  n = 20
+  steps = 0
+  while n > 1:
+      if n % 2 == 0:
+          n = n // 2
+      else:
+          n = 3 * n + 1
+      steps += 1
+      print(n, end=" ")
+  print()
+  print(steps)
+
+hints:
+  - "Fais un tableau à deux colonnes (n, etapes) et remplis une ligne par tour de boucle."
+
+en:
+  title: "Predict: the Collatz sequence"
+  description: |
+    Run this code "by hand" and predict exactly what it prints.
+
+    Tracing an algorithm on paper, one loop iteration at a time, is the best way
+    to understand it.
+  code: |
+    n = 20
+    steps = 0
+    while n > 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        steps += 1
+        print(n, end=" ")
+    print()
+    print(steps)
+  hints:
+    - "Draw a two-column table (n, steps) and fill one row per loop round."

@@ -1,0 +1,50 @@
+id: "repeat_pattern"
+type: output
+title: "Répéter un motif"
+description: |
+  1. Crée une variable `pattern` qui contient `"=-"`.
+  2. Affiche le motif répété **5 fois** avec `*`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  =-=-=-=-=-
+  ```
+
+template: |
+  # Écris ton code ici
+
+solution: |
+  pattern = "=-"
+  print(pattern * 5)
+
+checks:
+  variables:
+    pattern: "=-"
+  uses: [pattern]
+
+hints:
+  - "Un texte multiplié par un nombre est répété : `\"ab\" * 2` donne `abab`."
+
+en:
+  title: "Repeating a pattern"
+  description: |
+    1. Create a variable `pattern` that holds `"=-"`.
+    2. Display the pattern repeated **5 times** with `*`.
+
+    The program must display exactly:
+
+    ```text
+    =-=-=-=-=-
+    ```
+  template: |
+    # Write your code here
+  solution: |
+    pattern = "=-"
+    print(pattern * 5)
+  checks:
+    variables:
+      pattern: "=-"
+    uses: [pattern]
+  hints:
+    - "A text multiplied by a number is repeated: `\"ab\" * 2` gives `abab`."

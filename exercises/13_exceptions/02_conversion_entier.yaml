@@ -1,0 +1,71 @@
+id: "safe_int_convert"
+title: "Conversion sécurisée en entier"
+description: |
+  Complète la fonction `safe_int(text)` pour qu'elle renvoie `text` converti en entier, ou le texte `"Error: Invalid number"` si la conversion échoue.
+
+  Exemples :
+  - `safe_int("123")` renvoie `123`
+  - `safe_int("-50")` renvoie `-50`
+  - `safe_int("abc")` renvoie `"Error: Invalid number"`
+  - `safe_int("45.6")` renvoie `"Error: Invalid number"` (`int` refuse les nombres à virgule écrits en texte)
+
+template: |
+  def safe_int(text):
+      # Utilise try/except pour int()
+      pass
+
+solution: |
+  def safe_int(text):
+      try:
+          return int(text)
+      except ValueError:
+          return "Error: Invalid number"
+
+hints:
+  - "`int(...)` lève une `ValueError` quand le texte n'est pas un entier."
+
+tests:
+  - input: ["123"]
+    expected: 123
+    description: "Nombre valide"
+  - input: ["abc"]
+    expected: "Error: Invalid number"
+    description: "Texte invalide"
+  - input: ["45.6"]
+    expected: "Error: Invalid number"
+    description: "Nombre décimal"
+  - input: ["-50"]
+    expected: -50
+    description: "Nombre négatif"
+  - input: [""]
+    expected: "Error: Invalid number"
+    hidden: true
+    description: "Chaîne vide"
+  - input: ["1000"]
+    expected: 1000
+    hidden: true
+    description: "Grand nombre"
+
+en:
+  title: "Safe conversion to integer"
+  description: |
+    Complete the function `safe_int(text)` so that it returns `text` converted to a whole number, or the text `"Error: Invalid number"` if the conversion fails.
+
+    Examples:
+    - `safe_int("123")` returns `123`
+    - `safe_int("-50")` returns `-50`
+    - `safe_int("abc")` returns `"Error: Invalid number"`
+    - `safe_int("45.6")` returns `"Error: Invalid number"` (`int` refuses decimal numbers written as text)
+  template: |
+    def safe_int(text):
+        # Use try/except around int()
+        pass
+  hints:
+    - "`int(...)` raises a `ValueError` when the text is not a whole number."
+  tests:
+    - "Valid number"
+    - "Invalid text"
+    - "Decimal number"
+    - "Negative number"
+    - "Empty string"
+    - "Large number"

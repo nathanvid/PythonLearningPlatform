@@ -1,0 +1,131 @@
+id: "predict_function_call"
+type: predict
+title: "Prédire : comment marche une fonction"
+description: |
+  Suis le chemin de Python, ligne par ligne, et prédis exactement ce qu'il affiche.
+
+  À chaque étape, le code s'allonge d'une seule idée : quand une fonction s'exécute-t-elle,
+  que reçoit-elle, et que renvoie-t-elle ?
+
+steps:
+  - |
+    def say_hello():
+        print("Bonjour")
+
+    print("Début")
+  - |
+    def say_hello():
+        print("Bonjour")
+
+    print("Début")
+    say_hello()
+    print("Fin")
+  - |
+    def say_hello(name):
+        print("Bonjour", name)
+
+    say_hello("Ada")
+    say_hello("Léo")
+  - |
+    def double(n):
+        return n * 2
+
+    result = double(5)
+    print(result)
+  - |
+    def double(n):
+        return n * 2
+
+    print(double(5) + 1)
+  - |
+    def double(n):
+        print("Je calcule le double de", n)
+        return n * 2
+
+    a = double(3)
+    print("a vaut", a)
+  - |
+    def double(n):
+        return n * 2
+        print("Cette ligne ne s'affiche jamais")
+
+    print(double(4))
+
+code: |
+  def double(n):
+      print("Je calcule le double de", n)
+      return n * 2
+      print("Cette ligne ne s'affiche jamais")
+
+  print("Début")
+  a = double(3)
+  print("a vaut", a)
+  print(double(a) + 1)
+  print("Fin")
+
+hints:
+  - "`def` range seulement la fonction : son code s'exécute à chaque appel, et `return` renvoie la valeur à l'endroit de l'appel."
+
+en:
+  title: "Predict: how a function works"
+  description: |
+    Follow Python's path, line by line, and predict exactly what it prints.
+
+    At each step, the code grows by a single idea: when does a function run,
+    what does it receive, and what does it give back?
+  steps:
+    - |
+      def say_hello():
+          print("Hello")
+
+      print("Start")
+    - |
+      def say_hello():
+          print("Hello")
+
+      print("Start")
+      say_hello()
+      print("End")
+    - |
+      def say_hello(name):
+          print("Hello", name)
+
+      say_hello("Ada")
+      say_hello("Leo")
+    - |
+      def double(n):
+          return n * 2
+
+      result = double(5)
+      print(result)
+    - |
+      def double(n):
+          return n * 2
+
+      print(double(5) + 1)
+    - |
+      def double(n):
+          print("Computing the double of", n)
+          return n * 2
+
+      a = double(3)
+      print("a is", a)
+    - |
+      def double(n):
+          return n * 2
+          print("This line is never printed")
+
+      print(double(4))
+  code: |
+    def double(n):
+        print("Computing the double of", n)
+        return n * 2
+        print("This line is never printed")
+
+    print("Start")
+    a = double(3)
+    print("a is", a)
+    print(double(a) + 1)
+    print("End")
+  hints:
+    - "`def` only stores the function: its code runs on each call, and `return` gives the value back where the call was made."

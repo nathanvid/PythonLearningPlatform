@@ -1,0 +1,57 @@
+id: "predict_while_steps"
+type: predict
+title: "Prédire : combien de tours ?"
+description: |
+  Lis le code et prédis exactement ce qu'il affiche.
+
+  À chaque étape, le code change un peu : suis la valeur de `n` avant chaque tour.
+
+steps:
+  - |
+    n = 1
+    while n < 4:
+        print(n)
+        n += 1
+  - |
+    n = 1
+    while n < 4:
+        print(n)
+        n += 1
+    print("n vaut", n)
+
+code: |
+  n = 1
+  while n < 10:
+      print(n)
+      n = n * 3
+  print("n vaut", n)
+
+hints:
+  - "Après le dernier tour, n a déjà changé : c'est cette valeur qui est affichée à la fin."
+
+en:
+  title: "Predict: how many rounds?"
+  description: |
+    Read the code and predict exactly what it displays.
+
+    At each step, the code changes a little: follow the value of `n` before each round.
+  steps:
+    - |
+      n = 1
+      while n < 4:
+          print(n)
+          n += 1
+    - |
+      n = 1
+      while n < 4:
+          print(n)
+          n += 1
+      print("n is", n)
+  code: |
+    n = 1
+    while n < 10:
+        print(n)
+        n = n * 3
+    print("n is", n)
+  hints:
+    - "After the last round, n has already changed: that is the value displayed at the end."

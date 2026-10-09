@@ -1,0 +1,50 @@
+id: "list_length"
+title: "Longueur d'une liste"
+description: |
+  Complète la fonction `get_length(lst)` pour qu'elle renvoie le nombre d'éléments de la liste `lst`.
+
+  Exemples :
+  - `get_length([1, 2, 3])` renvoie `3`
+  - `get_length([])` renvoie `0`
+
+template: |
+  def get_length(lst):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def get_length(lst):
+      return len(lst)
+
+hints:
+  - "La fonction `len` donne le nombre d'éléments."
+
+tests:
+  - input: [[1, 2, 3]]
+    expected: 3
+    description: "Liste avec 3 éléments"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [["a", "b", "c", "d", "e"]]
+    expected: 5
+    description: "Liste avec 5 éléments"
+
+en:
+  title: "Length of a list"
+  description: |
+    Complete the function `get_length(lst)` so that it returns the number of items in the list `lst`.
+
+    Examples:
+    - `get_length([1, 2, 3])` returns `3`
+    - `get_length([])` returns `0`
+  template: |
+    def get_length(lst):
+        # Write your code here
+        pass
+  hints:
+    - "The `len` function gives the number of items."
+  tests:
+    - "List with 3 elements"
+    - "Empty list"
+    - "List with 5 elements"

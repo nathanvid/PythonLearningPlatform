@@ -1,0 +1,58 @@
+id: "parsons_count_positives"
+type: parsons
+title: "Puzzle : compter les positifs"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction compter_positifs(nombres)
+  qui renvoie le nombre de valeurs strictement positives de la liste.
+
+  L'indentation est déjà correcte : il suffit de trouver le bon ordre.
+  Glisse les lignes, ou utilise les flèches ▲ ▼.
+
+solution: |
+  def count_positives(numbers):
+      count = 0
+      for n in numbers:
+          if n > 0:
+              count += 1
+      return count
+
+hints:
+  - "Le compteur est créé avant la boucle, et renvoyé après."
+
+tests:
+  - input: [[1, -2, 3]]
+    expected: 2
+    description: "Deux positifs sur trois"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [[-1, -5]]
+    expected: 0
+    description: "Aucun positif"
+  - input: [[0, 5, 6, -1]]
+    expected: 2
+    hidden: true
+    description: "Zéro n'est pas positif"
+
+en:
+  title: "Puzzle: counting positives"
+  description: |
+    Put the lines back in order to get a function count_positives(numbers)
+    that returns how many values in the list are strictly positive.
+
+    The indentation is already right: you only need to find the right order.
+    Drag the lines, or use the ▲ ▼ arrows.
+  solution: |
+    def count_positives(numbers):
+        count = 0
+        for n in numbers:
+            if n > 0:
+                count += 1
+        return count
+  hints:
+    - "The counter is created before the loop, and returned after it."
+  tests:
+    - "Two positives out of three"
+    - "Empty list"
+    - "No positives"
+    - "Zero is not positive"

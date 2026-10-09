@@ -1,0 +1,57 @@
+id: "missing_items_set"
+title: "Qui manque à l'appel ?"
+description: |
+  Complète la fonction `absents(registered, present)` : elle reçoit la liste des élèves inscrits et la liste des élèves présents,
+  et renvoie la liste **triée** des inscrits qui ne sont **pas** présents.
+
+  Exemples :
+  - `absents(["Ada", "Alan", "Grace"], ["Alan"])` renvoie `["Ada", "Grace"]`
+  - `absents(["Ada"], ["Ada"])` renvoie `[]`
+
+template: |
+  def absents(registered, present):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def absents(registered, present):
+      return sorted(set(registered) - set(present))
+
+hints:
+  - "La différence `a - b` garde les éléments de `a` absents de `b`."
+
+tests:
+  - input: [["Ada", "Alan", "Grace"], ["Alan"]]
+    expected: ["Ada", "Grace"]
+    description: "Deux absents"
+  - input: [["Ada"], ["Ada"]]
+    expected: []
+    description: "Tout le monde est là"
+  - input: [["Léo", "Ada", "Zoé"], []]
+    expected: ["Ada", "Léo", "Zoé"]
+    description: "Personne n'est là"
+  - input: [["Ada", "Alan"], ["Alan", "Linus"]]
+    expected: ["Ada"]
+    hidden: true
+    description: "Un présent non inscrit"
+
+en:
+  title: "Who is missing?"
+  description: |
+    Complete the function `absents(registered, present)`: it receives the list of registered students and the list of present students,
+    and returns the **sorted** list of registered students who are **not** present.
+
+    Examples:
+    - `absents(["Ada", "Alan", "Grace"], ["Alan"])` returns `["Ada", "Grace"]`
+    - `absents(["Ada"], ["Ada"])` returns `[]`
+  template: |
+    def absents(registered, present):
+        # Write your code here
+        pass
+  hints:
+    - "The difference `a - b` keeps the items of `a` not found in `b`."
+  tests:
+    - "Two missing"
+    - "Everyone is here"
+    - "Nobody is here"
+    - "A present student who is not registered"

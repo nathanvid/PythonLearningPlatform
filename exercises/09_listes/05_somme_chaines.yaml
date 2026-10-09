@@ -1,0 +1,69 @@
+id: "sum_string_numbers"
+title: "Somme de nombres en chaînes"
+description: |
+  Complète la fonction `sum_string_numbers(str_list)` : elle reçoit une liste de nombres écrits sous forme de **texte**, et renvoie leur somme sous forme de **nombre entier**.
+
+  Exemples :
+  - `sum_string_numbers(["1", "2", "3"])` renvoie `6`
+  - `sum_string_numbers(["-5", "10", "-3"])` renvoie `2`
+  - `sum_string_numbers([])` renvoie `0`
+
+template: |
+  def sum_string_numbers(str_list):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def sum_string_numbers(str_list):
+      total = 0
+      for text in str_list:
+          total += int(text)
+      return total
+
+hints:
+  - "Convertis chaque texte avec `int()` avant de l'ajouter au total."
+
+tests:
+  - input: [["1", "2", "3"]]
+    expected: 6
+    description: "Trois petits nombres"
+  - input: [["10", "20", "30"]]
+    expected: 60
+    description: "Nombres plus grands"
+  - input: [["0"]]
+    expected: 0
+    description: "Un seul zéro"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [["100", "200", "300"]]
+    expected: 600
+    hidden: true
+    description: "Grands nombres"
+  - input: [["-5", "10", "-3"]]
+    expected: 2
+    hidden: true
+    description: "Nombres négatifs"
+
+en:
+  title: "Sum of numbers stored as strings"
+  description: |
+    Complete the function `sum_string_numbers(str_list)`: it receives a list of numbers written as **text**, and returns their sum as a **whole number**.
+
+    Examples:
+    - `sum_string_numbers(["1", "2", "3"])` returns `6`
+    - `sum_string_numbers(["-5", "10", "-3"])` returns `2`
+    - `sum_string_numbers([])` returns `0`
+  template: |
+    def sum_string_numbers(str_list):
+        # Write your code here
+        pass
+  hints:
+    - "Convert each text with `int()` before adding it to the total."
+  tests:
+    - "Three small numbers"
+    - "Larger numbers"
+    - "A single zero"
+    - "Empty list"
+    - "Large numbers"
+    - "Negative numbers"

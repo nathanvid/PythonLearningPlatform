@@ -1,0 +1,68 @@
+id: "count_digits_while"
+type: output
+title: "Compter les chiffres"
+description: |
+  Pour compter les chiffres d'un nombre, on peut le diviser par 10 (`// 10`) jusqu'à ce qu'il vaille `0` :
+  4096 → 409 → 40 → 4 → 0, soit 4 divisions.
+
+  Avec une boucle `while` qui continue tant que `number > 0`, compte les chiffres de `number = 4096`
+  dans une variable `digits`, puis affiche :
+
+  ```text
+  4 chiffres
+  ```
+
+template: |
+  number = 4096
+  digits = 0
+  # Écris ta boucle while ici
+
+solution: |
+  number = 4096
+  digits = 0
+  while number > 0:
+      number = number // 10
+      digits += 1
+  print(digits, "chiffres")
+
+checks:
+  variables:
+    digits: 4
+    number: 0
+  uses: [number, digits]
+  constructs: [while]
+
+hints:
+  - "`number = number // 10` enlève le dernier chiffre."
+
+en:
+  title: "Counting digits"
+  description: |
+    To count the digits of a number, you can divide it by 10 (`// 10`) until it is `0`:
+    4096 → 409 → 40 → 4 → 0, that is 4 divisions.
+
+    With a `while` loop that keeps going as long as `number > 0`, count the digits of `number = 4096`
+    in a variable `digits`, then display:
+
+    ```text
+    4 digits
+    ```
+  template: |
+    number = 4096
+    digits = 0
+    # Write your while loop here
+  solution: |
+    number = 4096
+    digits = 0
+    while number > 0:
+        number = number // 10
+        digits += 1
+    print(digits, "digits")
+  checks:
+    variables:
+      digits: 4
+      number: 0
+    uses: [number, digits]
+    constructs: [while]
+  hints:
+    - "`number = number // 10` removes the last digit."

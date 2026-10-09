@@ -1,0 +1,58 @@
+id: "even_or_odd"
+type: output
+title: "Pair ou impair"
+description: |
+  La variable `number` vaut `7`. Avec `%` et un `if` / `else`, affiche :
+  - `7 est pair` si le reste de la division de `number` par 2 vaut `0` ;
+  - `7 est impair` sinon.
+
+  Le nombre affiché doit venir de la variable `number`. Le programme doit afficher exactement :
+
+  ```text
+  7 est impair
+  ```
+
+template: |
+  number = 7
+  # Écris ton code ici
+
+solution: |
+  number = 7
+  if number % 2 == 0:
+      print(number, "est pair")
+  else:
+      print(number, "est impair")
+
+checks:
+  uses: [number]
+  constructs: [if, else]
+
+hints:
+  - "La condition s'écrit `number % 2 == 0`."
+
+en:
+  title: "Even or odd"
+  description: |
+    The variable `number` is `7`. With `%` and an `if` / `else`, display:
+    - `7 is even` if the remainder of the division of `number` by 2 is `0`;
+    - `7 is odd` otherwise.
+
+    The displayed number must come from the variable `number`. The program must display exactly:
+
+    ```text
+    7 is odd
+    ```
+  template: |
+    number = 7
+    # Write your code here
+  solution: |
+    number = 7
+    if number % 2 == 0:
+        print(number, "is even")
+    else:
+        print(number, "is odd")
+  checks:
+    uses: [number]
+    constructs: [if, else]
+  hints:
+    - "The condition is written `number % 2 == 0`."

@@ -1,0 +1,62 @@
+id: "merge_dicts"
+title: "Fusionner des dictionnaires"
+description: |
+  Complète la fonction `merge_dicts(dict1, dict2)` pour qu'elle renvoie un **nouveau** dictionnaire qui contient toutes les paires des deux dictionnaires.
+  Si une clé est dans les deux, c'est la valeur de `dict2` qui est gardée.
+
+  Exemples :
+  - `merge_dicts({"a": 1}, {"b": 2})` renvoie `{"a": 1, "b": 2}`
+  - `merge_dicts({"a": 1}, {"a": 2})` renvoie `{"a": 2}`
+
+template: |
+  def merge_dicts(dict1, dict2):
+      # Fusionne les deux dictionnaires
+      pass
+
+solution: |
+  def merge_dicts(dict1, dict2):
+      result = {}
+      for key, value in dict1.items():
+          result[key] = value
+      for key, value in dict2.items():
+          result[key] = value
+      return result
+
+hints:
+  - "Copie d'abord toutes les paires de `dict1` dans un dictionnaire vide, puis celles de `dict2`."
+
+tests:
+  - input: [{"a": 1}, {"b": 2}]
+    expected: {"a": 1, "b": 2}
+    description: "Clés différentes"
+  - input: [{"a": 1}, {"a": 2}]
+    expected: {"a": 2}
+    description: "Même clé, dict2 gagne"
+  - input: [{}, {"x": 10}]
+    expected: {"x": 10}
+    description: "Premier dict vide"
+  - input: [{"x": 5, "y": 10}, {"y": 20, "z": 30}]
+    expected: {"x": 5, "y": 20, "z": 30}
+    hidden: true
+    description: "Fusion complexe"
+
+en:
+  title: "Merge dictionaries"
+  description: |
+    Complete the function `merge_dicts(dict1, dict2)` so that it returns a **new** dictionary holding all the pairs of both dictionaries.
+    If a key is in both, the value from `dict2` is kept.
+
+    Examples:
+    - `merge_dicts({"a": 1}, {"b": 2})` returns `{"a": 1, "b": 2}`
+    - `merge_dicts({"a": 1}, {"a": 2})` returns `{"a": 2}`
+  template: |
+    def merge_dicts(dict1, dict2):
+        # Merge the two dictionaries
+        pass
+  hints:
+    - "First copy all the pairs of `dict1` into an empty dictionary, then those of `dict2`."
+  tests:
+    - "Different keys"
+    - "Same key, dict2 wins"
+    - "First dict empty"
+    - "Complex merge"

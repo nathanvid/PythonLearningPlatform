@@ -1,0 +1,78 @@
+id: "count_vowels"
+title: "Compter les voyelles"
+description: |
+  Complète la fonction `count_vowels(text)` pour qu'elle renvoie le nombre de voyelles (`a`, `e`, `i`, `o`, `u`) de `text`.
+  Les majuscules comptent aussi : `"A"` est une voyelle.
+
+  Exemples :
+  - `count_vowels("hello")` renvoie `2`
+  - `count_vowels("Python")` renvoie `1`
+  - `count_vowels("aEiOu")` renvoie `5`
+
+template: |
+  def count_vowels(text):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def count_vowels(text):
+      count = 0
+      for letter in text.lower():
+          if letter in "aeiou":
+              count += 1
+      return count
+
+hints:
+  - "Parcours `text.lower()` lettre par lettre et teste `letter in \"aeiou\"`."
+
+tests:
+  - input: ["hello"]
+    expected: 2
+    description: "Mot simple"
+  - input: ["Python"]
+    expected: 1
+    description: "Avec majuscule"
+  - input: ["aEiOu"]
+    expected: 5
+    description: "Toutes les voyelles en mixte"
+  - input: ["xyz"]
+    expected: 0
+    description: "Aucune voyelle"
+  - input: [""]
+    expected: 0
+    description: "Chaîne vide"
+  - input: ["Bonjour le monde"]
+    expected: 6
+    hidden: true
+    description: "Phrase avec espaces"
+  - input: ["AEIOU"]
+    expected: 5
+    hidden: true
+    description: "Voyelles majuscules"
+
+en:
+  title: "Count the vowels"
+  description: |
+    Complete the function `count_vowels(text)` so that it returns the number of vowels (`a`, `e`, `i`, `o`, `u`) in `text`.
+    Capital letters count too: `"A"` is a vowel.
+
+    Examples:
+    - `count_vowels("hello")` returns `2`
+    - `count_vowels("Python")` returns `1`
+    - `count_vowels("aEiOu")` returns `5`
+  template: |
+    def count_vowels(text):
+        # Write your code here
+        pass
+  hints:
+    - "Loop over `text.lower()` letter by letter and test `letter in \"aeiou\"`."
+  tests:
+    - "Simple word"
+    - "With an uppercase letter"
+    - "All vowels, mixed case"
+    - "No vowels"
+    - "Empty string"
+    - input: ["Hello there world"]
+      expected: 5
+      description: "Sentence with spaces"
+    - "Uppercase vowels"

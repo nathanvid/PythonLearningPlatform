@@ -1,0 +1,103 @@
+id: "fix_basket_self"
+type: fix
+title: "Débogage : le panier"
+description: |
+  La classe `Basket` permet d'ajouter des articles et de connaître leur nombre.
+  La fonction `fill_basket(items)` crée un panier, y ajoute les articles
+  et renvoie la taille du panier. Elle plante dès qu'on ajoute un article : corrige-la.
+
+template: |
+  class Basket:
+      def __init__(self):
+          self.items = []
+
+      def add(self, item):
+          items.append(item)
+
+      def size(self):
+          return len(self.items)
+
+  def fill_basket(items):
+      basket = Basket()
+      for item in items:
+          basket.add(item)
+      return basket.size()
+
+solution: |
+  class Basket:
+      def __init__(self):
+          self.items = []
+
+      def add(self, item):
+          self.items.append(item)
+
+      def size(self):
+          return len(self.items)
+
+  def fill_basket(items):
+      basket = Basket()
+      for item in items:
+          basket.add(item)
+      return basket.size()
+
+hints:
+  - "Dans une méthode, les attributs de l'objet se lisent avec `self.`."
+
+tests:
+  - input: [["pain", "lait"]]
+    expected: 2
+    description: "Deux articles"
+  - input: [[]]
+    expected: 0
+    description: "Panier vide"
+  - input: [["pomme"]]
+    expected: 1
+    hidden: true
+    description: "Un article"
+
+en:
+  title: "Debugging: the basket"
+  description: |
+    The `Basket` class lets you add items and know how many there are.
+    The function `fill_basket(items)` creates a basket, adds the items to it
+    and returns the basket size. It crashes as soon as an item is added: fix it.
+  template: |
+    class Basket:
+        def __init__(self):
+            self.items = []
+
+        def add(self, item):
+            items.append(item)
+
+        def size(self):
+            return len(self.items)
+
+    def fill_basket(items):
+        basket = Basket()
+        for item in items:
+            basket.add(item)
+        return basket.size()
+  solution: |
+    class Basket:
+        def __init__(self):
+            self.items = []
+
+        def add(self, item):
+            self.items.append(item)
+
+        def size(self):
+            return len(self.items)
+
+    def fill_basket(items):
+        basket = Basket()
+        for item in items:
+            basket.add(item)
+        return basket.size()
+  hints:
+    - "Inside a method, the object's attributes are read with `self.`."
+  tests:
+    - input: [["bread", "milk"]]
+      description: "Two items"
+    - "Empty basket"
+    - input: [["apple"]]
+      description: "One item"

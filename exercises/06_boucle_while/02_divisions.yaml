@@ -1,0 +1,64 @@
+id: "halve_until_one"
+type: output
+title: "Diviser par 2 jusqu'à 1"
+description: |
+  On part de `number = 1000`. Tant que `number` est plus grand que `1`, on le remplace par sa division entière par 2 (`//`).
+
+  Avec une boucle `while`, compte le nombre de divisions dans une variable `divisions`, puis affiche :
+
+  ```text
+  9 divisions
+  ```
+
+template: |
+  number = 1000
+  divisions = 0
+  # Écris ta boucle while ici
+
+solution: |
+  number = 1000
+  divisions = 0
+  while number > 1:
+      number = number // 2
+      divisions += 1
+  print(divisions, "divisions")
+
+checks:
+  variables:
+    divisions: 9
+    number: 1
+  uses: [number, divisions]
+  constructs: [while]
+
+hints:
+  - "À chaque tour : diviser nombre par 2 avec //, et ajouter 1 à divisions."
+
+en:
+  title: "Halving down to 1"
+  description: |
+    Start from `number = 1000`. As long as `number` is greater than `1`, replace it with its integer division by 2 (`//`).
+
+    With a `while` loop, count the number of divisions in a variable `divisions`, then display:
+
+    ```text
+    9 divisions
+    ```
+  template: |
+    number = 1000
+    divisions = 0
+    # Write your while loop here
+  solution: |
+    number = 1000
+    divisions = 0
+    while number > 1:
+        number = number // 2
+        divisions += 1
+    print(divisions, "divisions")
+  checks:
+    variables:
+      divisions: 9
+      number: 1
+    uses: [number, divisions]
+    constructs: [while]
+  hints:
+    - "On each round: divide number by 2 with //, and add 1 to divisions."

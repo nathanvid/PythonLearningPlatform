@@ -1,0 +1,76 @@
+id: "swap_two_variables"
+type: output
+title: "Échanger deux variables"
+description: |
+  Au départ, `a` contient `"pomme"` et `b` contient `"kiwi"`.
+  Échange leurs valeurs : à la fin, `a` doit contenir `"kiwi"` et `b` doit contenir `"pomme"`.
+
+  Pour ne pas perdre de valeur pendant l'échange, utilise une troisième variable `temp`.
+  Ne modifie pas les deux `print` : le programme doit afficher exactement :
+
+  ```text
+  a : kiwi
+  b : pomme
+  ```
+
+template: |
+  a = "pomme"
+  b = "kiwi"
+  # Échange les valeurs ici
+
+  print("a :", a)
+  print("b :", b)
+
+solution: |
+  a = "pomme"
+  b = "kiwi"
+  temp = a
+  a = b
+  b = temp
+  print("a :", a)
+  print("b :", b)
+
+checks:
+  variables:
+    a: "kiwi"
+    b: "pomme"
+  uses: [temp]
+
+hints:
+  - "Mets d'abord la valeur de `a` de côté dans `temp`, avant de remplacer `a`."
+
+en:
+  title: "Swapping two variables"
+  description: |
+    At the start, `a` holds `"apple"` and `b` holds `"kiwi"`.
+    Swap their values: at the end, `a` must hold `"kiwi"` and `b` must hold `"apple"`.
+
+    So that no value gets lost during the swap, use a third variable `temp`.
+    Don't change the two `print` lines: the program must display exactly:
+
+    ```text
+    a: kiwi
+    b: apple
+    ```
+  template: |
+    a = "apple"
+    b = "kiwi"
+    # Swap the values here
+
+    print("a:", a)
+    print("b:", b)
+  solution: |
+    a = "apple"
+    b = "kiwi"
+    temp = a
+    a = b
+    b = temp
+    print("a:", a)
+    print("b:", b)
+  checks:
+    variables:
+      a: "kiwi"
+      b: "apple"
+    uses: [temp]
+  hints:
+    - "First put the value of `a` aside in `temp`, before replacing `a`."

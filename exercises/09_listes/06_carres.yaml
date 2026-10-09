@@ -1,0 +1,61 @@
+id: "squares_list_comp"
+title: "Carrés avec list comprehension"
+description: |
+  Complète la fonction `squares(n)` pour qu'elle renvoie la liste des carrés des nombres de `1` à `n`, avec une **liste en compréhension**.
+
+  Exemples :
+  - `squares(3)` renvoie `[1, 4, 9]`
+  - `squares(5)` renvoie `[1, 4, 9, 16, 25]`
+  - `squares(0)` renvoie `[]`
+
+template: |
+  def squares(n):
+      # Utilise une list comprehension
+      pass
+
+solution: |
+  def squares(n):
+      return [i * i for i in range(1, n + 1)]
+
+hints:
+  - "`[... for i in range(1, n + 1)]`"
+
+tests:
+  - input: [3]
+    expected: [1, 4, 9]
+    description: "Carrés de 1 à 3"
+  - input: [5]
+    expected: [1, 4, 9, 16, 25]
+    description: "Carrés de 1 à 5"
+  - input: [1]
+    expected: [1]
+    description: "Un seul nombre"
+  - input: [0]
+    expected: []
+    description: "Liste vide"
+  - input: [10]
+    expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    hidden: true
+    description: "Carrés de 1 à 10"
+
+en:
+  title: "Squares with a list comprehension"
+  description: |
+    Complete the function `squares(n)` so that it returns the list of the squares of the numbers from `1` to `n`, with a **list comprehension**.
+
+    Examples:
+    - `squares(3)` returns `[1, 4, 9]`
+    - `squares(5)` returns `[1, 4, 9, 16, 25]`
+    - `squares(0)` returns `[]`
+  template: |
+    def squares(n):
+        # Use a list comprehension
+        pass
+  hints:
+    - "`[... for i in range(1, n + 1)]`"
+  tests:
+    - "Squares from 1 to 3"
+    - "Squares from 1 to 5"
+    - "A single number"
+    - "Empty list"
+    - "Squares from 1 to 10"

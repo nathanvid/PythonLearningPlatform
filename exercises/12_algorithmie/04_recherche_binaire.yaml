@@ -1,0 +1,80 @@
+id: "binary_search"
+title: "Recherche binaire"
+description: |
+  Complète la fonction `binary_search(arr, target)` : `arr` est une liste **triée**, et la fonction renvoie l'indice de `target` dans `arr`, ou `-1` s'il n'y est pas.
+  Utilise la **recherche binaire** de la leçon : regarde l'élément du milieu, puis continue seulement dans la bonne moitié.
+
+  Exemples :
+  - `binary_search([1, 2, 3, 4, 5], 3)` renvoie `2`
+  - `binary_search([1, 2, 3, 4, 5], 6)` renvoie `-1`
+
+template: |
+  def binary_search(arr, target):
+      # Implémente la recherche binaire
+      pass
+
+solution: |
+  def binary_search(arr, target):
+      low = 0
+      high = len(arr) - 1
+      while low <= high:
+          middle = (low + high) // 2
+          if arr[middle] == target:
+              return middle
+          elif arr[middle] < target:
+              low = middle + 1
+          else:
+              high = middle - 1
+      return -1
+
+hints:
+  - "Reprends le code de la leçon avec `low` et `high` : renvoie `middle` quand c'est trouvé, et `-1` après la boucle."
+
+tests:
+  - input: [[1, 2, 3, 4, 5], 3]
+    expected: 2
+    description: "Élément au milieu"
+  - input: [[1, 2, 3, 4, 5], 1]
+    expected: 0
+    description: "Premier élément"
+  - input: [[1, 2, 3, 4, 5], 5]
+    expected: 4
+    description: "Dernier élément"
+  - input: [[1, 2, 3, 4, 5], 6]
+    expected: -1
+    description: "Élément non trouvé"
+  - input: [[10], 10]
+    expected: 0
+    description: "Un seul élément"
+  - input: [[1, 3, 5, 7, 9, 11, 13], 7]
+    expected: 3
+    hidden: true
+    description: "Liste plus longue"
+  - input: [[2, 4, 6, 8, 10], 5]
+    expected: -1
+    hidden: true
+    description: "Valeur entre deux éléments"
+
+en:
+  title: "Binary search"
+  description: |
+    Complete the function `binary_search(arr, target)`: `arr` is a **sorted** list, and the function returns the index of `target` in `arr`, or `-1` if it isn't there.
+    Use the **binary search** from the lesson: look at the middle item, then carry on only in the right half.
+
+    Examples:
+    - `binary_search([1, 2, 3, 4, 5], 3)` returns `2`
+    - `binary_search([1, 2, 3, 4, 5], 6)` returns `-1`
+  template: |
+    def binary_search(arr, target):
+        # Implement binary search
+        pass
+  hints:
+    - "Reuse the lesson's code with `low` and `high`: return `middle` when found, and `-1` after the loop."
+  tests:
+    - "Element in the middle"
+    - "First element"
+    - "Last element"
+    - "Element not found"
+    - "A single element"
+    - "Longer list"
+    - "Value between two elements"

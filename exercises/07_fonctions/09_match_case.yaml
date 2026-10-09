@@ -1,0 +1,126 @@
+id: "match_day_type"
+title: "Choisir avec match / case"
+description: |
+  `match` / `case` compare une valeur à plusieurs possibilités. C'est une autre façon d'écrire une longue suite de `if` / `elif` :
+
+  ```python
+  match commande:
+      case "start":
+          return "Démarrage"
+      case "stop" | "quit":      # | veut dire « ou »
+          return "Arrêt"
+      case _:                    # _ attrape tout le reste
+          return "Commande inconnue"
+  ```
+
+  Complète la fonction `day_type(day)` avec `match` / `case` pour qu'elle renvoie :
+  - `"week-end"` pour `"samedi"` et `"dimanche"` ;
+  - `"semaine"` pour `"lundi"`, `"mardi"`, `"mercredi"`, `"jeudi"` et `"vendredi"` ;
+  - `"inconnu"` pour toute autre valeur (même `"Lundi"` avec une majuscule).
+
+  Exemples :
+  - `day_type("samedi")` renvoie `"week-end"`
+  - `day_type("mardi")` renvoie `"semaine"`
+  - `day_type("pizza")` renvoie `"inconnu"`
+
+template: |
+  def day_type(day):
+      match day:
+          # Ajoute tes case ici
+          case _:
+              pass
+
+solution: |
+  def day_type(day):
+      match day:
+          case "samedi" | "dimanche":
+              return "week-end"
+          case "lundi" | "mardi" | "mercredi" | "jeudi" | "vendredi":
+              return "semaine"
+          case _:
+              return "inconnu"
+
+hints:
+  - "Regroupe plusieurs valeurs dans un même `case` avec `|`, et garde `case _:` en dernier."
+
+tests:
+  - input: ["samedi"]
+    expected: "week-end"
+    description: "Samedi"
+  - input: ["mardi"]
+    expected: "semaine"
+    description: "Mardi"
+  - input: ["pizza"]
+    expected: "inconnu"
+    description: "Valeur inconnue"
+  - input: ["dimanche"]
+    expected: "week-end"
+    description: "Dimanche"
+  - input: ["vendredi"]
+    expected: "semaine"
+    hidden: true
+    description: "Vendredi"
+  - input: ["Lundi"]
+    expected: "inconnu"
+    hidden: true
+    description: "Majuscule : valeur différente"
+
+en:
+  title: "Choosing with match / case"
+  description: |
+    `match` / `case` compares a value with several possibilities. It is another way to write a long chain of `if` / `elif`:
+
+    ```python
+    match command:
+        case "start":
+            return "Starting"
+        case "stop" | "quit":      # | means "or"
+            return "Stopping"
+        case _:                    # _ catches everything else
+            return "Unknown command"
+    ```
+
+    Complete the function `day_type(day)` with `match` / `case` so that it returns:
+    - `"weekend"` for `"saturday"` and `"sunday"`;
+    - `"weekday"` for `"monday"`, `"tuesday"`, `"wednesday"`, `"thursday"` and `"friday"`;
+    - `"unknown"` for any other value (even `"Monday"` with a capital letter).
+
+    Examples:
+    - `day_type("saturday")` returns `"weekend"`
+    - `day_type("tuesday")` returns `"weekday"`
+    - `day_type("pizza")` returns `"unknown"`
+  template: |
+    def day_type(day):
+        match day:
+            # Add your cases here
+            case _:
+                pass
+  solution: |
+    def day_type(day):
+        match day:
+            case "saturday" | "sunday":
+                return "weekend"
+            case "monday" | "tuesday" | "wednesday" | "thursday" | "friday":
+                return "weekday"
+            case _:
+                return "unknown"
+  hints:
+    - "Group several values in one `case` with `|`, and keep `case _:` last."
+  tests:
+    - input: ["saturday"]
+      expected: "weekend"
+      description: "Saturday"
+    - input: ["tuesday"]
+      expected: "weekday"
+      description: "Tuesday"
+    - expected: "unknown"
+      description: "Unknown value"
+    - input: ["sunday"]
+      expected: "weekend"
+      description: "Sunday"
+    - input: ["friday"]
+      expected: "weekday"
+      description: "Friday"
+    - input: ["Monday"]
+      expected: "unknown"
+      description: "Uppercase: a different value"

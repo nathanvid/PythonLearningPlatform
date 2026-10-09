@@ -1,0 +1,59 @@
+id: "sum_list"
+title: "Somme des éléments"
+description: |
+  Complète la fonction `sum_list(numbers)` pour qu'elle renvoie la somme des nombres de la liste.
+
+  Exemples :
+  - `sum_list([1, 2, 3, 4, 5])` renvoie `15`
+  - `sum_list([10, -5, 3])` renvoie `8`
+  - `sum_list([])` renvoie `0`
+
+template: |
+  def sum_list(numbers):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def sum_list(numbers):
+      total = 0
+      for n in numbers:
+          total += n
+      return total
+
+hints:
+  - "Une boucle `for` avec un accumulateur, ou la fonction `sum`."
+
+tests:
+  - input: [[1, 2, 3, 4, 5]]
+    expected: 15
+    description: "Somme de 1 à 5"
+  - input: [[10, -5, 3]]
+    expected: 8
+    description: "Somme avec des nombres négatifs"
+  - input: [[]]
+    expected: 0
+    description: "Liste vide"
+  - input: [[100]]
+    expected: 100
+    description: "Liste avec un seul élément"
+
+en:
+  title: "Sum of the elements"
+  description: |
+    Complete the function `sum_list(numbers)` so that it returns the sum of the numbers in the list.
+
+    Examples:
+    - `sum_list([1, 2, 3, 4, 5])` returns `15`
+    - `sum_list([10, -5, 3])` returns `8`
+    - `sum_list([])` returns `0`
+  template: |
+    def sum_list(numbers):
+        # Write your code here
+        pass
+  hints:
+    - "A `for` loop with an accumulator, or the `sum` function."
+  tests:
+    - "Sum from 1 to 5"
+    - "Sum with negative numbers"
+    - "Empty list"
+    - "List with a single element"

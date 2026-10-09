@@ -1,0 +1,72 @@
+id: "basket_total"
+title: "Le total du panier"
+description: |
+  Complète la fonction `total(prices, basket)` :
+  - `prices` associe chaque article à son prix unitaire ;
+  - `basket` associe chaque article acheté à sa quantité.
+
+  Elle renvoie le prix total du panier : pour chaque article, prix unitaire × quantité.
+
+  Exemples :
+  - `total({"pain": 2, "lait": 1}, {"pain": 3})` renvoie `6`
+  - `total({"pain": 2, "lait": 1}, {"pain": 1, "lait": 4})` renvoie `6`
+  - `total({"pain": 2}, {})` renvoie `0`
+
+template: |
+  def total(prices, basket):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def total(prices, basket):
+      total = 0
+      for item, quantity in basket.items():
+          total += prices[item] * quantity
+      return total
+
+hints:
+  - "Parcours `basket.items()` et cherche le prix de chaque article dans `prices`."
+
+tests:
+  - input: [{"pain": 2, "lait": 1}, {"pain": 3}]
+    expected: 6
+    description: "Un seul article"
+  - input: [{"pain": 2, "lait": 1}, {"pain": 1, "lait": 4}]
+    expected: 6
+    description: "Deux articles"
+  - input: [{"pain": 2}, {}]
+    expected: 0
+    description: "Panier vide"
+  - input: [{"stylo": 1.5, "cahier": 3}, {"stylo": 2, "cahier": 2}]
+    expected: 9.0
+    hidden: true
+    description: "Prix à virgule"
+
+en:
+  title: "The basket total"
+  description: |
+    Complete the function `total(prices, basket)`:
+    - `prices` links each item to its unit price;
+    - `basket` links each bought item to its quantity.
+
+    It returns the total price of the basket: for each item, unit price × quantity.
+
+    Examples:
+    - `total({"bread": 2, "milk": 1}, {"bread": 3})` returns `6`
+    - `total({"bread": 2, "milk": 1}, {"bread": 1, "milk": 4})` returns `6`
+    - `total({"bread": 2}, {})` returns `0`
+  template: |
+    def total(prices, basket):
+        # Write your code here
+        pass
+  hints:
+    - "Loop over `basket.items()` and look up the price of each item in `prices`."
+  tests:
+    - input: [{"bread": 2, "milk": 1}, {"bread": 3}]
+      description: "A single item"
+    - input: [{"bread": 2, "milk": 1}, {"bread": 1, "milk": 4}]
+      description: "Two items"
+    - input: [{"bread": 2}, {}]
+      description: "Empty basket"
+    - input: [{"pen": 1.5, "notebook": 3}, {"pen": 2, "notebook": 2}]
+      description: "Decimal prices"

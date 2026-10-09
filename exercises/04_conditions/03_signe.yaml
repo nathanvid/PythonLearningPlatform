@@ -1,0 +1,61 @@
+id: "number_sign"
+type: output
+title: "Le signe d'un nombre"
+description: |
+  La variable `n` vaut `-4`. Avec `if`, `elif` et `else`, affiche :
+  - `positif` si `n` est plus grand que 0 ;
+  - `négatif` si `n` est plus petit que 0 ;
+  - `zéro` sinon.
+
+  Avec `n = -4`, le programme doit afficher exactement :
+
+  ```text
+  négatif
+  ```
+
+template: |
+  n = -4
+  # Écris ton code ici
+
+solution: |
+  n = -4
+  if n > 0:
+      print("positif")
+  elif n < 0:
+      print("négatif")
+  else:
+      print("zéro")
+
+checks:
+  uses: [n]
+  constructs: [if, elif, else]
+
+hints:
+  - "Le cas `zéro` est celui qui reste quand les deux premières conditions sont fausses."
+
+en:
+  title: "The sign of a number"
+  description: |
+    The variable `n` is `-4`. With `if`, `elif` and `else`, display:
+    - `positive` if `n` is greater than 0;
+    - `negative` if `n` is smaller than 0;
+    - `zero` otherwise.
+
+    With `n = -4`, the program must display exactly:
+
+    ```text
+    negative
+    ```
+  template: |
+    n = -4
+    # Write your code here
+  solution: |
+    n = -4
+    if n > 0:
+        print("positive")
+    elif n < 0:
+        print("negative")
+    else:
+        print("zero")
+  hints:
+    - "The `zero` case is the one left when the first two conditions are false."

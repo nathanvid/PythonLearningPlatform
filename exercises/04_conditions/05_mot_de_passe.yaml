@@ -1,0 +1,62 @@
+id: "password_check"
+type: output
+title: "Vérifier un mot de passe"
+description: |
+  La variable `typed` contient le mot de passe tapé : `"python123"`.
+
+  Avec un `if` / `else`, compare `typed` au texte `"python123"` et affiche :
+  - `Accès autorisé` si les deux sont égaux ;
+  - `Accès refusé` sinon.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  Accès autorisé
+  ```
+
+template: |
+  typed = "python123"
+  # Écris ton code ici
+
+solution: |
+  typed = "python123"
+  if typed == "python123":
+      print("Accès autorisé")
+  else:
+      print("Accès refusé")
+
+checks:
+  uses: [typed]
+  constructs: [if, else]
+
+hints:
+  - "On compare deux textes avec `==`, comme deux nombres."
+
+en:
+  title: "Checking a password"
+  description: |
+    The variable `typed` holds the typed password: `"python123"`.
+
+    With an `if` / `else`, compare `typed` with the text `"python123"` and display:
+    - `Access granted` if they are equal;
+    - `Access denied` otherwise.
+
+    The program must display exactly:
+
+    ```text
+    Access granted
+    ```
+  template: |
+    typed = "python123"
+    # Write your code here
+  solution: |
+    typed = "python123"
+    if typed == "python123":
+        print("Access granted")
+    else:
+        print("Access denied")
+  checks:
+    uses: [typed]
+    constructs: [if, else]
+  hints:
+    - "Two texts are compared with `==`, just like two numbers."

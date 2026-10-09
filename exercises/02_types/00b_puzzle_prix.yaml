@@ -1,0 +1,36 @@
+id: "parsons_price_conversion"
+type: parsons
+title: "Puzzle : le prix total"
+description: |
+  Le prix d'un cahier est donné sous forme de texte : `"12"`.
+  Remets les lignes dans l'ordre pour calculer le prix de 3 cahiers et afficher exactement :
+
+  ```text
+  Total : 36
+  ```
+
+solution: |
+  price_text = "12"
+  price = int(price_text)
+  total = price * 3
+  print("Total :", total)
+
+hints:
+  - "Chaque ligne utilise une variable créée par la ligne précédente."
+
+en:
+  title: "Puzzle: the total price"
+  description: |
+    The price of a notebook is given as text: `"12"`.
+    Put the lines back in order to compute the price of 3 notebooks and display exactly:
+
+    ```text
+    Total: 36
+    ```
+  solution: |
+    price_text = "12"
+    price = int(price_text)
+    total = price * 3
+    print("Total:", total)
+  hints:
+    - "Each line uses a variable created by the previous line."

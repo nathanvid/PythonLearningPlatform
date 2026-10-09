@@ -1,0 +1,71 @@
+id: "merge_sorted_lists"
+title: "Fusionner deux listes triées"
+description: |
+  Complète la fonction `merge_sorted(a, b)` : `a` et `b` sont deux listes déjà **triées** par ordre croissant.
+  Elle renvoie une seule liste triée qui contient tous leurs éléments, **sans** `sort` ni `sorted`.
+
+  Méthode : avance dans les deux listes en même temps avec deux indices `i` et `j`, et ajoute à chaque fois le plus petit des deux éléments.
+
+  Exemples :
+  - `merge_sorted([1, 4, 6], [2, 3, 7])` renvoie `[1, 2, 3, 4, 6, 7]`
+  - `merge_sorted([], [1, 2])` renvoie `[1, 2]`
+
+template: |
+  def merge_sorted(a, b):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def merge_sorted(a, b):
+      result = []
+      i = 0
+      j = 0
+      while i < len(a) and j < len(b):
+          if a[i] <= b[j]:
+              result.append(a[i])
+              i += 1
+          else:
+              result.append(b[j])
+              j += 1
+      return result + a[i:] + b[j:]
+
+hints:
+  - "Quand une des deux listes est terminée, ajoute d'un coup le reste de l'autre : `a[i:]` ou `b[j:]`."
+
+tests:
+  - input: [[1, 4, 6], [2, 3, 7]]
+    expected: [1, 2, 3, 4, 6, 7]
+    description: "Éléments entremêlés"
+  - input: [[], [1, 2]]
+    expected: [1, 2]
+    description: "Première liste vide"
+  - input: [[1, 2], [3, 4]]
+    expected: [1, 2, 3, 4]
+    description: "Pas d'entremêlement"
+  - input: [[2, 2, 5], [2, 9]]
+    expected: [2, 2, 2, 5, 9]
+    hidden: true
+    description: "Avec des doublons"
+
+en:
+  title: "Merging two sorted lists"
+  description: |
+    Complete the function `merge_sorted(a, b)`: `a` and `b` are two lists already **sorted** in increasing order.
+    It returns a single sorted list holding all their items, **without** `sort` or `sorted`.
+
+    Method: move through both lists at the same time with two indexes `i` and `j`, and each time add the smaller of the two items.
+
+    Examples:
+    - `merge_sorted([1, 4, 6], [2, 3, 7])` returns `[1, 2, 3, 4, 6, 7]`
+    - `merge_sorted([], [1, 2])` returns `[1, 2]`
+  template: |
+    def merge_sorted(a, b):
+        # Write your code here
+        pass
+  hints:
+    - "When one of the lists is finished, add the rest of the other one at once: `a[i:]` or `b[j:]`."
+  tests:
+    - "Interleaved items"
+    - "First list empty"
+    - "No interleaving"
+    - "With duplicates"

@@ -1,0 +1,155 @@
+id: "inheritance_animal"
+title: "Héritage - Classes Animal et Chien"
+description: |
+  Complète deux classes :
+
+  1. `Animal` :
+     - `__init__(self, name)` range le nom dans un attribut ;
+     - `speak(self)` renvoie `"Je suis un animal"`.
+
+  2. `Dog`, qui hérite d'`Animal` :
+     - `__init__(self, name, breed)` appelle le constructeur parent avec `super().__init__(name)`, puis range la race ;
+     - `speak(self)` renvoie `"Woof! Je suis "` suivi du nom ;
+     - `get_breed(self)` renvoie la race.
+
+  Puis complète `create_dog_speak(name, breed)`, qui crée un `Dog` et renvoie ce que renvoie sa méthode `speak()`.
+
+  Exemple :
+  - `create_dog_speak("Rex", "Labrador")` renvoie `"Woof! Je suis Rex"`
+
+template: |
+  class Animal:
+      def __init__(self, name):
+          pass
+
+      def speak(self):
+          pass
+
+  class Dog(Animal):
+      def __init__(self, name, breed):
+          pass
+
+      def speak(self):
+          pass
+
+      def get_breed(self):
+          pass
+
+  def create_dog_speak(name, breed):
+      # Crée un Dog et retourne ce qu'il dit
+      pass
+
+solution: |
+  class Animal:
+      def __init__(self, name):
+          self.name = name
+  
+      def speak(self):
+          return "Je suis un animal"
+  
+  class Dog(Animal):
+      def __init__(self, name, breed):
+          super().__init__(name)
+          self.breed = breed
+  
+      def speak(self):
+          return "Woof! Je suis " + self.name
+  
+      def get_breed(self):
+          return self.breed
+  
+  def create_dog_speak(name, breed):
+      return Dog(name, breed).speak()
+
+hints:
+  - "`super().__init__(name)` exécute le constructeur d'`Animal`, qui range le nom."
+
+tests:
+  - input: ["Rex", "Labrador"]
+    expected: "Woof! Je suis Rex"
+    description: "Chien Rex"
+  - input: ["Max", "Berger"]
+    expected: "Woof! Je suis Max"
+    description: "Chien Max"
+  - input: ["Bella", "Caniche"]
+    expected: "Woof! Je suis Bella"
+    description: "Chien Bella"
+  - input: ["Rocky", "Bulldog"]
+    expected: "Woof! Je suis Rocky"
+    hidden: true
+    description: "Test caché"
+
+en:
+  title: "Inheritance - Animal and Dog classes"
+  description: |
+    Complete two classes:
+
+    1. `Animal`:
+       - `__init__(self, name)` stores the name in an attribute;
+       - `speak(self)` returns `"I am an animal"`.
+
+    2. `Dog`, which inherits from `Animal`:
+       - `__init__(self, name, breed)` calls the parent constructor with `super().__init__(name)`, then stores the breed;
+       - `speak(self)` returns `"Woof! I am "` followed by the name;
+       - `get_breed(self)` returns the breed.
+
+    Then complete `create_dog_speak(name, breed)`, which creates a `Dog` and returns what its `speak()` method returns.
+
+    Example:
+    - `create_dog_speak("Rex", "Labrador")` returns `"Woof! I am Rex"`
+  template: |
+    class Animal:
+        def __init__(self, name):
+            pass
+
+        def speak(self):
+            pass
+
+    class Dog(Animal):
+        def __init__(self, name, breed):
+            pass
+
+        def speak(self):
+            pass
+
+        def get_breed(self):
+            pass
+
+    def create_dog_speak(name, breed):
+        # Create a Dog and return what it says
+        pass
+  solution: |
+    class Animal:
+        def __init__(self, name):
+            self.name = name
+    
+        def speak(self):
+            return "I am an animal"
+    
+    class Dog(Animal):
+        def __init__(self, name, breed):
+            super().__init__(name)
+            self.breed = breed
+    
+        def speak(self):
+            return "Woof! I am " + self.name
+    
+        def get_breed(self):
+            return self.breed
+    
+    def create_dog_speak(name, breed):
+        return Dog(name, breed).speak()
+  hints:
+    - "`super().__init__(name)` runs the constructor of `Animal`, which stores the name."
+  tests:
+    - input: ["Rex", "Labrador"]
+      expected: "Woof! I am Rex"
+      description: "Rex the dog"
+    - input: ["Max", "Shepherd"]
+      expected: "Woof! I am Max"
+      description: "Max the dog"
+    - input: ["Bella", "Poodle"]
+      expected: "Woof! I am Bella"
+      description: "Bella the dog"
+    - expected: "Woof! I am Rocky"
+      description: "Hidden test"

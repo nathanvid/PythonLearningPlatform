@@ -1,0 +1,118 @@
+id: "shapes_inheritance"
+title: "Formes : chaque objet calcule son aire"
+description: |
+  La classe `Shape` est déjà écrite : sa méthode `area()` renvoie `0`. Complète deux classes qui en héritent et **redéfinissent** `area` :
+  - `Square(Shape)` : le constructeur range `side` ; `area()` renvoie `side × side` ;
+  - `Circle(Shape)` : le constructeur range `radius` ; `area()` renvoie `3.14 × radius × radius`.
+
+  Puis complète `total_area(shapes)`. `shapes` est une liste comme `[["square", 2], ["circle", 1]]` : chaque élément donne le type de forme et sa mesure (côté ou rayon). La fonction :
+  1. crée l'objet correspondant à chaque élément et le range dans une liste ;
+  2. renvoie la somme des aires de tous ces objets, arrondie à 2 décimales avec `round(total, 2)`.
+
+  Exemples :
+  - `total_area([["square", 2], ["circle", 1]])` renvoie `7.14`
+  - `total_area([["square", 3]])` renvoie `9`
+  - `total_area([])` renvoie `0`
+
+template: |
+  class Shape:
+      def area(self):
+          return 0
+
+  class Square(Shape):
+      pass
+
+  class Circle(Shape):
+      pass
+
+  def total_area(shapes):
+      pass
+
+solution: |
+  class Shape:
+      def area(self):
+          return 0
+
+  class Square(Shape):
+      def __init__(self, side):
+          self.side = side
+
+      def area(self):
+          return self.side * self.side
+
+  class Circle(Shape):
+      def __init__(self, radius):
+          self.radius = radius
+
+      def area(self):
+          return 3.14 * self.radius * self.radius
+
+  def total_area(shapes):
+      objects = []
+      for kind, size in shapes:
+          if kind == "square":
+              objects.append(Square(size))
+          else:
+              objects.append(Circle(size))
+      total = 0
+      for shape in objects:
+          total += shape.area()
+      return round(total, 2)
+
+hints:
+  - "Une fois la liste d'objets construite, une seule boucle suffit : `total += shape.area()`. Chaque objet utilise **sa** version de `area`."
+
+tests:
+  - input: [[["square", 2], ["circle", 1]]]
+    expected: 7.14
+    description: "Un carré et un cercle"
+  - input: [[["square", 3]]]
+    expected: 9
+    description: "Un seul carré"
+  - input: [[]]
+    expected: 0
+    description: "Aucune forme"
+  - input: [[["circle", 2], ["circle", 1], ["square", 1]]]
+    expected: 16.7
+    description: "Plusieurs formes"
+  - input: [[["square", 10], ["square", 5]]]
+    expected: 125
+    hidden: true
+    description: "Deux carrés"
+
+en:
+  title: "Shapes: each object computes its area"
+  description: |
+    The `Shape` class is already written: its `area()` method returns `0`. Complete two classes that inherit from it and **override** `area`:
+    - `Square(Shape)`: the constructor stores `side`; `area()` returns `side × side`;
+    - `Circle(Shape)`: the constructor stores `radius`; `area()` returns `3.14 × radius × radius`.
+
+    Then complete `total_area(shapes)`. `shapes` is a list like `[["square", 2], ["circle", 1]]`: each element gives the kind of shape and its size (side or radius). The function:
+    1. creates the matching object for each element and stores it in a list;
+    2. returns the sum of the areas of all these objects, rounded to 2 decimals with `round(total, 2)`.
+
+    Examples:
+    - `total_area([["square", 2], ["circle", 1]])` returns `7.14`
+    - `total_area([["square", 3]])` returns `9`
+    - `total_area([])` returns `0`
+  template: |
+    class Shape:
+        def area(self):
+            return 0
+
+    class Square(Shape):
+        pass
+
+    class Circle(Shape):
+        pass
+
+    def total_area(shapes):
+        pass
+  hints:
+    - "Once the list of objects is built, a single loop is enough: `total += shape.area()`. Each object uses **its own** version of `area`."
+  tests:
+    - "A square and a circle"
+    - "A single square"
+    - "No shape"
+    - "Several shapes"
+    - "Two squares"

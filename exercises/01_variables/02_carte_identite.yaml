@@ -1,0 +1,76 @@
+id: "id_card_variables"
+type: output
+title: "Carte d'identité"
+description: |
+  1. Crée trois variables :
+     - `name` qui contient `"Léa"` ;
+     - `city` qui contient `"Nantes"` ;
+     - `age` qui contient le nombre `14`.
+  2. Affiche-les avec trois `print` qui utilisent ces variables.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  Prénom : Léa
+  Ville : Nantes
+  Âge : 14
+  ```
+
+template: |
+  # Crée les trois variables ici
+
+  # Affiche-les ici
+
+solution: |
+  name = "Léa"
+  city = "Nantes"
+  age = 14
+  print("Prénom :", name)
+  print("Ville :", city)
+  print("Âge :", age)
+
+checks:
+  variables:
+    name: "Léa"
+    city: "Nantes"
+    age: 14
+  uses: [name, city, age]
+
+hints:
+  - "`print(\"Prénom :\", name)` affiche le texte, un espace, puis la valeur de la variable."
+
+en:
+  title: "ID card"
+  description: |
+    1. Create three variables:
+       - `name` that holds `"Lea"`;
+       - `city` that holds `"Nantes"`;
+       - `age` that holds the number `14`.
+    2. Display them with three `print` calls that use these variables.
+
+    The program must display exactly:
+
+    ```text
+    Name: Lea
+    City: Nantes
+    Age: 14
+    ```
+  template: |
+    # Create the three variables here
+
+    # Display them here
+  solution: |
+    name = "Lea"
+    city = "Nantes"
+    age = 14
+    print("Name:", name)
+    print("City:", city)
+    print("Age:", age)
+  checks:
+    variables:
+      name: "Lea"
+      city: "Nantes"
+      age: 14
+    uses: [name, city, age]
+  hints:
+    - "`print(\"Name:\", name)` displays the text, a space, then the variable's value."

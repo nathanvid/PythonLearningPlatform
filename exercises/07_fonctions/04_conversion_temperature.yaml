@@ -1,0 +1,70 @@
+id: "celsius_to_fahrenheit"
+title: "Conversion Celsius vers Fahrenheit"
+description: |
+  Complète la fonction `celsius_to_fahrenheit(celsius)` pour qu'elle renvoie la température convertie en degrés Fahrenheit, avec la formule :
+
+  ```text
+  fahrenheit = celsius * 9 / 5 + 32
+  ```
+
+  Exemples :
+  - `celsius_to_fahrenheit(0)` renvoie `32.0`
+  - `celsius_to_fahrenheit(100)` renvoie `212.0`
+  - `celsius_to_fahrenheit(37)` renvoie `98.6`
+
+template: |
+  def celsius_to_fahrenheit(celsius):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def celsius_to_fahrenheit(celsius):
+      return celsius * 9 / 5 + 32
+
+hints:
+  - "`/` donne toujours un `float` : le résultat aura bien la forme `32.0`."
+
+tests:
+  - input: [0]
+    expected: 32.0
+    description: "Point de congélation de l'eau"
+  - input: [100]
+    expected: 212.0
+    description: "Point d'ébullition de l'eau"
+  - input: [37]
+    expected: 98.6
+    description: "Température corporelle"
+  - input: [-40]
+    expected: -40.0
+    hidden: true
+    description: "Température où les deux échelles se rejoignent"
+  - input: [25]
+    expected: 77.0
+    hidden: true
+    description: "Température ambiante"
+
+en:
+  title: "Celsius to Fahrenheit conversion"
+  description: |
+    Complete the function `celsius_to_fahrenheit(celsius)` so that it returns the temperature converted into degrees Fahrenheit, with the formula:
+
+    ```text
+    fahrenheit = celsius * 9 / 5 + 32
+    ```
+
+    Examples:
+    - `celsius_to_fahrenheit(0)` returns `32.0`
+    - `celsius_to_fahrenheit(100)` returns `212.0`
+    - `celsius_to_fahrenheit(37)` returns `98.6`
+  template: |
+    def celsius_to_fahrenheit(celsius):
+        # Write your code here
+        pass
+  hints:
+    - "`/` always gives a `float`: the result will have the form `32.0`."
+  tests:
+    - "Freezing point of water"
+    - "Boiling point of water"
+    - "Body temperature"
+    - "Temperature where both scales meet"
+    - "Room temperature"

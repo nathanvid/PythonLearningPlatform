@@ -1,0 +1,56 @@
+id: "parsons_index_of_min"
+type: parsons
+title: "Puzzle : indice du minimum"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction indice_minimum(liste)
+  qui renvoie l'indice du plus petit élément (le premier, en cas d'égalité).
+
+  Exemple : indice_minimum([4, 2, 7]) → 1
+
+solution: |
+  def index_of_min(items):
+      best = 0
+      for i in range(1, len(items)):
+          if items[i] < items[best]:
+              best = i
+      return best
+
+hints:
+  - "On garde l'indice du minimum, pas sa valeur."
+
+tests:
+  - input: [[4, 2, 7]]
+    expected: 1
+    description: "Minimum au milieu"
+  - input: [[1, 5]]
+    expected: 0
+    description: "Minimum au début"
+  - input: [[9, 8, 7]]
+    expected: 2
+    description: "Minimum à la fin"
+  - input: [[3, 1, 1]]
+    expected: 1
+    hidden: true
+    description: "Égalité : le premier compte"
+
+en:
+  title: "Puzzle: index of the minimum"
+  description: |
+    Put the lines back in order to get a function index_of_min(items)
+    that returns the index of the smallest item (the first one, if there is a tie).
+
+    Example: index_of_min([4, 2, 7]) → 1
+  solution: |
+    def index_of_min(items):
+        best = 0
+        for i in range(1, len(items)):
+            if items[i] < items[best]:
+                best = i
+        return best
+  hints:
+    - "Keep the index of the minimum, not its value."
+  tests:
+    - "Minimum in the middle"
+    - "Minimum at the start"
+    - "Minimum at the end"
+    - "Tie: the first one counts"

@@ -1,0 +1,62 @@
+id: "invert_dict"
+title: "Inverser un dictionnaire"
+description: |
+  Complète la fonction `invert_dict(d)` pour qu'elle renvoie un nouveau dictionnaire où les clés et les valeurs de `d` sont échangées :
+  chaque valeur devient une clé, associée à son ancienne clé.
+
+  Exemples :
+  - `invert_dict({"a": 1, "b": 2})` renvoie `{1: "a", 2: "b"}`
+  - `invert_dict({"nom": "Alice"})` renvoie `{"Alice": "nom"}`
+  - `invert_dict({})` renvoie `{}`
+
+template: |
+  def invert_dict(d):
+      # Inverse clés et valeurs
+      pass
+
+solution: |
+  def invert_dict(d):
+      result = {}
+      for key, value in d.items():
+          result[value] = key
+      return result
+
+hints:
+  - "Parcours `d.items()` et range chaque paire à l'envers : `result[value] = key`."
+
+tests:
+  - input: [{"a": 1, "b": 2}]
+    expected: {1: "a", 2: "b"}
+    description: "Dictionnaire simple"
+  - input: [{"nom": "Alice", "age": 25}]
+    expected: {"Alice": "nom", 25: "age"}
+    description: "Valeurs mixtes"
+  - input: [{}]
+    expected: {}
+    description: "Dictionnaire vide"
+  - input: [{"x": 10, "y": 20, "z": 30}]
+    expected: {10: "x", 20: "y", 30: "z"}
+    hidden: true
+    description: "Trois éléments"
+
+en:
+  title: "Invert a dictionary"
+  description: |
+    Complete the function `invert_dict(d)` so that it returns a new dictionary where the keys and values of `d` are swapped:
+    each value becomes a key, linked to its old key.
+
+    Examples:
+    - `invert_dict({"a": 1, "b": 2})` returns `{1: "a", 2: "b"}`
+    - `invert_dict({"name": "Alice"})` returns `{"Alice": "name"}`
+    - `invert_dict({})` returns `{}`
+  template: |
+    def invert_dict(d):
+        # Swap keys and values
+        pass
+  hints:
+    - "Loop over `d.items()` and store each pair the other way round: `result[value] = key`."
+  tests:
+    - "Simple dictionary"
+    - "Mixed values"
+    - "Empty dictionary"
+    - "Three elements"

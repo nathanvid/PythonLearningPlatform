@@ -1,0 +1,74 @@
+id: "write_read_file"
+title: "Écrire puis relire un fichier"
+description: |
+  Complète la fonction `save_and_load(filename, lines)` qui :
+  1. écrit chaque élément de la liste `lines` dans le fichier `filename`, **un par ligne** ;
+  2. relit ce fichier et renvoie la liste de ses lignes, **sans** les retours à la ligne.
+
+  Exemples :
+  - `save_and_load("courses.txt", ["pain", "lait"])` renvoie `["pain", "lait"]`
+  - `save_and_load("vide.txt", [])` renvoie `[]`
+
+template: |
+  def save_and_load(filename, lines):
+      # 1. Écris les lignes dans le fichier
+      # 2. Relis le fichier et retourne ses lignes
+      pass
+
+solution: |
+  def save_and_load(filename, lines):
+      with open(filename, "w", encoding="utf-8") as f:
+          for line in lines:
+              f.write(line + "\n")
+      result = []
+      with open(filename, encoding="utf-8") as f:
+          for line in f:
+              result.append(line.strip())
+      return result
+
+hints:
+  - "Écris avec `f.write(line + \"\\n\")`, puis relis avec une boucle `for` et `strip()`."
+
+tests:
+  - input: ["courses.txt", ["pain", "lait"]]
+    expected: ["pain", "lait"]
+    description: "Deux lignes"
+  - input: ["vide.txt", []]
+    expected: []
+    description: "Aucune ligne"
+  - input: ["accents.txt", ["élève", "garçon", "où ?"]]
+    expected: ["élève", "garçon", "où ?"]
+    description: "Lignes avec accents"
+  - input: ["nombres.txt", ["1", "22", "333", "4444"]]
+    expected: ["1", "22", "333", "4444"]
+    hidden: true
+    description: "Quatre lignes"
+
+en:
+  title: "Writing then reading a file"
+  description: |
+    Complete the function `save_and_load(filename, lines)` that:
+    1. writes each item of the list `lines` into the file `filename`, **one per line**;
+    2. reads this file back and returns the list of its lines, **without** the line breaks.
+
+    Examples:
+    - `save_and_load("shopping.txt", ["bread", "milk"])` returns `["bread", "milk"]`
+    - `save_and_load("empty.txt", [])` returns `[]`
+  template: |
+    def save_and_load(filename, lines):
+        # 1. Write the lines to the file
+        # 2. Read the file back and return its lines
+        pass
+  hints:
+    - "Write with `f.write(line + \"\\n\")`, then read back with a `for` loop and `strip()`."
+  tests:
+    - input: ["groceries.txt", ["bread", "milk"]]
+      expected: ["bread", "milk"]
+      description: "Two lines"
+    - input: ["empty.txt", []]
+      expected: []
+      description: "No lines"
+    - "Lines with accents"
+    - input: ["numbers.txt", ["1", "22", "333", "4444"]]
+      expected: ["1", "22", "333", "4444"]
+      description: "Four lines"

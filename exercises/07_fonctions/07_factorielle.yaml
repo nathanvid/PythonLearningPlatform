@@ -1,0 +1,65 @@
+id: "factorial"
+title: "Factorielle"
+description: |
+  Complète la fonction `factorial(n)` pour qu'elle renvoie la factorielle de `n`, c'est-à-dire `1 × 2 × 3 × … × n`.
+  Par convention, `factorial(0)` renvoie `1`.
+
+  Exemples :
+  - `factorial(5)` renvoie `120`
+  - `factorial(3)` renvoie `6`
+  - `factorial(0)` renvoie `1`
+
+template: |
+  def factorial(n):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def factorial(n):
+      result = 1
+      for i in range(1, n + 1):
+          result *= i
+      return result
+
+hints:
+  - "Même schéma qu'une somme, mais on part de `1` et on multiplie."
+
+tests:
+  - input: [5]
+    expected: 120
+    description: "5! = 120"
+  - input: [0]
+    expected: 1
+    description: "0! = 1 par convention"
+  - input: [1]
+    expected: 1
+    description: "1! = 1"
+  - input: [3]
+    expected: 6
+    description: "3! = 6"
+  - input: [10]
+    expected: 3628800
+    description: "10! = 3628800"
+
+en:
+  title: "Factorial"
+  description: |
+    Complete the function `factorial(n)` so that it returns the factorial of `n`, that is `1 × 2 × 3 × … × n`.
+    By convention, `factorial(0)` returns `1`.
+
+    Examples:
+    - `factorial(5)` returns `120`
+    - `factorial(3)` returns `6`
+    - `factorial(0)` returns `1`
+  template: |
+    def factorial(n):
+        # Write your code here
+        pass
+  hints:
+    - "Same pattern as a sum, but start from `1` and multiply."
+  tests:
+    - "5! = 120"
+    - "0! = 1 by convention"
+    - "1! = 1"
+    - "3! = 6"
+    - "10! = 3628800"

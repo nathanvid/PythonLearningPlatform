@@ -1,0 +1,52 @@
+id: "parsons_write_count_lines"
+type: parsons
+title: "Puzzle : écrire puis compter les lignes"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction compter_lignes(nom_fichier, lignes)
+  qui écrit chaque élément de lignes dans le fichier (un par ligne), puis relit le fichier
+  et renvoie son nombre de lignes.
+
+solution: |
+  def count_lines(filename, lines):
+      with open(filename, "w", encoding="utf-8") as f:
+          for line in lines:
+              f.write(line + "\n")
+      with open(filename, encoding="utf-8") as f:
+          return len(f.readlines())
+
+hints:
+  - "Il faut écrire le fichier (mode `\"w\"`) avant de pouvoir le relire."
+
+tests:
+  - input: ["test.txt", ["a", "b"]]
+    expected: 2
+    description: "Deux lignes"
+  - input: ["vide.txt", []]
+    expected: 0
+    description: "Fichier vide"
+  - input: ["x.txt", ["un", "deux", "trois"]]
+    expected: 3
+    hidden: true
+    description: "Trois lignes"
+
+en:
+  title: "Puzzle: write then count lines"
+  description: |
+    Put the lines back in order to get a function count_lines(filename, lines)
+    that writes each item of lines to the file (one per line), then reads the file back
+    and returns its number of lines.
+  solution: |
+    def count_lines(filename, lines):
+        with open(filename, "w", encoding="utf-8") as f:
+            for line in lines:
+                f.write(line + "\n")
+        with open(filename, encoding="utf-8") as f:
+            return len(f.readlines())
+  hints:
+    - "The file must be written (mode `\"w\"`) before it can be read back."
+  tests:
+    - "Two lines"
+    - input: ["empty.txt", []]
+      description: "Empty file"
+    - input: ["x.txt", ["one", "two", "three"]]
+      description: "Three lines"

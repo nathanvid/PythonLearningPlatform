@@ -1,0 +1,58 @@
+id: "swap_unpacking"
+title: "Échanger avec l'unpacking"
+description: |
+  Complète la fonction `rotate(triplet)` : elle reçoit un tuple de 3 éléments `(a, b, c)` et renvoie le tuple décalé d'un cran vers la gauche, `(b, c, a)`.
+  Utilise l'unpacking pour ranger les 3 éléments dans 3 variables.
+
+  Exemples :
+  - `rotate((1, 2, 3))` renvoie `(2, 3, 1)`
+  - `rotate(("x", "y", "z"))` renvoie `("y", "z", "x")`
+
+template: |
+  def rotate(triplet):
+      # Décompose le triplet en trois variables, puis retourne-les dans le nouvel ordre
+      pass
+
+solution: |
+  def rotate(triplet):
+      a, b, c = triplet
+      return (b, c, a)
+
+hints:
+  - "`a, b, c = triplet`, puis renvoie les trois variables dans le nouvel ordre."
+
+tests:
+  - input: [[1, 2, 3]]
+    expected: [2, 3, 1]
+    description: "Trois nombres"
+  - input: [["x", "y", "z"]]
+    expected: ["y", "z", "x"]
+    description: "Trois lettres"
+  - input: [[0, 0, 1]]
+    expected: [0, 1, 0]
+    description: "Valeurs répétées"
+  - input: [[true, "a", 2.5]]
+    expected: ["a", 2.5, true]
+    hidden: true
+    description: "Types mélangés"
+
+en:
+  title: "Swapping with unpacking"
+  description: |
+    Complete the function `rotate(triplet)`: it receives a tuple of 3 items `(a, b, c)` and returns the tuple shifted one step to the left, `(b, c, a)`.
+    Use unpacking to store the 3 items in 3 variables.
+
+    Examples:
+    - `rotate((1, 2, 3))` returns `(2, 3, 1)`
+    - `rotate(("x", "y", "z"))` returns `("y", "z", "x")`
+  template: |
+    def rotate(triplet):
+        # Unpack the triplet into three variables, then return them in the new order
+        pass
+  hints:
+    - "`a, b, c = triplet`, then return the three variables in the new order."
+  tests:
+    - "Three numbers"
+    - "Three letters"
+    - "Repeated values"
+    - "Mixed types"

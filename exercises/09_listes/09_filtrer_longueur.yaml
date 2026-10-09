@@ -1,0 +1,65 @@
+id: "filter_by_length"
+title: "Filtrer par longueur"
+description: |
+  Complète la fonction `filter_by_length(words, min_length)` pour qu'elle renvoie la liste des mots de `words` qui ont **au moins** `min_length` caractères, dans le même ordre.
+
+  Exemples :
+  - `filter_by_length(["a", "bb", "ccc"], 2)` renvoie `["bb", "ccc"]`
+  - `filter_by_length(["cat", "dog", "elephant"], 5)` renvoie `["elephant"]`
+  - `filter_by_length([], 1)` renvoie `[]`
+
+template: |
+  def filter_by_length(words, min_length):
+      # Utilise une list comprehension avec if
+      pass
+
+solution: |
+  def filter_by_length(words, min_length):
+      return [word for word in words if len(word) >= min_length]
+
+hints:
+  - "La condition s'écrit `len(word) >= min_length`."
+
+tests:
+  - input: [["a", "bb", "ccc"], 2]
+    expected: ["bb", "ccc"]
+    description: "Longueur minimale 2"
+  - input: [["hello", "hi", "world"], 3]
+    expected: ["hello", "world"]
+    description: "Longueur minimale 3"
+  - input: [["cat", "dog", "elephant"], 5]
+    expected: ["elephant"]
+    description: "Longueur minimale 5"
+  - input: [[], 1]
+    expected: []
+    description: "Liste vide"
+  - input: [["a", "b", "c"], 1]
+    expected: ["a", "b", "c"]
+    description: "Tous passent le filtre"
+  - input: [["python", "java", "c", "javascript"], 4]
+    expected: ["python", "java", "javascript"]
+    hidden: true
+    description: "Langages de programmation"
+
+en:
+  title: "Filter by length"
+  description: |
+    Complete the function `filter_by_length(words, min_length)` so that it returns the list of the words of `words` that have **at least** `min_length` characters, in the same order.
+
+    Examples:
+    - `filter_by_length(["a", "bb", "ccc"], 2)` returns `["bb", "ccc"]`
+    - `filter_by_length(["cat", "dog", "elephant"], 5)` returns `["elephant"]`
+    - `filter_by_length([], 1)` returns `[]`
+  template: |
+    def filter_by_length(words, min_length):
+        # Use a list comprehension with if
+        pass
+  hints:
+    - "The condition is written `len(word) >= min_length`."
+  tests:
+    - "Minimum length 2"
+    - "Minimum length 3"
+    - "Minimum length 5"
+    - "Empty list"
+    - "All words pass the filter"
+    - "Programming languages"

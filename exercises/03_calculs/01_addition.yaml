@@ -1,0 +1,50 @@
+id: "add_two_variables"
+type: output
+title: "Afficher une addition"
+description: |
+  1. Crée `a = 8` et `b = 5`.
+  2. Avec **un seul** `print`, affiche l'opération et son résultat, en utilisant `a`, `b` et `a + b`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  8 + 5 = 13
+  ```
+
+template: |
+  a = 8
+  b = 5
+  # Affiche l'addition ici
+
+solution: |
+  a = 8
+  b = 5
+  print(a, "+", b, "=", a + b)
+
+checks:
+  uses: [a, b]
+
+hints:
+  - "Le signe `+` à afficher est du texte : `\"+\"`. Le calcul, lui, s'écrit `a + b`."
+
+en:
+  title: "Displaying an addition"
+  description: |
+    1. Create `a = 8` and `b = 5`.
+    2. With **a single** `print`, display the operation and its result, using `a`, `b` and `a + b`.
+
+    The program must display exactly:
+
+    ```text
+    8 + 5 = 13
+    ```
+  template: |
+    a = 8
+    b = 5
+    # Display the addition here
+  solution: |
+    a = 8
+    b = 5
+    print(a, "+", b, "=", a + b)
+  hints:
+    - "The `+` sign to display is text: `\"+\"`. The calculation itself is written `a + b`."

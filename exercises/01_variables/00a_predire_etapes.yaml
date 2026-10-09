@@ -1,0 +1,71 @@
+id: "predict_variables_steps"
+type: predict
+title: "Prédire : une variable qui change"
+description: |
+  Lis le code et prédis exactement ce qu'il affiche.
+
+  À chaque étape, le code s'allonge de quelques lignes : les lignes nouvelles sont surlignées.
+
+steps:
+  - |
+    x = 4
+    print(x)
+  - |
+    x = 4
+    print(x)
+    x = 7
+    print(x)
+  - |
+    x = 4
+    print(x)
+    x = 7
+    print(x)
+    y = x
+    print(y)
+
+code: |
+  x = 4
+  print(x)
+  x = 7
+  print(x)
+  y = x
+  print(y)
+  x = 1
+  print(x, y)
+
+hints:
+  - "y = x copie la valeur de x à ce moment-là. Si x change ensuite, y garde son ancienne valeur."
+
+en:
+  title: "Predict: a changing variable"
+  description: |
+    Read the code and predict exactly what it displays.
+
+    At each step, the code grows by a few lines: the new lines are highlighted.
+  steps:
+    - |
+      x = 4
+      print(x)
+    - |
+      x = 4
+      print(x)
+      x = 7
+      print(x)
+    - |
+      x = 4
+      print(x)
+      x = 7
+      print(x)
+      y = x
+      print(y)
+  code: |
+    x = 4
+    print(x)
+    x = 7
+    print(x)
+    y = x
+    print(y)
+    x = 1
+    print(x, y)
+  hints:
+    - "y = x copies the value of x at that moment. If x changes afterwards, y keeps its old value."

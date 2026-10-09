@@ -1,0 +1,71 @@
+id: "fix_digit_sum"
+type: fix
+title: "Débogage : somme des chiffres"
+description: |
+  La fonction somme_chiffres(n) doit renvoyer la somme des chiffres d'un entier positif.
+  Exemple : somme_chiffres(123) → 6
+
+  Les résultats obtenus sont bizarres : trouve le bug et corrige-le.
+
+template: |
+  def digit_sum(n):
+      total = 0
+      while n > 0:
+          total += n % 10
+          n = n / 10
+      return total
+
+solution: |
+  def digit_sum(n):
+      total = 0
+      while n > 0:
+          total += n % 10
+          n = n // 10
+      return total
+
+hints:
+  - "`/` donne un nombre à virgule ; `//` donne la division entière."
+
+tests:
+  - input: [123]
+    expected: 6
+    description: "Trois chiffres"
+  - input: [0]
+    expected: 0
+    description: "Zéro"
+  - input: [9]
+    expected: 9
+    description: "Un seul chiffre"
+  - input: [1001]
+    expected: 2
+    hidden: true
+    description: "Avec des zéros"
+
+en:
+  title: "Debugging: sum of digits"
+  description: |
+    The function digit_sum(n) must return the sum of the digits of a positive integer.
+    Example: digit_sum(123) → 6
+
+    The results are odd: find the bug and fix it.
+  template: |
+    def digit_sum(n):
+        total = 0
+        while n > 0:
+            total += n % 10
+            n = n / 10
+        return total
+  solution: |
+    def digit_sum(n):
+        total = 0
+        while n > 0:
+            total += n % 10
+            n = n // 10
+        return total
+  hints:
+    - "`/` gives a decimal number; `//` gives integer division."
+  tests:
+    - "Three digits"
+    - "Zero"
+    - "A single digit"
+    - "With zeros"

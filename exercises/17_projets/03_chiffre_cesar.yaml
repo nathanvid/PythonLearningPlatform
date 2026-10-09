@@ -1,0 +1,122 @@
+id: "project_caesar_cipher"
+title: "Projet : le chiffre de César"
+description: |
+  Le chiffre de César décale chaque lettre d'un certain nombre de positions dans l'alphabet.
+  Avec un décalage de 3 : `a → d`, `b → e`, …, `x → a`, `y → b`, `z → c`.
+
+  Complète la fonction `caesar(text, shift)` pour qu'elle renvoie le texte chiffré :
+  - les minuscules restent des minuscules, les majuscules des majuscules ;
+  - après `z`, on repart à `a` (et après `Z`, à `A`) ;
+  - le décalage peut être négatif ou supérieur à 26 ;
+  - tous les autres caractères (espaces, chiffres, ponctuation, lettres accentuées) restent inchangés.
+
+  Exemples :
+  - `caesar("abc", 1)` renvoie `"bcd"`
+  - `caesar("xyz", 3)` renvoie `"abc"`
+  - `caesar("Bonjour !", 13)` renvoie `"Obawbhe !"`
+  - `caesar("Hello", -1)` renvoie `"Gdkkn"`
+
+template: |
+  import string
+
+  def shift_letter(letter, shift, alphabet):
+      # Retourne la lettre décalée dans alphabet, en repartant au début après la fin
+      pass
+
+  def caesar(text, shift):
+      result = ""
+      for char in text:
+          # Décale les minuscules avec string.ascii_lowercase,
+          # les majuscules avec string.ascii_uppercase, et garde le reste
+          pass
+      return result
+
+solution: |
+  import string
+  
+  def shift_letter(letter, shift, alphabet):
+      return alphabet[(alphabet.index(letter) + shift) % 26]
+  
+  def caesar(text, shift):
+      result = ""
+      for char in text:
+          if char in string.ascii_lowercase:
+              result += shift_letter(char, shift, string.ascii_lowercase)
+          elif char in string.ascii_uppercase:
+              result += shift_letter(char, shift, string.ascii_uppercase)
+          else:
+              result += char
+      return result
+
+hints:
+  - "Dans `shift_letter` : `alphabet[(alphabet.index(letter) + shift) % 26]`, comme dans la leçon."
+  - "Dans `caesar`, utilise `string.ascii_lowercase` pour une minuscule, `string.ascii_uppercase` pour une majuscule, et garde les autres caractères tels quels."
+
+tests:
+  - input: ["abc", 1]
+    expected: "bcd"
+    description: "Décalage simple"
+  - input: ["xyz", 3]
+    expected: "abc"
+    description: "Retour au début de l'alphabet"
+  - input: ["Bonjour !", 13]
+    expected: "Obawbhe !"
+    description: "Majuscules et ponctuation"
+  - input: ["Hello", -1]
+    expected: "Gdkkn"
+    description: "Décalage négatif"
+  - input: ["Python 3.13", 26]
+    expected: "Python 3.13"
+    hidden: true
+    description: "Décalage de 26 : texte inchangé"
+  - input: ["abc", 27]
+    expected: "bcd"
+    hidden: true
+    description: "Décalage supérieur à 26"
+  - input: ["Été", 1]
+    expected: "Éué"
+    hidden: true
+    description: "Lettres accentuées inchangées"
+
+en:
+  title: "Project: the Caesar cipher"
+  description: |
+    The Caesar cipher shifts each letter by a certain number of positions in the alphabet.
+    With a shift of 3: `a → d`, `b → e`, …, `x → a`, `y → b`, `z → c`.
+
+    Complete the function `caesar(text, shift)` so that it returns the encrypted text:
+    - lowercase letters stay lowercase, capitals stay capitals;
+    - after `z`, go back to `a` (and after `Z`, to `A`);
+    - the shift can be negative or greater than 26;
+    - all other characters (spaces, digits, punctuation, accented letters) stay unchanged.
+
+    Examples:
+    - `caesar("abc", 1)` returns `"bcd"`
+    - `caesar("xyz", 3)` returns `"abc"`
+    - `caesar("Hello!", 13)` returns `"Uryyb!"`
+    - `caesar("Hello", -1)` returns `"Gdkkn"`
+  template: |
+    import string
+
+    def shift_letter(letter, shift, alphabet):
+        # Return the letter shifted in alphabet, wrapping around after the end
+        pass
+
+    def caesar(text, shift):
+        result = ""
+        for char in text:
+            # Shift lowercase letters with string.ascii_lowercase,
+            # uppercase letters with string.ascii_uppercase, and keep the rest
+            pass
+        return result
+  hints:
+    - "In `shift_letter`: `alphabet[(alphabet.index(letter) + shift) % 26]`, as in the lesson."
+    - "In `caesar`, use `string.ascii_lowercase` for a lowercase letter, `string.ascii_uppercase` for a capital, and keep the other characters as they are."
+  tests:
+    - "Simple shift"
+    - "Wrapping to the start of the alphabet"
+    - "Uppercase and punctuation"
+    - "Negative shift"
+    - "Shift of 26: text unchanged"
+    - "Shift greater than 26"
+    - "Accented letters unchanged"

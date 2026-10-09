@@ -1,0 +1,74 @@
+id: "file_numbers_sum"
+title: "Additionner les nombres d'un fichier"
+description: |
+  Complète la fonction `save_and_sum(filename, numbers)` qui :
+  1. écrit chaque nombre de la liste `numbers` dans le fichier `filename`, **un par ligne** ;
+  2. relit le fichier et renvoie la **somme** des nombres lus.
+
+  Attention : ce qu'on lit dans un fichier est du texte, il faut le convertir.
+
+  Exemples :
+  - `save_and_sum("nombres.txt", [3, 4, 5])` renvoie `12`
+  - `save_and_sum("vide.txt", [])` renvoie `0`
+
+template: |
+  def save_and_sum(filename, numbers):
+      # 1. Écris les nombres dans le fichier
+
+      # 2. Relis-le et calcule la somme
+      pass
+
+solution: |
+  def save_and_sum(filename, numbers):
+      with open(filename, "w", encoding="utf-8") as f:
+          for n in numbers:
+              f.write(str(n) + "\n")
+      total = 0
+      with open(filename, encoding="utf-8") as f:
+          for line in f:
+              total += int(line)
+      return total
+
+hints:
+  - "On écrit du texte avec `str(n)`, et on relit un nombre avec `int(line)`."
+
+tests:
+  - input: ["nombres.txt", [3, 4, 5]]
+    expected: 12
+    description: "Trois nombres"
+  - input: ["vide.txt", []]
+    expected: 0
+    description: "Aucun nombre"
+  - input: ["negatifs.txt", [10, -4]]
+    expected: 6
+    description: "Avec un nombre négatif"
+  - input: ["un.txt", [100]]
+    expected: 100
+    hidden: true
+    description: "Un seul nombre"
+
+en:
+  title: "Adding up the numbers of a file"
+  description: |
+    Complete the function `save_and_sum(filename, numbers)` that:
+    1. writes each number of the list `numbers` into the file `filename`, **one per line**;
+    2. reads the file back and returns the **sum** of the numbers read.
+
+    Careful: what you read from a file is text, it must be converted.
+
+    Examples:
+    - `save_and_sum("numbers.txt", [3, 4, 5])` returns `12`
+    - `save_and_sum("empty.txt", [])` returns `0`
+  template: |
+    def save_and_sum(filename, numbers):
+        # 1. Write the numbers into the file
+
+        # 2. Read it back and compute the sum
+        pass
+  hints:
+    - "Write text with `str(n)`, and read a number back with `int(line)`."
+  tests:
+    - "Three numbers"
+    - "No numbers"
+    - "With a negative number"
+    - "A single number"

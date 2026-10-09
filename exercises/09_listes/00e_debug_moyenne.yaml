@@ -1,0 +1,67 @@
+id: "fix_average"
+type: fix
+title: "Débogage : la moyenne"
+description: |
+  Cette fonction moyenne(notes) devrait renvoyer la moyenne d'une liste de notes,
+  mais elle contient un bug. Lance les tests, observe les résultats, puis corrige-la.
+
+  Exemple : moyenne([10, 20]) → 15.0
+
+template: |
+  def average(grades):
+      total = 0
+      for grade in grades:
+          total = grade
+      return total / len(grades)
+
+solution: |
+  def average(grades):
+      total = 0
+      for grade in grades:
+          total += grade
+      return total / len(grades)
+
+hints:
+  - "`total = grade` remplace la valeur au lieu de l'additionner."
+
+tests:
+  - input: [[10, 20]]
+    expected: 15.0
+    description: "Deux notes"
+  - input: [[12]]
+    expected: 12.0
+    description: "Une seule note"
+  - input: [[8, 12, 16]]
+    expected: 12.0
+    description: "Trois notes"
+  - input: [[0, 20, 10, 10]]
+    expected: 10.0
+    hidden: true
+    description: "Quatre notes"
+
+en:
+  title: "Debugging: the average"
+  description: |
+    This function average(grades) should return the average of a list of grades,
+    but it has a bug. Run the tests, look at the results, then fix it.
+
+    Example: average([10, 20]) → 15.0
+  template: |
+    def average(grades):
+        total = 0
+        for grade in grades:
+            total = grade
+        return total / len(grades)
+  solution: |
+    def average(grades):
+        total = 0
+        for grade in grades:
+            total += grade
+        return total / len(grades)
+  hints:
+    - "`total = grade` replaces the value instead of adding to it."
+  tests:
+    - "Two grades"
+    - "A single grade"
+    - "Three grades"
+    - "Four grades"

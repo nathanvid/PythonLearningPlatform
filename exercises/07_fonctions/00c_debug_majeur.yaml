@@ -1,0 +1,63 @@
+id: "fix_is_adult"
+type: fix
+title: "Débogage : est-ce un adulte ?"
+description: |
+  La fonction est_majeur(age) doit renvoyer True si l'âge est au moins 18, et False sinon.
+  Elle marche pour les adultes, mais pas pour les mineurs. Trouve et corrige le bug.
+
+template: |
+  def is_adult(age):
+      if age >= 18:
+          return True
+      else:
+          False
+
+solution: |
+  def is_adult(age):
+      if age >= 18:
+          return True
+      else:
+          return False
+
+hints:
+  - "Écrire une valeur seule sur une ligne ne la renvoie pas."
+
+tests:
+  - input: [20]
+    expected: true
+    description: "Adulte"
+  - input: [18]
+    expected: true
+    description: "Tout juste 18 ans"
+  - input: [12]
+    expected: false
+    description: "Mineur"
+  - input: [17]
+    expected: false
+    hidden: true
+    description: "17 ans"
+
+en:
+  title: "Debugging: is it an adult?"
+  description: |
+    The function is_adult(age) must return True if the age is at least 18, and False otherwise.
+    It works for adults, but not for minors. Find and fix the bug.
+  template: |
+    def is_adult(age):
+        if age >= 18:
+            return True
+        else:
+            False
+  solution: |
+    def is_adult(age):
+        if age >= 18:
+            return True
+        else:
+            return False
+  hints:
+    - "Writing a value alone on a line doesn't return it."
+  tests:
+    - "Adult"
+    - "Just 18"
+    - "Minor"
+    - "17 years old"

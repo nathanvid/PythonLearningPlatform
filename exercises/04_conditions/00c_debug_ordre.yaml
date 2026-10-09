@@ -1,0 +1,60 @@
+id: "fix_elif_order"
+type: fix
+title: "Débogage : l'ordre des conditions"
+description: |
+  Avec `grade = 17`, ce programme devrait afficher exactement :
+
+  ```text
+  Mention très bien
+  ```
+
+  Mais il affiche `Admis`. Remets les conditions dans le bon ordre, sans changer les textes affichés.
+
+template: |
+  grade = 17
+  if grade >= 10:
+      print("Admis")
+  elif grade >= 16:
+      print("Mention très bien")
+
+solution: |
+  grade = 17
+  if grade >= 16:
+      print("Mention très bien")
+  elif grade >= 10:
+      print("Admis")
+
+checks:
+  uses: [grade]
+  constructs: [if, elif]
+
+hints:
+  - "Python s'arrête à la première condition vraie : teste d'abord la plus difficile à atteindre."
+
+en:
+  title: "Debugging: the order of conditions"
+  description: |
+    With `grade = 17`, this program should display exactly:
+
+    ```text
+    Highest honours
+    ```
+
+    But it displays `Pass`. Put the conditions back in the right order, without changing the displayed texts.
+  template: |
+    grade = 17
+    if grade >= 10:
+        print("Pass")
+    elif grade >= 16:
+        print("Highest honours")
+  solution: |
+    grade = 17
+    if grade >= 16:
+        print("Highest honours")
+    elif grade >= 10:
+        print("Pass")
+  checks:
+    uses: [grade]
+    constructs: [if, elif]
+  hints:
+    - "Python stops at the first true condition: test the hardest one to reach first."

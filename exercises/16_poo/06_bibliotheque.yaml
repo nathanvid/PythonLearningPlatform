@@ -1,0 +1,146 @@
+id: "library_composition"
+title: "Bibliothèque : des objets dans un objet"
+description: |
+  Une bibliothèque contient des livres : deux classes travaillent ensemble.
+
+  1. `Book` :
+     - le constructeur range `title` dans un attribut et crée l'attribut `self.available`, qui vaut `True`.
+  2. `Library` :
+     - le constructeur crée `self.books`, une liste vide ;
+     - `add(self, title)` crée un `Book` avec ce titre et l'ajoute à la liste ;
+     - `borrow(self, title)` cherche le livre qui a ce titre : s'il existe **et** qu'il est disponible, il devient indisponible (`available = False`) et la méthode renvoie `True` ; sinon, elle renvoie `False` ;
+     - `available_titles(self)` renvoie la liste des titres des livres disponibles, dans l'ordre d'ajout.
+
+  Puis complète `library_day(titles, requests)` : elle crée une `Library`, y ajoute chaque titre de `titles`, essaie d'emprunter chaque titre de `requests`, et renvoie la liste `[nombre d'emprunts acceptés, titres encore disponibles]`.
+
+  Exemples :
+  - `library_day(["Dune", "1984"], ["Dune"])` renvoie `[1, ["1984"]]`
+  - `library_day(["Dune", "1984"], ["Dune", "Dune", "Ulysse"])` renvoie `[1, ["1984"]]` (« Dune » est déjà emprunté, « Ulysse » n'existe pas)
+  - `library_day(["Dune"], [])` renvoie `[0, ["Dune"]]`
+
+template: |
+  class Book:
+      def __init__(self, title):
+          pass
+
+  class Library:
+      def __init__(self):
+          pass
+
+      def add(self, title):
+          pass
+
+      def borrow(self, title):
+          pass
+
+      def available_titles(self):
+          pass
+
+  def library_day(titles, requests):
+      pass
+
+solution: |
+  class Book:
+      def __init__(self, title):
+          self.title = title
+          self.available = True
+
+  class Library:
+      def __init__(self):
+          self.books = []
+
+      def add(self, title):
+          self.books.append(Book(title))
+
+      def borrow(self, title):
+          for book in self.books:
+              if book.title == title and book.available:
+                  book.available = False
+                  return True
+          return False
+
+      def available_titles(self):
+          titles = []
+          for book in self.books:
+              if book.available:
+                  titles.append(book.title)
+          return titles
+
+  def library_day(titles, requests):
+      library = Library()
+      for title in titles:
+          library.add(title)
+      accepted = 0
+      for title in requests:
+          if library.borrow(title):
+              accepted += 1
+      return [accepted, library.available_titles()]
+
+hints:
+  - "Dans `borrow`, parcours `self.books` : chaque `book` est un objet `Book`, dont on lit `book.title` et `book.available`."
+  - "`library.borrow(title)` renvoie `True` ou `False` : un `if` suffit pour compter les emprunts acceptés."
+
+tests:
+  - input: [["Dune", "1984"], ["Dune"]]
+    expected: [1, ["1984"]]
+    description: "Un emprunt"
+  - input: [["Dune", "1984"], ["Dune", "Dune", "Ulysse"]]
+    expected: [1, ["1984"]]
+    description: "Livre déjà emprunté et livre absent"
+  - input: [["Dune"], []]
+    expected: [0, ["Dune"]]
+    description: "Aucun emprunt"
+  - input: [["A", "B", "C"], ["C", "A"]]
+    expected: [2, ["B"]]
+    hidden: true
+    description: "Deux emprunts"
+
+en:
+  title: "Library: objects inside an object"
+  description: |
+    A library holds books: two classes work together.
+
+    1. `Book`:
+       - the constructor stores `title` in an attribute and creates the attribute `self.available`, set to `True`.
+    2. `Library`:
+       - the constructor creates `self.books`, an empty list;
+       - `add(self, title)` creates a `Book` with this title and adds it to the list;
+       - `borrow(self, title)` looks for the book with this title: if it exists **and** is available, it becomes unavailable (`available = False`) and the method returns `True`; otherwise it returns `False`;
+       - `available_titles(self)` returns the list of titles of the available books, in the order they were added.
+
+    Then complete `library_day(titles, requests)`: it creates a `Library`, adds each title of `titles`, tries to borrow each title of `requests`, and returns the list `[number of accepted loans, titles still available]`.
+
+    Examples:
+    - `library_day(["Dune", "1984"], ["Dune"])` returns `[1, ["1984"]]`
+    - `library_day(["Dune", "1984"], ["Dune", "Dune", "Ulysses"])` returns `[1, ["1984"]]` ("Dune" is already borrowed, "Ulysses" doesn't exist)
+    - `library_day(["Dune"], [])` returns `[0, ["Dune"]]`
+  template: |
+    class Book:
+        def __init__(self, title):
+            pass
+
+    class Library:
+        def __init__(self):
+            pass
+
+        def add(self, title):
+            pass
+
+        def borrow(self, title):
+            pass
+
+        def available_titles(self):
+            pass
+
+    def library_day(titles, requests):
+        pass
+  hints:
+    - "In `borrow`, go through `self.books`: each `book` is a `Book` object, whose `book.title` and `book.available` you can read."
+    - "`library.borrow(title)` returns `True` or `False`: an `if` is enough to count the accepted loans."
+  tests:
+    - "One loan"
+    - input: [["Dune", "1984"], ["Dune", "Dune", "Ulysses"]]
+      expected: [1, ["1984"]]
+      description: "Book already borrowed and missing book"
+    - "No loan"
+    - "Two loans"

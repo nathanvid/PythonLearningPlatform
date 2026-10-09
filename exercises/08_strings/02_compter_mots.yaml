@@ -1,0 +1,74 @@
+id: "word_count"
+title: "Compter les mots"
+description: |
+  Complète la fonction `word_count(text)` pour qu'elle renvoie le nombre de mots de `text`.
+  Les mots sont séparés par un ou plusieurs espaces.
+
+  Exemples :
+  - `word_count("Hello world")` renvoie `2`
+  - `word_count("Python  est   super")` renvoie `3`
+  - `word_count("")` renvoie `0`
+
+template: |
+  def word_count(text):
+      # Compte le nombre de mots
+      pass
+
+solution: |
+  def word_count(text):
+      return len(text.split())
+
+hints:
+  - "`split()` sans argument ignore les espaces en trop."
+
+tests:
+  - input: ["Hello world"]
+    expected: 2
+    description: "Deux mots"
+  - input: ["Python  est   super"]
+    expected: 3
+    description: "Espaces multiples"
+  - input: ["Bonjour"]
+    expected: 1
+    description: "Un seul mot"
+  - input: [""]
+    expected: 0
+    description: "Chaîne vide"
+  - input: ["  espaces  au  début  et  fin  "]
+    expected: 5
+    hidden: true
+    description: "Espaces aux extrémités"
+  - input: ["one two three four five six"]
+    expected: 6
+    hidden: true
+    description: "Six mots"
+
+en:
+  title: "Count the words"
+  description: |
+    Complete the function `word_count(text)` so that it returns the number of words in `text`.
+    Words are separated by one or more spaces.
+
+    Examples:
+    - `word_count("Hello world")` returns `2`
+    - `word_count("Python  is   great")` returns `3`
+    - `word_count("")` returns `0`
+  template: |
+    def word_count(text):
+        # Count the number of words
+        pass
+  hints:
+    - "`split()` without argument ignores extra spaces."
+  tests:
+    - "Two words"
+    - input: ["Python  is   great"]
+      expected: 3
+      description: "Multiple spaces"
+    - input: ["Hello"]
+      expected: 1
+      description: "A single word"
+    - "Empty string"
+    - input: ["  spaces  at  start  and  end  "]
+      expected: 5
+      description: "Spaces at both ends"
+    - "Six words"

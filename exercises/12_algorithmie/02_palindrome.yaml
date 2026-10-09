@@ -1,0 +1,73 @@
+id: "is_palindrome"
+title: "Vérifier un palindrome"
+description: |
+  Un **palindrome** se lit de la même façon dans les deux sens, comme `"radar"`.
+  Complète la fonction `is_palindrome(text)` pour qu'elle renvoie `True` si `text` est un palindrome, en **ignorant les espaces et les majuscules**, et `False` sinon.
+
+  Exemples :
+  - `is_palindrome("radar")` renvoie `True`
+  - `is_palindrome("hello")` renvoie `False`
+  - `is_palindrome("Never odd or even")` renvoie `True`
+
+template: |
+  def is_palindrome(text):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def is_palindrome(text):
+      clean = text.lower().replace(" ", "")
+      return clean == clean[::-1]
+
+hints:
+  - "Nettoie d'abord le texte (`lower()`, `replace(\" \", \"\")`), puis compare-le à `text[::-1]`."
+
+tests:
+  - input: ["radar"]
+    expected: true
+    description: "Palindrome simple"
+  - input: ["hello"]
+    expected: false
+    description: "Pas un palindrome"
+  - input: ["kayak"]
+    expected: true
+    description: "Autre palindrome"
+  - input: ["a"]
+    expected: true
+    description: "Une seule lettre"
+  - input: ["Radar"]
+    expected: true
+    description: "Avec majuscule"
+  - input: ["A man a plan a canal Panama"]
+    expected: true
+    hidden: true
+    description: "Phrase palindrome"
+  - input: ["Never odd or even"]
+    expected: true
+    hidden: true
+    description: "Phrase complexe"
+
+en:
+  title: "Check a palindrome"
+  description: |
+    A **palindrome** reads the same both ways, like `"radar"`.
+    Complete the function `is_palindrome(text)` so that it returns `True` if `text` is a palindrome, **ignoring spaces and capitals**, and `False` otherwise.
+
+    Examples:
+    - `is_palindrome("radar")` returns `True`
+    - `is_palindrome("hello")` returns `False`
+    - `is_palindrome("Never odd or even")` returns `True`
+  template: |
+    def is_palindrome(text):
+        # Write your code here
+        pass
+  hints:
+    - "First clean the text (`lower()`, `replace(\" \", \"\")`), then compare it with `text[::-1]`."
+  tests:
+    - "Simple palindrome"
+    - "Not a palindrome"
+    - "Another palindrome"
+    - "A single letter"
+    - "With an uppercase letter"
+    - "Palindrome sentence"
+    - "Complex sentence"

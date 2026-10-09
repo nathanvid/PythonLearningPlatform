@@ -1,0 +1,64 @@
+id: "addition"
+title: "Addition de deux nombres"
+description: |
+  Complète la fonction `add(a, b)` pour qu'elle **renvoie** la somme de `a` et `b`.
+
+  Exemples :
+  - `add(2, 3)` renvoie `5`
+  - `add(10, -5)` renvoie `5`
+
+  La fonction ne doit rien afficher : elle utilise `return`.
+
+template: |
+  def add(a, b):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def add(a, b):
+      return a + b
+
+hints:
+  - "Remplace `pass` par une ligne qui commence par `return`."
+
+tests:
+  - input: [2, 3]
+    expected: 5
+    description: "Addition de deux nombres positifs"
+  - input: [10, -5]
+    expected: 5
+    description: "Addition avec un nombre négatif"
+  - input: [0, 0]
+    expected: 0
+    description: "Addition de deux zéros"
+  - input: [100, 200]
+    expected: 300
+    hidden: true
+    description: "Grands nombres"
+  - input: [-50, -30]
+    expected: -80
+    hidden: true
+    description: "Nombres négatifs"
+
+en:
+  title: "Adding two numbers"
+  description: |
+    Complete the function `add(a, b)` so that it **returns** the sum of `a` and `b`.
+
+    Examples:
+    - `add(2, 3)` returns `5`
+    - `add(10, -5)` returns `5`
+
+    The function must not display anything: it uses `return`.
+  template: |
+    def add(a, b):
+        # Write your code here
+        pass
+  hints:
+    - "Replace `pass` with a line that starts with `return`."
+  tests:
+    - "Adding two positive numbers"
+    - "Adding a negative number"
+    - "Adding two zeros"
+    - "Large numbers"
+    - "Negative numbers"

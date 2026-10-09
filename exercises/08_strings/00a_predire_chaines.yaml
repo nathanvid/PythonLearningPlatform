@@ -1,0 +1,61 @@
+id: "predict_string_slicing"
+type: predict
+title: "Prédire : indices et découpage"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Rappel : le premier caractère est à l'indice 0, et un indice négatif part de la fin.
+
+steps:
+  - |
+    word = "Python"
+    print(word[0])
+  - |
+    word = "Python"
+    print(word[0], word[-1])
+  - |
+    word = "Python"
+    print(word[0], word[-1])
+    print(word[1:4])
+  - |
+    word = "Python"
+    print(len(word))
+
+code: |
+  word = "Python"
+  print(word[0], word[-1])
+  print(word[1:4])
+  print(word.upper())
+  print(len(word) * "-")
+
+hints:
+  - "`word[1:4]` prend les indices 1, 2 et 3 : la fin est exclue."
+
+en:
+  title: "Predict: indexes and slicing"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Reminder: the first character is at index 0, and a negative index counts from the end.
+  steps:
+    - |
+      word = "Python"
+      print(word[0])
+    - |
+      word = "Python"
+      print(word[0], word[-1])
+    - |
+      word = "Python"
+      print(word[0], word[-1])
+      print(word[1:4])
+    - |
+      word = "Python"
+      print(len(word))
+  code: |
+    word = "Python"
+    print(word[0], word[-1])
+    print(word[1:4])
+    print(word.upper())
+    print(len(word) * "-")
+  hints:
+    - "`word[1:4]` takes indexes 1, 2 and 3: the end is excluded."

@@ -1,0 +1,58 @@
+id: "min_max_tuple"
+title: "Minimum et maximum en un tuple"
+description: |
+  Complète la fonction `min_max(numbers)` pour qu'elle renvoie le tuple `(minimum, maximum)` de la liste `numbers` (jamais vide).
+
+  Exemples :
+  - `min_max([3, 1, 4, 1, 5])` renvoie `(1, 5)`
+  - `min_max([7])` renvoie `(7, 7)`
+
+template: |
+  def min_max(numbers):
+      # Retourne un tuple (minimum, maximum)
+      pass
+
+solution: |
+  def min_max(numbers):
+      return (min(numbers), max(numbers))
+
+hints:
+  - "Les fonctions `min` et `max` existent déjà ; renvoie-les dans un tuple."
+
+tests:
+  - input: [[3, 1, 4, 1, 5]]
+    expected: [1, 5]
+    description: "Liste de 5 nombres"
+  - input: [[7]]
+    expected: [7, 7]
+    description: "Un seul nombre"
+  - input: [[-2, -8, 0]]
+    expected: [-8, 0]
+    description: "Nombres négatifs"
+  - input: [[10, 20, 30, 40]]
+    expected: [10, 40]
+    hidden: true
+    description: "Liste déjà triée"
+
+en:
+  title: "Minimum and maximum as a tuple"
+  description: |
+    Complete the function `min_max(numbers)` so that it returns the tuple `(minimum, maximum)` of the list `numbers` (never empty).
+
+    Examples:
+    - `min_max([3, 1, 4, 1, 5])` returns `(1, 5)`
+    - `min_max([7])` returns `(7, 7)`
+  template: |
+    def min_max(numbers):
+        # Return a tuple (minimum, maximum)
+        pass
+  solution: |
+    def min_max(numbers):
+        return (min(numbers), max(numbers))
+  hints:
+    - "The `min` and `max` functions already exist; return them in a tuple."
+  tests:
+    - "List of 5 numbers"
+    - "A single number"
+    - "Negative numbers"
+    - "Already sorted list"

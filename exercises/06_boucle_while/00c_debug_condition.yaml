@@ -1,0 +1,55 @@
+id: "fix_while_condition"
+type: fix
+title: "Débogage : la boucle ne démarre pas"
+description: |
+  Ce programme doit afficher les nombres de `1` à `5`, un par ligne :
+
+  ```text
+  1
+  2
+  3
+  4
+  5
+  ```
+
+  Il n'affiche rien, car sa condition est fausse dès le départ. Corrige la condition du `while`.
+
+template: |
+  n = 1
+  while n > 5:
+      print(n)
+      n += 1
+
+solution: |
+  n = 1
+  while n <= 5:
+      print(n)
+      n += 1
+
+checks:
+  constructs: [while]
+
+hints:
+  - "Avec n = 1, la boucle doit tourner tant que n est inférieur ou égal à 5."
+
+en:
+  title: "Debugging: the loop doesn't start"
+  description: |
+    This program must display the numbers from `1` to `5`, one per line:
+
+    ```text
+    1
+    2
+    3
+    4
+    5
+    ```
+
+    It displays nothing, because its condition is false from the start. Fix the `while` condition.
+  template: |
+    n = 1
+    while n > 5:
+        print(n)
+        n += 1
+  hints:
+    - "With n = 1, the loop must run as long as n is smaller than or equal to 5."

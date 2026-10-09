@@ -1,0 +1,163 @@
+id: "project_hangman"
+title: "Projet : le jeu du pendu"
+description: |
+  Programme le moteur d'un jeu du pendu, en reprenant les morceaux construits dans la leçon.
+
+  Complète la fonction `hangman(word, letters)` qui simule une partie :
+  - `word` est le mot à deviner (en minuscules) ;
+  - `letters` est la liste des lettres proposées, dans l'ordre ;
+  - le joueur commence avec **6 vies** ;
+  - une lettre absente du mot fait perdre une vie, **sauf** si elle a déjà été proposée ;
+  - la partie s'arrête dès que le mot est trouvé ou que les vies tombent à 0 : les lettres suivantes sont ignorées.
+
+  La fonction renvoie le tuple `(mot_masque, vies, statut)` :
+  - `mot_masque` : le mot où chaque lettre non trouvée est remplacée par `_` ;
+  - `vies` : le nombre de vies restantes ;
+  - `statut` : `"gagné"`, `"perdu"` ou `"en cours"`.
+
+  Exemples :
+  - `hangman("python", ["p", "y", "a"])` renvoie `("py____", 5, "en cours")`
+  - `hangman("chat", ["c", "h", "a", "t"])` renvoie `("chat", 6, "gagné")`
+  - `hangman("chat", ["z", "x", "w", "v", "u", "s"])` renvoie `("____", 0, "perdu")`
+
+template: |
+  def mask_word(word, found):
+      # Retourne le mot avec _ à la place des lettres qui ne sont pas dans found
+      pass
+
+  def hangman(word, letters):
+      found = set()     # lettres proposées
+      lives = 6
+      for letter in letters:
+          # À compléter : arrêter la partie si elle est finie,
+          # sinon traiter la lettre
+          pass
+      # À compléter : calculer le statut et retourner le tuple
+      pass
+
+solution: |
+  def mask_word(word, found):
+      return "".join(c if c in found else "_" for c in word)
+  
+  def hangman(word, letters):
+      found = set()
+      lives = 6
+      for letter in letters:
+          if lives == 0 or "_" not in mask_word(word, found):
+              break
+          if letter not in word and letter not in found:
+              lives -= 1
+          found.add(letter)
+      masked = mask_word(word, found)
+      if "_" not in masked:
+          status = "gagné"
+      elif lives == 0:
+          status = "perdu"
+      else:
+          status = "en cours"
+      return (masked, lives, status)
+
+hints:
+  - "Commence par `mask_word`, comme la fonction `masquer` de la leçon."
+  - "Dans la boucle, fais `break` dès que `lives == 0` ou que le mot est trouvé, **avant** de traiter la lettre."
+
+tests:
+  - input: ["python", ["p", "y", "a"]]
+    expected: ["py____", 5, "en cours"]
+    description: "Partie en cours"
+  - input: ["chat", ["c", "h", "a", "t"]]
+    expected: ["chat", 6, "gagné"]
+    description: "Victoire sans erreur"
+  - input: ["chat", ["z", "x", "w", "v", "u", "s"]]
+    expected: ["____", 0, "perdu"]
+    description: "Six erreurs : défaite"
+  - input: ["banane", ["a", "z", "z", "n"]]
+    expected: ["_anan_", 5, "en cours"]
+    description: "Lettre répétée : une seule vie perdue"
+  - input: ["code", ["c", "o", "d", "e", "x"]]
+    expected: ["code", 6, "gagné"]
+    hidden: true
+    description: "Lettres ignorées après la victoire"
+  - input: ["loup", ["a", "b", "c", "d", "e", "f", "l"]]
+    expected: ["____", 0, "perdu"]
+    hidden: true
+    description: "Lettres ignorées après la défaite"
+  - input: ["arbre", []]
+    expected: ["_____", 6, "en cours"]
+    hidden: true
+    description: "Aucune lettre proposée"
+
+en:
+  title: "Project: the hangman game"
+  description: |
+    Program the engine of a hangman game, reusing the pieces built in the lesson.
+
+    Complete the function `hangman(word, letters)` that simulates a game:
+    - `word` is the word to guess (in lowercase);
+    - `letters` is the list of guessed letters, in order;
+    - the player starts with **6 lives**;
+    - a letter missing from the word costs a life, **unless** it has already been guessed;
+    - the game stops as soon as the word is found or the lives drop to 0: the following letters are ignored.
+
+    The function returns the tuple `(masked_word, lives, status)`:
+    - `masked_word`: the word with each letter not found replaced by `_`;
+    - `lives`: the number of lives left;
+    - `status`: `"won"`, `"lost"` or `"in progress"`.
+
+    Examples:
+    - `hangman("python", ["p", "y", "a"])` returns `("py____", 5, "in progress")`
+    - `hangman("cat", ["c", "a", "t"])` returns `("cat", 6, "won")`
+    - `hangman("cat", ["z", "x", "w", "v", "u", "s"])` returns `("___", 0, "lost")`
+  template: |
+    def mask_word(word, found):
+        # Return the word with _ in place of the letters that are not in found
+        pass
+
+    def hangman(word, letters):
+        found = set()     # proposed letters
+        lives = 6
+        for letter in letters:
+            # To do: stop the game if it is over,
+            # otherwise handle the letter
+            pass
+        # To do: compute the status and return the tuple
+        pass
+  solution: |
+    def mask_word(word, found):
+        return "".join(c if c in found else "_" for c in word)
+    
+    def hangman(word, letters):
+        found = set()
+        lives = 6
+        for letter in letters:
+            if lives == 0 or "_" not in mask_word(word, found):
+                break
+            if letter not in word and letter not in found:
+                lives -= 1
+            found.add(letter)
+        masked = mask_word(word, found)
+        if "_" not in masked:
+            status = "won"
+        elif lives == 0:
+            status = "lost"
+        else:
+            status = "in progress"
+        return (masked, lives, status)
+  hints:
+    - "Start with `mask_word`, like the `mask` function of the lesson."
+    - "In the loop, `break` as soon as `lives == 0` or the word is found, **before** handling the letter."
+  tests:
+    - expected: ["py____", 5, "in progress"]
+      description: "Game in progress"
+    - expected: ["chat", 6, "won"]
+      description: "Win without a mistake"
+    - expected: ["____", 0, "lost"]
+      description: "Six mistakes: defeat"
+    - expected: ["_anan_", 5, "in progress"]
+      description: "Repeated letter: only one life lost"
+    - expected: ["code", 6, "won"]
+      description: "Letters ignored after the win"
+    - expected: ["____", 0, "lost"]
+      description: "Letters ignored after the defeat"
+    - expected: ["_____", 6, "in progress"]
+      description: "No letter proposed"

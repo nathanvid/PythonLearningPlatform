@@ -1,0 +1,46 @@
+id: "parsons_liftoff"
+type: parsons
+title: "Puzzle : décollage"
+description: |
+  Remets les lignes dans l'ordre pour afficher exactement :
+
+  ```text
+  3
+  2
+  1
+  Décollage !
+  ```
+
+  L'indentation est déjà correcte.
+
+solution: |
+  n = 3
+  while n > 0:
+      print(n)
+      n -= 1
+  print("Décollage !")
+
+hints:
+  - "Dans la boucle, on affiche n avant de le diminuer."
+
+en:
+  title: "Puzzle: lift-off"
+  description: |
+    Put the lines back in order to display exactly:
+
+    ```text
+    3
+    2
+    1
+    Lift-off!
+    ```
+
+    The indentation is already right.
+  solution: |
+    n = 3
+    while n > 0:
+        print(n)
+        n -= 1
+    print("Lift-off!")
+  hints:
+    - "Inside the loop, n is displayed before it is decreased."

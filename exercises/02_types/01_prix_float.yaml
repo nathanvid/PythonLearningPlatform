@@ -1,0 +1,60 @@
+id: "float_price_total"
+type: output
+title: "Nombres à virgule"
+description: |
+  1. Crée une variable `price` qui vaut `2.5` (un nombre à virgule).
+  2. Crée une variable `quantity` qui vaut `4`.
+  3. Affiche `price * quantity`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  10.0
+  ```
+
+  Le résultat est un `float` : c'est pour ça qu'il s'affiche avec `.0`.
+
+template: |
+  # Écris ton code ici
+
+solution: |
+  price = 2.5
+  quantity = 4
+  print(price * quantity)
+
+checks:
+  variables:
+    price: 2.5
+    quantity: 4
+  uses: [price, quantity]
+
+hints:
+  - "En Python, un nombre à virgule s'écrit avec un point : `2.5`."
+
+en:
+  title: "Decimal numbers"
+  description: |
+    1. Create a variable `price` equal to `2.5` (a decimal number).
+    2. Create a variable `quantity` equal to `4`.
+    3. Display `price * quantity`.
+
+    The program must display exactly:
+
+    ```text
+    10.0
+    ```
+
+    The result is a `float`: that's why it is displayed with `.0`.
+  template: |
+    # Write your code here
+  solution: |
+    price = 2.5
+    quantity = 4
+    print(price * quantity)
+  checks:
+    variables:
+      price: 2.5
+      quantity: 4
+    uses: [price, quantity]
+  hints:
+    - "In Python, a decimal number is written with a dot: `2.5`."

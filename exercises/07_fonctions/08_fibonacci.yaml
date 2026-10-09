@@ -1,0 +1,80 @@
+id: "fibonacci"
+title: "Suite de Fibonacci"
+description: |
+  La suite de Fibonacci commence par `0` et `1` ; ensuite, chaque terme est la somme des deux précédents :
+
+  ```text
+  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55…
+  ```
+
+  Complète la fonction `fibonacci(n)` pour qu'elle renvoie le terme numéro `n` de la suite, en comptant à partir de 0.
+
+  Exemples :
+  - `fibonacci(0)` renvoie `0`
+  - `fibonacci(1)` renvoie `1`
+  - `fibonacci(6)` renvoie `8`
+
+template: |
+  def fibonacci(n):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def fibonacci(n):
+      a = 0
+      b = 1
+      for i in range(n):
+          next_term = a + b
+          a = b
+          b = next_term
+      return a
+
+hints:
+  - "Garde les deux derniers termes dans deux variables `a = 0` et `b = 1`."
+  - "À chaque tour : `next_term = a + b`, puis `a = b` et `b = next_term`. Après `n` tours, la réponse est dans `a`."
+
+tests:
+  - input: [0]
+    expected: 0
+    description: "Premier terme de Fibonacci"
+  - input: [1]
+    expected: 1
+    description: "Deuxième terme de Fibonacci"
+  - input: [2]
+    expected: 1
+    description: "Troisième terme de Fibonacci"
+  - input: [6]
+    expected: 8
+    description: "Septième terme de Fibonacci"
+  - input: [10]
+    expected: 55
+    description: "Onzième terme de Fibonacci"
+
+en:
+  title: "Fibonacci sequence"
+  description: |
+    The Fibonacci sequence starts with `0` and `1`; then each term is the sum of the previous two:
+
+    ```text
+    0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55…
+    ```
+
+    Complete the function `fibonacci(n)` so that it returns term number `n` of the sequence, counting from 0.
+
+    Examples:
+    - `fibonacci(0)` returns `0`
+    - `fibonacci(1)` returns `1`
+    - `fibonacci(6)` returns `8`
+  template: |
+    def fibonacci(n):
+        # Write your code here
+        pass
+  hints:
+    - "Keep the last two terms in two variables `a = 0` and `b = 1`."
+    - "On each round: `next_term = a + b`, then `a = b` and `b = next_term`. After `n` rounds, the answer is in `a`."
+  tests:
+    - "First Fibonacci term"
+    - "Second Fibonacci term"
+    - "Third Fibonacci term"
+    - "Seventh Fibonacci term"
+    - "Eleventh Fibonacci term"

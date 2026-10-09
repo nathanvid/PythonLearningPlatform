@@ -1,0 +1,66 @@
+id: "regex_hashtags"
+title: "Extraire des hashtags"
+description: |
+  Un hashtag est un `#` suivi d'une ou plusieurs lettres, chiffres ou `_`.
+  Complète la fonction `find_hashtags(text)` pour qu'elle renvoie la liste des hashtags du texte, **sans** le `#`, en minuscules, dans l'ordre où ils apparaissent.
+
+  Exemples :
+  - `find_hashtags("J'adore #Python et #code_2026 !")` renvoie `["python", "code_2026"]`
+  - `find_hashtags("Rien ici")` renvoie `[]`
+
+template: |
+  import re
+
+  def find_hashtags(text):
+      # Écris ton code ici
+      pass
+
+solution: |
+  import re
+
+  def find_hashtags(text):
+      return [word.lower() for word in re.findall(r"#(\w+)", text)]
+
+hints:
+  - "Avec des parenthèses, `re.findall(r\"#(\\w+)\", text)` ne renvoie que ce qui est entre parenthèses."
+
+tests:
+  - input: ["J'adore #Python et #code_2026 !"]
+    expected: ["python", "code_2026"]
+    description: "Deux hashtags"
+  - input: ["Rien ici"]
+    expected: []
+    description: "Aucun hashtag"
+  - input: ["#a#b"]
+    expected: ["a", "b"]
+    description: "Collés"
+  - input: ["Un # tout seul et #OK"]
+    expected: ["ok"]
+    hidden: true
+    description: "Un # sans mot"
+
+en:
+  title: "Extracting hashtags"
+  description: |
+    A hashtag is a `#` followed by one or more letters, digits or `_`.
+    Complete the function `find_hashtags(text)` so that it returns the list of the hashtags in the text, **without** the `#`, in lowercase, in the order they appear.
+
+    Examples:
+    - `find_hashtags("I love #Python and #code_2026!")` returns `["python", "code_2026"]`
+    - `find_hashtags("Nothing here")` returns `[]`
+  template: |
+    import re
+
+    def find_hashtags(text):
+        # Write your code here
+        pass
+  hints:
+    - "With parentheses, `re.findall(r\"#(\\w+)\", text)` only returns what is between the parentheses."
+  tests:
+    - input: ["I love #Python and #code_2026!"]
+      description: "Two hashtags"
+    - input: ["Nothing here"]
+      description: "No hashtag"
+    - "Stuck together"
+    - input: ["A lonely # and #OK"]
+      description: "A # without a word"

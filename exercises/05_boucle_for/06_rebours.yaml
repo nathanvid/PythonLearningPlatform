@@ -1,0 +1,56 @@
+id: "countdown_for"
+type: output
+title: "Compte à rebours"
+description: |
+  Avec une boucle `for` et un `range` à pas négatif, affiche les nombres de `5` à `1`,
+  puis, **après** la boucle, le texte `Partez !`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  5
+  4
+  3
+  2
+  1
+  Partez !
+  ```
+
+template: |
+  # Écris ta boucle ici
+
+solution: |
+  for i in range(5, 0, -1):
+      print(i)
+  print("Partez !")
+
+checks:
+  constructs: [for]
+
+hints:
+  - "`range(5, 0, -1)` part de 5 et descend jusqu'à 1."
+
+en:
+  title: "Countdown"
+  description: |
+    With a `for` loop and a `range` with a negative step, display the numbers from `5` to `1`,
+    then, **after** the loop, the text `Go!`.
+
+    The program must display exactly:
+
+    ```text
+    5
+    4
+    3
+    2
+    1
+    Go!
+    ```
+  template: |
+    # Write your loop here
+  solution: |
+    for i in range(5, 0, -1):
+        print(i)
+    print("Go!")
+  hints:
+    - "`range(5, 0, -1)` starts at 5 and goes down to 1."

@@ -1,0 +1,67 @@
+id: "max_two_numbers"
+title: "Maximum de deux nombres"
+description: |
+  Complète la fonction `max_two(a, b)` pour qu'elle renvoie le plus grand des deux nombres, avec un `if` / `else` (sans utiliser `max`).
+  Si les deux nombres sont égaux, elle renvoie cette valeur.
+
+  Exemples :
+  - `max_two(5, 3)` renvoie `5`
+  - `max_two(2, 8)` renvoie `8`
+  - `max_two(4, 4)` renvoie `4`
+
+template: |
+  def max_two(a, b):
+      # Utilise if/else pour comparer
+      pass
+
+solution: |
+  def max_two(a, b):
+      if a > b:
+          return a
+      else:
+          return b
+
+hints:
+  - "Si `a > b`, renvoie `a` ; sinon, renvoie `b`."
+
+tests:
+  - input: [5, 3]
+    expected: 5
+    description: "Premier nombre plus grand"
+  - input: [2, 8]
+    expected: 8
+    description: "Deuxième nombre plus grand"
+  - input: [4, 4]
+    expected: 4
+    description: "Nombres égaux"
+  - input: [-5, -10]
+    expected: -5
+    hidden: true
+    description: "Nombres négatifs"
+  - input: [0, 100]
+    expected: 100
+    hidden: true
+    description: "Avec zéro"
+
+en:
+  title: "Maximum of two numbers"
+  description: |
+    Complete the function `max_two(a, b)` so that it returns the larger of the two numbers, with an `if` / `else` (without using `max`).
+    If both numbers are equal, it returns that value.
+
+    Examples:
+    - `max_two(5, 3)` returns `5`
+    - `max_two(2, 8)` returns `8`
+    - `max_two(4, 4)` returns `4`
+  template: |
+    def max_two(a, b):
+        # Use if/else to compare
+        pass
+  hints:
+    - "If `a > b`, return `a`; otherwise, return `b`."
+  tests:
+    - "First number is larger"
+    - "Second number is larger"
+    - "Equal numbers"
+    - "Negative numbers"
+    - "With zero"

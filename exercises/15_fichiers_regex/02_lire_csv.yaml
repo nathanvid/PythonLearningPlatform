@@ -1,0 +1,88 @@
+id: "read_csv_grade"
+title: "Lire un fichier CSV"
+description: |
+  Le fichier `eleves.csv` est disponible dans le dossier d'exécution :
+
+  ```text
+  nom,note
+  Alice,14
+  Bob,9
+  Chloé,17
+  David,12
+  ```
+
+  Complète la fonction `grade_of(filename, name)` pour qu'elle lise ce fichier avec `csv.DictReader` et renvoie la note **(un entier)** de l'élève `name`, ou `None` si l'élève n'existe pas.
+
+  Exemples :
+  - `grade_of("eleves.csv", "Alice")` renvoie `14`
+  - `grade_of("eleves.csv", "Zoé")` renvoie `None`
+
+template: |
+  import csv
+
+  def grade_of(filename, name):
+      # Parcours les lignes du CSV et cherche l'élève
+      pass
+
+solution: |
+  import csv
+  
+  def grade_of(filename, name):
+      with open(filename, encoding="utf-8") as f:
+          for line in csv.DictReader(f):
+              if line["nom"] == name:
+                  return int(line["note"])
+      return None
+
+hints:
+  - "Chaque ligne lue est un dictionnaire : `line[\"nom\"]` et `line[\"note\"]`, à convertir avec `int`."
+
+tests:
+  - input: ["eleves.csv", "Alice"]
+    expected: 14
+    description: "Note d'Alice"
+  - input: ["eleves.csv", "Chloé"]
+    expected: 17
+    description: "Nom avec accent"
+  - input: ["eleves.csv", "Zoé"]
+    expected: null
+    description: "Élève inconnu"
+  - input: ["eleves.csv", "David"]
+    expected: 12
+    hidden: true
+    description: "Dernière ligne du fichier"
+
+data_files:
+  - "exercises/15_fichiers_regex/data/eleves.csv"
+
+en:
+  title: "Reading a CSV file"
+  description: |
+    The file `eleves.csv` is available in the run folder:
+
+    ```text
+    nom,note
+    Alice,14
+    Bob,9
+    Chloé,17
+    David,12
+    ```
+
+    Complete the function `grade_of(filename, name)` so that it reads this file with `csv.DictReader` and returns the grade **(a whole number)** of the student `name`, or `None` if the student doesn't exist.
+
+    Examples:
+    - `grade_of("eleves.csv", "Alice")` returns `14`
+    - `grade_of("eleves.csv", "Zoé")` returns `None`
+  template: |
+    import csv
+
+    def grade_of(filename, name):
+        # Loop over the CSV rows and look for the student
+        pass
+  hints:
+    - "Each line read is a dictionary: `row[\"nom\"]` and `row[\"note\"]`, to convert with `int`."
+  tests:
+    - "Alice's grade"
+    - "Name with an accent"
+    - "Unknown student"
+    - "Last line of the file"

@@ -1,0 +1,54 @@
+id: "display_types"
+type: output
+title: "Afficher des types"
+description: |
+  Avec la fonction `type`, affiche le type de chacune de ces quatre valeurs, une par ligne et dans cet ordre :
+  `3`, `3.5`, `"3"` et `True`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  <class 'int'>
+  <class 'float'>
+  <class 'str'>
+  <class 'bool'>
+  ```
+
+template: |
+  # Écris ton code ici
+
+solution: |
+  print(type(3))
+  print(type(3.5))
+  print(type("3"))
+  print(type(True))
+
+checks:
+  uses: [type]
+
+hints:
+  - "Mets type(...) à l'intérieur de print(...) : `print(type(3))`."
+
+en:
+  title: "Displaying types"
+  description: |
+    With the `type` function, display the type of each of these four values, one per line and in this order:
+    `3`, `3.5`, `"3"` and `True`.
+
+    The program must display exactly:
+
+    ```text
+    <class 'int'>
+    <class 'float'>
+    <class 'str'>
+    <class 'bool'>
+    ```
+  template: |
+    # Write your code here
+  solution: |
+    print(type(3))
+    print(type(3.5))
+    print(type("3"))
+    print(type(True))
+  hints:
+    - "Put type(...) inside print(...): `print(type(3))`."

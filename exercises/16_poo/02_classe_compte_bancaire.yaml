@@ -1,0 +1,121 @@
+id: "bank_account_class"
+title: "Classe Compte Bancaire"
+description: |
+  Complète la classe `BankAccount` :
+  - `__init__(self, initial_balance)` range le solde de départ dans un attribut ;
+  - `deposit(self, amount)` ajoute `amount` au solde ;
+  - `withdraw(self, amount)` retire `amount` du solde ;
+  - `get_balance(self)` renvoie le solde actuel.
+
+  Puis complète `test_account(operations)` : elle crée un compte avec un solde de `100`, exécute chaque opération de la liste, et renvoie le solde final.
+  Chaque opération est un texte `"deposit:50"` ou `"withdraw:30"` (le type, `:`, puis le montant).
+
+  Exemples :
+  - `test_account(["deposit:50"])` renvoie `150`
+  - `test_account(["withdraw:30", "deposit:20"])` renvoie `90`
+  - `test_account([])` renvoie `100`
+
+template: |
+  class BankAccount:
+      def __init__(self, initial_balance):
+          pass
+
+      def deposit(self, amount):
+          pass
+
+      def withdraw(self, amount):
+          pass
+
+      def get_balance(self):
+          pass
+
+  def test_account(operations):
+      # Crée un compte avec 100, exécute operations, retourne le solde
+      pass
+
+solution: |
+  class BankAccount:
+      def __init__(self, initial_balance):
+          self.balance = initial_balance
+  
+      def deposit(self, amount):
+          self.balance += amount
+  
+      def withdraw(self, amount):
+          self.balance -= amount
+  
+      def get_balance(self):
+          return self.balance
+  
+  def test_account(operations):
+      account = BankAccount(100)
+      for op in operations:
+          kind, amount = op.split(":")
+          if kind == "deposit":
+              account.deposit(int(amount))
+          else:
+              account.withdraw(int(amount))
+      return account.get_balance()
+
+hints:
+  - "Découpe chaque opération avec `kind, amount = op.split(\":\")`, et convertis `amount` avec `int`."
+
+tests:
+  - input: [["deposit:50"]]
+    expected: 150
+    description: "Un dépôt"
+  - input: [["withdraw:30"]]
+    expected: 70
+    description: "Un retrait"
+  - input: [["deposit:50", "withdraw:30"]]
+    expected: 120
+    description: "Dépôt puis retrait"
+  - input: [[]]
+    expected: 100
+    description: "Aucune opération"
+  - input: [["deposit:100", "deposit:50", "withdraw:75"]]
+    expected: 175
+    hidden: true
+    description: "Plusieurs opérations"
+
+en:
+  title: "Bank Account class"
+  description: |
+    Complete the class `BankAccount`:
+    - `__init__(self, initial_balance)` stores the starting balance in an attribute;
+    - `deposit(self, amount)` adds `amount` to the balance;
+    - `withdraw(self, amount)` removes `amount` from the balance;
+    - `get_balance(self)` returns the current balance.
+
+    Then complete `test_account(operations)`: it creates an account with a balance of `100`, runs each operation of the list, and returns the final balance.
+    Each operation is a text `"deposit:50"` or `"withdraw:30"` (the type, `:`, then the amount).
+
+    Examples:
+    - `test_account(["deposit:50"])` returns `150`
+    - `test_account(["withdraw:30", "deposit:20"])` returns `90`
+    - `test_account([])` returns `100`
+  template: |
+    class BankAccount:
+        def __init__(self, initial_balance):
+            pass
+
+        def deposit(self, amount):
+            pass
+
+        def withdraw(self, amount):
+            pass
+
+        def get_balance(self):
+            pass
+
+    def test_account(operations):
+        # Create an account with 100, run the operations, return the balance
+        pass
+  hints:
+    - "Split each operation with `kind, amount = op.split(\":\")`, and convert `amount` with `int`."
+  tests:
+    - "One deposit"
+    - "One withdrawal"
+    - "Deposit then withdrawal"
+    - "No operations"
+    - "Several operations"

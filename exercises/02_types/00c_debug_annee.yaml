@@ -1,0 +1,56 @@
+id: "fix_birth_year"
+type: fix
+title: "Débogage : l'âge à partir de l'année"
+description: |
+  Ce programme doit calculer un âge en 2025 et afficher exactement :
+
+  ```text
+  15
+  ```
+
+  Il plante avec une `TypeError`, car `birth_year` contient du **texte**.
+  Corrige la **deuxième** ligne avec `int()`, sans modifier la première.
+
+template: |
+  birth_year = "2010"
+  age = 2025 - birth_year
+  print(age)
+
+solution: |
+  birth_year = "2010"
+  age = 2025 - int(birth_year)
+  print(age)
+
+checks:
+  variables:
+    age: 15
+  uses: [birth_year, int]
+
+hints:
+  - "On ne peut pas soustraire un texte à un nombre : convertis-le d'abord."
+
+en:
+  title: "Debugging: age from the birth year"
+  description: |
+    This program must compute an age in 2025 and display exactly:
+
+    ```text
+    15
+    ```
+
+    It crashes with a `TypeError`, because `birth_year` holds **text**.
+    Fix the **second** line with `int()`, without changing the first one.
+  template: |
+    birth_year = "2010"
+    age = 2025 - birth_year
+    print(age)
+  solution: |
+    birth_year = "2010"
+    age = 2025 - int(birth_year)
+    print(age)
+  checks:
+    variables:
+      age: 15
+    uses: [birth_year, int]
+  hints:
+    - "You can't subtract a text from a number: convert it first."

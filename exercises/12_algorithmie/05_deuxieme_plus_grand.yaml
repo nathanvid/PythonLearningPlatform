@@ -1,0 +1,62 @@
+id: "second_largest"
+title: "Le deuxième plus grand"
+description: |
+  Complète la fonction `second_largest(numbers)` pour qu'elle renvoie la **deuxième plus grande valeur différente** de la liste,
+  sans `sort` ni `sorted`. La liste contient toujours au moins deux valeurs différentes.
+
+  Exemples :
+  - `second_largest([4, 9, 2, 7])` renvoie `7`
+  - `second_largest([5, 5, 3])` renvoie `3`
+
+template: |
+  def second_largest(numbers):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def second_largest(numbers):
+      first = max(numbers)
+      second = None
+      for n in numbers:
+          if n != first and (second is None or n > second):
+              second = n
+      return second
+
+hints:
+  - "Trouve d'abord le plus grand avec `max`, puis cherche le plus grand parmi les nombres qui lui sont différents."
+
+tests:
+  - input: [[4, 9, 2, 7]]
+    expected: 7
+    description: "Liste mélangée"
+  - input: [[5, 5, 3]]
+    expected: 3
+    description: "Le plus grand est en double"
+  - input: [[1, 2]]
+    expected: 1
+    description: "Deux valeurs"
+  - input: [[-3, -1, -2]]
+    expected: -2
+    hidden: true
+    description: "Nombres négatifs"
+
+en:
+  title: "The second largest"
+  description: |
+    Complete the function `second_largest(numbers)` so that it returns the **second largest different value** of the list,
+    without `sort` or `sorted`. The list always holds at least two different values.
+
+    Examples:
+    - `second_largest([4, 9, 2, 7])` returns `7`
+    - `second_largest([5, 5, 3])` returns `3`
+  template: |
+    def second_largest(numbers):
+        # Write your code here
+        pass
+  hints:
+    - "First find the largest with `max`, then look for the largest among the numbers that are different from it."
+  tests:
+    - "Mixed list"
+    - "The largest appears twice"
+    - "Two values"
+    - "Negative numbers"

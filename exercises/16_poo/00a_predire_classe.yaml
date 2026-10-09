@@ -1,0 +1,56 @@
+id: "predict_class_counter"
+type: predict
+title: "Prédire : attributs d'instance et de classe"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Distingue bien `self.value` (propre à chaque objet) et `Counter.total` (un attribut de classe, partagé par tous).
+
+code: |
+  class Counter:
+      total = 0
+
+      def __init__(self, start):
+          self.value = start
+          Counter.total += 1
+
+      def increment(self):
+          self.value += 1
+          return self.value
+
+  a = Counter(5)
+  b = Counter(10)
+  a.increment()
+  print(a.increment())
+  print(b.value)
+  print(Counter.total)
+
+hints:
+  - "`__init__` s'exécute à chaque création d'objet ; `Counter.total` est partagé par tous les objets."
+
+en:
+  title: "Predict: instance and class attributes"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Tell apart `self.value` (specific to each object) and `Counter.total` (a class attribute, shared by all).
+  code: |
+    class Counter:
+        total = 0
+
+        def __init__(self, start):
+            self.value = start
+            Counter.total += 1
+
+        def increment(self):
+            self.value += 1
+            return self.value
+
+    a = Counter(5)
+    b = Counter(10)
+    a.increment()
+    print(a.increment())
+    print(b.value)
+    print(Counter.total)
+  hints:
+    - "`__init__` runs every time an object is created; `Counter.total` is shared by all objects."

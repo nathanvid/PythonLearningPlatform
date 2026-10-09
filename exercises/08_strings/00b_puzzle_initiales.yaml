@@ -1,0 +1,54 @@
+id: "parsons_initials"
+type: parsons
+title: "Puzzle : les initiales"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction initiales(nom_complet)
+  qui renvoie les initiales en majuscules.
+
+  Exemple : initiales("ada lovelace") → "AL"
+
+solution: |
+  def initials(full_name):
+      result = ""
+      for word in full_name.split():
+          result += word[0].upper()
+      return result
+
+hints:
+  - "On ajoute une lettre par mot : cette ligne est dans la boucle."
+
+tests:
+  - input: ["ada lovelace"]
+    expected: "AL"
+    description: "Prénom et nom"
+  - input: ["Guido van Rossum"]
+    expected: "GVR"
+    description: "Trois mots"
+  - input: [""]
+    expected: ""
+    description: "Chaîne vide"
+  - input: ["grace brewster hopper"]
+    expected: "GBH"
+    hidden: true
+    description: "Trois mots en minuscules"
+
+en:
+  title: "Puzzle: initials"
+  description: |
+    Put the lines back in order to get a function initials(full_name)
+    that returns the initials in capitals.
+
+    Example: initials("ada lovelace") → "AL"
+  solution: |
+    def initials(full_name):
+        result = ""
+        for word in full_name.split():
+            result += word[0].upper()
+        return result
+  hints:
+    - "One letter is added per word: that line goes inside the loop."
+  tests:
+    - "First and last name"
+    - "Three words"
+    - "Empty string"
+    - "Three lowercase words"

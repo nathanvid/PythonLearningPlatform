@@ -1,0 +1,38 @@
+id: "predict_math_counter"
+type: predict
+title: "Prédire : math et Counter"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Il utilise deux modules de la bibliothèque standard : math et collections.
+
+code: |
+  import math
+  from collections import Counter
+
+  print(math.floor(3.7), math.ceil(3.2))
+  print(math.sqrt(16))
+  letters = Counter("banane")
+  print(letters["a"], letters["n"])
+  print(letters.most_common(1))
+
+hints:
+  - "`most_common(1)` renvoie une liste avec le couple (élément, nombre) le plus fréquent ; en cas d'égalité, le premier rencontré gagne."
+
+en:
+  title: "Predict: math and Counter"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    It uses two standard library modules: math and collections.
+  code: |
+    import math
+    from collections import Counter
+
+    print(math.floor(3.7), math.ceil(3.2))
+    print(math.sqrt(16))
+    letters = Counter("banana")
+    print(letters["a"], letters["n"])
+    print(letters.most_common(1))
+  hints:
+    - "`most_common(1)` returns a list with the most frequent (item, count) pair; in a tie, the first one met wins."

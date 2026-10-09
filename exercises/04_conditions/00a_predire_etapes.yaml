@@ -1,0 +1,75 @@
+id: "predict_conditions_steps"
+type: predict
+title: "Prédire : quel bloc s'exécute ?"
+description: |
+  Lis le code et prédis exactement ce qu'il affiche.
+
+  À chaque étape, le code change un peu : les lignes nouvelles sont surlignées.
+
+steps:
+  - |
+    a = 4
+    if a > 3:
+        print("A")
+    print("B")
+  - |
+    a = 2
+    if a > 3:
+        print("A")
+    print("B")
+  - |
+    a = 2
+    if a > 3:
+        print("A")
+    else:
+        print("C")
+    print("B")
+
+code: |
+  a = 2
+  if a > 3:
+      print("A")
+  elif a == 2:
+      print("D")
+  else:
+      print("C")
+  print("B")
+
+hints:
+  - "La ligne print(\"B\") n'est pas décalée : elle s'exécute toujours."
+
+en:
+  title: "Predict: which block runs?"
+  description: |
+    Read the code and predict exactly what it displays.
+
+    At each step, the code changes a little: the new lines are highlighted.
+  steps:
+    - |
+      a = 4
+      if a > 3:
+          print("A")
+      print("B")
+    - |
+      a = 2
+      if a > 3:
+          print("A")
+      print("B")
+    - |
+      a = 2
+      if a > 3:
+          print("A")
+      else:
+          print("C")
+      print("B")
+  code: |
+    a = 2
+    if a > 3:
+        print("A")
+    elif a == 2:
+        print("D")
+    else:
+        print("C")
+    print("B")
+  hints:
+    - "The line print(\"B\") is not shifted: it always runs."

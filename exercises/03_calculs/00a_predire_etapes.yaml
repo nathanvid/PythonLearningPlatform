@@ -1,0 +1,63 @@
+id: "predict_calc_steps"
+type: predict
+title: "Prédire : division, reste et mise à jour"
+description: |
+  Lis le code et prédis exactement ce qu'il affiche.
+
+  À chaque étape, le code s'allonge : suis la valeur de `x` à chaque ligne.
+
+steps:
+  - |
+    x = 17
+    print(x // 5)
+  - |
+    x = 17
+    print(x // 5)
+    print(x % 5)
+  - |
+    x = 17
+    print(x // 5)
+    print(x % 5)
+    x += 3
+    print(x)
+
+code: |
+  x = 17
+  print(x // 5)
+  print(x % 5)
+  x += 3
+  print(x)
+  print(x / 4, x ** 2)
+
+hints:
+  - "`x += 3` change la valeur de x pour toutes les lignes suivantes."
+
+en:
+  title: "Predict: division, remainder and update"
+  description: |
+    Read the code and predict exactly what it displays.
+
+    At each step, the code grows: follow the value of `x` on each line.
+  steps:
+    - |
+      x = 17
+      print(x // 5)
+    - |
+      x = 17
+      print(x // 5)
+      print(x % 5)
+    - |
+      x = 17
+      print(x // 5)
+      print(x % 5)
+      x += 3
+      print(x)
+  code: |
+    x = 17
+    print(x // 5)
+    print(x % 5)
+    x += 3
+    print(x)
+    print(x / 4, x ** 2)
+  hints:
+    - "`x += 3` changes the value of x for all the following lines."

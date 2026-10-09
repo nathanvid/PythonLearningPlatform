@@ -1,0 +1,56 @@
+id: "change_variable_value"
+type: output
+title: "Changer la valeur d'une variable"
+description: |
+  1. Crée une variable `points` qui vaut `0`, puis affiche-la.
+  2. Donne ensuite à `points` la valeur `50`, puis affiche-la de nouveau.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  0
+  50
+  ```
+
+  Les deux `print` doivent afficher la variable `points`, pas un nombre écrit à la main.
+
+template: |
+  # Écris ton code ici
+
+solution: |
+  points = 0
+  print(points)
+  points = 50
+  print(points)
+
+checks:
+  variables:
+    points: 50
+  uses: [points]
+
+hints:
+  - "On peut écrire `points = ...` une deuxième fois : la nouvelle valeur remplace l'ancienne."
+
+en:
+  title: "Changing a variable's value"
+  description: |
+    1. Create a variable `points` equal to `0`, then display it.
+    2. Then give `points` the value `50`, and display it again.
+
+    The program must display exactly:
+
+    ```text
+    0
+    50
+    ```
+
+    Both `print` calls must display the variable `points`, not a number typed by hand.
+  template: |
+    # Write your code here
+  solution: |
+    points = 0
+    print(points)
+    points = 50
+    print(points)
+  hints:
+    - "You can write `points = ...` a second time: the new value replaces the old one."

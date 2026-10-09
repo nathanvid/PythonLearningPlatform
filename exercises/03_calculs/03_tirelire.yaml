@@ -1,0 +1,68 @@
+id: "piggy_bank"
+type: output
+title: "La tirelire"
+description: |
+  1. Crée `piggy_bank = 20`.
+  2. Mets à jour `piggy_bank` avec les raccourcis, dans cet ordre :
+     - ajoute `15` avec `+=` ;
+     - retire `8` avec `-=` ;
+     - double la somme avec `*=`.
+  3. Affiche `piggy_bank`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  54
+  ```
+
+template: |
+  piggy_bank = 20
+  # Écris ton code ici
+
+solution: |
+  piggy_bank = 20
+  piggy_bank += 15
+  piggy_bank -= 8
+  piggy_bank *= 2
+  print(piggy_bank)
+
+checks:
+  variables:
+    piggy_bank: 54
+  uses: [piggy_bank]
+  constructs: ["+="]
+
+hints:
+  - "`piggy_bank -= 8` veut dire `piggy_bank = piggy_bank - 8`."
+
+en:
+  title: "The piggy bank"
+  description: |
+    1. Create `piggy_bank = 20`.
+    2. Update `piggy_bank` with the shortcuts, in this order:
+       - add `15` with `+=`;
+       - remove `8` with `-=`;
+       - double the amount with `*=`.
+    3. Display `piggy_bank`.
+
+    The program must display exactly:
+
+    ```text
+    54
+    ```
+  template: |
+    piggy_bank = 20
+    # Write your code here
+  solution: |
+    piggy_bank = 20
+    piggy_bank += 15
+    piggy_bank -= 8
+    piggy_bank *= 2
+    print(piggy_bank)
+  checks:
+    variables:
+      piggy_bank: 54
+    uses: [piggy_bank]
+    constructs: ["+="]
+  hints:
+    - "`piggy_bank -= 8` means `piggy_bank = piggy_bank - 8`."

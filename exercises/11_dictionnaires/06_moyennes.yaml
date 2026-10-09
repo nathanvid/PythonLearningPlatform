@@ -1,0 +1,60 @@
+id: "averages_per_student"
+title: "La moyenne de chaque élève"
+description: |
+  Complète la fonction `averages(grades)` : elle reçoit un dictionnaire qui associe chaque élève à la **liste** de ses notes (jamais vide),
+  et renvoie un nouveau dictionnaire qui associe chaque élève à sa **moyenne**.
+
+  Exemples :
+  - `averages({"Ada": [10, 20]})` renvoie `{"Ada": 15.0}`
+  - `averages({"Ada": [12, 14], "Alan": [9, 11, 13]})` renvoie `{"Ada": 13.0, "Alan": 11.0}`
+
+template: |
+  def averages(grades):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def averages(grades):
+      result = {}
+      for student, grade_list in grades.items():
+          result[student] = sum(grade_list) / len(grade_list)
+      return result
+
+hints:
+  - "Pour chaque paire de `grades.items()`, la moyenne vaut `sum(grade_list) / len(grade_list)`."
+
+tests:
+  - input: [{"Ada": [10, 20]}]
+    expected: {"Ada": 15.0}
+    description: "Un élève"
+  - input: [{"Ada": [12, 14], "Alan": [9, 11, 13]}]
+    expected: {"Ada": 13.0, "Alan": 11.0}
+    description: "Deux élèves"
+  - input: [{}]
+    expected: {}
+    description: "Aucun élève"
+  - input: [{"Zoé": [7], "Léo": [18, 19, 20]}]
+    expected: {"Zoé": 7.0, "Léo": 19.0}
+    hidden: true
+    description: "Une seule note"
+
+en:
+  title: "Each student's average"
+  description: |
+    Complete the function `averages(grades)`: it receives a dictionary that links each student to the **list** of their grades (never empty),
+    and returns a new dictionary that links each student to their **average**.
+
+    Examples:
+    - `averages({"Ada": [10, 20]})` returns `{"Ada": 15.0}`
+    - `averages({"Ada": [12, 14], "Alan": [9, 11, 13]})` returns `{"Ada": 13.0, "Alan": 11.0}`
+  template: |
+    def averages(grades):
+        # Write your code here
+        pass
+  hints:
+    - "For each pair of `grades.items()`, the average is `sum(items) / len(items)`."
+  tests:
+    - "One student"
+    - "Two students"
+    - "No students"
+    - "A single grade"

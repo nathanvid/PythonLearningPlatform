@@ -1,0 +1,64 @@
+id: "uppercase_list_comp"
+title: "Convertir en majuscules"
+description: |
+  Complète la fonction `uppercase_words(words)` pour qu'elle renvoie une nouvelle liste avec chaque mot de `words` en majuscules, avec une **liste en compréhension**.
+
+  Exemples :
+  - `uppercase_words(["hello", "world"])` renvoie `["HELLO", "WORLD"]`
+  - `uppercase_words([])` renvoie `[]`
+
+template: |
+  def uppercase_words(words):
+      # Utilise une list comprehension
+      pass
+
+solution: |
+  def uppercase_words(words):
+      return [word.upper() for word in words]
+
+hints:
+  - "La méthode `upper()` met un texte en majuscules."
+
+tests:
+  - input: [["hello", "world"]]
+    expected: ["HELLO", "WORLD"]
+    description: "Deux mots simples"
+  - input: [["python", "code"]]
+    expected: ["PYTHON", "CODE"]
+    description: "Mots en minuscules"
+  - input: [["ABC"]]
+    expected: ["ABC"]
+    description: "Déjà en majuscules"
+  - input: [[]]
+    expected: []
+    description: "Liste vide"
+  - input: [["Hello", "World"]]
+    expected: ["HELLO", "WORLD"]
+    hidden: true
+    description: "Mots en casse mixte"
+  - input: [["a", "b", "c"]]
+    expected: ["A", "B", "C"]
+    hidden: true
+    description: "Lettres seules"
+
+en:
+  title: "Convert to uppercase"
+  description: |
+    Complete the function `uppercase_words(words)` so that it returns a new list with each word of `words` in capitals, with a **list comprehension**.
+
+    Examples:
+    - `uppercase_words(["hello", "world"])` returns `["HELLO", "WORLD"]`
+    - `uppercase_words([])` returns `[]`
+  template: |
+    def uppercase_words(words):
+        # Use a list comprehension
+        pass
+  hints:
+    - "The `upper()` method puts a text in capitals."
+  tests:
+    - "Two simple words"
+    - "Lowercase words"
+    - "Already uppercase"
+    - "Empty list"
+    - "Mixed-case words"
+    - "Single letters"

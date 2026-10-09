@@ -1,0 +1,56 @@
+id: "parsons_clamp"
+type: parsons
+title: "Puzzle : borner une valeur"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction borner(valeur, minimum, maximum)
+  qui renvoie la valeur ramenée dans l'intervalle [minimum, maximum].
+
+  Exemples : borner(-3, 0, 10) → 0, borner(42, 0, 10) → 10, borner(5, 0, 10) → 5
+
+solution: |
+  def clamp(value, minimum, maximum):
+      if value < minimum:
+          return minimum
+      if value > maximum:
+          return maximum
+      return value
+
+hints:
+  - "Chaque `return` décalé se place juste sous le `if` qui le justifie."
+
+tests:
+  - input: [5, 0, 10]
+    expected: 5
+    description: "Valeur dans l'intervalle"
+  - input: [-3, 0, 10]
+    expected: 0
+    description: "Valeur trop petite"
+  - input: [42, 0, 10]
+    expected: 10
+    description: "Valeur trop grande"
+  - input: [0, 0, 10]
+    expected: 0
+    hidden: true
+    description: "Valeur égale au minimum"
+
+en:
+  title: "Puzzle: clamping a value"
+  description: |
+    Put the lines back in order to get a function clamp(value, minimum, maximum)
+    that returns the value brought back into the range [minimum, maximum].
+
+    Examples: clamp(-3, 0, 10) → 0, clamp(42, 0, 10) → 10, clamp(5, 0, 10) → 5
+  solution: |
+    def clamp(value, minimum, maximum):
+        if value < minimum:
+            return minimum
+        if value > maximum:
+            return maximum
+        return value
+  hints:
+    - "Each shifted `return` goes right under the `if` that justifies it."
+  tests:
+    - "Value in range"
+    - "Value too small"
+    - "Value too large"
+    - "Value equal to the minimum"

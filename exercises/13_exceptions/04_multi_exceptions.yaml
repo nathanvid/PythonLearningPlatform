@@ -1,0 +1,84 @@
+id: "calculate_with_exceptions"
+title: "Calcul avec gestion multiple"
+description: |
+  Complète la fonction `calculate(a, b, operation)` : `operation` vaut `"add"`, `"subtract"`, `"multiply"` ou `"divide"`, et la fonction renvoie le résultat de l'opération sur `a` et `b`.
+  - Si `operation` est inconnue, elle renvoie `"Error: Unknown operation"`.
+  - Si on divise par 0, elle renvoie `"Error: Division by zero"` (utilise `try` / `except`).
+
+  Exemples :
+  - `calculate(10, 5, "add")` renvoie `15`
+  - `calculate(10, 5, "divide")` renvoie `2.0`
+  - `calculate(10, 0, "divide")` renvoie `"Error: Division by zero"`
+  - `calculate(10, 5, "modulo")` renvoie `"Error: Unknown operation"`
+
+template: |
+  def calculate(a, b, operation):
+      # Gère plusieurs exceptions
+      pass
+
+solution: |
+  def calculate(a, b, operation):
+      if operation == "add":
+          return a + b
+      elif operation == "subtract":
+          return a - b
+      elif operation == "multiply":
+          return a * b
+      elif operation == "divide":
+          try:
+              return a / b
+          except ZeroDivisionError:
+              return "Error: Division by zero"
+      else:
+          return "Error: Unknown operation"
+
+hints:
+  - "Un `if` / `elif` choisit l'opération ; seule la division a besoin d'un `try`."
+
+tests:
+  - input: [10, 5, "divide"]
+    expected: 2.0
+    description: "Division normale"
+  - input: [10, 0, "divide"]
+    expected: "Error: Division by zero"
+    description: "Division par zéro"
+  - input: [10, 5, "add"]
+    expected: 15
+    description: "Addition"
+  - input: [10, 5, "unknown"]
+    expected: "Error: Unknown operation"
+    description: "Opération inconnue"
+  - input: [20, 4, "multiply"]
+    expected: 80
+    hidden: true
+    description: "Multiplication"
+  - input: [15, 5, "subtract"]
+    expected: 10
+    hidden: true
+    description: "Soustraction"
+
+en:
+  title: "Calculation with multiple error handling"
+  description: |
+    Complete the function `calculate(a, b, operation)`: `operation` is `"add"`, `"subtract"`, `"multiply"` or `"divide"`, and the function returns the result of the operation on `a` and `b`.
+    - If `operation` is unknown, it returns `"Error: Unknown operation"`.
+    - If you divide by 0, it returns `"Error: Division by zero"` (use `try` / `except`).
+
+    Examples:
+    - `calculate(10, 5, "add")` returns `15`
+    - `calculate(10, 5, "divide")` returns `2.0`
+    - `calculate(10, 0, "divide")` returns `"Error: Division by zero"`
+    - `calculate(10, 5, "modulo")` returns `"Error: Unknown operation"`
+  template: |
+    def calculate(a, b, operation):
+        # Handle several exceptions
+        pass
+  hints:
+    - "An `if` / `elif` chooses the operation; only division needs a `try`."
+  tests:
+    - "Normal division"
+    - "Division by zero"
+    - "Addition"
+    - "Unknown operation"
+    - "Multiplication"
+    - "Subtraction"

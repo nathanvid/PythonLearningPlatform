@@ -1,0 +1,59 @@
+id: "use_math_module"
+title: "Module math - Racine carrée"
+description: |
+  Complète la fonction `calculate_hypotenuse(a, b)` pour qu'elle renvoie la longueur de l'hypoténuse d'un triangle rectangle de côtés `a` et `b`,
+  avec le théorème de Pythagore : `c = √(a² + b²)`. Utilise `math.sqrt` pour la racine carrée.
+
+  Exemples :
+  - `calculate_hypotenuse(3, 4)` renvoie `5.0`
+  - `calculate_hypotenuse(5, 12)` renvoie `13.0`
+
+template: |
+  def calculate_hypotenuse(a, b):
+      # Importe math et calcule l'hypoténuse
+      pass
+
+solution: |
+  import math
+  
+  def calculate_hypotenuse(a, b):
+      return math.sqrt(a ** 2 + b ** 2)
+
+hints:
+  - "N'oublie pas `import math` en haut du code."
+
+tests:
+  - input: [3, 4]
+    expected: 5.0
+    description: "Triangle 3-4-5"
+  - input: [5, 12]
+    expected: 13.0
+    description: "Triangle 5-12-13"
+  - input: [1, 1]
+    expected: 1.4142135623730951
+    description: "Triangle isocèle"
+  - input: [8, 15]
+    expected: 17.0
+    hidden: true
+    description: "Triangle 8-15-17"
+
+en:
+  title: "math module - Square root"
+  description: |
+    Complete the function `calculate_hypotenuse(a, b)` so that it returns the length of the hypotenuse of a right-angled triangle with sides `a` and `b`,
+    using Pythagoras' theorem: `c = √(a² + b²)`. Use `math.sqrt` for the square root.
+
+    Examples:
+    - `calculate_hypotenuse(3, 4)` returns `5.0`
+    - `calculate_hypotenuse(5, 12)` returns `13.0`
+  template: |
+    def calculate_hypotenuse(a, b):
+        # Import math and compute the hypotenuse
+        pass
+  hints:
+    - "Don't forget `import math` at the top of the code."
+  tests:
+    - "3-4-5 triangle"
+    - "5-12-13 triangle"
+    - "Isosceles triangle"
+    - "8-15-17 triangle"

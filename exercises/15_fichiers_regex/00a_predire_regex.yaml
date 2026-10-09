@@ -1,0 +1,34 @@
+id: "predict_regex"
+type: predict
+title: "Prédire : expressions régulières"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Rappel : \d désigne un chiffre, et + signifie « une fois ou plus ».
+
+code: |
+  import re
+
+  text = "Rdv le 12/03 à 14h, puis le 5/04 à 9h."
+  print(re.findall(r"\d+h", text))
+  print(len(re.findall(r"\d+", text)))
+  print(re.sub(r"\d", "#", "a1b22"))
+
+hints:
+  - "`\\d+` prend d'un coup tous les chiffres qui se suivent : « 12 » compte pour une seule correspondance."
+
+en:
+  title: "Predict: regular expressions"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Reminder: \d means a digit, and + means "one or more times".
+  code: |
+    import re
+
+    text = "Meet on 12/03 at 14h, then on 5/04 at 9h."
+    print(re.findall(r"\d+h", text))
+    print(len(re.findall(r"\d+", text)))
+    print(re.sub(r"\d", "#", "a1b22"))
+  hints:
+    - "`\\d+` takes all consecutive digits at once: \"12\" counts as a single match."

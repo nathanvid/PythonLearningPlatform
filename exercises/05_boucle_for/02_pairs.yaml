@@ -1,0 +1,59 @@
+id: "even_numbers_step"
+type: output
+title: "Les nombres pairs"
+description: |
+  Avec une boucle `for` et un `range` à **3 nombres** (départ, fin, pas), affiche les nombres pairs
+  de `2` à `20`, un par ligne. N'utilise pas de `if`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+  18
+  20
+  ```
+
+template: |
+  # Écris ta boucle ici
+
+solution: |
+  for i in range(2, 21, 2):
+      print(i)
+
+checks:
+  constructs: [for]
+
+hints:
+  - "Le pas est de 2, et la fin doit être juste après 20."
+
+en:
+  title: "Even numbers"
+  description: |
+    With a `for` loop and a `range` with **3 numbers** (start, end, step), display the even numbers
+    from `2` to `20`, one per line. Don't use an `if`.
+
+    The program must display exactly:
+
+    ```text
+    2
+    4
+    6
+    8
+    10
+    12
+    14
+    16
+    18
+    20
+    ```
+  template: |
+    # Write your loop here
+  hints:
+    - "The step is 2, and the end must be just after 20."

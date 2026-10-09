@@ -1,0 +1,66 @@
+id: "sum_until_over_hundred"
+type: output
+title: "Dépasser 100"
+description: |
+  On additionne `1 + 2 + 3 + …` jusqu'à ce que le total **dépasse** `100`.
+
+  Avec une boucle `while` qui continue tant que `total <= 100` :
+  - `n` est le dernier nombre ajouté ;
+  - `total` est la somme obtenue.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  14 nombres, total 105
+  ```
+
+template: |
+  n = 0
+  total = 0
+  # Écris ta boucle while ici
+
+solution: |
+  n = 0
+  total = 0
+  while total <= 100:
+      n += 1
+      total += n
+  print(n, "nombres, total", total)
+
+checks:
+  variables:
+    n: 14
+    total: 105
+  uses: [n, total]
+  constructs: [while]
+
+hints:
+  - "Dans la boucle : augmente n de 1, puis ajoute n à total."
+
+en:
+  title: "Going over 100"
+  description: |
+    Add up `1 + 2 + 3 + …` until the total **exceeds** `100`.
+
+    With a `while` loop that keeps going as long as `total <= 100`:
+    - `n` is the last number added;
+    - `total` is the sum obtained.
+
+    The program must display exactly:
+
+    ```text
+    14 numbers, total 105
+    ```
+  template: |
+    n = 0
+    total = 0
+    # Write your while loop here
+  solution: |
+    n = 0
+    total = 0
+    while total <= 100:
+        n += 1
+        total += n
+    print(n, "numbers, total", total)
+  hints:
+    - "Inside the loop: increase n by 1, then add n to total."

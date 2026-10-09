@@ -1,0 +1,47 @@
+id: "star_triangle"
+type: output
+title: "Un triangle d'étoiles"
+description: |
+  Avec une boucle `for`, affiche un triangle de 4 lignes : la ligne numéro `i` contient `i` étoiles.
+  Utilise la répétition de texte `"*" * i`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  *
+  **
+  ***
+  ****
+  ```
+
+template: |
+  # Écris ta boucle ici
+
+solution: |
+  for i in range(1, 5):
+      print("*" * i)
+
+checks:
+  constructs: [for]
+
+hints:
+  - "`\"*\" * 3` donne `***`."
+
+en:
+  title: "A triangle of stars"
+  description: |
+    With a `for` loop, display a triangle of 4 lines: line number `i` holds `i` stars.
+    Use text repetition `"*" * i`.
+
+    The program must display exactly:
+
+    ```text
+    *
+    **
+    ***
+    ****
+    ```
+  template: |
+    # Write your loop here
+  hints:
+    - "`\"*\" * 3` gives `***`."

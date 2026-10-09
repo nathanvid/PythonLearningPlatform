@@ -1,0 +1,40 @@
+id: "predict_tuples_sets"
+type: predict
+title: "Prédire : tuples et ensembles"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Rappel : un ensemble (set) ne garde jamais de doublons.
+
+code: |
+  point = (3, 4)
+  x, y = point
+  print(x + y)
+  colours = {"rouge", "vert", "rouge", "bleu"}
+  print(len(colours))
+  print("vert" in colours)
+  a = {1, 2, 3}
+  b = {2, 3, 4}
+  print(sorted(a & b))
+
+hints:
+  - "`a & b` garde les éléments présents dans les deux ensembles."
+
+en:
+  title: "Predict: tuples and sets"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Reminder: a set never keeps duplicates.
+  code: |
+    point = (3, 4)
+    x, y = point
+    print(x + y)
+    colours = {"red", "green", "red", "blue"}
+    print(len(colours))
+    print("green" in colours)
+    a = {1, 2, 3}
+    b = {2, 3, 4}
+    print(sorted(a & b))
+  hints:
+    - "`a & b` keeps the items found in both sets."

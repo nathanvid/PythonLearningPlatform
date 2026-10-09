@@ -1,0 +1,166 @@
+id: "project_todo_list"
+title: "Projet : gestionnaire de tâches"
+description: |
+  Construis un petit gestionnaire de tâches, avec une classe, des listes et un dictionnaire.
+
+  1. Complète la classe `TodoList` (ses deux listes `self.pending` et `self.finished` sont déjà créées) :
+     - `add(title)` ajoute une tâche à faire ; ne fait rien si elle existe déjà, à faire ou terminée ;
+     - `done(title)` marque une tâche à faire comme terminée ; ne fait rien si elle n'est pas dans les tâches à faire ;
+     - `remove(title)` supprime la tâche, qu'elle soit à faire ou terminée ;
+     - `summary()` renvoie le dictionnaire `{"pending": [...], "done": [...]}`, chaque liste dans l'ordre où les tâches y sont entrées.
+
+  2. Complète `run_todo(commands)` : elle crée une `TodoList`, exécute les commandes une par une, puis renvoie `summary()`.
+     Chaque commande est une liste `[action, titre]`, avec `action` parmi `"add"`, `"done"` et `"remove"`.
+
+  Exemple :
+  - `run_todo([["add", "Courses"], ["add", "Devoirs"], ["done", "Courses"]])` renvoie `{"pending": ["Devoirs"], "done": ["Courses"]}`
+
+template: |
+  class TodoList:
+      def __init__(self):
+          self.pending = []
+          self.finished = []
+
+      def add(self, title):
+          pass
+
+      def done(self, title):
+          pass
+
+      def remove(self, title):
+          pass
+
+      def summary(self):
+          pass
+
+  def run_todo(commands):
+      todo = TodoList()
+      for action, title in commands:
+          # Appelle la bonne méthode selon l'action
+          pass
+      return todo.summary()
+
+solution: |
+  class TodoList:
+      def __init__(self):
+          self.pending = []
+          self.finished = []
+  
+      def add(self, title):
+          if title not in self.pending and title not in self.finished:
+              self.pending.append(title)
+  
+      def done(self, title):
+          if title in self.pending:
+              self.pending.remove(title)
+              self.finished.append(title)
+  
+      def remove(self, title):
+          if title in self.pending:
+              self.pending.remove(title)
+          if title in self.finished:
+              self.finished.remove(title)
+  
+      def summary(self):
+          return {"pending": self.pending, "done": self.finished}
+  
+  def run_todo(commands):
+      todo = TodoList()
+      for action, title in commands:
+          if action == "add":
+              todo.add(title)
+          elif action == "done":
+              todo.done(title)
+          elif action == "remove":
+              todo.remove(title)
+      return todo.summary()
+
+hints:
+  - "Écris et vérifie une méthode à la fois, en commençant par `add` et `summary`."
+  - "Dans `run_todo` : `if action == \"add\": todo.add(title)`, puis la même chose pour `done` et `remove`."
+
+tests:
+  - input: [[["add", "Courses"], ["add", "Devoirs"], ["done", "Courses"]]]
+    expected: { "pending": ["Devoirs"], "done": ["Courses"] }
+    description: "Ajouter puis terminer"
+  - input: [[]]
+    expected: { "pending": [], "done": [] }
+    description: "Aucune commande"
+  - input: [[["add", "A"], ["add", "B"], ["remove", "A"]]]
+    expected: { "pending": ["B"], "done": [] }
+    description: "Supprimer une tâche"
+  - input: [[["add", "A"], ["done", "Z"]]]
+    expected: { "pending": ["A"], "done": [] }
+    description: "Terminer une tâche inconnue"
+  - input: [[["add", "A"], ["add", "A"]]]
+    expected: { "pending": ["A"], "done": [] }
+    hidden: true
+    description: "Pas de doublon"
+  - input:
+      [
+        [
+          ["add", "A"],
+          ["done", "A"],
+          ["remove", "A"],
+          ["add", "B"],
+          ["done", "B"],
+          ["add", "B"],
+        ],
+      ]
+    expected: { "pending": [], "done": ["B"] }
+    hidden: true
+    description: "Suppression d'une tâche terminée et ajout d'une tâche déjà terminée"
+
+en:
+  title: "Project: task manager"
+  description: |
+    Build a small task manager, with a class, lists and a dictionary.
+
+    1. Complete the class `TodoList` (its two lists `self.pending` and `self.finished` already exist):
+       - `add(title)` adds a task to do; does nothing if it already exists, to do or finished;
+       - `done(title)` marks a task to do as finished; does nothing if it is not among the tasks to do;
+       - `remove(title)` deletes the task, whether it is to do or finished;
+       - `summary()` returns the dictionary `{"pending": [...], "done": [...]}`, each list in the order the tasks entered it.
+
+    2. Complete `run_todo(commands)`: it creates a `TodoList`, runs the commands one by one, then returns `summary()`.
+       Each command is a list `[action, title]`, with `action` among `"add"`, `"done"` and `"remove"`.
+
+    Example:
+    - `run_todo([["add", "Shopping"], ["add", "Homework"], ["done", "Shopping"]])` returns `{"pending": ["Homework"], "done": ["Shopping"]}`
+  template: |
+    class TodoList:
+        def __init__(self):
+            self.pending = []
+            self.finished = []
+
+        def add(self, title):
+            pass
+
+        def done(self, title):
+            pass
+
+        def remove(self, title):
+            pass
+
+        def summary(self):
+            pass
+
+    def run_todo(commands):
+        todo = TodoList()
+        for action, title in commands:
+            # Call the right method depending on the action
+            pass
+        return todo.summary()
+  hints:
+    - "Write and check one method at a time, starting with `add` and `summary`."
+    - "In `run_todo`: `if action == \"add\": todo.add(title)`, then the same for `done` and `remove`."
+  tests:
+    - input:
+        [[["add", "Groceries"], ["add", "Homework"], ["done", "Groceries"]]]
+      expected: { "pending": ["Homework"], "done": ["Groceries"] }
+      description: "Add then complete"
+    - "No command"
+    - "Remove a task"
+    - "Complete an unknown task"
+    - "No duplicates"
+    - "Removing a done task and adding a task that is already done"

@@ -1,0 +1,51 @@
+id: "count_by_tens"
+type: output
+title: "Compter de 10 en 10"
+description: |
+  Avec une boucle `while`, affiche les nombres de `10` à `50` en avançant de 10 à chaque tour.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  10
+  20
+  30
+  40
+  50
+  ```
+
+template: |
+  n = 10
+  # Écris ta boucle while ici
+
+solution: |
+  n = 10
+  while n <= 50:
+      print(n)
+      n += 10
+
+checks:
+  constructs: [while]
+
+hints:
+  - "À chaque tour, ajoute 10 à n avec `n += 10`."
+
+en:
+  title: "Counting in tens"
+  description: |
+    With a `while` loop, display the numbers from `10` to `50`, moving forward by 10 on each round.
+
+    The program must display exactly:
+
+    ```text
+    10
+    20
+    30
+    40
+    50
+    ```
+  template: |
+    n = 10
+    # Write your while loop here
+  hints:
+    - "On each round, add 10 to n with `n += 10`."

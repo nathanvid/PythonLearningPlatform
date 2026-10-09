@@ -1,0 +1,45 @@
+id: "print_three_lines"
+type: output
+title: "Afficher trois lignes"
+description: |
+  Écris un programme qui affiche **exactement** ces trois lignes, dans cet ordre :
+
+  ```text
+  Bonjour !
+  Je m'appelle Python.
+  Enchanté.
+  ```
+
+  Attention aux majuscules, aux espaces et à la ponctuation.
+
+template: |
+  # Écris ton code ici
+
+solution: |
+  print("Bonjour !")
+  print("Je m'appelle Python.")
+  print("Enchanté.")
+
+hints:
+  - "Un print par ligne, avec le texte entre guillemets."
+
+en:
+  title: "Displaying three lines"
+  description: |
+    Write a program that displays **exactly** these three lines, in this order:
+
+    ```text
+    Hello!
+    My name is Python.
+    Nice to meet you.
+    ```
+
+    Watch the capital letters, spaces and punctuation.
+  template: |
+    # Write your code here
+  solution: |
+    print("Hello!")
+    print("My name is Python.")
+    print("Nice to meet you.")
+  hints:
+    - "One print per line, with the text between quotes."

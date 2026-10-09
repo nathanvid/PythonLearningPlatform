@@ -1,0 +1,56 @@
+id: "circle_area"
+type: output
+title: "Aire d'un disque"
+description: |
+  L'aire d'un disque se calcule avec la formule : 3.14159 × rayon².
+
+  1. Crée `radius = 3`.
+  2. Calcule `area` avec `**` pour le carré.
+  3. Affiche `area` arrondie à **2 chiffres** après la virgule avec `round`.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  28.27
+  ```
+
+template: |
+  radius = 3
+  # Écris ton code ici
+
+solution: |
+  radius = 3
+  area = 3.14159 * radius ** 2
+  print(round(area, 2))
+
+checks:
+  uses: [radius, area, round]
+
+hints:
+  - "`round(area, 2)` garde 2 chiffres après la virgule."
+
+en:
+  title: "Area of a disc"
+  description: |
+    The area of a disc is computed with the formula: 3.14159 × radius².
+
+    1. Create `radius = 3`.
+    2. Compute `area` with `**` for the square.
+    3. Display `area` rounded to **2 digits** after the decimal point with `round`.
+
+    The program must display exactly:
+
+    ```text
+    28.27
+    ```
+  template: |
+    radius = 3
+    # Write your code here
+  solution: |
+    radius = 3
+    area = 3.14159 * radius ** 2
+    print(round(area, 2))
+  checks:
+    uses: [radius, area, round]
+  hints:
+    - "`round(area, 2)` keeps 2 digits after the decimal point."

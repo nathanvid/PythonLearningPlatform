@@ -1,0 +1,50 @@
+id: "predict_try_flow"
+type: predict
+title: "Prédire : try, except, else, finally"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Le but : comprendre dans quel ordre s'exécutent les blocs try, except, else et finally.
+
+code: |
+  def divide(a, b):
+      try:
+          result = a / b
+      except ZeroDivisionError:
+          print("division par zéro")
+          return None
+      else:
+          print("ok")
+          return result
+      finally:
+          print("fin")
+
+  print(divide(6, 3))
+  print(divide(1, 0))
+
+hints:
+  - "`finally` s'exécute toujours, même après un `return`, avant que le `print` extérieur affiche la valeur."
+
+en:
+  title: "Predict: try, except, else, finally"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    The goal: understand in which order the try, except, else and finally blocks run.
+  code: |
+    def divide(a, b):
+        try:
+            result = a / b
+        except ZeroDivisionError:
+            print("division by zero")
+            return None
+        else:
+            print("ok")
+            return result
+        finally:
+            print("end")
+
+    print(divide(6, 3))
+    print(divide(1, 0))
+  hints:
+    - "`finally` always runs, even after a `return`, before the outer `print` displays the value."

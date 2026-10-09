@@ -1,0 +1,56 @@
+id: "parsons_unique_words"
+type: parsons
+title: "Puzzle : mots différents"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction mots_uniques(phrase)
+  qui renvoie le nombre de mots différents de la phrase, sans tenir compte des majuscules.
+
+  Exemple : mots_uniques("le chat et le chien") → 4
+
+solution: |
+  def unique_words(sentence):
+      seen = set()
+      for word in sentence.lower().split():
+          seen.add(word)
+      return len(seen)
+
+hints:
+  - "Ajouter deux fois le même mot à un ensemble ne le compte qu'une fois."
+
+tests:
+  - input: ["le chat et le chien"]
+    expected: 4
+    description: "Un mot répété"
+  - input: [""]
+    expected: 0
+    description: "Phrase vide"
+  - input: ["A a A"]
+    expected: 1
+    description: "Majuscules et minuscules"
+  - input: ["un deux trois"]
+    expected: 3
+    hidden: true
+    description: "Aucun doublon"
+
+en:
+  title: "Puzzle: distinct words"
+  description: |
+    Put the lines back in order to get a function unique_words(sentence)
+    that returns how many different words the sentence contains, ignoring case.
+
+    Example: unique_words("the cat and the dog") → 4
+  solution: |
+    def unique_words(sentence):
+        seen = set()
+        for word in sentence.lower().split():
+            seen.add(word)
+        return len(seen)
+  hints:
+    - "Adding the same word twice to a set only counts it once."
+  tests:
+    - input: ["the cat and the dog"]
+      description: "A repeated word"
+    - "Empty sentence"
+    - "Upper and lower case"
+    - input: ["one two three"]
+      description: "No duplicates"

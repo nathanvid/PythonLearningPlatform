@@ -1,0 +1,76 @@
+id: "predict_account_history"
+type: predict
+title: "Prédire : un compte qui garde son historique"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  L'objet garde deux informations qui changent : son solde (`self.balance`) et la liste de ses opérations (`self.history`). Un retrait trop grand est refusé.
+
+code: |
+  class Account:
+      def __init__(self, owner, balance):
+          self.owner = owner
+          self.balance = balance
+          self.history = []
+
+      def deposit(self, amount):
+          self.balance += amount
+          self.history.append("+" + str(amount))
+
+      def withdraw(self, amount):
+          if amount > self.balance:
+              self.history.append("refusé")
+              return False
+          self.balance -= amount
+          self.history.append("-" + str(amount))
+          return True
+
+      def summary(self):
+          return self.owner + " : " + str(self.balance)
+
+  account = Account("Ada", 40)
+  account.withdraw(60)
+  account.deposit(30)
+  print(account.withdraw(60))
+  print(account.history)
+  print(account.summary())
+
+hints:
+  - "Le premier retrait (60) est refusé car le solde n'est que de 40 ; il laisse quand même une trace dans l'historique."
+
+en:
+  title: "Predict: an account that keeps its history"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    The object keeps two pieces of information that change: its balance (`self.balance`) and the list of its operations (`self.history`). A withdrawal that is too large is refused.
+  code: |
+    class Account:
+        def __init__(self, owner, balance):
+            self.owner = owner
+            self.balance = balance
+            self.history = []
+
+        def deposit(self, amount):
+            self.balance += amount
+            self.history.append("+" + str(amount))
+
+        def withdraw(self, amount):
+            if amount > self.balance:
+                self.history.append("refused")
+                return False
+            self.balance -= amount
+            self.history.append("-" + str(amount))
+            return True
+
+        def summary(self):
+            return self.owner + ": " + str(self.balance)
+
+    account = Account("Ada", 40)
+    account.withdraw(60)
+    account.deposit(30)
+    print(account.withdraw(60))
+    print(account.history)
+    print(account.summary())
+  hints:
+    - "The first withdrawal (60) is refused because the balance is only 40; it still leaves a trace in the history."

@@ -1,0 +1,74 @@
+id: "is_even"
+title: "Nombre pair"
+description: |
+  Complète la fonction `is_even(n)` pour qu'elle renvoie `True` si `n` est pair, et `False` sinon.
+
+  Un nombre est pair quand le reste de sa division par 2 vaut 0, c'est-à-dire quand `n % 2 == 0`.
+
+  Exemples :
+  - `is_even(4)` renvoie `True`
+  - `is_even(7)` renvoie `False`
+  - `is_even(0)` renvoie `True`
+
+template: |
+  def is_even(n):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def is_even(n):
+      return n % 2 == 0
+
+hints:
+  - "La comparaison `n % 2 == 0` vaut déjà `True` ou `False` : tu peux la renvoyer directement."
+
+tests:
+  - input: [4]
+    expected: true
+    description: "4 est pair"
+  - input: [7]
+    expected: false
+    description: "7 est impair"
+  - input: [0]
+    expected: true
+    description: "0 est pair"
+  - input: [-2]
+    expected: true
+    description: "-2 est pair"
+  - input: [-3]
+    expected: false
+    description: "-3 est impair"
+  - input: [1000]
+    expected: true
+    hidden: true
+    description: "Grand nombre pair"
+  - input: [999]
+    expected: false
+    hidden: true
+    description: "Grand nombre impair"
+
+en:
+  title: "Even number"
+  description: |
+    Complete the function `is_even(n)` so that it returns `True` if `n` is even, and `False` otherwise.
+
+    A number is even when the remainder of its division by 2 is 0, that is when `n % 2 == 0`.
+
+    Examples:
+    - `is_even(4)` returns `True`
+    - `is_even(7)` returns `False`
+    - `is_even(0)` returns `True`
+  template: |
+    def is_even(n):
+        # Write your code here
+        pass
+  hints:
+    - "The comparison `n % 2 == 0` is already `True` or `False`: you can return it directly."
+  tests:
+    - "4 is even"
+    - "7 is odd"
+    - "0 is even"
+    - "-2 is even"
+    - "-3 is odd"
+    - "Large even number"
+    - "Large odd number"

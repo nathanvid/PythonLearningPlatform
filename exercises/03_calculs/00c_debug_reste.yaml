@@ -1,0 +1,54 @@
+id: "fix_remainder"
+type: fix
+title: "Débogage : le reste de la division"
+description: |
+  Ce programme doit afficher le **reste** de la division de `7` par `2` :
+
+  ```text
+  Reste : 1
+  ```
+
+  Il affiche `Reste : 3.5`. Corrige la **deuxième** ligne avec le bon opérateur.
+
+template: |
+  n = 7
+  remainder = n / 2
+  print("Reste :", remainder)
+
+solution: |
+  n = 7
+  remainder = n % 2
+  print("Reste :", remainder)
+
+checks:
+  variables:
+    remainder: 1
+  uses: [n, remainder]
+
+hints:
+  - "/ divise, // donne la partie entière, % donne le reste."
+
+en:
+  title: "Debugging: the remainder of a division"
+  description: |
+    This program must display the **remainder** of the division of `7` by `2`:
+
+    ```text
+    Remainder: 1
+    ```
+
+    It displays `Remainder: 3.5`. Fix the **second** line with the right operator.
+  template: |
+    n = 7
+    remainder = n / 2
+    print("Remainder:", remainder)
+  solution: |
+    n = 7
+    remainder = n % 2
+    print("Remainder:", remainder)
+  checks:
+    variables:
+      remainder: 1
+    uses: [n, remainder]
+  hints:
+    - "/ divides, // gives the whole part, % gives the remainder."

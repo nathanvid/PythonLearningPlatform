@@ -1,0 +1,61 @@
+id: "format_full_name"
+title: "Formater un nom"
+description: |
+  Complète la fonction `format_name(first_name, last_name)` pour qu'elle renvoie le nom de famille **en majuscules**,
+  un espace, puis le prénom avec **seulement sa première lettre en majuscule**.
+  Les espaces autour des deux textes doivent être enlevés.
+
+  Exemples :
+  - `format_name("ada", "lovelace")` renvoie `"LOVELACE Ada"`
+  - `format_name("  alan ", "TURING")` renvoie `"TURING Alan"`
+
+template: |
+  def format_name(first_name, last_name):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def format_name(first_name, last_name):
+      first = first_name.strip().lower()
+      last = last_name.strip().upper()
+      return last + " " + first[0].upper() + first[1:]
+
+hints:
+  - "Commence par `strip()` ; pour le prénom, mets tout en minuscules avant de remettre la première lettre en majuscule."
+
+tests:
+  - input: ["ada", "lovelace"]
+    expected: "LOVELACE Ada"
+    description: "format_name(\"ada\", \"lovelace\")"
+  - input: ["  alan ", "TURING"]
+    expected: "TURING Alan"
+    description: "Avec des espaces et des majuscules"
+  - input: ["GRACE", "hopper"]
+    expected: "HOPPER Grace"
+    description: "Prénom en majuscules"
+  - input: ["linus", " torvalds "]
+    expected: "TORVALDS Linus"
+    hidden: true
+    description: "Espaces autour du nom"
+
+en:
+  title: "Formatting a name"
+  description: |
+    Complete the function `format_name(first_name, last_name)` so that it returns the last name **in capitals**,
+    a space, then the first name with **only its first letter in capitals**.
+    The spaces around both texts must be removed.
+
+    Examples:
+    - `format_name("ada", "lovelace")` returns `"LOVELACE Ada"`
+    - `format_name("  alan ", "TURING")` returns `"TURING Alan"`
+  template: |
+    def format_name(first_name, last_name):
+        # Write your code here
+        pass
+  hints:
+    - "Start with `strip()`; for the first name, put everything in lowercase before capitalising the first letter again."
+  tests:
+    - "format_name(\"ada\", \"lovelace\")"
+    - "With spaces and capitals"
+    - "First name in capitals"
+    - "Spaces around the last name"

@@ -1,0 +1,68 @@
+id: "to_camel_case"
+title: "Convertir en CamelCase"
+description: |
+  Complète la fonction `to_camel_case(text)` pour qu'elle renvoie le texte en « CamelCase » : chaque mot commence par une majuscule, et les mots sont collés sans espace.
+
+  Exemples :
+  - `to_camel_case("hello world")` renvoie `"HelloWorld"`
+  - `to_camel_case("python est super")` renvoie `"PythonEstSuper"`
+  - `to_camel_case("")` renvoie `""`
+
+template: |
+  def to_camel_case(text):
+      # Convertit en CamelCase
+      pass
+
+solution: |
+  def to_camel_case(text):
+      result = ""
+      for word in text.split():
+          result += word[0].upper() + word[1:]
+      return result
+
+hints:
+  - "Pour chaque mot de `text.split()`, colle `word[0].upper() + word[1:]` à un résultat qui part de `\"\"`."
+
+tests:
+  - input: ["hello world"]
+    expected: "HelloWorld"
+    description: "Deux mots simples"
+  - input: ["python est super"]
+    expected: "PythonEstSuper"
+    description: "Trois mots"
+  - input: ["bonjour"]
+    expected: "Bonjour"
+    description: "Un seul mot"
+  - input: [""]
+    expected: ""
+    description: "Chaîne vide"
+  - input: ["convert to camel case"]
+    expected: "ConvertToCamelCase"
+    hidden: true
+    description: "Quatre mots"
+
+en:
+  title: "Convert to CamelCase"
+  description: |
+    Complete the function `to_camel_case(text)` so that it returns the text in "CamelCase": each word starts with a capital letter, and the words are joined without spaces.
+
+    Examples:
+    - `to_camel_case("hello world")` returns `"HelloWorld"`
+    - `to_camel_case("python is great")` returns `"PythonIsGreat"`
+    - `to_camel_case("")` returns `""`
+  template: |
+    def to_camel_case(text):
+        # Convert to CamelCase
+        pass
+  hints:
+    - "For each word of `text.split()`, join `word[0].upper() + word[1:]` to a result that starts from `\"\"`."
+  tests:
+    - "Two simple words"
+    - input: ["python is great"]
+      expected: "PythonIsGreat"
+      description: "Three words"
+    - input: ["hello"]
+      expected: "Hello"
+      description: "A single word"
+    - "Empty string"
+    - "Four words"

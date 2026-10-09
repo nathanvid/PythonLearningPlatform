@@ -1,0 +1,156 @@
+id: "inventory_class"
+title: "Classe Inventaire"
+description: |
+  Complète la classe `Inventory` (le stock d'un magasin) :
+  - le constructeur crée l'attribut `self.stock`, un dictionnaire vide ;
+  - `quantity(self, item)` renvoie le stock de `item`, ou `0` si l'article est absent ;
+  - `add(self, item, amount)` ajoute `amount` au stock de `item` ;
+  - `remove(self, item, amount)` retire `amount` du stock de `item` et renvoie `True`, **sauf** si le stock de cet article est insuffisant : dans ce cas, rien ne change et la méthode renvoie `False`.
+
+  Puis complète `run_inventory(operations)` : elle crée un `Inventory`, exécute chaque opération et renvoie le dictionnaire `stock` final. Chaque opération est une liste `[action, article, quantité]`, où `action` vaut `"add"` ou `"remove"`.
+
+  Exemples :
+  - `run_inventory([["add", "pomme", 5], ["remove", "pomme", 2]])` renvoie `{"pomme": 3}`
+  - `run_inventory([["add", "pomme", 1], ["remove", "pomme", 4]])` renvoie `{"pomme": 1}` (retrait refusé)
+  - `run_inventory([["remove", "sel", 1]])` renvoie `{}` (article absent : retrait refusé)
+
+template: |
+  class Inventory:
+      def __init__(self):
+          pass
+
+      def quantity(self, item):
+          pass
+
+      def add(self, item, amount):
+          pass
+
+      def remove(self, item, amount):
+          pass
+
+  def run_inventory(operations):
+      pass
+
+solution: |
+  class Inventory:
+      def __init__(self):
+          self.stock = {}
+
+      def quantity(self, item):
+          return self.stock.get(item, 0)
+
+      def add(self, item, amount):
+          self.stock[item] = self.quantity(item) + amount
+
+      def remove(self, item, amount):
+          if self.quantity(item) < amount:
+              return False
+          self.stock[item] -= amount
+          return True
+
+  def run_inventory(operations):
+      inventory = Inventory()
+      for action, item, amount in operations:
+          if action == "add":
+              inventory.add(item, amount)
+          else:
+              inventory.remove(item, amount)
+      return inventory.stock
+
+hints:
+  - "Écris d'abord `quantity` avec `self.stock.get(item, 0)`, puis sers-t'en dans `add` et `remove` (`self.quantity(item)`)."
+  - "Dans `run_inventory`, `for action, item, amount in operations:` découpe chaque opération."
+
+tests:
+  - input: [[["add", "pomme", 5], ["remove", "pomme", 2]]]
+    expected: {"pomme": 3}
+    description: "Ajout puis retrait"
+  - input: [[["add", "pomme", 1], ["remove", "pomme", 4]]]
+    expected: {"pomme": 1}
+    description: "Retrait refusé : stock insuffisant"
+  - input: [[["remove", "sel", 1]]]
+    expected: {}
+    description: "Retrait refusé : article absent"
+  - input: [[["add", "pomme", 2], ["add", "poire", 3], ["add", "pomme", 1]]]
+    expected: {"pomme": 3, "poire": 3}
+    description: "Plusieurs ajouts"
+  - input: [[["add", "lait", 2], ["remove", "lait", 2]]]
+    expected: {"lait": 0}
+    hidden: true
+    description: "Stock vidé"
+
+en:
+  title: "Inventory class"
+  description: |
+    Complete the `Inventory` class (a shop's stock):
+    - the constructor creates the attribute `self.stock`, an empty dictionary;
+    - `quantity(self, item)` returns the stock of `item`, or `0` if the item is missing;
+    - `add(self, item, amount)` adds `amount` to the stock of `item`;
+    - `remove(self, item, amount)` removes `amount` from the stock of `item` and returns `True`, **unless** there isn't enough of this item: in that case, nothing changes and the method returns `False`.
+
+    Then complete `run_inventory(operations)`: it creates an `Inventory`, runs each operation and returns the final `stock` dictionary. Each operation is a list `[action, item, quantity]`, where `action` is `"add"` or `"remove"`.
+
+    Examples:
+    - `run_inventory([["add", "apple", 5], ["remove", "apple", 2]])` returns `{"apple": 3}`
+    - `run_inventory([["add", "apple", 1], ["remove", "apple", 4]])` returns `{"apple": 1}` (withdrawal refused)
+    - `run_inventory([["remove", "salt", 1]])` returns `{}` (missing item: withdrawal refused)
+  template: |
+    class Inventory:
+        def __init__(self):
+            pass
+
+        def quantity(self, item):
+            pass
+
+        def add(self, item, amount):
+            pass
+
+        def remove(self, item, amount):
+            pass
+
+    def run_inventory(operations):
+        pass
+  solution: |
+    class Inventory:
+        def __init__(self):
+            self.stock = {}
+
+        def quantity(self, item):
+            return self.stock.get(item, 0)
+
+        def add(self, item, amount):
+            self.stock[item] = self.quantity(item) + amount
+
+        def remove(self, item, amount):
+            if self.quantity(item) < amount:
+                return False
+            self.stock[item] -= amount
+            return True
+
+    def run_inventory(operations):
+        inventory = Inventory()
+        for action, item, amount in operations:
+            if action == "add":
+                inventory.add(item, amount)
+            else:
+                inventory.remove(item, amount)
+        return inventory.stock
+  hints:
+    - "Write `quantity` first with `self.stock.get(item, 0)`, then use it in `add` and `remove` (`self.quantity(item)`)."
+    - "In `run_inventory`, `for action, item, amount in operations:` splits each operation."
+  tests:
+    - input: [[["add", "apple", 5], ["remove", "apple", 2]]]
+      expected: {"apple": 3}
+      description: "Add then remove"
+    - input: [[["add", "apple", 1], ["remove", "apple", 4]]]
+      expected: {"apple": 1}
+      description: "Withdrawal refused: not enough stock"
+    - input: [[["remove", "salt", 1]]]
+      expected: {}
+      description: "Withdrawal refused: missing item"
+    - input: [[["add", "apple", 2], ["add", "pear", 3], ["add", "apple", 1]]]
+      expected: {"apple": 3, "pear": 3}
+      description: "Several additions"
+    - input: [[["add", "milk", 2], ["remove", "milk", 2]]]
+      expected: {"milk": 0}
+      description: "Stock emptied"

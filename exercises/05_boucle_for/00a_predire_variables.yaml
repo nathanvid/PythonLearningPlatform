@@ -1,0 +1,66 @@
+id: "predict_variables_loop"
+type: predict
+title: "Prédire : variables et boucle"
+description: |
+  Lis ce code sans l'exécuter et prédis exactement ce qu'il affiche.
+
+  Astuce : sur une feuille, note la valeur de chaque variable après chaque ligne.
+
+steps:
+  - |
+    x = 3
+    print(x)
+  - |
+    x = 3
+    y = x * 2
+    print(y)
+  - |
+    x = 3
+    y = x * 2
+    x = x + 1
+    print(x, y)
+  - |
+    x = 3
+    y = x * 2
+    x = x + 1
+    for i in range(3):
+        print(i)
+
+code: |
+  x = 3
+  y = x * 2
+  x = x + 1
+  print(x, y)
+  for i in range(3):
+      print(i * x)
+
+hints:
+  - "range(3) donne 0, 1 et 2 : la boucle fait 3 tours."
+
+en:
+  title: "Predict: variables and loop"
+  description: |
+    Read this code without running it and predict exactly what it prints.
+
+    Tip: on paper, write down the value of each variable after each line.
+  steps:
+    - |
+      x = 3
+      print(x)
+    - |
+      x = 3
+      y = x * 2
+      print(y)
+    - |
+      x = 3
+      y = x * 2
+      x = x + 1
+      print(x, y)
+    - |
+      x = 3
+      y = x * 2
+      x = x + 1
+      for i in range(3):
+          print(i)
+  hints:
+    - "range(3) gives 0, 1 and 2: the loop runs 3 times."

@@ -1,0 +1,57 @@
+id: "larger_of_two"
+type: output
+title: "Le plus grand des deux"
+description: |
+  Les variables `a` et `b` valent `12` et `9`. Avec un `if` / `else`, affiche le plus grand des deux,
+  en utilisant la variable (pas un nombre écrit à la main).
+
+  Le programme doit afficher exactement :
+
+  ```text
+  Le plus grand est 12
+  ```
+
+template: |
+  a = 12
+  b = 9
+  # Écris ton code ici
+
+solution: |
+  a = 12
+  b = 9
+  if a > b:
+      print("Le plus grand est", a)
+  else:
+      print("Le plus grand est", b)
+
+checks:
+  uses: [a, b]
+  constructs: [if, else]
+
+hints:
+  - "Si `a > b`, on affiche `a` ; sinon, on affiche `b`."
+
+en:
+  title: "The larger of the two"
+  description: |
+    The variables `a` and `b` are `12` and `9`. With an `if` / `else`, display the larger of the two,
+    using the variable (not a number typed by hand).
+
+    The program must display exactly:
+
+    ```text
+    The larger is 12
+    ```
+  template: |
+    a = 12
+    b = 9
+    # Write your code here
+  solution: |
+    a = 12
+    b = 9
+    if a > b:
+        print("The larger is", a)
+    else:
+        print("The larger is", b)
+  hints:
+    - "If `a > b`, display `a`; otherwise, display `b`."

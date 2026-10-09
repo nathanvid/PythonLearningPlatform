@@ -1,0 +1,52 @@
+id: "sentence_with_number"
+type: output
+title: "Construire une phrase avec +"
+description: |
+  1. Crée `animal` qui contient `"chat"` et `legs` qui contient le nombre `4`.
+  2. Construis la phrase avec `+` et `str()`, dans **un seul** `print` qui utilise les deux variables.
+
+  Le programme doit afficher exactement :
+
+  ```text
+  Le chat a 4 pattes
+  ```
+
+template: |
+  animal = "chat"
+  legs = 4
+  # Affiche la phrase ici
+
+solution: |
+  animal = "chat"
+  legs = 4
+  print("Le " + animal + " a " + str(legs) + " pattes")
+
+checks:
+  uses: [animal, legs, str]
+
+hints:
+  - "Pense aux espaces à l'intérieur des textes : `\"Le \"`, `\" a \"`, `\" pattes\"`."
+
+en:
+  title: "Building a sentence with +"
+  description: |
+    1. Create `animal` holding `"cat"` and `legs` holding the number `4`.
+    2. Build the sentence with `+` and `str()`, in **a single** `print` that uses both variables.
+
+    The program must display exactly:
+
+    ```text
+    The cat has 4 legs
+    ```
+  template: |
+    animal = "cat"
+    legs = 4
+    # Display the sentence here
+  solution: |
+    animal = "cat"
+    legs = 4
+    print("The " + animal + " has " + str(legs) + " legs")
+  checks:
+    uses: [animal, legs, str]
+  hints:
+    - "Remember the spaces inside the texts: `\"The \"`, `\" has \"`, `\" legs\"`."

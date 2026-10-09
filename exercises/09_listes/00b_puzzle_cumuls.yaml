@@ -1,0 +1,58 @@
+id: "parsons_running_total"
+type: parsons
+title: "Puzzle : sommes cumulées"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction cumuls(nombres)
+  qui renvoie la liste des sommes cumulées.
+
+  Exemple : cumuls([1, 2, 3]) → [1, 3, 6]
+
+solution: |
+  def running_totals(numbers):
+      result = []
+      total = 0
+      for n in numbers:
+          total += n
+          result.append(total)
+      return result
+
+hints:
+  - "Pour `[1, 2, 3]`, le premier élément du résultat doit être `1`, pas `0`."
+
+tests:
+  - input: [[1, 2, 3]]
+    expected: [1, 3, 6]
+    description: "Trois nombres"
+  - input: [[]]
+    expected: []
+    description: "Liste vide"
+  - input: [[5, -5, 2]]
+    expected: [5, 0, 2]
+    description: "Avec un nombre négatif"
+  - input: [[10]]
+    expected: [10]
+    hidden: true
+    description: "Un seul nombre"
+
+en:
+  title: "Puzzle: running totals"
+  description: |
+    Put the lines back in order to get a function running_totals(numbers)
+    that returns the list of running totals.
+
+    Example: running_totals([1, 2, 3]) → [1, 3, 6]
+  solution: |
+    def running_totals(numbers):
+        result = []
+        total = 0
+        for n in numbers:
+            total += n
+            result.append(total)
+        return result
+  hints:
+    - "For `[1, 2, 3]`, the first item of the result must be `1`, not `0`."
+  tests:
+    - "Three numbers"
+    - "Empty list"
+    - "With a negative number"
+    - "A single number"

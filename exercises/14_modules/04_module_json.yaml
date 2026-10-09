@@ -1,0 +1,62 @@
+id: "use_json_module"
+title: "Module json - Parser JSON"
+description: |
+  Complète la fonction `extract_name(json_string)` : elle reçoit un texte JSON qui contient toujours une clé `"name"`, et renvoie la valeur de cette clé.
+
+  Exemples :
+  - `extract_name('{"name": "Alice", "age": 25}')` renvoie `"Alice"`
+  - `extract_name('{"age": 30, "name": "David"}')` renvoie `"David"`
+
+template: |
+  def extract_name(json_string):
+      # Parse le JSON et extrait "name"
+      pass
+
+solution: |
+  import json
+  
+  def extract_name(json_string):
+      return json.loads(json_string)["name"]
+
+hints:
+  - "`json.loads` transforme le texte en dictionnaire."
+
+tests:
+  - input: ['{"name": "Alice", "age": 25}']
+    expected: "Alice"
+    description: "JSON avec plusieurs champs"
+  - input: ['{"name": "Bob"}']
+    expected: "Bob"
+    description: "JSON simple"
+  - input: ['{"name": "Charlie", "city": "Paris"}']
+    expected: "Charlie"
+    description: "Autre JSON"
+  - input: ['{"age": 30, "name": "David"}']
+    expected: "David"
+    hidden: true
+    description: "name en deuxième position"
+  - input: ['{"name": "Eve", "hobbies": ["reading", "coding"]}']
+    expected: "Eve"
+    hidden: true
+    description: "JSON complexe"
+
+en:
+  title: "json module - Parse JSON"
+  description: |
+    Complete the function `extract_name(json_string)`: it receives a JSON text that always holds a `"name"` key, and returns the value of that key.
+
+    Examples:
+    - `extract_name('{"name": "Alice", "age": 25}')` returns `"Alice"`
+    - `extract_name('{"age": 30, "name": "David"}')` returns `"David"`
+  template: |
+    def extract_name(json_string):
+        # Parse the JSON and extract "name"
+        pass
+  hints:
+    - "`json.loads` turns the text into a dictionary."
+  tests:
+    - "JSON with several fields"
+    - "Simple JSON"
+    - "Another JSON"
+    - "name in second position"
+    - "Complex JSON"

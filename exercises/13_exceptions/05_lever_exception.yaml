@@ -1,0 +1,144 @@
+id: "raise_validate_age"
+title: "Lever ses propres exceptions"
+description: |
+  On peut déclencher soi-même une exception avec raise, pour signaler
+  qu'une valeur est invalide :
+
+      if prix < 0:
+          raise ValueError("Le prix ne peut pas être négatif")
+
+  Le code appelant la capture ensuite avec try / except, et peut lire
+  le message avec str(e).
+
+  1. Complète validate_age(age) :
+     - si age n'est pas un entier (int), lève TypeError("L'âge doit être un entier") ;
+     - si age est hors de l'intervalle 0 à 150, lève ValueError("L'âge doit être entre 0 et 150") ;
+     - sinon, retourne age.
+
+  2. Crée check_age(age) qui appelle validate_age(age) et retourne :
+     - `"Âge valide : <age>"` si tout va bien ;
+     - `"Erreur : <message>"` si une TypeError ou une ValueError est levée.
+
+  Exemples :
+  - check_age(15) → "Âge valide : 15"
+  - check_age(-3) → "Erreur : L'âge doit être entre 0 et 150"
+  - check_age("dix") → "Erreur : L'âge doit être un entier"
+
+template: |
+  def validate_age(age):
+      # Lève TypeError ou ValueError si l'âge est invalide
+      pass
+
+  def check_age(age):
+      # Appelle validate_age dans un try / except
+      pass
+
+solution: |
+  def validate_age(age):
+      if not isinstance(age, int):
+          raise TypeError("L'âge doit être un entier")
+      if age < 0 or age > 150:
+          raise ValueError("L'âge doit être entre 0 et 150")
+      return age
+  
+  def check_age(age):
+      try:
+          validate_age(age)
+      except (TypeError, ValueError) as e:
+          return "Erreur : " + str(e)
+      return "Âge valide : " + str(age)
+
+hints:
+  - "`isinstance(age, int)` vaut `True` si `age` est un entier ; dans `check_age`, utilise `except (TypeError, ValueError) as e:`."
+
+tests:
+  - input: [15]
+    expected: "Âge valide : 15"
+    description: "Âge valide"
+  - input: [-3]
+    expected: "Erreur : L'âge doit être entre 0 et 150"
+    description: "Âge négatif"
+  - input: ["dix"]
+    expected: "Erreur : L'âge doit être un entier"
+    description: "Pas un entier"
+  - input: [0]
+    expected: "Âge valide : 0"
+    description: "Limite basse"
+  - input: [151]
+    expected: "Erreur : L'âge doit être entre 0 et 150"
+    hidden: true
+    description: "Au-dessus de la limite"
+  - input: [150]
+    expected: "Âge valide : 150"
+    hidden: true
+    description: "Limite haute"
+  - input: [12.5]
+    expected: "Erreur : L'âge doit être un entier"
+    hidden: true
+    description: "Nombre décimal"
+
+en:
+  title: "Raising your own exceptions"
+  description: |
+    You can trigger an exception yourself with raise, to signal
+    that a value is invalid:
+
+        if price < 0:
+            raise ValueError("The price cannot be negative")
+
+    The calling code then catches it with try / except, and can read
+    the message with str(e).
+
+    1. Complete validate_age(age):
+       - if age is not an integer (int), raise TypeError("Age must be an integer");
+       - if age is outside the range 0 to 150, raise ValueError("Age must be between 0 and 150");
+       - otherwise, return age.
+
+    2. Create check_age(age) that calls validate_age(age) and returns:
+       - `"Valid age: <age>"` if everything is fine;
+       - `"Error: <message>"` if a TypeError or a ValueError is raised.
+
+    Examples:
+    - check_age(15) → "Valid age: 15"
+    - check_age(-3) → "Error: Age must be between 0 and 150"
+    - check_age("ten") → "Error: Age must be an integer"
+  template: |
+    def validate_age(age):
+        # Raise TypeError or ValueError if the age is invalid
+        pass
+
+    def check_age(age):
+        # Call validate_age inside a try / except
+        pass
+  solution: |
+    def validate_age(age):
+        if not isinstance(age, int):
+            raise TypeError("Age must be an integer")
+        if age < 0 or age > 150:
+            raise ValueError("Age must be between 0 and 150")
+        return age
+    
+    def check_age(age):
+        try:
+            validate_age(age)
+        except (TypeError, ValueError) as e:
+            return "Error: " + str(e)
+        return "Valid age: " + str(age)
+  hints:
+    - "`isinstance(age, int)` is `True` if `age` is a whole number; in `check_age`, use `except (TypeError, ValueError) as e:`."
+  tests:
+    - expected: "Valid age: 15"
+      description: "Valid age"
+    - expected: "Error: Age must be between 0 and 150"
+      description: "Negative age"
+    - input: ["ten"]
+      expected: "Error: Age must be an integer"
+      description: "Not an integer"
+    - expected: "Valid age: 0"
+      description: "Lower bound"
+    - expected: "Error: Age must be between 0 and 150"
+      description: "Above the limit"
+    - expected: "Valid age: 150"
+      description: "Upper bound"
+    - expected: "Error: Age must be an integer"
+      description: "Decimal number"

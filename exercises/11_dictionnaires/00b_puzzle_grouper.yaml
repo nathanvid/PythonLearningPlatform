@@ -1,0 +1,62 @@
+id: "parsons_group_by_initial"
+type: parsons
+title: "Puzzle : grouper par initiale"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une fonction grouper_par_initiale(mots)
+  qui renvoie un dictionnaire : chaque première lettre est associée à la liste des mots
+  qui commencent par elle.
+
+  Exemple : grouper_par_initiale(["ane", "arbre", "bus"]) → {"a": ["ane", "arbre"], "b": ["bus"]}
+
+solution: |
+  def group_by_initial(words):
+      groups = {}
+      for word in words:
+          letter = word[0]
+          if letter not in groups:
+              groups[letter] = []
+          groups[letter].append(word)
+      return groups
+
+hints:
+  - "La liste d'une lettre doit exister avant qu'on y ajoute un mot."
+
+tests:
+  - input: [["ane", "arbre", "bus"]]
+    expected: {"a": ["ane", "arbre"], "b": ["bus"]}
+    description: "Deux initiales"
+  - input: [[]]
+    expected: {}
+    description: "Aucun mot"
+  - input: [["chat", "chien", "cerf"]]
+    expected: {"c": ["chat", "chien", "cerf"]}
+    hidden: true
+    description: "Une seule initiale"
+
+en:
+  title: "Puzzle: grouping by initial"
+  description: |
+    Put the lines back in order to get a function group_by_initial(words)
+    that returns a dictionary: each first letter maps to the list of words
+    that start with it.
+
+    Example: group_by_initial(["ant", "apple", "bus"]) → {"a": ["ant", "apple"], "b": ["bus"]}
+  solution: |
+    def group_by_initial(words):
+        groups = {}
+        for word in words:
+            letter = word[0]
+            if letter not in groups:
+                groups[letter] = []
+            groups[letter].append(word)
+        return groups
+  hints:
+    - "A letter's list must exist before a word is added to it."
+  tests:
+    - input: [["ant", "apple", "bus"]]
+      expected: {"a": ["ant", "apple"], "b": ["bus"]}
+      description: "Two initials"
+    - "No words"
+    - input: [["cat", "cow", "crab"]]
+      expected: {"c": ["cat", "cow", "crab"]}
+      description: "A single initial"

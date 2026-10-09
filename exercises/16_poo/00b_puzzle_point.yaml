@@ -1,0 +1,62 @@
+id: "parsons_point_class"
+type: parsons
+title: "Puzzle : la classe Point"
+description: |
+  Remets les lignes dans l'ordre pour obtenir une classe `Point` avec une méthode
+  `distance_to_origin()`, et une fonction `make_point(x, y)` qui renvoie la distance
+  du point (x, y) à l'origine.
+
+  Exemple : `make_point(3, 4)` renvoie `5.0`
+
+solution: |
+  class Point:
+      def __init__(self, x, y):
+          self.x = x
+          self.y = y
+
+      def distance_to_origin(self):
+          return (self.x ** 2 + self.y ** 2) ** 0.5
+
+  def make_point(x, y):
+      return Point(x, y).distance_to_origin()
+
+hints:
+  - "Les lignes `self.x = ...` et `self.y = ...` appartiennent à `__init__` ; la fonction finale est en dehors de la classe."
+
+tests:
+  - input: [3, 4]
+    expected: 5.0
+    description: "Point (3, 4)"
+  - input: [0, 0]
+    expected: 0.0
+    description: "Origine"
+  - input: [6, 8]
+    expected: 10.0
+    hidden: true
+    description: "Point (6, 8)"
+
+en:
+  title: "Puzzle: the Point class"
+  description: |
+    Put the lines back in order to get a `Point` class with a method
+    `distance_to_origin()`, and a function `make_point(x, y)` that returns the distance
+    from point (x, y) to the origin.
+
+    Example: `make_point(3, 4)` returns `5.0`
+  solution: |
+    class Point:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+
+        def distance_to_origin(self):
+            return (self.x ** 2 + self.y ** 2) ** 0.5
+
+    def make_point(x, y):
+        return Point(x, y).distance_to_origin()
+  hints:
+    - "The lines `self.x = ...` and `self.y = ...` belong to `__init__`; the final function is outside the class."
+  tests:
+    - "Point (3, 4)"
+    - "Origin"
+    - "Point (6, 8)"

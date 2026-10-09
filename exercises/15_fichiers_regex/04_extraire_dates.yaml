@@ -1,0 +1,67 @@
+id: "regex_find_dates"
+title: "Extraire des dates d'un texte"
+description: |
+  Complète la fonction `find_dates(text)` pour qu'elle renvoie la liste des dates écrites au format `JJ/MM/AAAA` (2 chiffres, `/`, 2 chiffres, `/`, 4 chiffres) dans le texte, dans l'ordre où elles apparaissent.
+  Utilise `re.findall`. `\d{4}` correspond à exactement quatre chiffres.
+
+  Exemples :
+  - `find_dates("Rendu le 15/03/2026, oral le 02/04/2026")` renvoie `["15/03/2026", "02/04/2026"]`
+  - `find_dates("Le 5/3/2026 ne compte pas")` renvoie `[]`
+
+template: |
+  import re
+
+  def find_dates(text):
+      # Utilise re.findall avec un motif JJ/MM/AAAA
+      pass
+
+solution: |
+  import re
+  
+  def find_dates(text):
+      return re.findall(r"\d{2}/\d{2}/\d{4}", text)
+
+hints:
+  - "Le motif s'écrit `\\d{2}/\\d{2}/\\d{4}`."
+
+tests:
+  - input: ["Rendu le 15/03/2026, oral le 02/04/2026"]
+    expected: ["15/03/2026", "02/04/2026"]
+    description: "Deux dates"
+  - input: ["Aucune date ici"]
+    expected: []
+    description: "Aucune date"
+  - input: ["Né le 01/01/2010."]
+    expected: ["01/01/2010"]
+    description: "Date suivie d'un point"
+  - input: ["Le 5/3/2026 ne compte pas, le 05/03/2026 oui"]
+    expected: ["05/03/2026"]
+    hidden: true
+    description: "Format incomplet ignoré"
+
+en:
+  title: "Extracting dates from a text"
+  description: |
+    Complete the function `find_dates(text)` so that it returns the list of the dates written in the `DD/MM/YYYY` format (2 digits, `/`, 2 digits, `/`, 4 digits) in the text, in the order they appear.
+    Use `re.findall`. `\d{4}` matches exactly four digits.
+
+    Examples:
+    - `find_dates("Due on 15/03/2026, oral on 02/04/2026")` returns `["15/03/2026", "02/04/2026"]`
+    - `find_dates("5/3/2026 doesn't count")` returns `[]`
+  template: |
+    import re
+
+    def find_dates(text):
+        # Use re.findall with a DD/MM/YYYY pattern
+        pass
+  hints:
+    - "The pattern is written `\\d{2}/\\d{2}/\\d{4}`."
+  tests:
+    - input: ["Due on 15/03/2026, oral exam on 02/04/2026"]
+      description: "Two dates"
+    - input: ["No date here"]
+      description: "No date"
+    - input: ["Born on 01/01/2010."]
+      description: "Date followed by a period"
+    - input: ["5/3/2026 does not count, 05/03/2026 does"]
+      description: "Incomplete format ignored"

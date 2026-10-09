@@ -1,0 +1,57 @@
+id: "unique_sorted_set"
+title: "Supprimer les doublons avec un set"
+description: |
+  Complète la fonction `unique_sorted(elements)` pour qu'elle renvoie la liste des éléments **sans doublons**, triée par ordre croissant.
+
+  Exemples :
+  - `unique_sorted([3, 1, 3, 2, 1])` renvoie `[1, 2, 3]`
+  - `unique_sorted(["b", "a", "b"])` renvoie `["a", "b"]`
+  - `unique_sorted([])` renvoie `[]`
+
+template: |
+  def unique_sorted(elements):
+      # Utilise un set pour supprimer les doublons
+      pass
+
+solution: |
+  def unique_sorted(elements):
+      return sorted(set(elements))
+
+hints:
+  - "`set` enlève les doublons, `sorted` renvoie une liste triée."
+
+tests:
+  - input: [[3, 1, 3, 2, 1]]
+    expected: [1, 2, 3]
+    description: "Nombres avec doublons"
+  - input: [["b", "a", "b"]]
+    expected: ["a", "b"]
+    description: "Lettres avec doublons"
+  - input: [[]]
+    expected: []
+    description: "Liste vide"
+  - input: [[5, 5, 5, 5]]
+    expected: [5]
+    hidden: true
+    description: "Toujours le même élément"
+
+en:
+  title: "Removing duplicates with a set"
+  description: |
+    Complete the function `unique_sorted(elements)` so that it returns the list of the items **without duplicates**, sorted in increasing order.
+
+    Examples:
+    - `unique_sorted([3, 1, 3, 2, 1])` returns `[1, 2, 3]`
+    - `unique_sorted(["b", "a", "b"])` returns `["a", "b"]`
+    - `unique_sorted([])` returns `[]`
+  template: |
+    def unique_sorted(elements):
+        # Use a set to remove the duplicates
+        pass
+  hints:
+    - "`set` removes the duplicates, `sorted` returns a sorted list."
+  tests:
+    - "Numbers with duplicates"
+    - "Letters with duplicates"
+    - "Empty list"
+    - "Always the same element"

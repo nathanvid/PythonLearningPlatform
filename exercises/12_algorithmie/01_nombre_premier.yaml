@@ -1,0 +1,77 @@
+id: "is_prime"
+title: "Nombre premier"
+description: |
+  Complète la fonction `is_prime(n)` pour qu'elle renvoie `True` si `n` est un nombre **premier**, et `False` sinon.
+  Un nombre premier est un entier supérieur à 1 qui n'a que deux diviseurs : 1 et lui-même.
+
+  Exemples :
+  - `is_prime(7)` renvoie `True`
+  - `is_prime(4)` renvoie `False` (4 est divisible par 2)
+  - `is_prime(1)` renvoie `False`
+
+template: |
+  def is_prime(n):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def is_prime(n):
+      if n < 2:
+          return False
+      for d in range(2, n):
+          if n % d == 0:
+              return False
+      return True
+
+hints:
+  - "Si un nombre `d` entre 2 et `n - 1` divise `n` (`n % d == 0`), `n` n'est pas premier."
+
+tests:
+  - input: [2]
+    expected: true
+    description: "2 est premier"
+  - input: [7]
+    expected: true
+    description: "7 est premier"
+  - input: [4]
+    expected: false
+    description: "4 n'est pas premier"
+  - input: [1]
+    expected: false
+    description: "1 n'est pas premier"
+  - input: [15]
+    expected: false
+    description: "15 n'est pas premier"
+  - input: [17]
+    expected: true
+    hidden: true
+    description: "17 est premier"
+  - input: [100]
+    expected: false
+    hidden: true
+    description: "100 n'est pas premier"
+
+en:
+  title: "Prime number"
+  description: |
+    Complete the function `is_prime(n)` so that it returns `True` if `n` is a **prime** number, and `False` otherwise.
+    A prime number is a whole number greater than 1 that has only two divisors: 1 and itself.
+
+    Examples:
+    - `is_prime(7)` returns `True`
+    - `is_prime(4)` returns `False` (4 is divisible by 2)
+    - `is_prime(1)` returns `False`
+  template: |
+    def is_prime(n):
+        # Write your code here
+        pass
+  hints:
+    - "If a number `d` between 2 and `n - 1` divides `n` (`n % d == 0`), `n` is not prime."
+  tests:
+    - "2 is prime"
+    - "7 is prime"
+    - "4 is not prime"
+    - "1 is not prime"
+    - "15 is not prime"
+    - "17 is prime"
+    - "100 is not prime"

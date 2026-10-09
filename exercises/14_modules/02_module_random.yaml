@@ -1,0 +1,70 @@
+id: "use_random_module"
+title: "Module random - Tirages au hasard"
+description: |
+  Complète la fonction `generate_random_list(n, min_val, max_val)` pour qu'elle renvoie une liste de `n` nombres entiers tirés au hasard
+  entre `min_val` et `max_val` (bornes comprises), avec `random.randint`.
+
+  Comme le résultat est aléatoire, les tests utilisent des bornes égales : `generate_random_list(3, 7, 7)` ne peut renvoyer que `[7, 7, 7]`.
+
+  Exemples :
+  - `generate_random_list(3, 7, 7)` renvoie `[7, 7, 7]`
+  - `generate_random_list(0, 1, 10)` renvoie `[]`
+
+template: |
+  import random
+
+  def generate_random_list(n, min_val, max_val):
+      # Écris ton code ici
+      pass
+
+solution: |
+  import random
+
+  def generate_random_list(n, min_val, max_val):
+      result = []
+      for i in range(n):
+          result.append(random.randint(min_val, max_val))
+      return result
+
+hints:
+  - "Une boucle de `n` tours, avec `append(random.randint(min_val, max_val))` à chaque tour."
+
+tests:
+  - input: [3, 7, 7]
+    expected: [7, 7, 7]
+    description: "Trois tirages entre 7 et 7"
+  - input: [0, 1, 10]
+    expected: []
+    description: "Aucun tirage"
+  - input: [5, 1, 1]
+    expected: [1, 1, 1, 1, 1]
+    description: "Cinq tirages entre 1 et 1"
+  - input: [1, -2, -2]
+    expected: [-2]
+    hidden: true
+    description: "Bornes négatives"
+
+en:
+  title: "random module - Random draws"
+  description: |
+    Complete the function `generate_random_list(n, min_val, max_val)` so that it returns a list of `n` whole numbers drawn at random
+    between `min_val` and `max_val` (both included), with `random.randint`.
+
+    As the result is random, the tests use equal bounds: `generate_random_list(3, 7, 7)` can only return `[7, 7, 7]`.
+
+    Examples:
+    - `generate_random_list(3, 7, 7)` returns `[7, 7, 7]`
+    - `generate_random_list(0, 1, 10)` returns `[]`
+  template: |
+    import random
+
+    def generate_random_list(n, min_val, max_val):
+        # Write your code here
+        pass
+  hints:
+    - "A loop of `n` rounds, with `append(random.randint(min_val, max_val))` on each round."
+  tests:
+    - "Three draws between 7 and 7"
+    - "No draw"
+    - "Five draws between 1 and 1"
+    - "Negative bounds"

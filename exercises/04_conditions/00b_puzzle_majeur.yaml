@@ -1,0 +1,44 @@
+id: "parsons_adult_check"
+type: parsons
+title: "Puzzle : majeur ou mineur"
+description: |
+  Remets les lignes dans l'ordre. Avec `age = 16`, le programme doit afficher exactement :
+
+  ```text
+  Mineur
+  Fin du test
+  ```
+
+  L'indentation est déjà correcte : il suffit de trouver le bon ordre.
+
+solution: |
+  age = 16
+  if age >= 18:
+      print("Majeur")
+  else:
+      print("Mineur")
+  print("Fin du test")
+
+hints:
+  - "Chaque print décalé doit se trouver juste sous le if ou le else qui lui correspond."
+
+en:
+  title: "Puzzle: adult or minor"
+  description: |
+    Put the lines back in order. With `age = 16`, the program must display exactly:
+
+    ```text
+    Minor
+    End of test
+    ```
+
+    The indentation is already right: you only need to find the right order.
+  solution: |
+    age = 16
+    if age >= 18:
+        print("Adult")
+    else:
+        print("Minor")
+    print("End of test")
+  hints:
+    - "Each shifted print must sit right under the if or the else it belongs to."

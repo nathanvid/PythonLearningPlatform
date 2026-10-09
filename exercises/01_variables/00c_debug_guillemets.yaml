@@ -1,0 +1,50 @@
+id: "fix_variable_quotes"
+type: fix
+title: "Débogage : la variable affichée"
+description: |
+  Ce programme devrait afficher le contenu de la variable `city` :
+
+  ```text
+  Lyon
+  ```
+
+  Mais il affiche le mot `city`. Corrige la **deuxième** ligne.
+
+template: |
+  city = "Lyon"
+  print("city")
+
+solution: |
+  city = "Lyon"
+  print(city)
+
+checks:
+  variables:
+    city: "Lyon"
+  uses: [city]
+
+hints:
+  - "Entre guillemets, c'est du texte. Sans guillemets, c'est le nom d'une variable."
+
+en:
+  title: "Debugging: the displayed variable"
+  description: |
+    This program should display the content of the variable `city`:
+
+    ```text
+    Lyon
+    ```
+
+    But it displays the word `city`. Fix the **second** line.
+  template: |
+    city = "Lyon"
+    print("city")
+  solution: |
+    city = "Lyon"
+    print(city)
+  checks:
+    variables:
+      city: "Lyon"
+    uses: [city]
+  hints:
+    - "Between quotes, it is text. Without quotes, it is a variable's name."

@@ -1,0 +1,70 @@
+id: "count_letters"
+title: "Compter les occurrences"
+description: |
+  Complète la fonction `count_letters(text)` pour qu'elle renvoie un dictionnaire qui associe chaque **lettre** de `text` à son nombre d'apparitions.
+  - Les majuscules comptent comme des minuscules : `"A"` et `"a"` sont la même lettre `"a"`.
+  - Les espaces et la ponctuation sont ignorés.
+
+  Exemples :
+  - `count_letters("aaa")` renvoie `{"a": 3}`
+  - `count_letters("hello")` renvoie `{"h": 1, "e": 1, "l": 2, "o": 1}`
+  - `count_letters("aAbB")` renvoie `{"a": 2, "b": 2}`
+
+template: |
+  def count_letters(text):
+      # Compte les occurrences de chaque lettre
+      pass
+
+solution: |
+  def count_letters(text):
+      count = {}
+      for letter in text.lower():
+          if letter.isalpha():
+              count[letter] = count.get(letter, 0) + 1
+      return count
+
+hints:
+  - "Parcours `text.lower()` et ne compte que les caractères pour lesquels `letter.isalpha()` est vrai."
+
+tests:
+  - input: ["aaa"]
+    expected: {"a": 3}
+    description: "Une seule lettre répétée"
+  - input: ["hello"]
+    expected: {"h": 1, "e": 1, "l": 2, "o": 1}
+    description: "Mot simple"
+  - input: [""]
+    expected: {}
+    description: "Chaîne vide"
+  - input: ["Hello World"]
+    expected: {"h": 1, "e": 1, "l": 3, "o": 2, "w": 1, "r": 1, "d": 1}
+    hidden: true
+    description: "Avec espaces et majuscules"
+  - input: ["aAbBcC"]
+    expected: {"a": 2, "b": 2, "c": 2}
+    hidden: true
+    description: "Majuscules et minuscules"
+
+en:
+  title: "Count occurrences"
+  description: |
+    Complete the function `count_letters(text)` so that it returns a dictionary that links each **letter** of `text` to its number of appearances.
+    - Capitals count as lowercase: `"A"` and `"a"` are the same letter `"a"`.
+    - Spaces and punctuation are ignored.
+
+    Examples:
+    - `count_letters("aaa")` returns `{"a": 3}`
+    - `count_letters("hello")` returns `{"h": 1, "e": 1, "l": 2, "o": 1}`
+    - `count_letters("aAbB")` returns `{"a": 2, "b": 2}`
+  template: |
+    def count_letters(text):
+        # Count the occurrences of each letter
+        pass
+  hints:
+    - "Loop over `text.lower()` and only count the characters for which `letter.isalpha()` is true."
+  tests:
+    - "A single repeated letter"
+    - "Simple word"
+    - "Empty string"
+    - "With spaces and uppercase letters"
+    - "Uppercase and lowercase"

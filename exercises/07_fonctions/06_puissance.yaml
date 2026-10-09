@@ -1,0 +1,69 @@
+id: "power_function"
+title: "Fonction puissance"
+description: |
+  Complète la fonction `power(base, exponent)` pour qu'elle renvoie `base` multiplié par lui-même `exponent` fois.
+
+  N'utilise **ni** `**` **ni** `pow()` : utilise une boucle `for`.
+
+  Exemples :
+  - `power(2, 3)` renvoie `8` (2 × 2 × 2)
+  - `power(5, 2)` renvoie `25`
+  - `power(10, 0)` renvoie `1`
+
+template: |
+  def power(base, exponent):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def power(base, exponent):
+      result = 1
+      for i in range(exponent):
+          result *= base
+      return result
+
+hints:
+  - "Commence avec `result = 1`, puis multiplie-le par `base` à chaque tour de `range(exponent)`."
+
+tests:
+  - input: [2, 3]
+    expected: 8
+    description: "2 puissance 3"
+  - input: [5, 2]
+    expected: 25
+    description: "5 puissance 2"
+  - input: [10, 0]
+    expected: 1
+    description: "Tout nombre puissance 0 vaut 1"
+  - input: [3, 4]
+    expected: 81
+    hidden: true
+    description: "Test caché"
+  - input: [7, 1]
+    expected: 7
+    hidden: true
+    description: "Nombre puissance 1"
+
+en:
+  title: "Power function"
+  description: |
+    Complete the function `power(base, exponent)` so that it returns `base` multiplied by itself `exponent` times.
+
+    Use **neither** `**` **nor** `pow()`: use a `for` loop.
+
+    Examples:
+    - `power(2, 3)` returns `8` (2 × 2 × 2)
+    - `power(5, 2)` returns `25`
+    - `power(10, 0)` returns `1`
+  template: |
+    def power(base, exponent):
+        # Write your code here
+        pass
+  hints:
+    - "Start with `result = 1`, then multiply it by `base` on each round of `range(exponent)`."
+  tests:
+    - "2 to the power of 3"
+    - "5 to the power of 2"
+    - "Any number to the power of 0 is 1"
+    - "Hidden test"
+    - "Number to the power of 1"

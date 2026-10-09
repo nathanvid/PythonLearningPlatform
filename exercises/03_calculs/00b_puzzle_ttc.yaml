@@ -1,0 +1,36 @@
+id: "parsons_price_with_tax"
+type: parsons
+title: "Puzzle : prix avec TVA"
+description: |
+  Un article coûte `50` euros hors taxes, et la TVA représente 20 % de ce prix.
+  Remets les lignes dans l'ordre pour afficher exactement :
+
+  ```text
+  Prix TTC : 60.0
+  ```
+
+solution: |
+  price = 50
+  tax = price * 0.2
+  total = price + tax
+  print("Prix TTC :", total)
+
+hints:
+  - "On ne peut calculer une variable qu'avec des variables déjà créées."
+
+en:
+  title: "Puzzle: price with tax"
+  description: |
+    An item costs `50` euros before tax, and the tax is 20 % of this price.
+    Put the lines back in order to display exactly:
+
+    ```text
+    Price with tax: 60.0
+    ```
+  solution: |
+    price = 50
+    tax = price * 0.2
+    total = price + tax
+    print("Price with tax:", total)
+  hints:
+    - "You can only compute a variable from variables that already exist."

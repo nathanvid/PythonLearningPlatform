@@ -1,0 +1,64 @@
+id: "predict_list_aliasing"
+type: predict
+title: "Prédire : listes partagées et copies"
+description: |
+  Lis ce code et prédis exactement ce qu'il affiche.
+
+  Question clé : quand on écrit b = a avec une liste, a-t-on deux listes ou une seule ?
+
+steps:
+  - |
+    a = [1, 2, 3]
+    b = a
+    b.append(4)
+    print(b)
+  - |
+    a = [1, 2, 3]
+    b = a
+    b.append(4)
+    print(a)
+  - |
+    a = [1, 2, 3, 4]
+    c = a[:]
+    c.append(5)
+    print(a)
+    print(c)
+
+code: |
+  a = [1, 2, 3]
+  b = a
+  b.append(4)
+  c = a[:]
+  c.append(5)
+  print(a)
+  print(len(c))
+  print(a[-1], c[-1])
+
+hints:
+  - "`b = a` ne copie pas la liste ; `a[:]` en fait une copie."
+
+en:
+  title: "Predict: shared lists and copies"
+  description: |
+    Read this code and predict exactly what it prints.
+
+    Key question: when you write b = a with a list, do you get two lists or just one?
+  steps:
+    - |
+      a = [1, 2, 3]
+      b = a
+      b.append(4)
+      print(b)
+    - |
+      a = [1, 2, 3]
+      b = a
+      b.append(4)
+      print(a)
+    - |
+      a = [1, 2, 3, 4]
+      c = a[:]
+      c.append(5)
+      print(a)
+      print(c)
+  hints:
+    - "`b = a` doesn't copy the list; `a[:]` makes a copy."

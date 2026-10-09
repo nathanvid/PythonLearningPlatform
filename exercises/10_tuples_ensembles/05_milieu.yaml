@@ -1,0 +1,61 @@
+id: "midpoint_tuples"
+title: "Le milieu de deux points"
+description: |
+  Un point est représenté par un tuple `(x, y)`.
+  Complète la fonction `midpoint(p1, p2)` pour qu'elle renvoie le tuple `(x, y)` du milieu des points `p1` et `p2` :
+  `x` est la moyenne des deux `x`, et `y` la moyenne des deux `y`.
+
+  Exemples :
+  - `midpoint((0, 0), (4, 2))` renvoie `(2.0, 1.0)`
+  - `midpoint((1, 5), (3, 7))` renvoie `(2.0, 6.0)`
+
+template: |
+  def midpoint(p1, p2):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def midpoint(p1, p2):
+      x1, y1 = p1
+      x2, y2 = p2
+      return ((x1 + x2) / 2, (y1 + y2) / 2)
+
+hints:
+  - "Déballe chaque point : `x1, y1 = p1`."
+
+tests:
+  - input: [[0, 0], [4, 2]]
+    expected: [2.0, 1.0]
+    description: "midpoint((0, 0), (4, 2))"
+  - input: [[1, 5], [3, 7]]
+    expected: [2.0, 6.0]
+    description: "midpoint((1, 5), (3, 7))"
+  - input: [[-2, 3], [2, -3]]
+    expected: [0.0, 0.0]
+    description: "Points opposés"
+  - input: [[1, 1], [2, 2]]
+    expected: [1.5, 1.5]
+    hidden: true
+    description: "Milieu non entier"
+
+en:
+  title: "The midpoint of two points"
+  description: |
+    A point is represented by a tuple `(x, y)`.
+    Complete the function `midpoint(p1, p2)` so that it returns the tuple `(x, y)` of the midpoint of `p1` and `p2`:
+    `x` is the average of both `x`, and `y` the average of both `y`.
+
+    Examples:
+    - `midpoint((0, 0), (4, 2))` returns `(2.0, 1.0)`
+    - `midpoint((1, 5), (3, 7))` returns `(2.0, 6.0)`
+  template: |
+    def midpoint(p1, p2):
+        # Write your code here
+        pass
+  hints:
+    - "Unpack each point: `x1, y1 = p1`."
+  tests:
+    - "midpoint((0, 0), (4, 2))"
+    - "midpoint((1, 5), (3, 7))"
+    - "Opposite points"
+    - "Non-integer midpoint"

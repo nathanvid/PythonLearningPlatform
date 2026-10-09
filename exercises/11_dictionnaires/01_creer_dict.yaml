@@ -1,0 +1,62 @@
+id: "create_dict_from_lists"
+title: "Créer un dictionnaire"
+description: |
+  Complète la fonction `create_dict(keys, values)` : elle reçoit une liste de clés et une liste de valeurs de même longueur,
+  et renvoie le dictionnaire qui associe chaque clé à la valeur placée **au même indice**.
+
+  Exemples :
+  - `create_dict(["a", "b"], [1, 2])` renvoie `{"a": 1, "b": 2}`
+  - `create_dict(["nom", "age"], ["Alice", 25])` renvoie `{"nom": "Alice", "age": 25}`
+  - `create_dict([], [])` renvoie `{}`
+
+template: |
+  def create_dict(keys, values):
+      # Crée un dictionnaire à partir des deux listes
+      pass
+
+solution: |
+  def create_dict(keys, values):
+      result = {}
+      for i in range(len(keys)):
+          result[keys[i]] = values[i]
+      return result
+
+hints:
+  - "Pars d'un dictionnaire vide et parcours les indices avec `range(len(keys))`."
+
+tests:
+  - input: [["a", "b"], [1, 2]]
+    expected: {"a": 1, "b": 2}
+    description: "Dictionnaire simple"
+  - input: [["nom", "age"], ["Alice", 25]]
+    expected: {"nom": "Alice", "age": 25}
+    description: "Dictionnaire mixte"
+  - input: [[], []]
+    expected: {}
+    description: "Dictionnaire vide"
+  - input: [["x", "y", "z"], [10, 20, 30]]
+    expected: {"x": 10, "y": 20, "z": 30}
+    hidden: true
+    description: "Trois éléments"
+
+en:
+  title: "Create a dictionary"
+  description: |
+    Complete the function `create_dict(keys, values)`: it receives a list of keys and a list of values of the same length,
+    and returns the dictionary that links each key to the value placed **at the same index**.
+
+    Examples:
+    - `create_dict(["a", "b"], [1, 2])` returns `{"a": 1, "b": 2}`
+    - `create_dict(["name", "age"], ["Alice", 25])` returns `{"name": "Alice", "age": 25}`
+    - `create_dict([], [])` returns `{}`
+  template: |
+    def create_dict(keys, values):
+        # Build a dictionary from the two lists
+        pass
+  hints:
+    - "Start from an empty dictionary and loop over the indexes with `range(len(keys))`."
+  tests:
+    - "Simple dictionary"
+    - "Mixed dictionary"
+    - "Empty dictionary"
+    - "Three elements"

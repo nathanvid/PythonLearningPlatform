@@ -1,0 +1,64 @@
+id: "convert_seconds"
+type: output
+title: "Convertir des secondes"
+description: |
+  Une course a duré `3725` secondes. Convertis cette durée en heures, minutes et secondes.
+
+  1. Crée `seconds = 3725`.
+  2. Calcule `hours` (1 h = 3600 s), puis `minutes` et `rest` avec `//` et `%`.
+  3. Affiche exactement :
+
+  ```text
+  1 h 2 min 5 s
+  ```
+
+template: |
+  seconds = 3725
+  # Écris ton code ici
+
+solution: |
+  seconds = 3725
+  hours = seconds // 3600
+  minutes = seconds % 3600 // 60
+  rest = seconds % 60
+  print(hours, "h", minutes, "min", rest, "s")
+
+checks:
+  variables:
+    hours: 1
+    minutes: 2
+    rest: 5
+  uses: [seconds, hours, minutes, rest]
+
+hints:
+  - "Après avoir enlevé les heures, il reste `seconds % 3600` secondes à convertir en minutes."
+
+en:
+  title: "Converting seconds"
+  description: |
+    A race lasted `3725` seconds. Convert this duration into hours, minutes and seconds.
+
+    1. Create `seconds = 3725`.
+    2. Compute `hours` (1 h = 3600 s), then `minutes` and `rest` with `//` and `%`.
+    3. Display exactly:
+
+    ```text
+    1 h 2 min 5 s
+    ```
+  template: |
+    seconds = 3725
+    # Write your code here
+  solution: |
+    seconds = 3725
+    hours = seconds // 3600
+    minutes = seconds % 3600 // 60
+    rest = seconds % 60
+    print(hours, "h", minutes, "min", rest, "s")
+  checks:
+    variables:
+      hours: 1
+      minutes: 2
+      rest: 5
+    uses: [seconds, hours, minutes, rest]
+  hints:
+    - "Once the hours are removed, `seconds % 3600` seconds are left to convert into minutes."

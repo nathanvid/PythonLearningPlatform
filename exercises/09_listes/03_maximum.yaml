@@ -1,0 +1,70 @@
+id: "find_max"
+title: "Maximum d'une liste"
+description: |
+  Complète la fonction `find_max(numbers)` pour qu'elle renvoie le plus grand nombre de la liste, **sans** utiliser la fonction `max`.
+  La liste n'est jamais vide.
+
+  Exemples :
+  - `find_max([3, 1, 7, 2])` renvoie `7`
+  - `find_max([-10, -5, -20])` renvoie `-5`
+
+template: |
+  def find_max(numbers):
+      # Écris ton code ici
+      pass
+
+solution: |
+  def find_max(numbers):
+      largest = numbers[0]
+      for n in numbers:
+          if n > largest:
+              largest = n
+      return largest
+
+hints:
+  - "Pars du premier élément (`numbers[0]`), puis garde chaque nombre plus grand rencontré dans la boucle."
+
+tests:
+  - input: [[3, 1, 7, 2]]
+    expected: 7
+    description: "Maximum dans une liste désordonnée"
+  - input: [[1, 2, 3, 4, 5]]
+    expected: 5
+    description: "Maximum dans une liste triée"
+  - input: [[-10, -5, -20]]
+    expected: -5
+    description: "Maximum parmi des nombres négatifs"
+  - input: [[42]]
+    expected: 42
+    description: "Liste avec un seul élément"
+  - input: [[100, 50, 75, 25, 90]]
+    expected: 100
+    hidden: true
+    description: "Liste avec plusieurs éléments"
+  - input: [[0, 0, 0, 0]]
+    expected: 0
+    hidden: true
+    description: "Tous les éléments identiques"
+
+en:
+  title: "Maximum of a list"
+  description: |
+    Complete the function `find_max(numbers)` so that it returns the largest number of the list, **without** using the `max` function.
+    The list is never empty.
+
+    Examples:
+    - `find_max([3, 1, 7, 2])` returns `7`
+    - `find_max([-10, -5, -20])` returns `-5`
+  template: |
+    def find_max(numbers):
+        # Write your code here
+        pass
+  hints:
+    - "Start from the first item (`numbers[0]`), then keep every larger number met in the loop."
+  tests:
+    - "Maximum in an unsorted list"
+    - "Maximum in a sorted list"
+    - "Maximum among negative numbers"
+    - "List with a single element"
+    - "List with several elements"
+    - "All elements identical"

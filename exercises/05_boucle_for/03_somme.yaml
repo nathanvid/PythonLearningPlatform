@@ -1,0 +1,61 @@
+id: "sum_up_to_n"
+type: output
+title: "Somme de 1 à n"
+description: |
+  La variable `n` vaut `10`.
+
+  1. Avec une boucle `for`, calcule la somme des nombres de `1` à `n` dans une variable `total`.
+  2. Après la boucle, affiche le résultat.
+
+  La boucle doit utiliser `n` (pas le nombre 10 écrit à la main). Le programme doit afficher exactement :
+
+  ```text
+  La somme est 55
+  ```
+
+template: |
+  n = 10
+  total = 0
+  # Écris ta boucle ici
+
+solution: |
+  n = 10
+  total = 0
+  for i in range(1, n + 1):
+      total += i
+  print("La somme est", total)
+
+checks:
+  variables:
+    total: 55
+  uses: [n, total]
+  constructs: [for]
+
+hints:
+  - "Pour aller jusqu'à n inclus : `range(1, n + 1)`."
+
+en:
+  title: "Sum from 1 to n"
+  description: |
+    The variable `n` is `10`.
+
+    1. With a `for` loop, compute the sum of the numbers from `1` to `n` in a variable `total`.
+    2. After the loop, display the result.
+
+    The loop must use `n` (not the number 10 typed by hand). The program must display exactly:
+
+    ```text
+    The sum is 55
+    ```
+  template: |
+    n = 10
+    total = 0
+    # Write your loop here
+  solution: |
+    n = 10
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    print("The sum is", total)
+  hints:
+    - "To go up to n included: `range(1, n + 1)`."
