@@ -335,30 +335,6 @@ kbd {
     color: var(--text-3);
 }
 
-/* Révision espacée */
-.review-section {
-    margin: 10px 8px 0;
-    padding: 8px 0 6px;
-    border: 1px solid var(--yellow-border);
-    background: var(--yellow-soft);
-    border-radius: 8px;
-}
-
-.review-header {
-    padding: 0 12px 4px;
-    font-weight: 700;
-    font-size: 13px;
-    color: var(--yellow-text);
-}
-
-.review-section .exercise-item {
-    padding-left: 12px;
-}
-
-.review-section .exercise-item:hover {
-    background: rgba(255, 255, 255, 0.6);
-}
-
 /* ---------- Zone principale ---------- */
 
 .main-content {

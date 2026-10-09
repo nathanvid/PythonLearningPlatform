@@ -17,7 +17,7 @@ Plateforme d'apprentissage Python pour élèves : backend FastAPI + frontend sta
 - `models.py` — modèles Pydantic (`Exercise`, `Test`, `RunResponse`…).
 - `static/` — `index.html`, `app.js` (progression et langue stockées en `localStorage`), `style.css`. `marked` et `DOMPurify` (rendu des leçons) doivent être chargés **avant** le loader AMD de Monaco. Le serveur renvoie `Cache-Control: no-cache` sur `/` et `/static/` pour éviter de mélanger anciens et nouveaux fichiers.
 - Interface (`static/`) : fond blanc, couleurs de Python (bleu `#3776ab`, jaune `#ffd43b`) en variables CSS dans `:root`, police Atkinson Hyperlegible Next / Mono, thème Monaco clair `atelier`, icônes SVG au trait (`ICON_PATHS`) et pas d'emoji dans les textes d'interface. Accueil = `renderDashboard()` (reprendre, résumé, tableau des chapitres). Au-dessus d'une leçon ou d'un exercice, `#chapterBar` affiche le fil d'Ariane et une tuile par élément du chapitre ; précédent / suivant suivent `navSequence()` (leçon puis exercices de chaque chapitre). Raccourcis : Ctrl/⌘+Entrée teste, Alt+←/→ navigue.
-- Révision espacée (`app.js`) : après la première réussite, un exercice revient dans « À revoir aujourd'hui » après 1, 3, 7 puis 21 jours (`REVIEW_INTERVALS`, 5 par jour maximum) ; une révision réussie après un échec repart à 1 jour. En révision, l'exercice repart du template et un échec ne fait pas perdre la réussite.
+- Révision espacée (`app.js`) : après la première réussite, un exercice est proposé à la révision (lien « Réviser » de l'accueil) après 1, 3, 7 puis 21 jours (`REVIEW_INTERVALS`, 5 par jour maximum) ; une révision réussie après un échec repart à 1 jour. En révision, l'exercice repart du template et un échec ne fait pas perdre la réussite.
 
 ## Exercices
 

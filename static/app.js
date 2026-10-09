@@ -73,7 +73,6 @@ const TRANSLATIONS = {
         lesson: 'Leçon',
         showLesson: 'Revoir la leçon',
         startExercises: 'Commencer les exercices',
-        reviewTitle: (n) => `À revoir aujourd'hui (${n})`,
         reviewBadge: 'Révision',
         reviewIntro: 'Révision : refais cet exercice de mémoire, sans regarder ta solution précédente. Le revoir à intervalles de plus en plus longs t\'aide à le retenir.',
         reviewNext: (n) => `Révision réussie ! Prochaine révision dans ${n} jour${n > 1 ? 's' : ''}.`,
@@ -153,7 +152,6 @@ const TRANSLATIONS = {
         lesson: 'Lesson',
         showLesson: 'Review the lesson',
         startExercises: 'Start the exercises',
-        reviewTitle: (n) => `To review today (${n})`,
         reviewBadge: 'Review',
         reviewIntro: 'Review: solve this exercise again from memory, without looking at your previous solution. Seeing it again at longer and longer intervals helps you remember it.',
         reviewNext: (n) => `Review passed! Next review in ${n} day${n > 1 ? 's' : ''}.`,
@@ -423,21 +421,6 @@ function renderCategories() {
         container.appendChild(categoryElement);
     });
     container.scrollTop = scroll;
-    renderReviews();
-}
-
-function renderReviews() {
-    const container = document.getElementById('reviewContainer');
-    const due = dueReviews();
-    container.style.display = due.length ? 'block' : 'none';
-    container.innerHTML = `<div class="review-header">${t('reviewTitle', due.length)}</div>`;
-    for (const exercise of due) {
-        const item = document.createElement('button');
-        item.className = 'exercise-item review-item';
-        item.innerHTML = `<span class="exercise-name">${escapeHtml(exercise.title)}</span>`;
-        item.addEventListener('click', () => loadExercise(exercise.id, { review: true }));
-        container.appendChild(item);
-    }
 }
 
 // Créer un élément de catégorie avec accordion
