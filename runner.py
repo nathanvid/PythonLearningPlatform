@@ -19,6 +19,14 @@ class CodeRunner:
     def __init__(self, timeout: int = 3):
         self.timeout = timeout
 
+    def run_output(self, code: str, data_files: List[str] = None, variables: List[str] = None) -> Dict:
+        """
+        Exécute le code sans test et renvoie ce qu'il affiche (clé `output`),
+        ainsi que la valeur finale des `variables` demandées (clé `variables`)
+        """
+        payload = {"code": code, "tests": [], "mode": "output", "variables": variables or []}
+        return self._run_harness(payload, data_files)
+
     def run_code(self, code: str, tests: List[Test], data_files: List[str] = None) -> Dict:
         """
         Exécute le code avec les tests fournis
@@ -31,10 +39,14 @@ class CodeRunner:
         Returns:
             Dict avec success, tests results, error, traceback
         """
-        payload = json.dumps({
+        return self._run_harness({
             "code": code,
             "tests": [t.model_dump() for t in tests],
-        })
+        }, data_files)
+
+    def _run_harness(self, payload: Dict, data_files: List[str] = None) -> Dict:
+        """Lance harness.py dans un subprocess et renvoie son JSON"""
+        payload = json.dumps(payload)
 
         # Variables d'environnement : forcer l'UTF-8 (Windows utilise cp1252 par défaut)
         env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
@@ -83,6 +95,7 @@ class CodeRunner:
                 "success": False,
                 "tests": [],
                 "error": f"Timeout: le code a pris plus de {self.timeout} secondes",
+                "error_type": "Timeout",
                 "traceback": None
             }
         except Exception as e:
