@@ -1,93 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Learning Platform</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Sidebar avec catégories et scores -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    <h1>Python Learning</h1>
-                    <div class="lang-switch" id="langSwitch" role="group" aria-label="Langue / Language">
-                        <button class="lang-btn" data-lang="fr">FR</button>
-                        <button class="lang-btn" data-lang="en">EN</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Python Learning Platform</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        />
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Barre latérale : les chapitres et leurs exercices -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        <a class="brand" href="#" id="brandLink">Apprendre Python</a>
+                        <div class="lang-switch" id="langSwitch" role="group" aria-label="Langue / Language">
+                            <button class="lang-btn" data-lang="fr">FR</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
                     </div>
-                </div>
-                <div class="global-score">
-                    <div class="score-label" data-i18n="globalScore">Score Global</div>
-                    <div class="score-value" id="globalScore">0%</div>
-                    <div class="score-bar">
-                        <div class="score-bar-fill" id="globalScoreBar"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="categories" id="categoriesContainer">
-                <!-- Les catégories seront chargées ici -->
-            </div>
-        </aside>
-
-        <!-- Zone principale -->
-        <main class="main-content">
-            <div class="welcome" id="welcomeScreen">
-                <h2 data-i18n="welcomeTitle">Bienvenue sur la plateforme d'apprentissage Python</h2>
-                <p data-i18n="welcomeText">Sélectionnez un exercice dans le menu à gauche pour commencer.</p>
-            </div>
-
-            <div class="exercise-view" id="exerciseView" style="display: none;">
-                <!-- Navigation exercices -->
-                <div class="exercise-navigation">
-                    <button class="btn-nav" id="prevExerciseBtn" data-i18n="prev" disabled>◀ Précédent</button>
-                    <span class="exercise-position" id="exercisePosition"></span>
-                    <button class="btn-nav" id="nextExerciseBtn" data-i18n="next" disabled>Suivant ▶</button>
-                </div>
-
-                <!-- En-tête de l'exercice -->
-                <div class="exercise-header">
-                    <h2 id="exerciseTitle"></h2>
-                    <div class="exercise-score">
-                        <span id="exerciseScore">0%</span>
-                        <span id="exerciseStatus" class="status-badge"></span>
+                    <div class="global-score">
+                        <div class="score-row">
+                            <span class="score-label" data-i18n="globalScore">Score Global</span>
+                            <span class="score-value" id="globalScore">0%</span>
+                        </div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill" id="globalScoreBar"></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Description -->
-                <div class="exercise-description" id="exerciseDescription"></div>
+                <!-- Révision espacée : exercices à refaire aujourd'hui -->
+                <div class="review-section" id="reviewContainer" style="display: none"></div>
 
-                <!-- Hints -->
-                <div class="hints-section">
-                    <div class="hints-buttons">
-                        <button class="btn-hint" id="showHintsBtn" data-i18n="showHint" style="display: none;">💡 Voir un indice</button>
-                        <button class="btn-hint-secondary" id="toggleHintsBtn" style="display: none;">👁️ Cacher les indices</button>
+                <nav class="categories" id="categoriesContainer">
+                    <!-- Les catégories seront chargées ici -->
+                </nav>
+
+                <div class="sidebar-footer">
+                    <span><kbd>Ctrl</kbd> + <kbd>Entrée</kbd> <span data-i18n="shortcutRun">tester</span></span>
+                    <span><kbd>Alt</kbd> + <kbd>←</kbd> <kbd>→</kbd> <span data-i18n="shortcutNav">naviguer</span></span>
+                </div>
+            </aside>
+            <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+            <!-- Zone principale -->
+            <main class="main-content">
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <!-- Accueil : reprendre là où on s'était arrêté -->
+                <div class="welcome" id="welcomeScreen">
+                    <h2 data-i18n="welcomeTitle">Bienvenue sur la plateforme d'apprentissage Python</h2>
+                    <p class="welcome-text" data-i18n="welcomeText"></p>
+                    <div class="dashboard" id="dashboard"></div>
+                </div>
+
+                <!-- Navigation dans le chapitre : leçon + exercices -->
+                <div class="chapter-bar" id="chapterBar" style="display: none">
+                    <div class="breadcrumb" id="breadcrumb"></div>
+                    <div class="track-row">
+                        <button class="btn-nav" id="prevExerciseBtn" aria-label="Précédent" disabled>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+                        </button>
+                        <ol class="track" id="track"></ol>
+                        <span class="exercise-position" id="exercisePosition"></span>
+                        <button class="btn-nav" id="nextExerciseBtn" aria-label="Suivant" disabled>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+                        </button>
                     </div>
-                    <div class="hints-container" id="hintsContainer"></div>
                 </div>
 
-                <!-- Éditeur de code -->
-                <div class="editor-section">
-                    <div class="editor-header">
-                        <span data-i18n="editor">Éditeur Python</span>
-                        <button class="btn-primary" id="runBtn" data-i18n="run">▶ Tester mon code</button>
+                <!-- Leçon d'une catégorie -->
+                <div class="lesson-view" id="lessonView" style="display: none">
+                    <article class="lesson-content" id="lessonContent"></article>
+                    <div class="lesson-actions">
+                        <button class="btn-primary" id="startExercisesBtn" data-i18n="startExercises">
+                            Commencer les exercices
+                        </button>
                     </div>
-                    <div id="editor"></div>
                 </div>
 
-                <!-- Résultats -->
-                <div class="results-section" id="resultsSection" style="display: none;">
-                    <h3 data-i18n="results">Résultats des tests</h3>
-                    <div id="resultsContainer"></div>
-                </div>
-            </div>
-        </main>
-    </div>
+                <div class="exercise-view" id="exerciseView" style="display: none">
+                    <!-- En-tête de l'exercice -->
+                    <div class="exercise-header">
+                        <div class="exercise-title">
+                            <h2 id="exerciseTitle"></h2>
+                            <span id="exerciseType" class="type-badge" style="display: none"></span>
+                            <span
+                                id="reviewBadge"
+                                class="type-badge type-review"
+                                data-i18n="reviewBadge"
+                                style="display: none"
+                                >Révision</span
+                            >
+                        </div>
+                        <div class="exercise-score">
+                            <span id="exerciseStatus" class="status-badge"></span>
+                            <span id="exerciseScore">0%</span>
+                        </div>
+                    </div>
 
-    <!-- Monaco Editor -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
-    <script src="/static/app.js"></script>
-</body>
+                    <div class="exercise-body">
+                        <!-- Colonne de gauche : énoncé et indices -->
+                        <section class="brief">
+                            <div class="exercise-description" id="exerciseDescription"></div>
+                            <div
+                                class="review-notice"
+                                id="reviewNotice"
+                                data-i18n="reviewIntro"
+                                style="display: none"
+                            ></div>
+
+                            <div class="hints-section">
+                                <div class="hints-buttons">
+                                    <button class="btn-hint" id="showHintsBtn" data-i18n="showHint" style="display: none">
+                                        Voir un indice
+                                    </button>
+                                    <button class="btn-hint-secondary" id="toggleHintsBtn" style="display: none">
+                                        Cacher les indices
+                                    </button>
+                                    <button class="btn-lesson" id="showLessonBtn" data-i18n="showLesson">
+                                        Revoir la leçon
+                                    </button>
+                                </div>
+                                <div class="hints-container" id="hintsContainer"></div>
+                            </div>
+                        </section>
+
+                        <!-- Colonne de droite : éditeur et résultats -->
+                        <section class="workbench">
+                            <div class="editor-section">
+                                <div class="editor-header">
+                                    <span id="workspaceTitle">Éditeur Python</span>
+                                    <div class="editor-actions">
+                                        <button
+                                            class="btn-step-back"
+                                            id="prevStepBtn"
+                                            data-i18n="prevStep"
+                                            style="display: none"
+                                        >
+                                            Étape précédente
+                                        </button>
+                                        <button class="btn-primary" id="runBtn">Tester mon code</button>
+                                    </div>
+                                </div>
+                                <!-- Predict par étapes : progression et lignes nouvelles -->
+                                <div id="predictSteps" class="predict-steps" style="display: none"></div>
+                                <div id="editor"></div>
+                                <!-- Parsons : lignes à remettre dans l'ordre -->
+                                <ol id="parsonsContainer" class="parsons" style="display: none"></ol>
+                                <!-- Predict : sortie prédite par l'élève -->
+                                <div id="predictContainer" class="predict" style="display: none">
+                                    <label for="predictAnswer" data-i18n="predictLabel"></label>
+                                    <textarea id="predictAnswer" rows="2" spellcheck="false"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Résultats -->
+                            <div class="results-section" id="resultsSection" style="display: none">
+                                <h3 data-i18n="results">Résultats des tests</h3>
+                                <div id="resultsContainer"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Rendu Markdown des leçons : à charger avant le loader AMD de Monaco,
+         sinon ces bibliothèques s'enregistrent comme modules AMD au lieu de globales -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+
+        <!-- Monaco Editor -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+        <script src="/static/app.js"></script>
+    </body>
 </html>
