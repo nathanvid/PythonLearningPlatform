@@ -1,6 +1,6 @@
 # Plateforme d'apprentissage Python
 
-🇫🇷 Français · [🇬🇧 English](README.en.md)
+Français · [English](README.en.md)
 
 Bienvenue ! Cette plateforme te permet d'apprendre Python en résolvant des exercices interactifs.
 
@@ -40,15 +40,15 @@ C'est tout !
 3. **Écris ton code** dans l'éditeur (coloration syntaxique automatique)
 4. **Clique sur "Tester mon code"** pour vérifier ta solution
 5. **Regarde les résultats** :
-   - ✅ Vert = test réussi
-   - ❌ Rouge = test échoué (avec détails)
-   - 🔒 Tests cachés = surprise pour vérifier que tu n'as pas triché 😉
+   - Vert = test réussi
+   - Rouge = test échoué (avec détails)
+   - Tests cachés = surprise pour vérifier que tu n'as pas triché
 
-## 🌍 Langue
+## Langue
 
 Les exercices et l'interface existent en **français** et en **anglais** : utilise le bouton **FR / EN** en haut du menu. Ton code et ta progression sont conservés quand tu changes de langue.
 
-## 💡 Astuces
+## Astuces
 
 - **Lis bien la description** de chaque exercice avant de commencer
 - **Utilise les indices** si tu es bloqué (bouton "Voir un indice")
@@ -62,19 +62,29 @@ Les exercices et l'interface existent en **français** et en **anglais** : utili
 - Un exercice est **complété** quand **tous les tests passent** (100%)
 - Tu peux voir ton **score global** et par **catégorie** dans le menu
 
-## Les 9 catégories d'exercices
+## Les 17 catégories d'exercices
 
-1. **Bases** - Variables, conditions, boucles (6 exercices)
-2. **Listes** - Manipuler des listes + list comprehensions (7 exercices)
-3. **Dictionnaires** - Travailler avec des dicts (4 exercices)
-4. **Fonctions** - Créer et utiliser des fonctions (6 exercices)
-5. **Algorithmie** - Algorithmes classiques (4 exercices)
-6. **POO** - Programmation Orientée Objet (3 exercices)
-7. **Exceptions** - Gérer les erreurs avec try/except (4 exercices)
-8. **Strings** - Manipulation avancée de texte (3 exercices)
-9. **Modules** - Utiliser math, random, datetime, json (4 exercices)
+Chaque catégorie commence par une **leçon** () avec des petits exercices intégrés, puis des exercices de pratique.
 
-## ⚠️ En cas de problème
+1. **print et variables** - Afficher, ranger et changer des valeurs (7 exercices)
+2. **Types de données** - int, float, str, bool, conversions (7 exercices)
+3. **Calculs** - Opérations, division entière, reste, priorités, += (7 exercices)
+4. **Conditions** - Comparaisons, if / elif / else, and / or / not (8 exercices)
+5. **Boucle for** - range, compteurs, sommes (9 exercices)
+6. **Boucle while** - Répéter tant qu'une condition est vraie (7 exercices)
+7. **Fonctions** - Créer des fonctions, paramètres, return, match / case (13 exercices)
+8. **Strings** - Manipulation de texte (8 exercices)
+9. **Listes** - Manipuler des listes + list comprehensions (14 exercices)
+10. **Tuples et ensembles** - Tuples, unpacking, sets (8 exercices)
+11. **Dictionnaires** - Travailler avec des dicts (8 exercices)
+12. **Algorithmie** - Algorithmes classiques (9 exercices)
+13. **Exceptions** - Gérer et lever des erreurs avec try/except et raise (7 exercices)
+14. **Modules** - Utiliser math, random, datetime, json (6 exercices)
+15. **Fichiers et regex** - Lire et écrire des fichiers, CSV, expressions régulières (8 exercices)
+16. **POO** - Programmation Orientée Objet (7 exercices)
+17. **Projets** - Mini-projets qui combinent les notions : pendu, tâches, César (3 exercices)
+
+## En cas de problème
 
 ### La page ne se charge pas
 
@@ -97,12 +107,12 @@ localStorage.clear();
 
 Puis rafraîchis la page (F5).
 
-## 🛑 Arrêter la plateforme
+## Arrêter la plateforme
 
 Dans le terminal où tu as lancé `uv run main.py`, appuie sur **Ctrl+C**.
 
 ---
 
-**Bon apprentissage !** 🚀
+**Bon apprentissage !**
 
-Si tu as des questions, demande à ton prof 😊
+Si tu as des questions, demande à ton prof

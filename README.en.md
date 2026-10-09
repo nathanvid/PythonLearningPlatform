@@ -1,6 +1,6 @@
 # Python Learning Platform
 
-[🇫🇷 Français](README.md) · 🇬🇧 English
+[Français](README.md) · English
 
 Welcome! This platform lets you learn Python by solving interactive exercises.
 
@@ -40,15 +40,15 @@ That's it!
 3. **Write your code** in the editor (automatic syntax highlighting)
 4. **Click "Test my code"** to check your solution
 5. **Look at the results**:
-   - ✅ Green = test passed
-   - ❌ Red = test failed (with details)
-   - 🔒 Hidden tests = a surprise to make sure you didn't cheat 😉
+   - Green = test passed
+   - Red = test failed (with details)
+   - Hidden tests = a surprise to make sure you didn't cheat
 
-## 🌍 Language
+## Language
 
 The exercises and the interface are available in **French** and **English**: use the **FR / EN** button at the top of the menu. Your code and your progress are kept when you switch languages.
 
-## 💡 Tips
+## Tips
 
 - **Read each exercise's description carefully** before you start
 - **Use the hints** if you're stuck ("Show a hint" button)
@@ -62,19 +62,29 @@ The exercises and the interface are available in **French** and **English**: use
 - An exercise is **completed** when **all tests pass** (100%)
 - You can see your **overall score** and your score **per category** in the menu
 
-## The 9 exercise categories
+## The 17 exercise categories
 
-1. **Basics** - Variables, conditions, loops (6 exercises)
-2. **Lists** - Working with lists + list comprehensions (7 exercises)
-3. **Dictionaries** - Working with dicts (4 exercises)
-4. **Functions** - Creating and using functions (6 exercises)
-5. **Algorithms** - Classic algorithms (4 exercises)
-6. **OOP** - Object-Oriented Programming (3 exercises)
-7. **Exceptions** - Handling errors with try/except (4 exercises)
-8. **Strings** - Advanced text manipulation (3 exercises)
-9. **Modules** - Using math, random, datetime, json (4 exercises)
+Each category starts with a **lesson** () with small built-in exercises, followed by practice exercises.
 
-## ⚠️ Troubleshooting
+1. **Print and variables** - Displaying, storing and changing values (7 exercises)
+2. **Data types** - int, float, str, bool, conversions (7 exercises)
+3. **Calculations** - Operations, integer division, remainder, priorities, += (7 exercises)
+4. **Conditions** - Comparisons, if / elif / else, and / or / not (8 exercises)
+5. **For loops** - range, counters, sums (9 exercises)
+6. **While loops** - Repeating as long as a condition is true (7 exercises)
+7. **Functions** - Creating functions, parameters, return, match / case (13 exercises)
+8. **Strings** - Text manipulation (8 exercises)
+9. **Lists** - Working with lists + list comprehensions (14 exercises)
+10. **Tuples and sets** - Tuples, unpacking, sets (8 exercises)
+11. **Dictionaries** - Working with dicts (8 exercises)
+12. **Algorithms** - Classic algorithms (9 exercises)
+13. **Exceptions** - Handling and raising errors with try/except and raise (7 exercises)
+14. **Modules** - Using math, random, datetime, json (6 exercises)
+15. **Files and regex** - Reading and writing files, CSV, regular expressions (8 exercises)
+16. **OOP** - Object-Oriented Programming (7 exercises)
+17. **Projects** - Mini-projects combining the concepts: hangman, tasks, Caesar (3 exercises)
+
+## Troubleshooting
 
 ### The page doesn't load
 
@@ -97,12 +107,12 @@ localStorage.clear();
 
 Then refresh the page (F5).
 
-## 🛑 Stopping the platform
+## Stopping the platform
 
 In the terminal where you ran `uv run main.py`, press **Ctrl+C**.
 
 ---
 
-**Happy learning!** 🚀
+**Happy learning!**
 
-If you have any questions, ask your teacher 😊
+If you have any questions, ask your teacher
