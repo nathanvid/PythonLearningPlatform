@@ -1,0 +1,38 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "app",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": [
+        "run",
+        "main.py"
+      ],
+      "port": 8000
+    },
+    {
+      "name": "app-8001",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": [
+        "run",
+        "uvicorn",
+        "main:app",
+        "--port",
+        "8001"
+      ],
+      "port": 8001
+    },
+    {
+      "name": "app-8002",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": [
+        "run",
+        "uvicorn",
+        "main:app",
+        "--port",
+        "8002"
+      ],
+      "port": 8002
+    }
+  ]
+}
