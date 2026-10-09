@@ -29,7 +29,7 @@
 
     --font: 'Atkinson Hyperlegible Next', 'Segoe UI', sans-serif;
     --mono: 'Atkinson Hyperlegible Mono', 'SFMono-Regular', Consolas, monospace;
-    --sidebar-w: 290px;
+    --sidebar-w: 300px;
 }
 
 * {
@@ -104,13 +104,17 @@ kbd {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 14px;
 }
 
 .brand {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 15px;
     color: var(--text);
     text-decoration: none;
 }
@@ -121,6 +125,7 @@ kbd {
 
 .lang-switch {
     display: flex;
+    flex-shrink: 0;
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
